@@ -3,6 +3,8 @@
 *For: Factorio Overhaul Mod — Design Phase*
 *Status: Requirements mapping (not final)*
 
+Related design: [Mining, Refining & Metallurgy](mining-refining-metallurgy.md)
+
 ---
 
 # Tier 0: Base Resources (Vanilla-Adjacent)
@@ -258,57 +260,13 @@ Battery materials                      Advanced polymers → cleanroom infrastru
 
 ---
 
-# Mirroring vs Asymmetric Assessment Against This Map
+## Current Refining Direction
 
-With ~65-83 materials across 7 tiers, here's what each approach means:
+The current preference is to lean toward Angel's mirrored processing model while supporting a broader and more geologically varied set of raw materials.
 
-## With Mirroring (what we designed above)
+- Reuse a small number of recognizable processing stages and progression patterns across most mineral lines.
+- Let the three extraction tiers add complexity through deposit composition and mixed output streams, rather than inventing unrelated process logic for every ore.
+- Allow exceptions when the real material chemistry warrants them. Aluminum production from bauxite is a candidate: its Bayer-to-electrolysis chain is meaningfully different from common iron and copper processing.
+- Treat the specific number and shape of methods per mineral as unresolved; the examples are design probes, not a rule that every ore must have exactly three routes.
 
-Every ore has three mirrored methods:
-- Method A → Physical Separation (equilibrium challenge via byproducts)
-- Method B → Chemical Processing (high value, needs infrastructure)
-- Method C → Thermal/Industrial (scale + pollution)
-
-**Pros for this scope:**
-- 15+ ores all follow the same pattern — cognitive load stays low even as materials multiply
-- Tier progression maps directly to method tiers: early ores = simple Method A only; later ores = full access to A/B/C
-- Byproduct integration creates natural cross-chain interlocks
-- Easy to add new ores without redesigning process logic
-
-**Cons for this scope:**
-- Can feel repetitive if all 15 ores produce the same three output types
-- Less "aha!" moments when discovering new minerals — they're structurally identical
-
-## With Asymmetric (5 archetypes)
-
-Each mineral enters the five archetypes differently:
-- Chalcopyrite touches all 5 with rich interlocks
-- Hematite has a simpler linear path + optional branch
-- Bauxite forces forced coupling (Bayer → electrolysis)
-- New ores can enter at different points
-
-**Pros for this scope:**
-- Every ore feels genuinely different to process
-- Natural progression: early ores touch 2 archetypes, late ores touch all 5
-- Cross-mineral interlocks emerge from pathway structure, not forced design
-
-**Cons for this scope:**
-- **This is the critical concern:** with 15+ ores × potentially 3 entry points each = many unique input/output configurations. Logistics complexity scales as O(n²) in ore count.
-- Each new ore needs custom processing chain design — harder to template code
-- Player must memorize not just "which methods" but "how this mineral flows through the ecosystem"
-
-## Verdict on Your Concern
-
-**Your fear is valid.** Asymmetric pathways with 15+ ores absolutely creates logistical complexity. The question is whether that complexity serves the game or becomes cognitive overload.
-
-Here's the thing Factorio teaches us: **players love logistics puzzles IF they understand the rules.** A player who understands "all copper concentrates go to smelting" finds balancing sulfur streams satisfying, not overwhelming. The problem isn't complexity — it's *memorization of arbitrary routing*.
-
-**The hybrid solution** might be the right one:
-- Keep mirroring as the **primary pattern** (every ore has A/B/C methods) — this handles cognitive load and code templating
-- Add **asymmetric bridges** at key moments (forced couplings, optional late-game optimizations, capability unlocks) — this handles novelty
-- The 5 archetypes still exist but as a **mental model**, not as routing rules. "I process chalcopyrite via mechanical separation first" is true, but mechanically it's froth flotation Method A — same template as everything else
-
-This way you get the best of both:
-- Mirroring handles scale (15+ ores, low cognitive load, easy templating)
-- Asymmetric bridges handle surprise (a few "aha!" moments that differentiate minerals)
-- The 5 archetypes serve as designer's framework for understanding pathways, not player-facing logic
+This is a working direction, not a final process specification. The dedicated [Mining, Refining & Metallurgy](mining-refining-metallurgy.md) document holds the extraction model and worked examples; this map tracks candidate materials and dependencies.
