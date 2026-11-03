@@ -1,197 +1,82 @@
-# Chemical Processes — Design Reference
+# Chemical Products and Processes
 
-*For: Factorio Overhaul Mod*
-*Status: Brainstorming / Requirements Phase*
+*For: Factorio Overhaul Mod*  
+*Status: Design reference / requirements phase*
 
----
+Related documents: [Material Chain Map](material-chain-map.md) for deposits, minerals, and refining; [Intermediate Products](intermediate-products.md) for alloys, components, and manufactured materials.
 
-# Design Intent
+## Purpose and Boundaries
 
-Real chemistry with multiple viable production pathways. Educational value emerges from discovery, not text walls. Each chemical process should reveal:
+Chemistry is an industrial decision layer, not a catalog of reactions for its own sake. Use real process names and useful intermediates to teach how industrial chains connect, while simplifying kinetics and plant design into understandable factory choices.
 
-1. The real-world chemistry
-2. Multiple production routes (with tradeoffs)
-3. Why the alternatives exist
+- Give every required product one clear, reliable happy path.
+- Add alternatives when they create meaningful differences in resource recovery, pollution, infrastructure, or product quality.
+- Reveal advanced options through capability unlocks; keep future processes visible in the handbook before they are buildable.
+- Keep reaction chains and chemical products here. Track solid alloys, components, and assemblies in the [Intermediate Products](intermediate-products.md) document.
+- Treat recipe ratios and simplified reactions as gameplay abstractions, and distinguish them from universal real-world assays in educational text.
 
----
+## Core Chemical Chains
 
-# Core Principles for Chemical Depth
+These four chains are the initial chemistry scope. Each needs a readable first route; alternatives are added only when they earn their complexity.
 
-## Principle 1: One Happy Path Per Process
-Every player should be able to produce every product via at least one straightforward route. Complexity comes from **choice**, not necessity.
+| Chain | Straightforward route | Later choice / capability | Connects to |
+| --- | --- | --- | --- |
+| Sulfuric acid | Sulfur or sulfide off-gas -> sulfur dioxide -> contact process -> acid | Capture and clean off-gas; catalyst and purity tradeoffs | Leaching, metal recovery, batteries, semiconductor processing |
+| Chlor-alkali | Purified brine -> electrolysis -> chlorine + sodium hydroxide + hydrogen | Brine purification, cell configuration, coproduct balancing | Bayer alumina refining, metal leaching, PVC, hydrogen reduction |
+| Plastics and polyethylene | Oil -> petrochemical feed -> ethylene -> polymerization -> plastic | Alternate cracking feeds and catalyst/polymer grades | Construction, fluid infrastructure, electronics |
+| Cement and lime | Limestone -> calcination -> lime + carbon dioxide -> clinker/cement | Fuel choice, emissions capture, slag and residue use | Construction, steelmaking, endgame infrastructure |
 
-Example: Making plastic has a "follow these steps" path AND optional alternative routes that become available later.
+These are process families, not final recipes. Exact inputs, yields, and machine counts remain open.
 
-## Principle 2: Real Chemistry → Gameplay Tradeoffs, Not Simulated Chemistry
-We're not simulating molecular bonds or reaction kinetics. We're taking **real industrial chemistry patterns** and turning them into gameplay mechanics.
+## Later Chemical Candidates
 
-Good: "Real polyethylene production has catalyst choices that affect polymerization rate, yield, and byproducts" → gameplay: different catalysts in the reactor change output mix.
+| Candidate | Real process idea | Potential gameplay role |
+| --- | --- | --- |
+| Ammonia / nitric acid | Haber-Bosch followed by Ostwald oxidation | Fertilizer, explosives, and catalyst-dependent nitrogen chemistry |
+| Nylon and engineering polymers | Benzene-derived intermediates to adipic acid and polyamide | Alternative materials for machinery and advanced infrastructure |
+| Titanium chemistry | Chlorination to TiCl4 followed by magnesium reduction (Kroll process) | A high-capital, high-purity metal capability; detailed route also appears in the refining design |
+| Nuclear fuel chemistry | Uranium conversion and oxide fuel fabrication; optional thorium-to-U-233 cycle | A later fission capability if nuclear power is part of the mod; see [Intermediate Products](intermediate-products.md) |
+| Fusion fuel handling | Deuterium supply and tritium extraction/recycling from a lithium breeder loop | Late-game chemical separation linked to fusion infrastructure |
 
-Bad: "Simulate temperature gradients inside a reaction chamber with precision."
+Before promoting a candidate into the core scope, verify that it connects to existing chains, unlocks a capability, creates a meaningful tradeoff, and has enough educational value to justify its footprint.
 
-## Principle 3: Complexity Reveals With Capability
-Early game: follow the happy path.  
-Mid game: discover alternatives exist (shown in handbook).  
-Late game: choose which to use based on your constraints.
+## Chemical Product Index
 
----
+This is a candidate index of chemical products and intermediates. It is not a commitment to implement every entry.
 
-# Anchors & Inspiration Sources
+| Family | Candidate products / intermediates |
+| --- | --- |
+| Sulfur | Sulfur dioxide, sulfur trioxide, sulfuric acid, sulfates |
+| Brine and electrolysis | Brine, chlorine, sodium hydroxide, hydrogen |
+| Nitrogen | Ammonia, nitric acid, nitrate salts |
+| Carbon and mineral chemicals | Coke, producer gas, carbon dioxide, activated carbon, calcium carbide, acetylene |
+| Petrochemistry | Naphtha, ethylene, propylene, benzene, hydrogen |
+| Polymers and resins | HDPE/LDPE, PVC, nylon 6,6, epoxy, fluoropolymer |
+| Semiconductor chemistry | Trichlorosilane, photoresist precursors, WF6, SF6, NF3, deposition and etch gases |
+| Nuclear and fusion chemistry | Uranium oxide fuel intermediates, lithium-bearing breeder material, deuterium, recovered tritium |
 
-These games/ mods have done chemistry-related design worth studying:
+## Process Equipment and Catalysts
 
-## GregTech (Gregtech 6 / GTNH)
-- Hundreds of named chemical reactions
-- Multi-stage processing chains
-- Real intermediates (Sulfuric acid, Hydrogen peroxide, Phosgene...)
-- Pro: deeply authentic industrial chemistry
-- Con: complexity wall at ~40 hours
-- **Lesson to take:** Name every process. Players build mental models from real names.
+Choose equipment around process needs rather than introducing a unique machine for every reaction. Candidate families include catalytic gas reactors, electrolysis cells, stirred liquid reactors, thermal furnaces, and polymerization vessels. A machine family may support multiple recipes when the operation is similar.
 
-## Bob's Mods / Angel's Mod
-- Streamlined chemical chains focused on usability
-- Clearer progression than GregTech
-- Fewer reactions but more digestible
-- **Lesson to take:** Quality over quantity. 20 excellent paths > 200 overwhelming ones.
+Catalysts are physical process inputs or machine components where they create a legible choice. Different catalysts can shift selectivity, yield, purity, or operating cost. Some real catalysts deactivate and need regeneration or replacement; do not make all catalysts consumable by default.
 
-## Dyson Sphere Program
-- Compressed chemistry: fewer steps, broader scope
-- Chemicals feed directly into endgame (space programs)
-- **Lesson to take:** Connect chemicals to the overall game goal — don't let them become their own isolated economy.
+## Balance and Factory Control
 
----
+- Route templates should have stable output proportions across compatible feed profiles; the material identities vary with the feed.
+- Every coproduct needs a useful downstream route, an optional recovery path, a bounded operating buffer, or feed throttling when demand is saturated.
+- Avoid recipes whose intended operation depends on voiding useful products. Short buffers are acceptable; permanent accumulation is a warning to revisit ratios or applications.
+- Smart routing and circuits should support stable operation. PLCs may automate complex plant control, but should not be required for basic balance.
+- Show inputs, outputs, coproducts, and known uses in the handbook so players can understand a route before building it.
 
-# Candidate Chemical Chains (Prioritized)
+## Educational Content
 
-These are candidates for implementation order. Priority based on: connection to core loop, educational value, and capability unlock potential.
+Each handbook entry should briefly distinguish the real industrial process from the simplified game recipe. Explain what the process makes, why an alternative exists, and which details are abstracted for play. Use trustworthy references for the facts; do not present invented yields, catalyst lifetimes, or universal ore assays as real data.
 
-## Tier 1: Core Pathways (Must Have)
+## Inspiration
 
-### 1. Plastics / Polyethylene
-- **Why:** Connects oil refining → chemistry → downstream manufacturing
-- **Happy path:** Oil → Petrochemical Plant → Plastic (simple)
-- **Alternatives:** Catalytic cracking routes, polymerization variants with different catalysts
-- **Real chemistry:** Ethylene polymerization, Ziegler-Natta vs metallocene catalysts
-- **Gameplay hook:** Different polyethylene types for different applications
+- **GregTech / GTNH:** memorable named reactions, real intermediates, and capability milestones; avoid its complexity wall and exhaustive reaction count.
+- **Bob's / Angel's:** recognizable processing patterns and accessible chains; improve clarity around route choice and coproduct balancing.
+- **Dyson Sphere Program:** keep chemistry connected to the factory's larger computational endgame rather than making it a detached subgame.
 
-### 2. Sulfuric Acid
-- **Why:** The "bottleneck of bottlenecks" in real industrial chemistry
-- **Connects to:** Ore processing (acid leaching), fertilizer, battery production, semiconductor etching
-- **Real chemistry:** Contact process — SO₂ → SO₃ → H₂SO₄ using vanadium pentoxide catalyst
-- **Gameplay hook:** Catalyst availability controls acid production capacity
-
-### 3. Cement / Concrete
-- **Why:** Infrastructure building material for mid/late game construction
-- **Connects to:** Steel production, construction industry, endgame megafactory bases
-- **Real chemistry:** Limestone calcination (CaCO₃ → CaO + CO₂), clinker formation
-- **Gameplay hook:** CO₂ byproduct is a pollutant AND a precursor for other chemicals
-
-### 4. Chlor-Alkali Process
-- **Why:** Produces chlorine, sodium hydroxide, hydrogen — all essential mid-game chemicals
-- **Connects to:** PVC (from Step 1), water purification, battery chemistry
-- **Real chemistry:** Electrolysis of brine solution
-- **Gameplay hook:** Requires pure brine preparation + electrical infrastructure
-
-## Tier 2: Expansion Paths
-
-### 5. Nitrogen Fixation (Haber-Bosch)
-- Produces ammonia from atmospheric nitrogen + hydrogen
-- Fertilizer production → food industry (niche but interesting)
-- Explosives precursor → military connection
-- Real chemistry: N₂ + H₂ → NH₃ at high pressure with iron catalyst
-
-### 6. Adipic Acid / Nylon
-- From benzene/cyclohexane oxidation
-- Connects petroleum refining to manufacturing
-- Alternative plastic/fiber path
-
-### 7. Titanium Production (Kroll Process)
-- From rutile/titanium ore → TiCl₄ → pure titanium
-- High-value metal for mid/late game
-- Lots of intermediate chemistry
-- Great capability unlock: "I got a titanium production line"
-
----
-
-# Chemical Plant Design Philosophy
-
-## Machine: Chemical Reactor(s)
-
-Not one giant machine. Different reactor types for different processes:
-- **Packed-bed reactors** — for catalytic gas reactions (sulfuric acid, Haber-Bosch)
-- **Stirred-tank reactors** — for liquid-phase chemistry (chlor-alkali)
-- **Fluidized beds** — for high-temp solid-catalyst reactions
-- **Electrolysis cells** — for ionic processes
-
-Each reactor type has different:
-- Supported reactions
-- Throughput limits
-- Catalyst slot configurations
-- Power requirements
-
-## Catalyst System
-
-Catalysts are the primary "tuning knob" for chemical plants — not sliders, but physical items you insert:
-- Different catalysts change output ratios (like GTNH's catalyst choices)
-- Catalysts degrade over time → replacement mechanic
-- Some catalysts require rare elements (platinum group metals from refining)
-
-## Intermediates Matter
-
-Real industrial chemistry uses intermediates. Players should manage them:
-- Sulfur dioxide isn't a final product — it feeds into the next stage
-- Ethylene needs to flow directly to polymerization
-- Storing intermediates is possible but inefficient (encourages continuous flow)
-
-This mirrors how real chemical plants work: **batch processing is wasteful, continuous flow is efficient.**
-
----
-
-# Connection to Design Pillars
-
-## Pillar 1: Multiple Industrial Processes
-Each chemical should have 2-3 production routes with different tradeoffs.
-
-Example — Sulfuric Acid:
-| Route | Pros | Cons |
-|-------|------|------|
-| Contact Process (vanadium catalyst) | Balanced, standard | Requires pure SO₂ |
-| Wet sulfuric acid | Direct from mining runoff | Polluting, hard to control |
-| Lead chamber (legacy) | Simple infrastructure | Low purity, high pollution |
-
-## Pillar 2: Tradeoffs Map to Primary Axes
-- Resource efficiency (acid yield per sulfur input)
-- Capital complexity (contact process needs catalyst infrastructure)
-- Pollution impact (wet process vs contact process)
-
-## Pillar 8: Capability Over Numbers
-Unlocks should be memorable:
-> "I built a Kroll titanium plant." ✓  
-Not:
-> "My chemical reactor got 15% faster." ✗
-
----
-
-# Scope Management
-
-## Hard Constraints
-- Start with **Tier 1 only** (4 core chains)
-- Each chain must have: happy path + at least one alternative
-- Every intermediate must be visible in the handbook
-
-## Expansion Criteria (for later)
-Before adding Tier 2 chemicals:
-1. Do they connect to existing infrastructure?
-2. Do they unlock a new capability?
-3. Do they create meaningful tradeoffs?
-4. Is their real-world chemistry interesting enough to justify the implementation?
-
-If it fails any of these, don't add it.
-
----
-
-# Notes
-
-- Chemical processes are **not** the theme. They serve the same purpose as refining: creating process choices that connect to every other system in the game.
-- If a chemical doesn't feed into at least 2 downstream systems (refining, metallurgy, semiconductor, endgame), question its existence.
-- Realism is only valuable when it creates meaningful engineering decisions (True North Star).
+The target is meaningful industrial understanding with a bounded set of repeatable process patterns, not a fixed number of recipes or hours of playtime.

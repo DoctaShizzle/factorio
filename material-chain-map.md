@@ -1,11 +1,9 @@
-# Factorio Overhaul — Complete Material Chain Map
+# Factorio Overhaul - Mineral and Refining Map
 
-*For: Factorio Overhaul Mod — Design Phase*
-*Status: Requirements mapping (not final)*
+*For: Factorio Overhaul Mod*  
+*Status: Design reference / candidate catalog*
 
-Related design: [Mining, Refining & Metallurgy](mining-refining-metallurgy.md)
-
----
+Related documents: [Mining, Refining & Metallurgy](mining-refining-metallurgy.md), [Chemical Products and Processes](chemical-processes.md), and [Intermediate Products](intermediate-products.md).
 
 > **Draft catalog v0.4:** Use real mineral/resource names and real geological deposit classes as identifiers; this draft does not assign invented site names. Recovery associations are candidate gameplay mappings, not claims that every specimen contains each listed element. Exact assays, ratios, and recipe availability remain to be validated.
 
@@ -22,10 +20,10 @@ The tiers describe deposit/feed profiles. The same mineral may occur in multiple
 | Hematite | Hematite-bearing surface outcrop | Iron | Manganese | Silica |
 | Malachite | Oxidized copper occurrence | Copper | Cobalt | Silica |
 | Coal | Coal seam (industrial raw resource) | Carbon / coke | Sulfur | Germanium |
-| Quartz | Quartz-rich sand or vein | Metallurgical silicon | Alumina | Titanium |
-| Native sulfur | Native sulfur deposit | Sulfur | Selenium | Tellurium |
+| Quartz | Quartz-rich sand or vein | Metallurgical silicon | — | — |
+| Native sulfur | Native sulfur deposit | Sulfur | — | — |
 | Calcite / limestone | Carbonate rock deposit | Lime | Magnesium | Carbon dioxide |
-| Gypsum | Gypsum-bearing evaporite bed | Gypsum | Sulfur | Lime |
+| Gypsum | Gypsum-bearing evaporite bed | Gypsum | Lime | — |
 
 These are finite starter supplies of foundational materials. Secondary and tertiary recovery are later refining capabilities; listing a material here does not mean the early process exposes it.
 
@@ -125,7 +123,7 @@ This is the consolidated candidate list of refined mineral products represented 
 | Rare, radioactive, and trace | Uranium, thorium, cerium, lanthanum, neodymium, yttrium, selenium, tellurium, arsenic |
 | Other recovered compounds | Carbon dioxide, water |
 
-"Rare-earth concentrate" is an intermediate, not a final pure material. Its separation into individual rare earths is a later capability. This inventory covers mineral-derived products; chemicals, polymers, semiconductor products, and endgame materials remain provisional downstream candidates below.
+"Rare-earth concentrate" is an intermediate, not a final pure material. Its separation into individual rare earths is a later capability. This inventory covers mineral-derived products; chemicals, polymers, semiconductor products, and endgame materials are mapped in the companion documents.
 
 ## Refining Stages and Route Patterns
 
@@ -182,197 +180,7 @@ Finishing (washing, drying, calcining, casting) is part of the relevant route, n
 - [Angel's Refining](https://mods.factorio.com/mod/angelsrefining): a compact compound-ore set and reusable multi-step refining backbone; borrow its readability goals, not its fixed ore roster or exact balance assumptions.
 - [Bob's Ores](https://mods.factorio.com/mods/Bobingabout/bobores) and [Bob's Plates](https://mods.factorio.com/mod/bobplates): broader material coverage and reusable smelting, chemical, and electrolysis capabilities.
 
----
+## Product Maps
 
-## Downstream Chains (Provisional)
-
-These are downstream systems supported by the mineral catalog. Their recipes and detailed material inventories are intentionally deferred; this section is a connection map, not a second mining/refining progression.
-
-### Chemicals (Initial Candidates)
-
-These connect multiple industrial chains together. The "glue" between minerals.
-
-#### Acid Production Chain
-
-| Material | From | Purpose |
-| --- | --- | --- |
-| Sulfur dioxide (SO₂) | Roasting sulfide feeds such as pyrite or chalcopyrite | Acid feedstock or pollution |
-| Sulfuric acid (H₂SO₄) | Contact process from captured SO₂ | Leaching, metal recovery, and chemical synthesis |
-
-#### Chlor-Alkali Chain
-
-| Material | From | Purpose |
-| --- | --- | --- |
-| Brine (purified NaCl solution) | Dissolved salt from salt deposits | Electrolysis input |
-| Chlorine gas (Cl₂) | Chlor-alkali electrolysis of brine | PVC, ferric chloride leaching agent |
-| Sodium hydroxide (NaOH) | Chlor-alkali electrolysis | Bayer process solvent, pH control |
-| Hydrogen gas (H₂) | Chlor-alkali or water electrolysis | H₂ reduction for hematite, fuel |
-
-#### Nitrogen Chain
-
-| Material | From | Purpose |
-| --- | --- | --- |
-| Ammonia (NH₃) | Haber-Bosch (N₂ from air + H₂) | Fertilizer, nitric acid precursor |
-| Nitric acid (HNO₃) | Ostwald process (ammonia + oxygen over Pt catalyst) | Explosives, specialty chemical synthesis |
-
-#### Carbon Chain
-
-| Material | From | Purpose |
-| --- | --- | --- |
-| Coke | Coal carbonization (heated without air) | Blast furnace fuel/reducer |
-| Activated carbon | Pyrolyzed biomass/coal | Water purification, catalyst support |
-| Calcium carbide (CaC₂) | Lime + coke in electric arc furnace | Acetylene production, steel deoxidizer |
-| Carbon nanotubes/fibers | CVD from hydrocarbon gas | Advanced composite material (late-game) |
-
-### Nuclear Materials (Candidate Scope)
-
-There is no single universal materials list for fission or fusion; reactor designs differ. Treat these as a bounded set of industrial capability branches, not as a requirement to simulate every reactor type.
-
-| Capability branch | Candidate feed materials | Refined products / role | Design status |
-| --- | --- | --- | --- |
-| Fission fuel | Uraninite; optional monazite/thorium feed | Uranium oxide fuel; optional thorium-to-U-233 fuel-cycle branch | Uranium fuel is core if modded fission is in scope; thorium cycle is optional late-game depth |
-| Fuel cladding and neutron control | Zircon; hafnium-bearing zircon concentrate; boron minerals | High-purity zirconium alloy cladding; hafnium- or boron-based neutron absorbers | Zr-Hf separation is a strong dedicated capability because both are co-produced but serve opposing reactor roles |
-| Structural reactor alloys | Chromium, nickel, iron, niobium | Stainless and niobium-alloy steels for hot, corrosive, or high-load plant equipment | Reuse the metallurgy/alloy system; no new ore-processing ladder |
-| Fusion fuel breeding | Lithium minerals or brines; water-derived deuterium | Lithium-bearing blanket material breeds tritium from fusion neutrons; recover and recycle tritium as fuel | Strong late-game process chain; lithium brine is a source-specific alternative to spodumene |
-| Fusion plasma and magnets | Tungsten; niobium, tin, titanium; copper | Tungsten plasma-facing armor; Nb3Sn or NbTi superconducting magnet conductors | Capability unlock linking specialty metals, fabrication, and cryogenic power systems |
-
-Candidate supporting materials include graphite or water as fission moderators, beryllium as a possible fusion blanket neutron multiplier, and cadmium/boron/hafnium as neutron absorbers. Include these only where a chosen reactor design makes their role legible and useful.
-
-The most distinctive gameplay chain is zircon concentrate -> Zr/Hf separation -> zirconium alloy for fuel cladding plus hafnium absorber products. It turns a demanding separation into two complementary products. For fusion, lithium-to-tritium breeding and Nb-based superconducting magnets are similarly strong capability milestones. Deuterium and tritium are fuels, not mined mineral products.
-
-Reference sources: [U.S. DOE nuclear fuels](https://www.energy.gov/ne/nuclear-fuels), [U.S. NRC fuel cycle](https://www.nrc.gov/materials/new-fuels), [USGS zirconium and hafnium](https://www.usgs.gov/centers/national-minerals-information-center/zirconium-and-hafnium-statistics-and-information), [ITER blanket](https://www.iter.org/machine/blanket), and [ITER superconducting magnets](https://www.iter.org/machine/magnets).
-
----
-
-### Alloys and Specialty Metals
-
-These require mid-to-late game infrastructure. Capability unlocks.
-
-#### Refining Group Metals (From Chalcopyrite Byproduct Recovery)
-
-| Material | From | Purpose |
-| --- | --- | --- |
-| Gold | Precious metal recovery from sulfide ore processing | Catalyst substrate, electronics |
-| Silver | Same as gold | Catalyst, chemical processing equipment |
-| Platinum group metals (PGM) | Trace in sulfide ores, concentrated via flotation tailings | Inert anodes, Haber-Bosch catalyst, nitric acid catalyst |
-
-#### Specialty Steel Alloys
-
-| Material | From | Purpose |
-| --- | --- | --- |
-| Stainless steel | Steel + chromium/nickel in electric arc furnace | Corrosion-resistant construction, acid handling equipment |
-| Niobium microalloyed steel | Steel + ferroniobium from columbite-tantalite concentrate | High-strength structural steel and pressure-vessel components |
-| Titanium steel | Steel + titanium addition (from Kroll process, see below) | Lightweight structural alloy |
-| Tool steel | High-carbon steel + tungsten/vanadium | Hardwearing machine parts, drill bits |
-| Invar/low-expansion alloy | Iron + nickel (36% Ni) | Precision components, measurement equipment |
-
-#### Non-Ferrous Specialty Metals
-
-| Material | From | Purpose |
-| --- | --- | --- |
-| Zinc | Roasting + electrolysis of sphalerite concentrate | Galvanizing, alloys, batteries |
-| Lead | Roasting + reduction of galena concentrate | Acid-resistant construction, battery plates |
-| Nickel | High-pressure acid leaching of laterite ore or sulfide roast-leach | Stainless steel ingredient, catalyst, batteries |
-| Titanium (pure) | Kroll process (TiCl₄ + Mg in argon atmosphere) | Lightweight high-strength structures |
-| Magnesium | Electrolysis of molten MgCl₂ or carbothermal reduction of MgO | Reducing agent for Kroll process, lightweight alloy |
-
-#### Battery Materials (Mid-to-Late Game)
-
-| Material | From | Purpose |
-| --- | --- | --- |
-| Lithium carbonate/hydroxide | Brine evaporation or leaching from spodumene ore | Battery chemistry, electrolyte |
-| Cobalt sulfate | Leaching + purification of cobalt-containing ores | Battery cathode material |
-| Manganese compounds | Leaching of manganese oxide ores | Battery cathodes, steel additive |
-
----
-
-### Polymers and Plastics
-
-These connect oil refining to downstream manufacturing. Not ore-based but critical for the mod.
-
-#### Oil/Rubber Refining Path
-
-| Material | From | Purpose |
-| --- | --- | --- |
-| Naphtha | Fractional distillation of crude oil | Petrochemical feedstock |
-| Ethylene | Catalytic cracking of naphtha or natural gas liquids | Polymerization monomer, chemical intermediate |
-| Propylene | Catalytic cracking | Polymerization, propylene oxide precursor |
-| Benzene | Reforming of naphtha | Adipic acid/nylon precursor, chlorobenzene |
-| Polyethylene (HDPE/LDPE) | Polymerization of ethylene + catalyst | Plastic production, pipe materials for fluid handling |
-| PVC | Chlorination of ethylene → polymerization with Cl₂ | Pipes, cable insulation, fluid system materials |
-
-#### Advanced Polymers (Late Game)
-
-| Material | From | Purpose |
-| --- | --- | --- |
-| Nylon 6,6 (polyamide) | Adipic acid + hexamethylenediamine from benzene | Fiber, engineering plastic |
-| Epoxy resin precursor | Phenol + formaldehyde (from coal or petrochemical route) | Adhesives, composite matrix |
-| Fluoropolymer (PTFE analog) | Ethylene + fluorine (from fluoride minerals) | Chemical-resistant piping/sealing for cleanroom |
-
----
-
-### Semiconductor Materials
-
-These connect the base industry chain to the endgame.
-
-| Material | From | Purpose |
-| --- | --- | --- |
-| Silicon wafers (single crystal) | Czochralski process from polysilicon + dopant | Base substrate for IC fabrication |
-| Photolithography resist | Specialty organic synthesis | Pattern definition on wafers |
-| High-k dielectric (HfO₂, Al₂O₃) | Chemical vapor deposition precursors | Gate insulation for advanced transistors |
-| Tantalum capacitors and Cu/TaN interconnects | Tantalum oxide capacitor powders; ultra-pure copper and tantalum nitride barrier | Compact electronics and reliable chip wiring |
-| Specialty gases (WF₆, SF₆, NF₃) | Gas synthesis from refined elements | Etching and deposition in cleanroom |
-
----
-
-### Endgame Network Materials
-
-These are used to build the endgame computational network.
-
-| Material | From | Purpose |
-| --- | --- | --- |
-| Processed semiconductor units | Wafer fab → diced chips → packaged ICs | Computing capacity component |
-| Superconductor materials | Specialty metal alloy synthesis (NbTi, YBCO) | Zero-loss power distribution for cluster |
-| Cryogenic fluid (liquid He/N₂) | Gas liquefaction and separation | Cooling for superconducting systems |
-| Precision optics | Optical glass synthesis + polishing | Photonics/simulation interconnects |
-
----
-
-### Scope and Progression Intent
-
-The design target is an ambitious overhaul that can support a 300+ hour playthrough, in the space between Bob's/Angel's and Pyanodon's in perceived complexity. That is a playthrough ambition, not a promise that raw recipe count alone should create hundreds of hours. The catalog should earn its scope through geological discovery, capability unlocks, reusable process patterns, cross-chain demand, and factory-scale logistics.
-
-Keep the mineral roster bounded and memorable. Chemical reactions, polymers, semiconductor fabrication, and endgame computation extend the ecosystem, but their detailed recipes and complete inventories remain future design work. The superseded 65-83 material estimate is not a target.
-
-### Educational Content Direction
-
-Handbook entries should clearly separate:
-
-- **Real mineral or deposit-type facts:** composition, formation, common associations, and actual industrial recovery routes.
-- **Game abstraction:** simplified feed ratios, recipe outputs, stage unlocks, and fictional Orefield/site names.
-- **Design choices:** where output ratios are deliberately standardized for playability, explain that the ratio is a game rule rather than a universal geological assay.
-
-Use the real mineral and deposit-class name as the article/UI label. Do not add invented locality names or present a game-specific co-product ratio as a universal geological fact.
-
-Initial reference set:
-
-- [USGS volcanogenic massive sulfide occurrence model](https://www.usgs.gov/publications/volcanogenic-massive-sulfide-occurrence-model) for VMS mineral assemblages and deposit context.
-- [USGS chalcopyrite overview](https://www.usgs.gov/publications/chalcopyrite-bearer-a-precious-non-precious-metal) for chalcopyrite composition, copper use, and weathering context.
-- [USGS gallium resource data for bauxite](https://www.usgs.gov/publications/compilation-gallium-resource-data-bauxite-deposits) for the bauxite-gallium association and its variability.
-- [USGS alluvial placer tin model](https://pubs.usgs.gov/bul/b1693/html/bull3pke.htm) for cassiterite and associated heavy-mineral products such as ilmenite, zircon, monazite, and columbite-tantalite.
-- [USGS rare-earth mineral resources](https://www.usgs.gov/centers/national-minerals-information-center/rare-earths-statistics-and-information) for principal rare-earth minerals and resource context.
-
----
-
-## Current Refining Direction
-
-The catalog above is the current candidate roster: finite single-mineral surface deposits, underground deposits with one dominant mineral plus traces, and variable Orefields containing several main minerals. Mining determines the feed; refining capabilities determine which materials can be recovered.
-
-- Use GTNH primarily as inspiration for geological and material breadth, and Bob's/Angel's for accessible, reusable processing stages and output balancing; do not copy either mod's exact material list or ratios.
-- Reuse recognizable mechanical, chemical, and thermal/electrolytic stages where appropriate, with exceptions for material chemistry.
-- For a given refining-process template, keep primary-material, trace-material, and residue output proportions consistent across the minerals using it; vary material identities by mineral. Different process templates can have different ratios and tradeoffs.
-- Later refining capabilities may recover more trace materials at the cost of lower primary-material yield per unit of feed.
-- Avoid required voiding. A key unresolved constraint is recovering trace materials without requiring saturated primary outputs to be consumed at a matching rate.
-- The mineral roster and process network must support stable operation without unavoidable output backups when players choose appropriate feeds and routes. Smart routing and throughput control should suffice for basic stability; PLCs can optionally automate them. Validate this against multiple demand profiles.
-
-This is a working direction, not a final process specification. The dedicated [Mining, Refining & Metallurgy](mining-refining-metallurgy.md) document holds the feed-profile model and refining requirements; this map tracks candidate materials and dependencies.
+- [Chemical Products and Processes](chemical-processes.md) covers chemical reactions, reagents, chemical intermediates, petrochemistry, polymers, and process chemicals.
+- [Intermediate Products](intermediate-products.md) covers alloys, batteries, semiconductor components, nuclear assemblies, and the distributed computational endgame.
