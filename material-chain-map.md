@@ -7,7 +7,7 @@ Related design: [Mining, Refining & Metallurgy](mining-refining-metallurgy.md)
 
 ---
 
-> **Draft catalog v0.2:** Mineral and geological deposit-type names are real; named locations such as Redbank, Stormglass, and Goldthread are invented game-world labels, not real mines or formations. Recovery associations are candidate gameplay mappings, not claims that every specimen of a mineral contains each listed element. Exact assays, ratios, and recipe availability remain to be validated. The previous downstream sketch is being consolidated below.
+> **Draft catalog v0.4:** Use real mineral/resource names and real geological deposit classes as identifiers; this draft does not assign invented site names. Recovery associations are candidate gameplay mappings, not claims that every specimen contains each listed element. Exact assays, ratios, and recipe availability remain to be validated.
 
 ## Mining Catalog
 
@@ -17,53 +17,54 @@ The tiers describe deposit/feed profiles. The same mineral may occur in multiple
 
 ### Tier 1: Surface Deposits
 
-| Invented site name | Real feed / geological analog | Primary material | Secondary material | Tertiary material |
+| Primary mineral / resource | Real feed / deposit type | Primary material | Secondary material | Tertiary material |
 | --- | --- | --- | --- | --- |
-| Redbank Hematite Outcrop | Hematite | Iron | Manganese | Silica |
-| Copperwash Malachite Flats | Malachite | Copper | Cobalt | Silica |
-| Blackvein Coal Seam | Coal (industrial raw resource) | Carbon / coke | Sulfur | Germanium |
-| Glassplain Quartz Sand | Quartz | Metallurgical silicon | Alumina | Titanium |
-| Whitecap Sulfur Field | Native sulfur | Sulfur | Selenium | Tellurium |
-| Chalkstone Limestone Bench | Calcite / limestone | Lime | Magnesium | Carbon dioxide |
-| Paleledge Gypsum Quarry | Gypsum | Gypsum | Sulfur | Lime |
+| Hematite | Hematite-bearing surface outcrop | Iron | Manganese | Silica |
+| Malachite | Oxidized copper occurrence | Copper | Cobalt | Silica |
+| Coal | Coal seam (industrial raw resource) | Carbon / coke | Sulfur | Germanium |
+| Quartz | Quartz-rich sand or vein | Metallurgical silicon | Alumina | Titanium |
+| Native sulfur | Native sulfur deposit | Sulfur | Selenium | Tellurium |
+| Calcite / limestone | Carbonate rock deposit | Lime | Magnesium | Carbon dioxide |
+| Gypsum | Gypsum-bearing evaporite bed | Gypsum | Sulfur | Lime |
 
 These are finite starter supplies of foundational materials. Secondary and tertiary recovery are later refining capabilities; listing a material here does not mean the early process exposes it.
 
 ### Tier 2: Underground Deposits
 
-| Invented site name | Dominant mineral | Trace minerals in the deposit | Geological / material analog |
+| Primary mineral | Secondary mineral | Tertiary mineral / trace phase | Real deposit setting |
 | --- | --- | --- | --- |
-| Deepforge Magnetite Lode | Magnetite | Ilmenite, pyrite | Titanomagnetite / iron-titanium oxide setting |
-| Copper Crown Sulfide Vein | Chalcopyrite | Pyrite, arsenopyrite, native gold | Porphyry copper or polymetallic sulfide setting |
-| Blackglass Gold-Quartz Vein | Native gold | Arsenopyrite, pyrite, quartz | Orogenic gold-bearing quartz vein |
-| Zincbell Sphalerite Lode | Sphalerite | Galena, pyrite | Zinc-lead sulfide replacement or vein deposit |
-| Leadwater Galena Lode | Galena | Sphalerite, pyrite | Lead-zinc sulfide vein or replacement deposit |
-| Nickelwind Pentlandite Lode | Pentlandite | Chalcopyrite, cooperite | Magmatic nickel-copper sulfide setting |
-| Redcliff Bauxite Pocket | Bauxite | Quartz, rutile | Lateritic or karst bauxite profile |
-| Chrome Gate Chromite Lens | Chromite | Magnetite, cooperite | Chromitite in a layered or ultramafic intrusion |
-| Tinflower Cassiterite Vein | Cassiterite | Columbite-tantalite, beryl | Tin-bearing granite, pegmatite, or greisen |
-| Frostfall Tungsten Lode | Scheelite | Molybdenite, fluorite | Tungsten skarn or W-Mo greisen |
-| Blackcap Manganese Seam | Pyrolusite | Hematite, apatite | Sedimentary or supergene manganese oxide deposit |
-| Moorland Zircon Sand | Zircon | Ilmenite, rutile | Heavy-mineral placer sand |
-| Ashfall Graphite Seam | Graphite | Pyrite, apatite | Graphite-bearing metamorphic rock |
-| Sunken Phosphate Bed | Apatite | Monazite, calcite | Phosphorite or apatite-rich igneous deposit |
-| Stormglass Lithium Pegmatite | Spodumene | Beryl, columbite-tantalite, quartz | Rare-element pegmatite |
-| Saltglass Evaporite Deposit | Halite | Sylvite, gypsum, borax | Evaporite basin |
-| Dawnflame Rare-Earth Lode | Bastnaesite | Monazite, fluorite | Carbonatite or alkaline igneous rare-earth setting |
+| Magnetite | Ilmenite | Pyrite | Titanomagnetite / iron-titanium oxide setting |
+| Chalcopyrite | Pyrite | Arsenopyrite or native gold | Porphyry copper or polymetallic sulfide setting |
+| Native gold | Arsenopyrite | Pyrite | Orogenic gold-bearing quartz vein |
+| Sphalerite | Galena | Pyrite | Zinc-lead sulfide replacement or vein deposit |
+| Galena | Sphalerite | Pyrite | Lead-zinc sulfide vein or replacement deposit |
+| Pentlandite | Chalcopyrite | Cooperite | Magmatic nickel-copper sulfide setting |
+| Bauxite | Quartz | Rutile | Lateritic or karst bauxite profile |
+| Chromite | Magnetite | Cooperite | Chromitite in a layered or ultramafic intrusion |
+| Cassiterite | Columbite-tantalite | Beryl | Tin-bearing granite, pegmatite, greisen, or placer |
+| Scheelite | Molybdenite | Fluorite | Tungsten skarn or W-Mo greisen |
+| Pyrolusite | Hematite | Apatite | Sedimentary or supergene manganese oxide deposit |
+| Zircon | Ilmenite | Rutile | Heavy-mineral placer sand |
+| Graphite | Pyrite | Apatite | Graphite-bearing metamorphic rock |
+| Apatite | Monazite | Calcite | Phosphorite or apatite-rich igneous deposit |
+| Spodumene | Beryl | Columbite-tantalite | Rare-element pegmatite |
+| Halite | Sylvite | Gypsum | Evaporite basin |
+| Bastnaesite | Monazite | Fluorite | Carbonatite or alkaline igneous rare-earth setting |
+| Uraninite | Pyrite | Monazite | Uranium-bearing vein or sandstone-hosted deposit |
 
 ### Tier 3: Orefields
 
-**Orefields** is the proposed player-facing name for large polymetallic deposits. Each site name below is invented; its deposit class is real. An Orefield is a mixed feed whose composition varies by formation and should be prospectable before full-scale extraction.
+**Orefield** is the generic player-facing category for large polymetallic deposits. The UI can show the real deposit class and its primary, secondary, and tertiary minerals. The trace-phase column is design metadata and need not be shown in the UI. Composition varies by formation and should be prospectable before full-scale extraction.
 
-| Invented site name | Real deposit class | Candidate major / trace minerals | Strategic character |
-| --- | --- | --- | --- |
-| Redwater Sulfide Field | Volcanogenic massive sulfide (VMS) | Chalcopyrite, sphalerite, galena, pyrite; possible Au/Ag | Copper-zinc-lead system with sulfur and possible precious-metal recovery |
-| Ironcap Banded Province | Banded iron formation (BIF) | Hematite, magnetite, quartz; possible apatite/ilmenite | High-volume iron with silica and possible phosphorus/titanium streams |
-| Blackglass Porphyry Complex | Porphyry Cu-Mo | Chalcopyrite, molybdenite, pyrite; possible Au | Copper-molybdenum with possible gold and sulfur recovery |
-| Stormglass Pegmatite Belt | Rare-element pegmatite | Spodumene, cassiterite, columbite-tantalite, beryl, quartz | Lithium, tin, niobium, tantalum, and beryllium potential |
-| Chromeheart Layered Intrusion | Layered mafic-ultramafic intrusion | Chromite, pentlandite, magnetite; possible PGE minerals | Chromium-nickel-iron with deposit-dependent platinum-group potential |
-| Saltwind Evaporite Basin | Evaporite | Halite, sylvite, gypsum, borate minerals | Sodium, potassium, boron, calcium, and chemical feedstocks |
-| Goldthread Greenstone Belt | Orogenic gold / greenstone-hosted lode | Native gold, arsenopyrite, pyrite; possible chalcopyrite | Gold-forward feed with arsenic and sulfur; copper only where copper sulfides occur |
+| Real deposit class | Primary mineral | Secondary mineral | Tertiary mineral | Deposit-dependent trace phases |
+| --- | --- | --- | --- | --- |
+| Volcanogenic massive sulfide (VMS) | Chalcopyrite | Sphalerite | Galena | Pyrite; possible gold and silver |
+| Banded iron formation (BIF) | Hematite | Magnetite | Quartz | Apatite or ilmenite in some deposits |
+| Porphyry copper-molybdenum | Chalcopyrite | Molybdenite | Pyrite | Gold in some deposits |
+| Rare-element pegmatite | Spodumene | Columbite-tantalite | Beryl | Cassiterite and quartz |
+| Layered mafic-ultramafic intrusion | Chromite | Pentlandite | Magnetite | Platinum-group minerals in some deposits |
+| Evaporite basin | Halite | Sylvite | Gypsum | Borate minerals in some deposits |
+| Orogenic gold / greenstone-hosted lode | Native gold | Arsenopyrite | Pyrite | Chalcopyrite only in polymetallic variants |
 
 These are candidate formation archetypes, not guaranteed recipes. Orefields should combine minerals in geology-inspired profiles, rather than one universal composition.
 
@@ -106,6 +107,7 @@ This is the current candidate feed roster, not a chemical formula table. A mined
 | Columbite-tantalite | Niobium | Tantalum | Tin |
 | Beryl | Beryllium | Aluminum | Silica |
 | Zircon | Zirconium | Hafnium | Silicon |
+| Uraninite | Uranium concentrate | Thorium | — |
 | Borax | Boron compounds | Sodium | Water |
 | Graphite | Carbon | Silica | Iron |
 
@@ -120,7 +122,7 @@ This is the consolidated candidate list of refined mineral products represented 
 | Precious and catalyst metals | Gold, silver, platinum, palladium, rhodium |
 | Specialty and semiconductor metals | Gallium, germanium, indium, cadmium, tungsten, molybdenum, rhenium, niobium, tantalum, beryllium, zirconium, hafnium |
 | Chemical and battery feedstocks | Lithium carbonate / hydroxide, sodium chloride / sodium compounds, potassium chloride, phosphorus / phosphate, boron compounds, fluorine-bearing feedstocks |
-| Rare, radioactive, and trace | Cerium, lanthanum, neodymium, yttrium, thorium, selenium, tellurium, arsenic |
+| Rare, radioactive, and trace | Uranium, thorium, cerium, lanthanum, neodymium, yttrium, selenium, tellurium, arsenic |
 | Other recovered compounds | Carbon dioxide, water |
 
 "Rare-earth concentrate" is an intermediate, not a final pure material. Its separation into individual rare earths is a later capability. This inventory covers mineral-derived products; chemicals, polymers, semiconductor products, and endgame materials remain provisional downstream candidates below.
@@ -154,6 +156,14 @@ This is the consolidated candidate list of refined mineral products represented 
 - **Titanium:** Kroll reduction as a late, capital-intensive capability.
 - **Rare earths and platinum-group metals:** staged concentrate separation and residue recovery, not a generic one-step route.
 - **Semiconductor silicon:** metallurgical silicon, chlorosilane purification, polysilicon, and wafer growth belong to the semiconductor chain, not the common ore route.
+
+#### Exception Candidates to Evaluate
+
+- **Lithium brines:** spodumene can use the chemical-extraction route, while brines may need evaporation/concentration and precipitation. Treat this as a source-specific branch only if brines are included as a meaningful mineable feed.
+- **Nb-Ta and Zr-Hf separation:** these chemically similar element pairs may justify dedicated late separation steps after shared concentration. They do not need separate end-to-end ore routes.
+- **Ga, Ge, In, and Re:** keep these as residue/byproduct recovery capabilities within aluminum, zinc, coal, and molybdenum chains, rather than creating a bespoke primary route for each.
+
+These are candidates, not committed exceptions. A dedicated route should add a distinct capability or teach a genuinely different industrial process; rarity or a long recipe chain alone is not enough.
 
 Finishing (washing, drying, calcining, casting) is part of the relevant route, not a separate progression tree. The route catalog is a compact process vocabulary, not a mandate that every mineral use every step. A given template should keep primary/secondary/tertiary output proportions consistent across accepted feeds, while mineral identities and geological associations vary.
 
@@ -214,6 +224,24 @@ These connect multiple industrial chains together. The "glue" between minerals.
 | Calcium carbide (CaC₂) | Lime + coke in electric arc furnace | Acetylene production, steel deoxidizer |
 | Carbon nanotubes/fibers | CVD from hydrocarbon gas | Advanced composite material (late-game) |
 
+### Nuclear Materials (Candidate Scope)
+
+There is no single universal materials list for fission or fusion; reactor designs differ. Treat these as a bounded set of industrial capability branches, not as a requirement to simulate every reactor type.
+
+| Capability branch | Candidate feed materials | Refined products / role | Design status |
+| --- | --- | --- | --- |
+| Fission fuel | Uraninite; optional monazite/thorium feed | Uranium oxide fuel; optional thorium-to-U-233 fuel-cycle branch | Uranium fuel is core if modded fission is in scope; thorium cycle is optional late-game depth |
+| Fuel cladding and neutron control | Zircon; hafnium-bearing zircon concentrate; boron minerals | High-purity zirconium alloy cladding; hafnium- or boron-based neutron absorbers | Zr-Hf separation is a strong dedicated capability because both are co-produced but serve opposing reactor roles |
+| Structural reactor alloys | Chromium, nickel, iron, niobium | Stainless and niobium-alloy steels for hot, corrosive, or high-load plant equipment | Reuse the metallurgy/alloy system; no new ore-processing ladder |
+| Fusion fuel breeding | Lithium minerals or brines; water-derived deuterium | Lithium-bearing blanket material breeds tritium from fusion neutrons; recover and recycle tritium as fuel | Strong late-game process chain; lithium brine is a source-specific alternative to spodumene |
+| Fusion plasma and magnets | Tungsten; niobium, tin, titanium; copper | Tungsten plasma-facing armor; Nb3Sn or NbTi superconducting magnet conductors | Capability unlock linking specialty metals, fabrication, and cryogenic power systems |
+
+Candidate supporting materials include graphite or water as fission moderators, beryllium as a possible fusion blanket neutron multiplier, and cadmium/boron/hafnium as neutron absorbers. Include these only where a chosen reactor design makes their role legible and useful.
+
+The most distinctive gameplay chain is zircon concentrate -> Zr/Hf separation -> zirconium alloy for fuel cladding plus hafnium absorber products. It turns a demanding separation into two complementary products. For fusion, lithium-to-tritium breeding and Nb-based superconducting magnets are similarly strong capability milestones. Deuterium and tritium are fuels, not mined mineral products.
+
+Reference sources: [U.S. DOE nuclear fuels](https://www.energy.gov/ne/nuclear-fuels), [U.S. NRC fuel cycle](https://www.nrc.gov/materials/new-fuels), [USGS zirconium and hafnium](https://www.usgs.gov/centers/national-minerals-information-center/zirconium-and-hafnium-statistics-and-information), [ITER blanket](https://www.iter.org/machine/blanket), and [ITER superconducting magnets](https://www.iter.org/machine/magnets).
+
 ---
 
 ### Alloys and Specialty Metals
@@ -233,6 +261,7 @@ These require mid-to-late game infrastructure. Capability unlocks.
 | Material | From | Purpose |
 | --- | --- | --- |
 | Stainless steel | Steel + chromium/nickel in electric arc furnace | Corrosion-resistant construction, acid handling equipment |
+| Niobium microalloyed steel | Steel + ferroniobium from columbite-tantalite concentrate | High-strength structural steel and pressure-vessel components |
 | Titanium steel | Steel + titanium addition (from Kroll process, see below) | Lightweight structural alloy |
 | Tool steel | High-carbon steel + tungsten/vanadium | Hardwearing machine parts, drill bits |
 | Invar/low-expansion alloy | Iron + nickel (36% Ni) | Precision components, measurement equipment |
@@ -291,7 +320,7 @@ These connect the base industry chain to the endgame.
 | Silicon wafers (single crystal) | Czochralski process from polysilicon + dopant | Base substrate for IC fabrication |
 | Photolithography resist | Specialty organic synthesis | Pattern definition on wafers |
 | High-k dielectric (HfO₂, Al₂O₃) | Chemical vapor deposition precursors | Gate insulation for advanced transistors |
-| Interconnect metals (Cu, TaN barrier) | Ultra-pure metal refining + sputtering targets | Wiring within chips |
+| Tantalum capacitors and Cu/TaN interconnects | Tantalum oxide capacitor powders; ultra-pure copper and tantalum nitride barrier | Compact electronics and reliable chip wiring |
 | Specialty gases (WF₆, SF₆, NF₃) | Gas synthesis from refined elements | Etching and deposition in cleanroom |
 
 ---
@@ -323,7 +352,7 @@ Handbook entries should clearly separate:
 - **Game abstraction:** simplified feed ratios, recipe outputs, stage unlocks, and fictional Orefield/site names.
 - **Design choices:** where output ratios are deliberately standardized for playability, explain that the ratio is a game rule rather than a universal geological assay.
 
-Use named fictional sites as locations for educational profiles of real mineral species and deposit classes. Do not present an invented site name or a game-specific co-product ratio as a real-world locality or universal fact.
+Use the real mineral and deposit-class name as the article/UI label. Do not add invented locality names or present a game-specific co-product ratio as a universal geological fact.
 
 Initial reference set:
 
