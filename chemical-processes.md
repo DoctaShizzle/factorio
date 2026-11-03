@@ -80,3 +80,74 @@ Each handbook entry should briefly distinguish the real industrial process from 
 - **Dyson Sphere Program:** keep chemistry connected to the factory's larger computational endgame rather than making it a detached subgame.
 
 The target is meaningful industrial understanding with a bounded set of repeatable process patterns, not a fixed number of recipes or hours of playtime.
+
+## Provisional Chemical and Reaction Registry
+
+Everything in this registry is a **candidate for review, not approved design content**. It inventories the chemical species, products, and transformations raised so far, including provisional downstream chains from the material map. Grouped terms such as "sulfates" represent a candidate family, not a commitment to implement every salt. Count named species and products individually when estimating scope; reaction rows may produce several of them at once.
+
+The equations below are simplified design references. Balanced equations are given where a single reaction is meaningful; separations, cracking, mineral processing, and polymer production are identified as process steps where a single equation would misrepresent the industrial operation.
+
+### Chemical Inventory
+
+| Family | Candidate chemicals and products |
+| --- | --- |
+| Water, gases, and brine | Water, hydrogen, oxygen, nitrogen, brine, sodium chloride, chlorine |
+| Sulfur chemistry | Native sulfur feed, sulfur dioxide, sulfur trioxide, sulfuric acid, sulfates |
+| Alkali and mineral chemicals | Sodium hydroxide, lime (calcium oxide), hydrated lime (calcium hydroxide), carbon dioxide, phosphates, borates, fluorine-bearing feedstocks |
+| Nitrogen chemistry | Ammonia, nitric oxide, nitrogen dioxide, nitric acid, nitrate salts |
+| Carbon and coal products | Coke, producer gas, coal tar, activated carbon, calcium carbide, acetylene |
+| Petrochemical feedstocks | Crude oil, naphtha, methane/natural gas, ethylene, propylene, benzene, hydrochloric acid |
+| Polymer and resin products | 1,2-dichloroethane, vinyl chloride, polyethylene (HDPE/LDPE), PVC, adipic acid, hexamethylenediamine, nylon 6,6, bisphenol A, epichlorohydrin, epoxy resin, tetrafluoroethylene, PTFE/fluoropolymer |
+| Metal and silicon process chemicals | Alumina, sodium aluminate liquor, titanium tetrachloride, magnesium chloride, trichlorosilane, electronic-grade polysilicon |
+| Semiconductor process chemicals | Photoresist precursors, tungsten hexafluoride, sulfur hexafluoride, nitrogen trifluoride |
+| Battery and energy chemicals | Lithium carbonate, lithium hydroxide, cobalt sulfate, manganese compounds, uranium oxide fuel intermediates, thorium oxide, deuterium, tritium |
+
+Several entries are mixtures or industrial product classes rather than pure compounds (for example, producer gas, photoresist, and manganese compounds). Keep those grouped unless a distinct recipe or gameplay use requires a specific composition.
+
+### Reaction and Process Inventory
+
+| Process | Simplified transformation | Status / use |
+| --- | --- | --- |
+| Water electrolysis | 2H2O -> 2H2 + O2 | Candidate hydrogen source and electrochemical capability |
+| Chlor-alkali electrolysis | 2NaCl + 2H2O -> Cl2 + H2 + 2NaOH | Core brine route; the three coproducts must have useful sinks |
+| Hydrogen chloride synthesis | H2 + Cl2 -> 2HCl | Candidate reagent supply for metal and silicon chemistry |
+| Sulfur combustion | S + O2 -> SO2 | Candidate sulfur-to-acid feed route; off-gas capture versus pollution choice |
+| Contact-process oxidation | 2SO2 + O2 -> 2SO3 (V2O5 catalyst) | Core sulfuric-acid route |
+| Sulfur trioxide hydration | SO3 + H2O -> H2SO4 | Core sulfuric-acid route |
+| Haber-Bosch ammonia synthesis | N2 + 3H2 -> 2NH3 (iron catalyst) | Later candidate; high-pressure process capability |
+| Ammonia oxidation | 4NH3 + 5O2 -> 4NO + 6H2O (platinum-group catalyst) | Ostwald nitric-acid chain candidate |
+| Nitrogen dioxide formation | 2NO + O2 -> 2NO2 | Ostwald chain intermediate |
+| Nitric acid absorption | 3NO2 + H2O -> 2HNO3 + NO | Ostwald chain; NO returns to oxidation |
+| Limestone calcination | CaCO3 -> CaO + CO2 | Core lime/cement route and carbon dioxide coproduct |
+| Lime slaking | CaO + H2O -> Ca(OH)2 | Candidate construction and pH-control product |
+| Clinker formation | Lime + silica + alumina/iron-bearing minerals -> clinker phases | Cement process; multi-phase industrial transformation, not a single balanced equation |
+| Coal carbonization | Coal -> coke + gas/tar fractions (heated without air) | Candidate coke and carbon-chemical route; variable feed, not fixed stoichiometry |
+| Calcium carbide production | CaO + 3C -> CaC2 + CO | Candidate electric-arc capability |
+| Acetylene generation | CaC2 + 2H2O -> C2H2 + Ca(OH)2 | Candidate chemical feedstock route |
+| Activated-carbon production | Carbonaceous feed -> porous activated carbon (steam/CO2 activation) | Candidate water-treatment and catalyst-support material |
+| Crude-oil fractionation | Crude oil -> gas, naphtha, and heavier cuts | Separation, not a chemical reaction |
+| Steam methane reforming | CH4 + H2O -> CO + 3H2 | Candidate hydrogen route with carbon-dioxide tradeoff downstream |
+| Water-gas shift | CO + H2O -> CO2 + H2 | Candidate hydrogen/CO2 balancing step |
+| Catalytic cracking | Naphtha/heavier hydrocarbons -> lighter olefins and other products | Candidate ethylene/propylene route; product mix depends on process configuration |
+| Catalytic reforming | Naphtha -> aromatic-rich reformate, including benzene-family feedstocks | Candidate petrochemical route |
+| Ethylene polymerization | n CH2=CH2 -> (CH2-CH2)n | Core polyethylene route; catalyst grades can create meaningful variants |
+| Ethylene dichlorination | C2H4 + Cl2 -> C2H4Cl2 | Candidate PVC precursor route |
+| EDC cracking | C2H4Cl2 -> C2H3Cl + HCl | Vinyl chloride and recyclable HCl candidate route |
+| Vinyl chloride polymerization | n C2H3Cl -> (C2H3Cl)n | Candidate PVC route |
+| Adipic acid production | Cyclohexane/benzene-derived feed -> adipic acid | Later nylon intermediate; exact route and coproducts need selection |
+| Hexamethylenediamine production | Selected petrochemical intermediate -> hexamethylenediamine | Later nylon intermediate; route remains open |
+| Nylon 6,6 condensation | Adipic acid + hexamethylenediamine -> nylon 6,6 + water | Later polymer route |
+| Epoxy resin production | Bisphenol A + epichlorohydrin -> epoxy resin | Candidate resin chemistry; replaces the earlier oversimplified phenol/formaldehyde note |
+| Fluoropolymer production | Tetrafluoroethylene polymerization -> PTFE-like polymer | Candidate cleanroom/chemical-service material; monomer route remains open |
+| Bayer alumina refining | Bauxite digestion in NaOH -> sodium aluminate liquor -> Al(OH)3 precipitation -> calcination to Al2O3 | Dedicated aluminum exception; residue and caustic recovery matter |
+| Hall-Heroult electrolysis | 2Al2O3 + 3C -> 4Al + 3CO2 (simplified net reaction) | Dedicated aluminum metal-production step; sustained power requirement |
+| Kroll chlorination | TiO2 + 2Cl2 + C -> TiCl4 + CO2 | Dedicated titanium precursor route |
+| Kroll reduction | TiCl4 + 2Mg -> Ti + 2MgCl2 | Dedicated titanium exception; magnesium/chlorine loop candidate |
+| Metallurgical-silicon reduction | SiO2 + 2C -> Si + 2CO | Quartz-to-silicon route; furnace and gas handling decision |
+| Trichlorosilane formation | Si + 3HCl -> HSiCl3 + H2 | Semiconductor silicon purification precursor |
+| Polysilicon deposition | HSiCl3 + H2 -> Si + 3HCl | Candidate high-purity silicon deposition; recycle HCl |
+| Semiconductor gas preparation | Refined elements/compounds -> WF6, SF6, NF3 and other specialty gases | Candidate capability set; individual synthesis routes remain future work |
+| Uranium fuel conversion | Uranium concentrate -> uranium oxide fuel intermediates | Candidate fission chemistry; detailed fuel-cycle design stays in the nuclear product branch |
+| Lithium breeder processing | Lithium mineral/brine -> lithium-bearing blanket material -> bred tritium recovery | Fusion-linked candidate; neutron breeding is nuclear physics, not a chemical reaction |
+
+This registry is intentionally broad so the proposal's scale is visible. Promotion to the approved design still requires your review and a documented use path for each product or intermediate.

@@ -3,7 +3,7 @@
 *For: Factorio Overhaul Mod*
 *Status: Candidate inventory / requirements phase*
 
-Related documents: [Material Chain Map](material-chain-map.md) - mined feeds and mineral-derived products; [Chemical Products and Processes](chemical-processes.md) - reactions, reagents, chemical intermediates, and polymers.
+Related documents: [Material Chain Map](material-chain-map.md) - mined feeds and mineral-derived products; [Chemical Products and Processes](chemical-processes.md) - reactions and chemical feeds; [Machine Systems](machine-systems.md) - candidate equipment families.
 
 ## Scope
 
@@ -98,6 +98,68 @@ Precision optics + cryogenics -> simulation links and high-performance systems
 ```
 
 A packaged processor is a component, not the victory condition. The player builds geographically distributed wafer, processor, supercomputer, and research facilities that turn industrial capacity into simulation capacity.
+
+## Provisional Recipe Pathways
+
+This is a recipe-family inventory, not a finalized recipe book. It records the candidate transformation and output use, but not numeric quantities, crafting times, machine counts, or unlock requirements. Chemical inputs and reactions are specified in [Chemical Products and Processes](chemical-processes.md); candidate equipment is mapped in [Machine Systems](machine-systems.md). All entries remain candidates until approved.
+
+### Recipe Pathways: Metallurgy
+
+| Candidate output | Provisional recipe pathway | Product use |
+| --- | --- | --- |
+| Pig iron | Iron concentrate + carbon reductant + flux -> pig iron + slag/off-gas | Steelmaking feed |
+| Direct-reduced iron | Iron oxide feed + hydrogen -> DRI + water | Lower-carbon steelmaking feed |
+| Carbon steel | Pig iron/DRI + scrap + carbon/oxygen adjustment -> steel + slag | Main structural material |
+| Stainless steel | Steel + chromium + nickel -> stainless steel | Corrosion-resistant plant, pipes, and vessels |
+| Niobium microalloyed steel | Steel + ferroniobium -> high-strength steel | Pressure-bearing and high-strength structures |
+| Tool steel | Steel + carbon + selected tungsten/vanadium additions -> tool steel | Durable cutters, drills, and machine parts |
+| Invar | Iron + nickel -> low-expansion alloy | Precision tooling and temperature-stable parts |
+| Titanium alloy | Titanium + selected alloy additions -> titanium alloy | Lightweight, high-strength structures |
+| Aluminum alloy | Aluminum + selected alloy additions -> aluminum alloy | Lightweight structures and heat exchangers |
+
+### Recipe Pathways: Batteries
+
+| Candidate output | Provisional recipe pathway | Product use |
+| --- | --- | --- |
+| Lithium cathode precursor | Lithium carbonate/hydroxide + selected transition-metal compounds -> cathode precursor | Battery cathode material |
+| Cobalt/manganese cathode compounds | Leach and purify cobalt/manganese-bearing feed -> sulfate or oxide compounds | Higher-performance battery chemistries |
+| Graphite anode material | Purified graphite -> grind/classify and coat or shape | Battery anode |
+| Battery cell | Cathode + anode + electrolyte + separator + casing -> cell | Electrical storage |
+| Battery pack | Cells + casing + control electronics -> pack | Grid buffering and mobile equipment |
+
+### Semiconductor and Electronics Products
+
+| Candidate output | Provisional recipe pathway | Product use |
+| --- | --- | --- |
+| Electronic-grade polysilicon | Metallurgical silicon -> chlorosilane purification/deposition -> polysilicon | Wafer feedstock |
+| Silicon wafer | Polysilicon -> single-crystal growth -> slicing/polishing/doping | Semiconductor substrate |
+| Patterned wafer | Wafer + photoresist + specialty process gases -> patterned wafer | Circuit fabrication |
+| Copper/tantalum-nitride interconnect | Ultra-pure copper + tantalum compound -> deposited interconnect stack | Chip wiring and diffusion barrier |
+| Tantalum capacitor | Refined tantalum -> capacitor powder/anode + dielectric and packaging | Compact electronics |
+| Packaged integrated circuit | Fabricated die + contacts + package -> packaged IC | PLCs, factory automation, and computation |
+
+### Recipe Pathways: Nuclear Materials
+
+| Candidate output | Provisional recipe pathway | Product use |
+| --- | --- | --- |
+| Uranium oxide fuel pellet | Uranium concentrate -> fuel conversion -> UO2 powder -> pressed/sintered pellet | Fission fuel assembly |
+| Thorium-cycle fuel | Thorium-bearing feed -> optional breeding/conversion route -> U-233-bearing fuel | Optional alternative fission cycle |
+| Zirconium-alloy cladding | Zircon concentrate -> Zr/Hf separation -> zirconium sponge/alloy -> cladding | Fuel-rod cladding |
+| Hafnium absorber | Hafnium-bearing separation stream -> refined hafnium -> absorber component | Neutron-control assembly |
+| Boron-carbide absorber | Boron compound + carbon -> B4C component | Alternative neutron-control assembly |
+| Reactor steel assembly | Stainless/specialty steel -> fabricated vessel, heat exchanger, and support parts | Reactor plant construction |
+| Lithium breeder blanket | Lithium-bearing material -> ceramic/liquid breeder form -> blanket module | Fusion tritium breeding and heat transfer |
+| Tungsten armor tile | Refined tungsten -> formed/finished plasma-facing tile | Fusion chamber protection |
+| Nb3Sn or NbTi conductor | Niobium + tin or titanium -> superconducting alloy -> wire/cable | High-field fusion magnets |
+
+### Distributed Computing Endgame
+
+| Candidate output | Provisional recipe pathway | Product use |
+| --- | --- | --- |
+| Processor cluster | Packaged ICs + boards + cooling and power components -> compute rack | Regional computation |
+| Supercomputer facility | Compute racks + high-capacity power/cooling + network equipment -> facility | Large-scale simulation |
+| Simulation cluster node | Supercomputer facility + synchronization and precision links -> network node | Distributed simulation |
+| Planetary research center | Regional cluster nodes + precision optics + research infrastructure -> center | Endgame objective network |
 
 ## Design Checks
 
