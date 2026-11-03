@@ -42,13 +42,13 @@ The arc: *"Starting from dirt and ore, layering process after process, until bui
 
 - **Title:** *Project Prometheus* (recommended; see [mod-overview.md](mod-overview.md) for candidates)
 - **Progression shape:** Conventional science (~40–50% game) → domain packs + conventional bridge → simulation-gated research (final ~100 hours)
-- **Endgame goal:** Build a planetary digital twin that unlocks general-physics discovery
+- **Endgame goal:** Build a planetary simulation network that models information-formed entities (structured-data beings, not AI) and unlocks general-physics discovery
 - **Phase 4 power:** Hawking Radiation Engine — available during simulation construction, gated by basic Core completion (not final milestone)
 - **Research items:** Science-pack-style buildings producing "readings and results" — same mechanic as vanilla science packs, re-themed
 
 ## How to Dive In
 
-1. Read **[mod-overview.md](mod-overview.md)** for the full design philosophy, system map, inspirations, guardrails, and current open decisions
+1. Read **[mod-overview.md](mod-overview.md)** for the full design philosophy, system map, inspirations, guardrails, and open decisions (with links to each domain doc)
 2. Pick a domain that interests you — each linked document tracks its own open decisions separately
 3. Use the [Domain-Specific Decisions](mod-overview.md#domain-specific-decisions-link-out) section at the bottom of mod-overview.md to navigate to which docs need work
 
@@ -66,4 +66,4 @@ Avoid: mandatory upgrades without new capability, arbitrary complexity, a single
 
 ## Status
 
-Broad design proposal. System details live in linked documents. Still open: mineral roster, chemical inventory, nuclear pathway depth, final endgame objective and victory condition.
+Broad design proposal. System details live in linked documents. See [mod-overview.md](mod-overview.md) for the full list of open decisions by domain.
