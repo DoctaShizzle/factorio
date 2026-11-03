@@ -88,7 +88,7 @@ Based on the existing Endgame Vision stages:
 | Stage | Gate | Examples of technologies unlocked |
 |---|---|---|
 | **Planetary + Industrial Model** (first Phase 3 stage) | Planetary survey data + industrial process data from real production chains | Cleanroom fabrication, high-purity refining, basic semiconductor processes, advanced materials science |
-| **Agent-based Civilization Model** | Planetary/industrial model results + behavioral datasets | Deep simulation infrastructure, PLC optimization systems, advanced factory control |
+| **Information-Based Civilization Model** | Planetary/industrial model results + behavioral datasets | Deep simulation infrastructure, advanced factory control tools |
 | **General-Physics Model** (final extension) | Advanced physics experiments + extreme-energy facility data | Quantum mechanics applications, new physics frontiers |
 
 ### Phase 4 Power and the Planetary Simulation Core
@@ -113,7 +113,7 @@ By having Phase 4 power available *while* building the full simulation, the play
 
 **Resolved:** The simulation network construction occupies approximately **1/3 of total game time** (~100 hours within the 300+ hour ambition). This is the final third of gameplay, bridging from fusion power through building the full distributed computational civilization.
 
-Phase 4 power generation (Hawking Radiation Engine) is available *during* this construction phase — enabled by a basic Planetary Simulation Core. The player uses Phase 4 power to fuel the massive energy demands of expanding the simulation network. As the Core grows from basic physics model → planetary industrial model → agent-based civilization, its power requirements increase, and Phase 4 scales alongside it.
+Phase 4 power generation (Hawking Radiation Engine) is available *during* this construction phase — enabled by a basic Planetary Simulation Core. The player uses Phase 4 power to fuel the massive energy demands of expanding the simulation network. As the Core grows from basic physics model → planetary industrial model → information-formed civilization, its power requirements increase, and Phase 4 scales alongside it.
 
 ### The Final Victory Condition
 
@@ -153,7 +153,7 @@ Transition Point: First compute capacity commissioned, first simulation model ru
 Phase 3 (Simulation-Gated)
 ├── Planetary/Industrial Model gates cleanrooms, advanced materials
 ├── Domain datasets from real facilities → Core runs models → findings unlock tech
-├── Agent-based Model gates deep infrastructure and PLC capabilities
+├── Information-Based Model gates deep infrastructure and control tools
 ├── General-Physics Model gates Phase 4 (Hawking Radiation Engine)
 └── Player learns: "I am an engineer who must understand the universe to manipulate it"
 

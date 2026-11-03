@@ -51,7 +51,7 @@ This document maps industrial operations to candidate machine families. It is no
 
 - **Early:** electric drills, basic preparation, simple furnaces, basic fluid handling, and accessible chemical vessels.
 - **Middle:** prospecting, flotation, dedicated leaching/solution processing, stronger metallurgy, industrial electrolysis, and reliable circuit control.
-- **Late:** high-purity refining, residue recovery, multiblock or high-throughput equipment where needed, cleanrooms, wafer fabrication, advanced fuel/component fabrication, and PLCs.
+- **Late:** high-purity refining, residue recovery, multiblock or high-throughput equipment where needed, cleanrooms, wafer fabrication, and advanced fuel/component fabrication. Optional programmable control tools (PLCs) are a separate capability tier for players who want them.
 
 This is a capability outline, not a locked technology tree. Each stage should add a new operation, route, or diagnostic capability rather than a generic speed tier.
 
@@ -72,7 +72,7 @@ Do not fill this matrix with speculative exact recipes until the mineral, chemic
 - Which routes need multiblocks for meaningful scale, and which can scale by adding ordinary machines?
 - How are products, gases, liquids, tailings, slags, and catalyst residues routed without making basic setups fragile?
 - Which processes genuinely need catalyst slots, pressure/temperature constraints, or maintenance?
-- What is the smallest useful PLC and sensor/actuator set, and which functions remain optional?
+- What is the smallest useful PLC and sensor/actuator set, and which functions remain optional? (This is a minor capability, not central to the design.)
 - How are machine status, throughput, power draw, and blocked outputs diagnosed in-game?
 
 ## Design Gate

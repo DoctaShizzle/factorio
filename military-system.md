@@ -135,7 +135,7 @@ Defense itself should follow the mod's progression philosophy — earned through
 |---|---|---|
 | Early | Passive barriers, basic turrets with kinetic ammo | Basic steel, lead, simple chemistry |
 | Mid | Active defense grids, incendiary/explosive ammo supply | Chemical intermediates, alloy production, precision manufacturing |
-| Late | Distributed defense network, automated targeting, specialized ammo | Semiconductors, computation layer, PLC integration |
+| Late | Distributed defense network, automated targeting, specialized ammo | Semiconductors, automation tools |
 | Endgame (optional) | Strategic deterrence systems | Advanced nuclear or fusion capabilities |
 
 ### Defense as Factory Design
@@ -166,4 +166,4 @@ This gives players two endgame aspirations:
 - **Defense turrets:** Extend existing vanilla turrets with new ammo types, or introduce new turret families tied to industrial capability (e.g., electric arc turret requiring advanced conductivity)?
 - **Nuclear ammo scope:** If nuclear fuel chain exists in the mod, does nuclear ammunition belong in the military system?
 - **Pollution type differentiation:** Should different pollution sources generate qualitatively different military pressure (e.g., acid emissions attract different responses than CO2 spread)? Or is total pollution count sufficient?
-- **Defense automation via PLCs:** Can connected sensors and automated targeting integrate with existing combat logic, or does this require a separate control system?
+- **Defense automation via connected control tools:** Can sensors and automated targeting integrate with existing combat logic? (Open — secondary to core military design.)

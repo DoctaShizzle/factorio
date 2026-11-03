@@ -15,7 +15,7 @@ This document defines the endgame as building a planetary digital twin by constr
 
 ## North Star
 
-The endgame hook is: **Build a planetary digital twin by constructing a computational civilization.** The simulation should model the planet's physical systems and populations of agent-like entities that make decisions, somewhat like people. These entities are the subject of the simulation; the premise is not an AI character housed inside a building.
+The endgame hook is: **Build a planetary digital twin by constructing a computational civilization.** The simulation should model the planet's physical systems and populations of information-based entities — beings composed of structured data, not artificial intelligence. These entities perceive their environment, make decisions, and interact with modeled systems in ways that emerge from their structure and dynamics rather than programmed behavior. These entities are the subject of the simulation; the premise is not an AI character housed inside a building.
 
 The planetary digital twin is the clear, concrete promise. Modeling broader physical laws or a virtual cosmos can be a final extension of that work, but should not replace the planetary-scale hook or imply literal simulation of every particle in the universe.
 
@@ -54,7 +54,7 @@ The network should be fed evidence that the factory has built the capabilities i
 - **Planetary survey data:** prospecting, mineral analysis, and resource mapping.
 - **Industrial process data:** operating chemical, refining, metallurgy, and power systems.
 - **Materials and physics data:** cleanroom fabrication, precision measurements, and advanced experiments.
-- **Agent/civilization models:** later simulation inputs representing decision-making entities and interacting systems.
+- **Information-based / civilization models:** later simulation inputs representing structured data entities that perceive, decide, and interact within the modeled world.
 
 The number and exact form of datasets remain open. They should come from meaningful processes, not require every ordinary machine to emit a bookkeeping item.
 
@@ -66,7 +66,7 @@ The network's modeling capability evolves through stages as more domains are und
 | --- | --- | --- |
 | Planetary model | Geology, resources, major physical systems | Survey results plus operating data from real production chains |
 | Industrial model | Extraction, refining, power, chemistry, and logistics as interacting systems | Industrial process data from operational factories |
-| Agent-based model | Populations of entities that perceive, decide, and act within the modeled world | Planetary/industrial model results plus behavioral datasets |
+| Information-based model | Populations of information-formed entities that perceive, decide, and act within the modeled world | Planetary/industrial model results plus behavioral datasets |
 | General-physical model (possible final extension) | Broader physical laws beyond the planet | Advanced physics experiments, extreme-energy facility data |
 
 These are scope candidates for what the simulation network grows to model. The exact sequence, dependency between stages, and which infrastructure changes occur at each transition remain open — they should be designed alongside the research-progression document so that physical infrastructure milestones align with research gates.

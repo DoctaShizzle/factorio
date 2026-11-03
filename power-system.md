@@ -252,8 +252,7 @@ The interface should use clear units and concise messages. Early onboarding shou
 
 - Explain every limit and loss in the UI; avoid hidden grid failures.
 - Make early power simple to establish and diagnose.
-- Let infrastructure and factory layout solve power problems; do not require PLC programming for basic grid stability.
-- Use PLCs for optional advanced control, load shedding, and power-plant coordination.
+- Let infrastructure and factory layout solve power problems; basic grid stability works without programmable control. Programmable tools are optional for advanced load management and plant coordination.
 - Treat exact voltage tiers, loss formulas, conductor stats, and machine behavior as open design decisions until tested together.
 
 ## Reference Inspiration

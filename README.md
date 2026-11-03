@@ -66,4 +66,4 @@ Avoid: mandatory upgrades without new capability, arbitrary complexity, a single
 
 ## Status
 
-Broad design proposal. System details live in linked documents. Still open: mineral roster, chemical inventory, nuclear pathway depth, PLC scope, final endgame objective and victory condition.
+Broad design proposal. System details live in linked documents. Still open: mineral roster, chemical inventory, nuclear pathway depth, final endgame objective and victory condition.

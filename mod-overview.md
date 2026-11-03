@@ -55,7 +55,7 @@ The ambition is a long overhaul playthrough, potentially 300+ hours, with comple
 | Chemistry | Named industrial reactions, coproducts, alternative pathways, catalysts, and chemical intermediates | [Chemical Products and Processes](chemical-processes.md) |
 | Manufactured intermediates | Alloys, batteries, semiconductor components, nuclear assemblies, and endgame components | [Intermediate Products](intermediate-products.md) |
 | Power | Generator phases, fuel density, grid tiers, transmission losses, conductor choices, diagnostics, and waste handling | [Power System](power-system.md) |
-| Endgame | Distributed computational civilization; simulation milestones from planetary model → industrial model → agent-based civilization → general-physics discovery | [Endgame Vision](endgame-vision.md), [Research and Progression](research-progression.md) |
+| Endgame | Distributed computational civilization; simulation milestones from planetary model → industrial model → information-based beings → general-physics discovery | [Endgame Vision](endgame-vision.md), [Research and Progression](research-progression.md) |
 | Machines | Reusable equipment families mapped to industrial operations and progression | [Machine Systems](machine-systems.md) |
 | Military | Pollution pressure, ammo/weapon chains, defense infrastructure, process tradeoffs | [Military System](military-system.md) |
 | Logistics | Transport layers, demand-based dispatch, freight terminals, information flow | [Logistics System](logistics-system.md) |
@@ -70,17 +70,13 @@ Chemical chains should connect resource processing to metallurgy, construction, 
 
 ### Endgame Hook
 
-**Build a planetary digital twin by constructing a computational civilization that models an entire simulated world.** The simulation starts with basic physical systems and grows to model agent-like entities that think and make decisions. Completing the planetary-scale network unlocks general-physics discovery, extending the player beyond known physics.
+**Build a planetary digital twin by constructing a computational civilization that models an entire simulated world.** The simulation starts with basic physical systems and grows to model populations of information-formed entities — beings composed of structured data, not artificial intelligence. Completing the planetary-scale network unlocks general-physics discovery, extending the player beyond known physics.
 
 The Planetary Simulation Core anchors a distributed network of memory archives, compute campuses, and research/observation facilities — not an AI housed in a building, but a real computational infrastructure dependent on the full industrial ecosystem built earlier.
 
 ### Pollution and Military Pressure
 
 Pollution is an economic consequence of industrial choices, not a collection of special-case enemy mechanics. Dirty, high-throughput production may defer costs into military pressure; cleaner routes trade for infrastructure, power, or process complexity.
-
-### Programmable Automation
-
-A general-purpose PLC system is a candidate capability: connected sensors and actuators, a constrained in-game programming interface, and tools for testing and debugging. It may automate complex plant balancing, but basic factory stability must remain achievable with ordinary routing and circuit logic. Language, API, and scope are undecided.
 
 ### Fluids and Process Infrastructure
 
