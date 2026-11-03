@@ -3,7 +3,7 @@
 *For: Factorio Overhaul Mod*
 *Status: Candidate inventory / requirements phase*
 
-Related documents: [Material Chain Map](material-chain-map.md) - mined feeds and mineral-derived products; [Chemical Products and Processes](chemical-processes.md) - reactions and chemical feeds; [Machine Systems](machine-systems.md) - candidate equipment families.
+Related documents: [Minerals and Refining](minerals-and-refining.md) - mined feeds and mineral-derived products; [Chemical Products and Processes](chemical-processes.md) - reactions and chemical feeds; [Machine Systems](machine-systems.md) - candidate equipment families.
 
 ## Scope
 

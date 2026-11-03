@@ -3,7 +3,7 @@
 *For: Factorio Overhaul Mod*  
 *Status: Candidate machine families / requirements phase*
 
-Related documents: [Material Chain Map](material-chain-map.md), [Chemical Products and Processes](chemical-processes.md), [Intermediate Products](intermediate-products.md), and [Power System](power-system.md).
+Related documents: [Minerals and Refining](minerals-and-refining.md), [Chemical Products and Processes](chemical-processes.md), [Intermediate Products](intermediate-products.md), and [Power System](power-system.md).
 
 ## Purpose
 

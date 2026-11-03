@@ -31,7 +31,7 @@ The ambition is a long overhaul playthrough, potentially 300+ hours, with comple
 
 | System | Design role | Working document |
 | --- | --- | --- |
-| Mineral catalog | Candidate deposits, mineral feeds, recoverable materials, and common route patterns | [Material Chain Map](material-chain-map.md) |
+| Mineral catalog | Candidate deposits, mineral feeds, recoverable materials, and common route patterns | [Minerals and Refining](minerals-and-refining.md) |
 | Chemistry | Named industrial reactions, coproducts, alternative pathways, catalysts, and chemical intermediates | [Chemical Products and Processes](chemical-processes.md) |
 | Manufactured intermediates | Alloys, batteries, semiconductor components, nuclear assemblies, and endgame components | [Intermediate Products](intermediate-products.md) |
 | Power | Local grids, transmission tiers, conductor choice, losses, transformations, and diagnostics | [Power System](power-system.md) |

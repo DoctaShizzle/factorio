@@ -3,7 +3,7 @@
 *For: Factorio Overhaul Mod*  
 *Status: Design reference / requirements phase*
 
-Related documents: [Material Chain Map](material-chain-map.md) for deposits, minerals, and refining; [Intermediate Products](intermediate-products.md) for alloys, components, and manufactured materials.
+Related documents: [Minerals and Refining](minerals-and-refining.md) for deposits, minerals, and refining; [Intermediate Products](intermediate-products.md) for alloys, components, and manufactured materials.
 
 ## Purpose and Boundaries
 
