@@ -5,6 +5,14 @@
 
 Related documents: [Minerals and Refining](minerals-and-refining.md), [Chemical Products and Processes](chemical-processes.md), [Intermediate Products](intermediate-products.md), and [Power System](power-system.md).
 
+## Summary
+
+This document maps industrial operations to candidate machine families — a reusable equipment vocabulary that supports many material routes without creating a unique machine for every product. It covers sixteen stages from extraction through automation, including capability outlines for early/mid/late game.
+
+**What it covers:** Equipment principles, candidate machine families with design roles, and a provisional progression shape (early drilling → middle prospecting/flotation/electrolysis → late high-purity refining/cleanrooms/wafers/PLCs). The route-to-machine matrix section is reserved for later filling once routes are approved.
+
+**What it does not cover:** The specific processes executed by each machine (see [Chemical Products and Processes](chemical-processes.md) and [Minerals and Refining](minerals-and-refining.md)), manufactured products (see [Intermediate Products](intermediate-products.md)), or the electrical grid architecture that powers these machines (see [Power System](power-system.md)).
+
 ## Purpose
 
 This document maps industrial operations to candidate machine families. It is not a machine-by-machine implementation specification and does not commit every listed family to a unique entity. The aim is to support many material routes with a small, learnable set of reusable equipment, while reserving specialized machines for genuine capability changes.

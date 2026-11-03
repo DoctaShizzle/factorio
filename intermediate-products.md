@@ -5,6 +5,14 @@
 
 Related documents: [Minerals and Refining](minerals-and-refining.md) - mined feeds and mineral-derived products; [Chemical Products and Processes](chemical-processes.md) - reactions and chemical feeds; [Machine Systems](machine-systems.md) - candidate equipment families.
 
+## Summary
+
+This document tracks manufactured materials and components downstream of mineral refining and chemistry: metallurgical alloys, battery and electrochemical products, electronics and semiconductor products, nuclear assemblies, and the endgame computational infrastructure. Each product is listed with candidate inputs, route, industrial role, and design notes.
+
+**What it covers:** Candidate inventories by category (structural products, batteries, semiconductors, nuclear, endgame), provisional recipe pathways without fixed quantities, and key tradeoffs such as inert anodes requiring platinum-group metals or lightweight aluminum alloys for endgame infrastructure.
+
+**What it does not cover:** Mined mineral feeds and recovery assignments (see [Minerals and Refining](minerals-and-refining.md)), chemical reactions and reagent chains (see [Chemical Products and Processes](chemical-processes.md)), or machine equipment families that execute these processes (see [Machine Systems](machine-systems.md)).
+
 ## Scope
 
 This document tracks manufactured materials and components that sit downstream of mineral refining and chemistry. It does not duplicate ore rosters or specify full chemical recipes. A material belongs here when it is an alloy, functional compound, fabricated component, or assembly that unlocks a meaningful industrial capability.

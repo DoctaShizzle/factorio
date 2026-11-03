@@ -5,6 +5,14 @@
 
 Related documents: [Minerals and Refining](minerals-and-refining.md) for deposits, minerals, and refining; [Intermediate Products](intermediate-products.md) for alloys, components, and manufactured materials.
 
+## Summary
+
+This document tracks named industrial reactions, chemical processes, reagents, and intermediate compounds. It covers four core chains (sulfuric acid, chlor-alkali, plastics, cement/lime), later candidates (ammonia/nitric acid, nylon/engineering polymers, titanium/Kroll, nuclear fuel chemistry, fusion fuel handling), a chemical product index organized by family, and a provisional reaction/process registry with equations where meaningful.
+
+**What it covers:** Process families, candidate chains, product index, and reaction registry — all grounded in real industrial chemistry but simplified for gameplay.
+
+**What it does not cover:** Solid alloys and components downstream of chemistry (see [Intermediate Products](intermediate-products.md)), or equipment families that execute these processes (see [Machine Systems](machine-systems.md)).
+
 ## Purpose and Boundaries
 
 Chemistry is an industrial decision layer, not a catalog of reactions for its own sake. Use real process names and useful intermediates to teach how industrial chains connect, while simplifying kinetics and plant design into understandable factory choices.

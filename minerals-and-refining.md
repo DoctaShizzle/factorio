@@ -7,7 +7,15 @@ Related documents: [Chemical Products and Processes](chemical-processes.md), and
 
 > **Draft catalog v0.4:** Use real mineral/resource names and real geological deposit classes as identifiers; this draft does not assign invented site names. Recovery associations are candidate gameplay mappings, not claims that every specimen contains each listed element. Exact assays, ratios, and recipe availability remain to be validated.
 
-## Mining Catalog
+## Summary
+
+This document catalogs the mining and refining scope: three tiers of deposits (surface, underground, Orefields), a mineral recovery matrix mapping mined feeds to primary/secondary/tertiary pure materials, a consolidated pure-material inventory organized by group, five reusable refining stages with route templates, and balanceability requirements.
+
+**What it covers:** Deposit tiers, mineral catalog, recovery assignments, pure-material roster, refining process templates, dedicated exceptions (Al, Ti, REEs, PGM), balanceability checks, and reference inspirations from GTNH / Bob's / Angel's.
+
+**What it does not cover:** Chemical reactions and reagents (see [Chemical Products and Processes](chemical-processes.md)), manufactured alloys and components downstream of refining (see [Intermediate Products](intermediate-products.md)), or machine equipment families (see [Machine Systems](machine-systems.md)).
+
+### Mining Catalog
 
 The tiers describe deposit/feed profiles. The same mineral may occur in multiple deposits or tiers. Surface deposits are finite and single-mineral; underground deposits have one dominant mineral plus traces; Orefields combine several major minerals. A deposit's trace minerals are distinct from secondary and tertiary materials recovered from refining its main mineral.
 

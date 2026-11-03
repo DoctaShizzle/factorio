@@ -5,6 +5,14 @@
 
 Related documents: [Mod Overview](mod-overview.md), [Intermediate Products](intermediate-products.md), and [Power System](power-system.md).
 
+## Summary
+
+This document defines the endgame as building a planetary digital twin by constructing a distributed computational civilization. The Planetary Simulation Core coordinates model runs across specialized facilities spread over the map, while wafer and processor fabrication serve as prerequisite chains rather than endgame facilities themselves.
+
+**What it covers:** The core hook ("planetary digital twin of thinking entities"), recognizable structure (Core + memory archives + regional compute campuses + research/observation facilities), candidate simulation research loop (datasets → Core schedules runs → model results unlock research), and open design decisions about dataset families, simulation-research gate ratios, and the final victory condition.
+
+**What it does not cover:** Semiconductor fabrication mechanics or specific recipe pathways — those are tracked in [Intermediate Products](intermediate-products.md). Infrastructure requirements like power consumption are outlined here but detailed in [Power System](power-system.md).
+
 ## North Star
 
 The endgame hook is: **Build a planetary digital twin by constructing a computational civilization.** The simulation should model the planet's physical systems and populations of agent-like entities that make decisions, somewhat like people. These entities are the subject of the simulation; the premise is not an AI character housed inside a building.

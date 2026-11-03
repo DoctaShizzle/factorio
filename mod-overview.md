@@ -3,6 +3,12 @@
 *Industrial Ecosystems and Process Engineering*  
 *Status: Broad design proposal; system details live in linked documents*
 
+## Summary
+
+This document defines the mod's north star, core pillars, and intended scope. It establishes the mission (an industrial ecosystem where extraction, refining, metallurgy, chemistry, power, pollution, military pressure, semiconductors, and endgame research support one another) and the player identity — an industrial engineer choosing and balancing processes, not a factory builder following longer recipe chains.
+
+**Scope:** Design philosophy, system map, key pillars (multiple processes, tradeoffs over upgrades, capabilities over numbers), inspirations and guardrails, and decisions still open. All system-specific details live in the six linked documents below.
+
 ## Mission
 
 Build a coherent industrial ecosystem where extraction, refining, metallurgy, chemistry, power, pollution, military pressure, semiconductors, and endgame research support one another.

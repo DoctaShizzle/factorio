@@ -3,6 +3,14 @@
 *For: Factorio Overhaul Mod*  
 *Status: Concept / requirements phase*
 
+## Summary
+
+This document defines the power architecture as a factory-design decision rather than a global infinite bus. It proposes a grid model with transmission tiers (low-voltage distribution, high-voltage transmission), conductor material tradeoffs (tin, copper, aluminum, gold), distance-based loss modeling, and required diagnostic overlays for every pole, transformer, and line segment.
+
+**What it covers:** Grid tier candidates, conductor materials and their roles, transmission loss principles tied to factory layout, diagnostics requirements (voltage tier, current load, capacity headroom, loss per segment), and onboarding needs.
+
+**What it does not cover:** Specific generator types or power generation recipes (covered in mod overview's system map), detailed machine power consumption numbers, or electrical engineering formulas — the model should teach a useful voltage/current/resistance analogy without requiring players to calculate circuits by hand.
+
 ## Design Intent
 
 Power should be a factory-design decision, not a global infinite bus. Local generation, industrial clustering, conductor choice, and transmission infrastructure should matter, while diagnostics make losses and limits understandable.
