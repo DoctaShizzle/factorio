@@ -262,11 +262,11 @@ Battery materials                      Advanced polymers → cleanroom infrastru
 
 ## Current Refining Direction
 
-The current preference is to lean toward Angel's mirrored processing model while supporting a broader and more geologically varied set of raw materials.
+Mining and refining are separate progression systems: deposits define the mineral feed, while refining capabilities determine which pure materials can be recovered. The mining tiers are finite single-mineral surface deposits, underground deposits with one dominant mineral plus traces, and variable ore bodies containing several main minerals.
 
-- Reuse a small number of recognizable processing stages and progression patterns across most mineral lines.
-- Let the three extraction tiers add complexity through deposit composition and mixed output streams, rather than inventing unrelated process logic for every ore.
-- Allow exceptions when the real material chemistry warrants them. Aluminum production from bauxite is a candidate: its Bayer-to-electrolysis chain is meaningfully different from common iron and copper processing.
-- Treat the specific number and shape of methods per mineral as unresolved; the examples are design probes, not a rule that every ore must have exactly three routes.
+- Use GTNH primarily as inspiration for geological and material breadth, and Bob's/Angel's for accessible, reusable processing stages and output balancing; do not copy either mod's exact material list or ratios.
+- Reuse recognizable mechanical, chemical, and thermal/electrolytic stages where appropriate, with exceptions for material chemistry.
+- Later refining capabilities may recover more trace materials at the cost of lower primary-material yield per unit of feed.
+- Avoid required voiding. A key unresolved constraint is recovering trace materials without requiring saturated primary outputs to be consumed at a matching rate.
 
-This is a working direction, not a final process specification. The dedicated [Mining, Refining & Metallurgy](mining-refining-metallurgy.md) document holds the extraction model and worked examples; this map tracks candidate materials and dependencies.
+This is a working direction, not a final process specification. The dedicated [Mining, Refining & Metallurgy](mining-refining-metallurgy.md) document holds the feed-profile model and refining requirements; this map tracks candidate materials and dependencies.

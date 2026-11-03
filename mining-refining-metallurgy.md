@@ -6,23 +6,45 @@ Related documents: [Material Chain Map](material-chain-map.md) · [Chemical Proc
 
 ## Current Direction
 
-The current preference is an Angel's-like mirrored processing backbone, expanded to support a broader range of raw minerals and the three-stage extraction progression. Most minerals should reuse familiar process patterns so logistics and player understanding scale predictably. Exceptions are welcome when real material properties make a process genuinely different (bauxite/aluminum is a candidate), rather than for novelty alone.
+Mining and refining are separate progression systems. Mining determines the mineral feed entering the factory; refining capabilities determine which pure materials can be recovered from it.
 
-This is a working design, not a validated process specification. The worked examples below are hypotheses to test; detailed material coverage and dependencies are tracked in the [Material Chain Map](material-chain-map.md).
+The design takes geological breadth and material inspiration primarily from GTNH, while looking to Bob's/Angel's for accessible, reusable processing stages and recoverable output balancing. We should borrow useful ideas without copying either mod's exact material list, ratios, or recipes.
+
+### Mining Tiers as Feed Profiles
+
+- **Surface deposits:** Finite, single-mineral supplies mined with near-vanilla electric drills. Focus on the most important early-game minerals, including minerals that can yield iron, copper, and other foundational materials. A single mineral may still yield several pure materials after multi-step refining.
+- **Underground deposits:** One dominant mineral with smaller quantities of trace minerals, reflecting geological variation rather than a universal recipe ratio.
+- **Ore bodies:** Several main minerals mined together, with the mix varying by deposit. These provide complex feeds for later sorting and refining capabilities.
+
+All three tiers supply minerals. They do not each require a separate refining ladder.
+
+### Refining and Balance Requirements
+
+- Reuse a learnable set of processing stages, such as mechanical separation, chemical treatment, and thermal or electrolytic processing. Use exceptions when the material chemistry warrants them.
+- Early processing should provide useful primary materials and a manageable residue stream. Later capabilities can recover more of the value in that shared residue, including sulfur, iron, and rare metals.
+- More advanced recovery may trade lower primary-metal yield per unit of raw mineral for greater trace-material recovery. The output strategies and their costs must be legible to players.
+- Trace recovery must not require the primary metal to be consumed at the same rate. For example, gold recovery from a copper-bearing feed should not force copper to back up when copper demand is saturated. Finding a non-voiding way to handle or route the primary stream is an open design problem.
+- Buffers are acceptable where they support normal production. Voiding should not be a required balancing mechanism, especially for finite mineral resources. Finite deposits also mean trace yields are bounded by the available feed.
+
+This remains a working direction, not a validated process specification. The worked examples below predate this direction and are hypotheses to revise; they do not establish a requirement for exactly three routes per mineral. Detailed material candidates and dependencies are tracked in the [Material Chain Map](material-chain-map.md).
 
 ---
-# Grand Refining Design — Working Example: Chalcopyrite
 
-## The Three Extraction Tiers (Retained)
+## Exploratory Refining Example — Chalcopyrite
+
+## The Three Mining Tiers
 
 ### Tier 1: Surface Deposits
-Iron Deposit, Copper Deposit, Coal Deposit. Single-mineral processing. Tutorial layer.
+
+Finite, single-mineral deposits mined with near-vanilla electric drills. These provide an introductory supply of foundational minerals; each mineral may still yield multiple pure materials through refining.
 
 ### Tier 2: Underground Mineral Deposits
-Single-mineral deposits with extraction complexity. Hematite, Magnetite, Chalcopyrite, Bauxite, Galena/Sphalerite pairs.
+
+One dominant mineral with trace minerals. Composition varies by deposit, adding geological and refining choices.
 
 ### Tier 3: Ore Bodies (Late Game)
-Multi-output "sushi belts" — e.g., VMS formation outputs chalcopyrite + pyrite + sphalerite + galena + trace precious metals simultaneously on one conveyor. Refining equilibrium becomes a mechanical necessity, not an aesthetic choice.
+
+Several main minerals mined together, with composition varying between deposits. These create mixed feeds for shared sorting and refining processes; the specific handling and balancing mechanics remain to be designed.
 
 ---
 
@@ -480,11 +502,11 @@ Extract Minerals
 
 ## Byproduct Philosophy
 
-Storage is not a solution.
+Buffers may support normal production, but permanent accumulation should not be the expected solution.
 
-Voiding is not a solution.
+Voiding should not be required for balance, particularly when processing finite mineral deposits.
 
-Industrial equilibrium is the solution.
+Industrial equilibrium is the goal, but trace recovery must not depend on consuming primary outputs at a matching rate. This is an open constraint for the refining design.
 
 ---
 
