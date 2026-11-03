@@ -3,7 +3,7 @@
 *For: Factorio Overhaul Mod*  
 *Status: Vision / requirements phase*
 
-Related documents: [Mod Overview](mod-overview.md), [Intermediate Products](intermediate-products.md), and [Power System](power-system.md).
+Related documents: [Mod Overview](mod-overview.md), [Intermediate Products](intermediate-products.md), [Power System](power-system.md), and [Research and Progression](research-progression.md) for simulation-gated research mechanics.
 
 ## Summary
 
@@ -11,7 +11,7 @@ This document defines the endgame as building a planetary digital twin by constr
 
 **What it covers:** The core hook ("planetary digital twin of thinking entities"), recognizable structure (Core + memory archives + regional compute campuses + research/observation facilities), candidate simulation research loop (datasets → Core schedules runs → model results unlock research), and open design decisions about dataset families, simulation-research gate ratios, and the final victory condition.
 
-**What it does not cover:** Semiconductor fabrication mechanics or specific recipe pathways — those are tracked in [Intermediate Products](intermediate-products.md). Infrastructure requirements like power consumption are outlined here but detailed in [Power System](power-system.md).
+**What it does not cover:** Research progression mechanics — including how conventional science transitions to simulation-gated research, domain science pack design, and technology gating rules. These are defined in [Research and Progression](research-progression.md). Semiconductor fabrication mechanics or specific recipe pathways — those are tracked in [Intermediate Products](intermediate-products.md). Infrastructure requirements like power consumption are outlined here but detailed in [Power System](power-system.md).
 
 ## North Star
 
@@ -58,35 +58,18 @@ The network should be fed evidence that the factory has built the capabilities i
 
 The number and exact form of datasets remain open. They should come from meaningful processes, not require every ordinary machine to emit a bookkeeping item.
 
-## Candidate Simulation Research Loop
+## Simulation Scope Candidates
 
-One possible interpretation of the distributed simulation network is a set of connected research/data facilities plus regional compute and memory nodes, coordinated by the Planetary Simulation Core. Research facilities accept domain datasets; the Core runs the relevant model if the network has enough installed compute, memory, power, and cooling; completed runs produce findings or model results that unlock selected technologies and the next simulation stage.
+The network's modeling capability evolves through stages as more domains are understood and connected to the Core. These describe what the simulation *models* at each stage, not which technologies they gate (see [Research and Progression](research-progression.md) for research mechanics).
 
-In this model, conventional science packs can carry the early game. Later simulation research adds a distinct requirement: the right evidence datasets and enough operational network capacity. Compute capacity would normally be infrastructure, not a consumable item; model results could be research inputs or unlock flags. Whether datasets are consumed, retained, or represented as research ingredients is still open.
+| Stage candidate | Model scope | Candidate evidence / inputs from facilities |
+| --- | --- | --- |
+| Planetary model | Geology, resources, major physical systems | Survey results plus operating data from real production chains |
+| Industrial model | Extraction, refining, power, chemistry, and logistics as interacting systems | Industrial process data from operational factories |
+| Agent-based model | Populations of entities that perceive, decide, and act within the modeled world | Planetary/industrial model results plus behavioral datasets |
+| General-physical model (possible final extension) | Broader physical laws beyond the planet | Advanced physics experiments, extreme-energy facility data |
 
-## Simulation and Research Progression
-
-The simulation should become necessary for late-game research, not merely be a final monument players build after unlocking everything. Conventional research can establish early and mid-game capabilities; later discoveries should require model results produced by the Core from relevant datasets and available compute capacity.
-
-| Candidate stage | Model scope | Candidate evidence / inputs | Progression role |
-| --- | --- | --- | --- |
-| Conventional science | Established technologies and known processes | Existing research system | Opens industrial foundations and the first survey/model facilities |
-| Planetary and industrial model | Deposits, material flows, power, chemistry, and manufacturing systems | Survey results plus operating data from real production chains | Gates selected advanced process, materials, and cleanroom capabilities |
-| Agent-based civilization model | Populations of decision-making entities interacting with a modeled planet | Planetary/industrial model results plus a small set of social or behavioral datasets | Gates the planetary simulation project and highest computation capabilities |
-| General-physics model (possible final extension) | Deeper physical laws and virtual-cosmos experiments | Advanced physics experiments, extreme-energy facilities, and expanded compute | Optional or final research frontier; scope and literalness remain undecided |
-
-Candidate research loop: produce a small number of domain datasets from meaningful facilities; route them to the simulation network; provide the required compute, power, and cooling; receive model results that unlock selected late technologies. This can echo science packs without simply adding more colored packs. Exact dataset items, research gates, and whether research consumes or only checks those inputs remain open.
-
-## Candidate Simulation Milestones
-
-Possible stages broaden the model from the planet's industrial foundations toward more abstract systems:
-
-1. **Planetary model:** map geology, resources, and major physical systems.
-2. **Industrial model:** represent extraction, refining, power, chemistry, and logistics as interacting systems.
-3. **Agent-based model:** simulate populations of entities that perceive, decide, and act within the modeled world.
-4. **General physical model:** explore broader physical laws and processes beyond the planet.
-
-These are scope candidates, not a committed research tree. The final target should feel intellectually ambitious while remaining understandable and grounded in capabilities the player has actually built.
+These are scope candidates for what the simulation network grows to model. The exact sequence, dependency between stages, and which infrastructure changes occur at each transition remain open — they should be designed alongside the research-progression document so that physical infrastructure milestones align with research gates.
 
 ## What the Network Needs
 
@@ -117,14 +100,9 @@ Specific material recipes belong in the [Intermediate Products](intermediate-pro
 
 ## Open Design Decisions
 
-- What exactly does completing the planetary digital twin accomplish in gameplay: unlock technologies, enable new modeling capabilities, complete a final project, or some combination?
-- How many late-game technologies should require simulation results, and which capabilities remain researchable through conventional science?
-- Is general-physics simulation an optional extension, a final victory stage, or out of scope? What does "universe-scale" mean without promising literal particle-by-particle simulation?
-- What are the dataset families, and how are they produced without turning ordinary factory operation into paperwork?
+### Facility Infrastructure
+
 - Is there a single final milestone, or a staged set of regional commissioning goals?
 - How much of the compute network must be physically distributed to make the spatial requirement meaningful without becoming arbitrary busywork?
 - What are the power, cooling, and network constraints, and which are core versus optional optimization?
-- How will PLCs and simulation infrastructure interact without making a general-purpose control language mandatory for victory?
 - What is the endgame's intended playtime contribution within the broader 300+ hour overhaul ambition?
-
-The final victory condition and exact recipes are deliberately not fixed yet. They should be designed after the industrial material roster and capability progression are stable.
