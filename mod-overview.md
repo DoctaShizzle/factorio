@@ -55,7 +55,7 @@ The ambition is a long overhaul playthrough, potentially 300+ hours, with comple
 | Chemistry | Named industrial reactions, coproducts, alternative pathways, catalysts, and chemical intermediates | [Chemical Products and Processes](chemical-processes.md) |
 | Manufactured intermediates | Alloys, batteries, semiconductor components, nuclear assemblies, and endgame components | [Intermediate Products](intermediate-products.md) |
 | Power | Generator phases, fuel density, grid tiers, transmission losses, conductor choices, diagnostics, and waste handling | [Power System](power-system.md) |
-| Endgame | Distributed wafer, compute, simulation, and planetary research facilities | [Endgame Vision](endgame-vision.md) |
+| Endgame | Distributed computational civilization; simulation milestones from planetary model → industrial model → agent-based civilization → general-physics discovery | [Endgame Vision](endgame-vision.md), [Research and Progression](research-progression.md) |
 | Machines | Reusable equipment families mapped to industrial operations and progression | [Machine Systems](machine-systems.md) |
 | Military | Pollution pressure, ammo/weapon chains, defense infrastructure, process tradeoffs | [Military System](military-system.md) |
 | Logistics | Transport layers, demand-based dispatch, freight terminals, information flow | [Logistics System](logistics-system.md) |
@@ -70,7 +70,9 @@ Chemical chains should connect resource processing to metallurgy, construction, 
 
 ### Endgame Hook
 
-**Build a planetary digital twin by constructing a computational civilization.** The simulation models planetary systems and agent-like entities that think and make decisions; it is not an AI housed in a core building. A distinctive Planetary Simulation Core may anchor a distributed network of memory archives, compute campuses, and survey/model facilities.
+**Build a planetary digital twin by constructing a computational civilization that models an entire simulated world.** The simulation starts with basic physical systems and grows to model agent-like entities that think and make decisions. Completing the planetary-scale network unlocks general-physics discovery, extending the player beyond known physics.
+
+The Planetary Simulation Core anchors a distributed network of memory archives, compute campuses, and research/observation facilities — not an AI housed in a building, but a real computational infrastructure dependent on the full industrial ecosystem built earlier.
 
 ### Pollution and Military Pressure
 
@@ -86,7 +88,11 @@ Fluid transport may distinguish pipe diameter, material compatibility, temperatu
 
 ### Handbook and Progression
 
-The handbook should reveal the industrial journey early, explain why processes differ, and separate real-world facts from gameplay simplifications. Fixed capability progression is preferred over random challenge objectives. Informatron is a candidate information layer; quest/progression integration remains to be researched.
+The handbook should reveal the industrial journey early, explain why processes differ, and separate real-world facts from gameplay simplifications. Informatron is a candidate information layer serving as a general reference for background info and lore across all mod systems — mining, chemistry, metallurgy, power, endgame physics — giving players context that enriches the experience without dictating choices.
+
+Research progression follows three phases: conventional science packs (~40–50% of game) → transitional domain packs + conventional (the bridge where conventional industry hits the physics wall) → simulation-gated research (final third, ~100 hours). Conventional packs persist as an alternative path for capabilities that don't require new physics. Fixed capability progression is preferred over random challenge objectives; quest/progression integration remains to be researched.
+
+Phase 4 power generation (Hawking Radiation Engine) is available *during* simulation construction, gated only by building a basic Planetary Simulation Core — not completing it.
 
 ## Inspirations and Guardrails
 
@@ -100,10 +106,19 @@ Avoid mandatory upgrades without a new capability, arbitrary complexity, a singl
 
 ## Decisions Still Open
 
-- **Mod title/name (hold until endgame locked):** *Project Prometheus* is the current leaning — see the "Mod Title" section above for full candidate list and reasoning. Final call should wait until the endgame fantasy is set in stone.
-- Final mineral roster, real deposit classes, assays, and material recovery assignments.
-- Approved chemical inventory and reaction routes.
-- Which nuclear pathways belong in the mod, and their depth.
-- PLC implementation scope and whether a general-purpose language is feasible.
-- Exact power and fluid models, numerical balance, and diagnostics.
-- Final endgame objective and victory condition.
+### General (Unrelated to Domain-Specific Documents)
+
+- **Mod title/name:** *Project Prometheus* is the current leaning. Final call should wait until endgame fantasy is set in stone.
+- **Final victory condition specifics:** Is completing the planetary digital twin *itself* the win condition? Or does it unlock further gameplay (new physics discoveries, space expansion)? What exactly "completes" — building all facilities to a certain capacity, achieving a fidelity threshold, or running a specific final model?
+
+### Domain-Specific Decisions (Link Out)
+
+Below is a summary of open design decisions tracked in each domain document. Use these links for detailed decision tracking during deep-dive work.
+
+- **[Minerals and Refining](minerals-and-refining.md):** Final mineral roster, real deposit classes, assays, material recovery assignments; process template consistency across routes.
+- **[Chemical Products and Processes](chemical-processes.md):** Approved chemical inventory and reaction routes; catalyst requirements for key reactions.
+- **[Intermediate Products](intermediate-products.md):** Specific battery chemistry selection (not every formulation), coherent fission reactor family choice (don't combine every real-world option).
+- **[Power System](power-system.md) — Production:** Exact combustion generators for Phase 1, U-235 vs Pu-239 fission paths, fusion-endgame connection, renewable generation explicit presence, military pressure contribution per generator class, waste handling depth for fission.
+- **[Power System](power-system.md) — Transmission:** Voltage tiers and exact values, conductor stats/loss formulas, loss modeling approach, diagnostics UI specifics, onboarding structure.
+- **[Endgame Vision](endgame-vision.md):** Simulation fidelity tiers (basic → accurate → predictive model), final milestone structure (single vs. staged), compute distribution requirements, power/cooling/network constraints for Core, PLC interaction without mandating general-purpose coding.
+- **[Research and Progression](research-progression.md):** Exact technology roster (which gates on what simulation level), simulation fidelity tier design and upgrades, hybrid research path availability, final victory condition specifics, playtime allocation within 300+ hours.
