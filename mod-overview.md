@@ -105,6 +105,45 @@ Phase 4 power generation (Hawking Radiation Engine) is available *during* simula
 
 Avoid mandatory upgrades without a new capability, arbitrary complexity, a single correct production route, required voiding, and mechanics whose state cannot be diagnosed clearly.
 
+## Grand-Design Gaps (Block Domain Work Until Resolved)
+
+The following areas are too vague or nonexistent at the grand-design level to proceed confidently on domain details. They need a dedicated agentic session before deepening individual documents.
+
+### Map & World Generation — No Dedicated Coverage
+Factorio is its map, and this mod's geological discovery pillar depends entirely on world generation:
+- **How does terrain generate?** Random ore patches? Fixed biomes? Do rivers, mountains, and elevation matter for cooling, water access, or mining constraints?
+- **Oil/water placement strategy.** Vanilla's fixed edge wells feel wrong for a 300h overhaul. Are there more sites? Rare resources discovered through prospecting?
+- **Map edge behavior.** Expansion is core to Factorio's loop — if military pressure scales with pollution, expanding away from threats should be a meaningful choice.
+
+### Combat & Warfare System — Militaries doc is Thin
+"Pollution pressure" and ammo chains are sketched but the enemy itself is underspecified:
+- **What are the enemies?** Mutant creatures? Indigenous life reacting to industrial encroachment? Something thematically aligned with Prometheus?
+- **How does pollution scale into attacks?** Distance-based (closer factories = more attacks)? Frequency-based (dirty production → constant pressure vs. clean → occasional raids)?
+- **Military defense vs. industrial capability.** Does better ammo require advanced chemistry, or is there a separate supply chain?
+
+### Victory Condition & Game End State — Explicitly Open but Also Vague
+We've deferred "Does completing the planetary digital twin unlock further gameplay?" without resolving it:
+- Is the game winnable or endless sandbox with milestones?
+- What's the final moment if won? A visual event in-game? Launching something? Activating the simulation network?
+- If not won, what replaces "launch rockets" as the north star once the simulation is complete?
+
+### Economy & Trade — Completely Absent
+At 300+ hours with dozens of processing routes, some form of trade mechanism may be needed:
+- Inter-region trade (rare resources in one biome needed elsewhere)?
+- A "shipping" mechanic where completed products generate score or unlock things?
+- Or strictly "you make everything yourself"?
+
+### Map Scale & Wilderness — Unresolved
+A Bob's/Angel-level overhaul needs very large maps. But:
+- How does map scale interact with military pressure over time?
+- What happens when players exhaust their region and need to explore deeper territory?
+- Is there a wilderness vs. industrialized visual distinction that emerges from player choices?
+
+### Mod Compatibility & Scope Boundaries — Unstated
+This is a Factorio mod that exists in an ecosystem:
+- Standalone or compatible with vanilla tech tree? Replaces Bob's and Angel's?
+- How does massive complexity impact save file size and performance?
+
 ## Decisions Still Open
 
 ### General (Unrelated to Domain-Specific Documents)
