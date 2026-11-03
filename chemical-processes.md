@@ -64,8 +64,8 @@ This is a candidate index of chemical products and intermediates. It is not a co
 | Nitrogen | Ammonia, nitric acid, nitrate salts |
 | Carbon and mineral chemicals | Coke, producer gas, coal gas (from gasification), coal tar (separated fractions: naphthalene, phenol, light/heavy oils), activated carbon, calcium carbide, acetylene, ammonia liquor (coal coking byproduct) |
 | Methanol and C1 chemistry | Methanol (wood alcohol), formaldehyde, formic acid, methyl formate |
-| Petrochemical feedstocks | Crude oil, naphtha, BTX aromatics (benzene, toluene, xylenes), naphthalene from coal/petroleum, ethylene, propylene, hydrogen |
-| Polymers and resins | HDPE/LDPE, polypropylene (PP), PVC, nylon 6,6, PMMA (acrylic/plexiglass), Bakelite (phenolic resin), ABS/MABS, epoxy, fluoropolymer |
+| Petrochemical feedstocks | Crude oil, naphtha, BTX aromatics (benzene, toluene, xylenes), naphthalene from coal/petroleum, ethylene, propylene, acrylonitrile, hydrogen |
+| Polymers and resins | HDPE/LDPE, polypropylene (PP), PVC, nylon 6,6, PMMA (acrylic/plexiglass from acrylonitrile), Bakelite (phenolic resin), ABS/MABS (acrylonitrile-butadiene-styrene), PVA (polyvinyl alcohol), epoxy, fluoropolymer |
 
 | Semiconductor chemistry | Trichlorosilane, photoresist precursors, WF6, SF6, NF3, deposition and etch gases |
 | Nuclear and fusion chemistry | Uranium oxide fuel intermediates, lithium-bearing breeder material, deuterium, recovered tritium |
@@ -127,6 +127,7 @@ Several entries are mixtures or industrial product classes rather than pure comp
 | Chlor-alkali electrolysis | 2NaCl + 2H2O -> Cl2 + H2 + 2NaOH | Core brine route; the three coproducts must have useful sinks |
 | Hydrogen chloride synthesis | H2 + Cl2 -> 2HCl | Candidate reagent supply for metal and silicon chemistry |
 | Sulfur combustion | S + O2 -> SO2 | Candidate sulfur-to-acid feed route; off-gas capture versus pollution choice |
+| Pyrite roasting | 4FeS2 + 11O2 -> 2Fe2O3 + 8SO2 (heat-driven) | Industrial SO2 source from sulfide ores (chalcopyrite/sphalerite); enables acid without native sulfur mine |
 | Contact-process oxidation | 2SO2 + O2 -> 2SO3 (V2O5 catalyst) | Core sulfuric-acid route |
 | Sulfur trioxide hydration | SO3 + H2O -> H2SO4 | Core sulfuric-acid route |
 | Haber-Bosch ammonia synthesis | N2 + 3H2 -> 2NH3 (iron catalyst) | Later candidate; high-pressure process capability |
@@ -145,13 +146,19 @@ Several entries are mixtures or industrial product classes rather than pure comp
 | Crude-oil fractionation | Crude oil -> gas, naphtha, and heavier cuts | Separation, not a chemical reaction |
 | Steam methane reforming | CH4 + H2O -> CO + 3H2 | Candidate hydrogen route with carbon-dioxide tradeoff downstream |
 | Water-gas shift | CO + H2O -> CO2 + H2 | Candidate hydrogen/CO2 balancing step |
+| Methanol oxidation (formaldehyde) | CH3OH + 0.5O2 -> HCHO + H2O (iron-molybdate catalyst) | Formaldehyde production: Bakelite, resins, disinfectants; essential bridge from methanol synthesis |
+| Acetic acid synthesis (oxidation route) | CH3OH + CO -> CH3COOH (Rh/Ir catalyst, 150°C/50 bar) | Acetic acid/anhydride: cellulose acetate fiber/film, vinyl acetate, nylon precursors |
 | Catalytic cracking | Naphtha/heavier hydrocarbons -> lighter olefins and other products | Candidate ethylene/propylene route; product mix depends on process configuration |
 | Catalytic reforming | Naphtha -> aromatic-rich reformate, including benzene-family feedstocks | Candidate petrochemical route |
 | Ethylene polymerization | n CH2=CH2 -> (CH2-CH2)n | Core polyethylene route; catalyst grades can create meaningful variants |
 | Ethylene dichlorination | C2H4 + Cl2 -> C2H4Cl2 | Candidate PVC precursor route |
 | EDC cracking | C2H4Cl2 -> C2H3Cl + HCl | Vinyl chloride and recyclable HCl candidate route |
+| Ethylene oxidation to ethylene oxide | 2C2H4 + O2 -> 2C2H4O (Ag catalyst, 200-300°C) | Gateway to PET polyester, antifreeze/coolant (ethylene glycol), solvents; major GTNH petrochemical branch |
+| Ethylene oxide hydration to glycol | C2H4O + H2O -> HOCH2CH2OH (acid-catalyzed) | Antifreeze and PET precursor; bridges ethylene chemistry to polymer production |
 | Vinyl chloride polymerization | n C2H3Cl -> (C2H3Cl)n | Candidate PVC route |
 | Cumene process (phenol production) | C6H6 + CH3CH=CH2 -> C6H5C(CH3)2OH -> phenol + acetone (acid-catalyzed oxidation/rearrangement) | Modern phenol pathway; gateway to Bakelite, polycarbonates, and pharmaceuticals |
+| HCl recovery from chlorinated organics | R-Cl + H2O (or O2 dehydrochlorination) -> R' + HCl | Closes the PVC loop: recovers HCl for reuse in ethylene dichlorination; key to PVC economics |
+| Acrylonitrile ammoxidation (Sohio process) | CH3CH=CH2 + NH3 + 1.5O2 -> CH2CHCN + 3H2O (Bi-Mo catalyst) | Gateway to MABS plastics, acrylic fiber, and ABS polymer; links propylene to engineering plastics |
 | Phenol-formaldehyde condensation (Bakelite) | Phenol + formaldehyde -> Bakelite resin + water | Early synthetic plastic; electrical insulators, high-temp components |
 | Nylon 6,6 condensation | Adipic acid + hexamethylenediamine -> nylon 6,6 + water | Later polymer route |
 | Epoxy resin production | Bisphenol A + epichlorohydrin -> epoxy resin | Candidate resin chemistry; replaces the earlier oversimplified phenol/formaldehyde note |
