@@ -384,6 +384,80 @@ This single sentence explains almost every decision we've made so far:
 
 ---
 
+# Programmable Logic Controllers (NEW — FROM FAMILY IDEAS)
+
+## Vision: A General-Purpose Factory Control Language
+
+A programmable controller for industrial automation. Not a circuit-logic toy, not a constrained template builder — a general-purpose control system embedded in Factorio.
+
+### What It Does
+
+Players write programs that:
+- Read sensor data from any connected machine (flow rate, temperature, pressure, tank levels, item throughput)
+- Control machines dynamically (start/stop pumps, open/close valves, adjust machine modes, cycle between recipes)
+- Implement feedback loops autonomously (tank full → redirect flow → throttle production)
+- Enable true "smart factories" that self-regulate based on factory state
+
+### Why General-Purpose?
+
+Constraint-based systems work until they don't. A player who can only do pre-built templates will hit the edge of those templates within hours of a serious factory. The moment they want "split this flow 60/40 if both tanks are above X but prioritize Y when Z happens" — templates fail.
+
+A general-purpose control language gives players **expressive freedom**. Yes, it raises the learning curve. But this is an overhaul mod aimed at industrial engineers, not casual builders. The target audience **wants** to write code that controls their factory.
+
+### Implementation Surface (Target Design)
+
+- **PLC unit** — the hardware controller, with memory/slot limits scaling as a progression element
+- **Text-based programming language** — in-game editor, not external files. Syntax designed for industrial logic: conditionals, loops, variables, functions, time/delay primitives
+- **Sensor API** — read values from connected machines (fluid levels, temperatures, throughput counters, machine states)
+- **Control API** — write commands to connected machines (start/stop, mode switches, valve positions)
+- **Network connectivity** — wired connections + wireless range option. Programmed logic can't magically reach across the map without infrastructure
+- **Debug tools** — watch variables in real-time, set breakpoints, step execution, log sensor snapshots
+- **Modular architecture** — subroutines/functions for reusable control patterns (PID-like controllers, state machines)
+
+### Language Design Considerations
+
+Options to consider:
+1. **Custom DSL** — purpose-built language with industrial semantics (like Structured Text / IEC 61131-3 subset). Easier to constrain and optimize, harder for programmers who want flexibility.
+2. **Embedded Lua/Python** — use Factorio's existing scripting or a lightweight embedded VM. Leverages familiar languages, gives full expressiveness, but adds implementation overhead.
+3. **Hybrid** — core control primitives in a simple DSL + optional advanced functions in a scriptable language
+
+### MVP Stage
+
+Even with general-purpose ambition, there's a practical minimum:
+- Core PLC hardware unit
+- Basic text editor with syntax highlighting
+- 5-7 sensor inputs (fluid level, temperature, machine status)
+- 5-7 control outputs (start/stop, mode toggle, valve open/close)
+- Variables and conditionals (if/then/else)
+- Loops with configurable delay
+- Local network connectivity (wired only)
+
+MVP scope: enough to write programs that actually solve real problems (production balancing, overflow protection, auto-startup sequences). Not just a proof of concept — genuinely useful.
+
+### Full Vision
+
+Beyond MVP:
+- Custom data types and arrays
+- Named functions/subroutines with parameters
+- Interrupt handling for fault detection
+- PID control loops for temperature/pressure regulation
+- Wireless communication between PLCs (for distributed systems)
+- Time-series data logging and visualization
+- Simulation mode (test programs without affecting running factories)
+
+### Connection to Design Pillars
+
+**Pillar 3: Processes Instead of Recipes**
+The PLC automates *industrial processes*, not conveyor logic. A player can write a program that manages refinery equilibrium automatically — the core mechanic becomes designing and programming the controller, not just placing machines.
+
+**Pillar 8: Capabilities Over Numbers**
+"I built a programmable control system for my chemical plant." This is a genuine capability milestone.
+
+**Pillar 10: Configured Through Factory Design**
+The PLC connects to machines physically (wired infrastructure), making automation a tangible engineering decision, not an abstract setting.
+
+---
+
 # Chemical Processes (NEW — FROM FAMILY IDEAS)
 
 Like GregTech and Bob/Angels, real chemical processes should be **educational as well as mechanical**.
@@ -431,6 +505,30 @@ Distance-based losses make generator placement matter:
 - Local generation becomes a strategic choice
 
 This turns power into an **engineering problem**, not a checkbox.
+
+### UX Requirements (CRITICAL — this is what makes or breaks the system)
+
+The most frustrating part of GTNH's power was diagnosing failures. We solve that with transparency:
+
+**Hover diagnostics on poles/lines:**
+```
+400A @ 1000V
+Loss: 2.3% per tile (copper, low-voltage)
+Total drop: 87V over 38 tiles
+Capacity remaining: 92%
+```
+
+**Onboarding requirement:**
+Dedicated page/tutorial explaining:
+- Why power grids exist (vs Factorio's "connect anything anywhere")
+- Voltage = pressure analogy
+- Resistance + distance = loss
+- How to read the diagnostics overlay
+- Common failure modes and how to fix them
+
+The player should feel smart for solving a power problem — not confused by it.
+
+This is the difference between GTNH's power system (opaque frustration) and this design (transparent complexity).
 
 ---
 
