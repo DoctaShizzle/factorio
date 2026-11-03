@@ -55,6 +55,7 @@ This is a candidate index of chemical products and intermediates. It is not a co
 | Family | Candidate products / intermediates |
 | --- | --- |
 | Sulfur | Sulfur dioxide, sulfur trioxide, sulfuric acid, sulfates |
+| Bromine | Elemental bromine, hydrogen bromide, sodium/potassium bromides |
 | Brine and electrolysis | Brine, chlorine, sodium hydroxide, hydrogen |
 | Nitrogen | Ammonia, nitric acid, nitrate salts |
 | Carbon and mineral chemicals | Coke, producer gas, carbon dioxide, activated carbon, calcium carbide, acetylene |

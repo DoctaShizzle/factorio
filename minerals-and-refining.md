@@ -30,7 +30,8 @@ The tiers describe deposit/feed profiles. The same mineral may occur in multiple
 | Coal | Coal seam (industrial raw resource) | Carbon / coke | Sulfur | Germanium |
 | Quartz | Quartz-rich sand or vein | Metallurgical silicon | — | — |
 | Native sulfur | Native sulfur deposit | Sulfur | — | — |
-| Calcite / limestone | Carbonate rock deposit | Lime | Magnesium | Carbon dioxide |
+| Calcite | Carbonate rock deposit | Lime (calcium oxide) | — | Carbon dioxide |
+| Dolomite | Magnesian limestone or dolostone | Magnesium compounds | Calcium/lime | Silica traces |
 | Gypsum | Gypsum-bearing evaporite bed | Gypsum | Lime | — |
 
 These are finite starter supplies of foundational materials. Secondary and tertiary recovery are later refining capabilities; listing a material here does not mean the early process exposes it.
@@ -52,6 +53,8 @@ These are finite starter supplies of foundational materials. Secondary and terti
 | Pyrolusite | Hematite | Apatite | Sedimentary or supergene manganese oxide deposit |
 | Zircon | Ilmenite | Rutile | Heavy-mineral placer sand |
 | Graphite | Pyrite | Apatite | Graphite-bearing metamorphic rock |
+| Trona | Evaporite soda-ash deposit | Sodium carbonate | Potassium compounds | Borates traces |
+| Brine (subsurface) | Concentrated saltwater aquifer | Bromine compounds | Sodium | Potassium, lithium traces |
 | Apatite | Monazite | Calcite | Phosphorite or apatite-rich igneous deposit |
 | Spodumene | Beryl | Columbite-tantalite | Rare-element pegmatite |
 | Halite | Sylvite | Gypsum | Evaporite basin |
@@ -85,7 +88,8 @@ This is the current candidate feed roster, not a chemical formula table. A mined
 | Coal | Carbon / coke | Sulfur | Germanium |
 | Quartz | Metallurgical silicon | — | — |
 | Native sulfur | Sulfur | — | — |
-| Calcite / limestone | Lime | Magnesium | Carbon dioxide |
+| Calcite | Lime (calcium oxide) | — | Carbon dioxide |
+| Dolomite | Magnesium compounds | Calcium/lime | Silica traces |
 | Gypsum | Gypsum | Lime | — |
 | Magnetite | Iron | Vanadium | Titanium |
 | Chalcopyrite | Copper | Iron | Sulfur |
@@ -127,7 +131,7 @@ This is the consolidated candidate list of refined mineral products represented 
 | Common alloy and process metals | Zinc, lead, nickel, cobalt, chromium, tin, manganese, titanium, vanadium, magnesium |
 | Precious and catalyst metals | Gold, silver, platinum, palladium, rhodium |
 | Specialty and semiconductor metals | Gallium, germanium, indium, cadmium, tungsten, molybdenum, rhenium, niobium, tantalum, beryllium, zirconium, hafnium |
-| Chemical and battery feedstocks | Lithium carbonate / hydroxide, sodium chloride / sodium compounds, potassium chloride, phosphorus / phosphate, boron compounds, fluorine-bearing feedstocks |
+| Chemical and battery feedstocks | Lithium carbonate / hydroxide, sodium chloride / sodium compounds, potassium chloride, phosphorus / phosphate, boron compounds, fluorine-bearing feedstocks, bromine compounds |
 | Rare, radioactive, and trace | Uranium, thorium, cerium, lanthanum, neodymium, yttrium, selenium, tellurium, arsenic |
 | Other recovered compounds | Carbon dioxide, water |
 
