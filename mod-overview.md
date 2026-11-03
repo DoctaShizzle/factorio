@@ -1,13 +1,18 @@
 # Factorio Overhaul - Design Overview
 
-*Industrial Ecosystems and Process Engineering*  
-*Status: Broad design proposal; system details live in linked documents*
+*Industrial Ecosystems and Process Engineering — Project Prometheus*
+
+## The Story That Unfolds
+
+You start with a pickaxe, raw ore, and the knowledge that something bigger awaits. You build factories. Then you refine them. Then you push past what your own industrial civilization can discover on its own.
+
+**At the end of the journey: you build a planetary simulation network capable of modeling an entire world — and the beings within it.** These are not artificial intelligence, but information-formed entities that perceive, decide, and interact with their modeled reality. By demonstrating mastery over every domain of industrial capability, you earn access to general-physics discovery — extending humanity's reach beyond what conventional science alone could achieve.
+
+This is a story about *understanding the universe well enough to push past its limits.* The industrial ecosystem isn't decoration for the endgame; it's the prerequisite for reaching it.
 
 ## Summary
 
-This document defines the mod's north star, core pillars, and intended scope. It establishes the mission (an industrial ecosystem where extraction, refining, metallurgy, chemistry, power, pollution, military pressure, semiconductors, and endgame research support one another) and the player identity — an industrial engineer choosing and balancing processes, not a factory builder following longer recipe chains.
-
-**Scope:** Design philosophy, system map, key pillars (multiple processes, tradeoffs over upgrades, capabilities over numbers), inspirations and guardrails, and decisions still open. All system-specific details live in the eight linked documents below.
+This document defines the mod's design philosophy, core pillars, and intended scope. All system-specific details live in the linked documents below.
 
 ## Mission
 
