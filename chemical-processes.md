@@ -40,8 +40,12 @@ These are process families, not final recipes. Exact inputs, yields, and machine
 
 | Candidate | Real process idea | Potential gameplay role |
 | --- | --- | --- |
-| Ammonia / nitric acid | Haber-Bosch followed by Ostwald oxidation | Fertilizer, explosives, and catalyst-dependent nitrogen chemistry |
-| Nylon and engineering polymers | Benzene-derived intermediates to adipic acid and polyamide | Alternative materials for machinery and advanced infrastructure |
+| Coal gasification (Bosch-Messig / Lurgi) | Coal + steam/oxygen -> synthetic gas (CO+H2), ammonia byproduct | Synthetic fuel/hydrogen when oil is unavailable; bridges coal mining to petrochemical chain |
+| Coal tar fractionation | Steam and solvent distillation of coal tar | Separates benzene, toluene, naphthalene, phenol, light/heavy oils — enables aromatic chemistry |
+| Ammonia liquor processing | Alkali treatment of aqueous coking byproduct -> ammonium sulfate fertilizer | Recovers nitrogen from coal carbonization; links coal to agriculture |
+| Methanol synthesis | CO + 2H2 -> CH3OH (Cu/ZnO catalyst) | Gateway C1 building block: formaldehyde, acetic acid, MTBE, methanol-to-olefins |
+| Fischer-Tropsch synthesis | n(CO+2H2) -> -(CH2)-n + nH2O (Fe or Co catalyst) | Converts synthetic gas from coal gasification into synthetic gasoline/diesel/paraffin; bridges coal mining and fuel production |
+| Cumene process (phenol) | Benzene + propylene -> cumene -> phenol + acetone (acid catalyst) | Gateway to Bakelite/phenolic resins, polycarbonates, pharmaceuticals, nylon precursors |
 | Titanium chemistry | Chlorination to TiCl4 followed by magnesium reduction (Kroll process) | A high-capital, high-purity metal capability; detailed route also appears in the refining design |
 | Nuclear fuel chemistry | Uranium conversion and oxide fuel fabrication; optional thorium-to-U-233 cycle | A later fission capability if nuclear power is part of the mod; see [Intermediate Products](intermediate-products.md) |
 | Fusion fuel handling | Deuterium supply and tritium extraction/recycling from a lithium breeder loop | Late-game chemical separation linked to fusion infrastructure |
@@ -58,9 +62,11 @@ This is a candidate index of chemical products and intermediates. It is not a co
 | Bromine | Elemental bromine, hydrogen bromide, sodium/potassium bromides |
 | Brine and electrolysis | Brine, chlorine, sodium hydroxide, hydrogen |
 | Nitrogen | Ammonia, nitric acid, nitrate salts |
-| Carbon and mineral chemicals | Coke, producer gas, carbon dioxide, activated carbon, calcium carbide, acetylene |
-| Petrochemistry | Naphtha, ethylene, propylene, benzene, hydrogen |
-| Polymers and resins | HDPE/LDPE, PVC, nylon 6,6, epoxy, fluoropolymer |
+| Carbon and mineral chemicals | Coke, producer gas, coal gas (from gasification), coal tar (separated fractions: naphthalene, phenol, light/heavy oils), activated carbon, calcium carbide, acetylene, ammonia liquor (coal coking byproduct) |
+| Methanol and C1 chemistry | Methanol (wood alcohol), formaldehyde, formic acid, methyl formate |
+| Petrochemical feedstocks | Crude oil, naphtha, BTX aromatics (benzene, toluene, xylenes), naphthalene from coal/petroleum, ethylene, propylene, hydrogen |
+| Polymers and resins | HDPE/LDPE, polypropylene (PP), PVC, nylon 6,6, PMMA (acrylic/plexiglass), Bakelite (phenolic resin), ABS/MABS, epoxy, fluoropolymer |
+
 | Semiconductor chemistry | Trichlorosilane, photoresist precursors, WF6, SF6, NF3, deposition and etch gases |
 | Nuclear and fusion chemistry | Uranium oxide fuel intermediates, lithium-bearing breeder material, deuterium, recovered tritium |
 
@@ -130,7 +136,9 @@ Several entries are mixtures or industrial product classes rather than pure comp
 | Limestone calcination | CaCO3 -> CaO + CO2 | Core lime/cement route and carbon dioxide coproduct |
 | Lime slaking | CaO + H2O -> Ca(OH)2 | Candidate construction and pH-control product |
 | Clinker formation | Lime + silica + alumina/iron-bearing minerals -> clinker phases | Cement process; multi-phase industrial transformation, not a single balanced equation |
-| Coal carbonization | Coal -> coke + gas/tar fractions (heated without air) | Candidate coke and carbon-chemical route; variable feed, not fixed stoichiometry |
+| Coal gasification (Bosch-Messig / Lurgi) | Coal + H₂O/O₂ -> syngas (CO+H₂), ammonia coproduct | Synthetic fuel/hydrogen from coal; bridges mining to petrochemical when oil is scarce |
+| Coal tar fractionation | Steam/solvent distillation of coal tar -> benzene, toluene, naphthalene, phenol fractions | Enables aromatic chemistry: dyes, solvents, Bakelite precursors, plasticizers |
+| Ammonia liquor processing (coal coking byproduct) | Alkali treatment of aqueous coking effluent -> ammonium sulfate / recovered cyanides | Nitrogen recovery from coal carbonization; links coal to fertilizer/chemistry |
 | Calcium carbide production | CaO + 3C -> CaC2 + CO | Candidate electric-arc capability |
 | Acetylene generation | CaC2 + 2H2O -> C2H2 + Ca(OH)2 | Candidate chemical feedstock route |
 | Activated-carbon production | Carbonaceous feed -> porous activated carbon (steam/CO2 activation) | Candidate water-treatment and catalyst-support material |
@@ -143,8 +151,8 @@ Several entries are mixtures or industrial product classes rather than pure comp
 | Ethylene dichlorination | C2H4 + Cl2 -> C2H4Cl2 | Candidate PVC precursor route |
 | EDC cracking | C2H4Cl2 -> C2H3Cl + HCl | Vinyl chloride and recyclable HCl candidate route |
 | Vinyl chloride polymerization | n C2H3Cl -> (C2H3Cl)n | Candidate PVC route |
-| Adipic acid production | Cyclohexane/benzene-derived feed -> adipic acid | Later nylon intermediate; exact route and coproducts need selection |
-| Hexamethylenediamine production | Selected petrochemical intermediate -> hexamethylenediamine | Later nylon intermediate; route remains open |
+| Cumene process (phenol production) | C6H6 + CH3CH=CH2 -> C6H5C(CH3)2OH -> phenol + acetone (acid-catalyzed oxidation/rearrangement) | Modern phenol pathway; gateway to Bakelite, polycarbonates, and pharmaceuticals |
+| Phenol-formaldehyde condensation (Bakelite) | Phenol + formaldehyde -> Bakelite resin + water | Early synthetic plastic; electrical insulators, high-temp components |
 | Nylon 6,6 condensation | Adipic acid + hexamethylenediamine -> nylon 6,6 + water | Later polymer route |
 | Epoxy resin production | Bisphenol A + epichlorohydrin -> epoxy resin | Candidate resin chemistry; replaces the earlier oversimplified phenol/formaldehyde note |
 | Fluoropolymer production | Tetrafluoroethylene polymerization -> PTFE-like polymer | Candidate cleanroom/chemical-service material; monomer route remains open |
