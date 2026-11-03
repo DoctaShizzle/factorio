@@ -266,7 +266,9 @@ Mining and refining are separate progression systems: deposits define the minera
 
 - Use GTNH primarily as inspiration for geological and material breadth, and Bob's/Angel's for accessible, reusable processing stages and output balancing; do not copy either mod's exact material list or ratios.
 - Reuse recognizable mechanical, chemical, and thermal/electrolytic stages where appropriate, with exceptions for material chemistry.
+- For a given refining-process template, keep primary-material, trace-material, and residue output proportions consistent across the minerals using it; vary material identities by mineral. Different process templates can have different ratios and tradeoffs.
 - Later refining capabilities may recover more trace materials at the cost of lower primary-material yield per unit of feed.
 - Avoid required voiding. A key unresolved constraint is recovering trace materials without requiring saturated primary outputs to be consumed at a matching rate.
+- The mineral roster and process network must support stable operation without unavoidable output backups when players choose appropriate feeds and routes. Smart routing and throughput control should suffice for basic stability; PLCs can optionally automate them. Validate this against multiple demand profiles.
 
 This is a working direction, not a final process specification. The dedicated [Mining, Refining & Metallurgy](mining-refining-metallurgy.md) document holds the feed-profile model and refining requirements; this map tracks candidate materials and dependencies.

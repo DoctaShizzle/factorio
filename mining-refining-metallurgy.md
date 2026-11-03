@@ -21,10 +21,13 @@ All three tiers supply minerals. They do not each require a separate refining la
 ### Refining and Balance Requirements
 
 - Reuse a learnable set of processing stages, such as mechanical separation, chemical treatment, and thermal or electrolytic processing. Use exceptions when the material chemistry warrants them.
+- For a given refining-process template, keep the proportions of primary material, trace material, and residue consistent across minerals that use that template. The material identities vary by mineral; the process ratios do not. Distinct process templates may have distinct ratios and tradeoffs.
 - Early processing should provide useful primary materials and a manageable residue stream. Later capabilities can recover more of the value in that shared residue, including sulfur, iron, and rare metals.
 - More advanced recovery may trade lower primary-metal yield per unit of raw mineral for greater trace-material recovery. The output strategies and their costs must be legible to players.
 - Trace recovery must not require the primary metal to be consumed at the same rate. For example, gold recovery from a copper-bearing feed should not force copper to back up when copper demand is saturated. Finding a non-voiding way to handle or route the primary stream is an open design problem.
 - Buffers are acceptable where they support normal production. Voiding should not be a required balancing mechanism, especially for finite mineral resources. Finite deposits also mean trace yields are bounded by the available feed.
+- **Balanceability is a design invariant:** the mineral roster, process recipes, and material uses must allow players to mine and refine suitable minerals using suitable processes without unavoidable output accumulation. Smart routing and throughput control should make this achievable; PLCs may automate it but must not be required for basic stability.
+- Validate balanceability across varied demand profiles, not just one idealized factory ratio. If a valid mineral/process configuration inevitably backs up an output, revise the mineral roster, process ratios, or downstream uses rather than requiring voiding.
 
 This remains a working direction, not a validated process specification. The worked examples below predate this direction and are hypotheses to revise; they do not establish a requirement for exactly three routes per mineral. Detailed material candidates and dependencies are tracked in the [Material Chain Map](material-chain-map.md).
 
