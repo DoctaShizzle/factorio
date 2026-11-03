@@ -96,7 +96,7 @@ This means:
 - **The endgame computational infrastructure** (Planetary Simulation Core, distributed facilities) benefits from players who chose space-efficient industrial paths — they get to build it at their own pace rather than racing expansion.
 - **Space exploration itself becomes an engineering solution**, not just a reward for building enough rockets. You explore because your process choices *need* the resources, not just because the game tells you to go.
 
-**Open question:** Do we make space pressure visible as a metric (e.g., "factory footprint vs. available map area")? Or is it purely felt through gameplay experience — running out of room naturally?
+**Open question:** Space pressure is felt through gameplay experience — running out of room naturally — rather than displayed as a metric. This matches how vanilla Factorio and Bob's/Angel's communicate spatial urgency: the map runs out, your factories need to expand, there is no dashboard telling you when to go.
 
 ## Ammo and Weapon Intermediate Chains
 
