@@ -30,7 +30,7 @@ This document maps industrial operations to candidate machine families. It is no
 
 | Industrial stage | Candidate machine family | Operations | Design role |
 | --- | --- | --- | --- |
-| Extraction | Electric mining drill; later underground/Orefield miner | Mine finite surface patches, selected underground deposits, or mixed Orefield feeds | Progress from simple single-mineral mining to prospecting and controlled mixed-feed extraction |
+| Extraction | Electric mining drill; later underground/polymineral miner | Mine finite surface patches, selected underground deposits, or mixed polymineral feeds | Progress from simple single-mineral mining to prospecting and controlled mixed-feed extraction |
 | Preparation | Crusher, grinder, screen, washer, classifier | Crush, grind, size, wash, and liberate mineral grains | Reusable first stages across most feed types |
 | Mechanical concentration | Gravity separator, magnetic separator | Separate by density or magnetic properties | Low-reagent process choices for appropriate ores and mineral sands |
 | Flotation concentration | Flotation cell / separator | Reagent-assisted separation of fine mineral particles | Main flexible route for selected sulfide and fine-grained feeds |

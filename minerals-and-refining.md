@@ -9,7 +9,7 @@ Related documents: [Chemical Products and Processes](chemical-processes.md), and
 
 ## Summary
 
-This document catalogs the mining and refining scope: three tiers of deposits (surface, underground, Orefields), a mineral recovery matrix mapping mined feeds to primary/secondary/tertiary pure materials, a consolidated pure-material inventory organized by group, five reusable refining stages with route templates, and balanceability requirements.
+This document catalogs the mining and refining scope: three tiers of deposits (surface, underground, polymineral), a mineral recovery matrix mapping mined feeds to primary/secondary/tertiary pure materials, a consolidated pure-material inventory organized by group, five reusable refining stages with route templates, and balanceability requirements.
 
 **What it covers:** Deposit tiers, mineral catalog, recovery assignments, pure-material roster, refining process templates, dedicated exceptions (Al, Ti, REEs, PGM), balanceability checks, and reference inspirations from GTNH / Bob's / Angel's.
 
@@ -17,7 +17,7 @@ This document catalogs the mining and refining scope: three tiers of deposits (s
 
 ### Mining Catalog
 
-The tiers describe deposit/feed profiles. The same mineral may occur in multiple deposits or tiers. Surface deposits are finite and single-mineral; underground deposits have one dominant mineral plus traces; Orefields combine several major minerals. A deposit's trace minerals are distinct from secondary and tertiary materials recovered from refining its main mineral.
+The tiers describe deposit/feed profiles. The same mineral may occur in multiple deposits or tiers. Surface deposits are finite and single-mineral; underground deposits have one dominant mineral plus traces; polymineral deposits combine several major minerals. A deposit's trace minerals are distinct from secondary and tertiary materials recovered from refining its main mineral.
 
 "Mineral" is used here as a player-facing umbrella for mined feeds. Some entries are technically rocks or commodities rather than single mineral species: coal, bauxite, limestone, gypsum, and mineral-sand concentrates. Educational articles should identify that distinction.
 
@@ -58,9 +58,9 @@ These are finite starter supplies of foundational materials. Secondary and terti
 | Bastnaesite | Monazite | Fluorite | Carbonatite or alkaline igneous rare-earth setting |
 | Uraninite | Pyrite | Monazite | Uranium-bearing vein or sandstone-hosted deposit |
 
-### Tier 3: Orefields
+### Tier 3: Polymineral Deposits
 
-**Orefield** is the generic player-facing category for large polymetallic deposits. The UI can show the real deposit class and its primary, secondary, and tertiary minerals. The trace-phase column is design metadata and need not be shown in the UI. Composition varies by formation and should be prospectable before full-scale extraction.
+**Polymineral deposit** is the player-facing category for large polymineral deposits. The UI can show the real deposit class and its primary, secondary, and tertiary minerals. The trace-phase column is design metadata and need not be shown in the UI. Composition varies by formation and should be prospectable before full-scale extraction.
 
 | Real deposit class | Primary mineral | Secondary mineral | Tertiary mineral | Deposit-dependent trace phases |
 | --- | --- | --- | --- | --- |
@@ -72,7 +72,7 @@ These are finite starter supplies of foundational materials. Secondary and terti
 | Evaporite basin | Halite | Sylvite | Gypsum | Borate minerals in some deposits |
 | Orogenic gold / greenstone-hosted lode | Native gold | Arsenopyrite | Pyrite | Chalcopyrite only in polymetallic variants |
 
-These are candidate formation archetypes, not guaranteed recipes. Orefields should combine minerals in geology-inspired profiles, rather than one universal composition.
+These are candidate formation archetypes, not guaranteed recipes. Polymineral deposits should combine minerals in geology-inspired profiles, rather than one universal composition.
 
 ## Mineral Recovery Matrix
 
@@ -175,7 +175,7 @@ Finishing (washing, drying, calcining, casting) is part of the relevant route, n
 
 ### Balanceability Checks
 
-- Every Orefield feed must have at least one viable baseline route and a discoverable advanced route.
+- Every polymineral deposit feed must have at least one viable baseline route and a discoverable advanced route.
 - Across the mineral roster, common primary materials need multiple sources and multiple consumers; trace targets should be recoverable from residues without requiring pure primary products to be consumed at the same rate.
 - For each route template, account for every output as a useful material, an input to further recovery, a finite buffer, or a reason to throttle/pause feed. Required voiding is not an acceptable balance solution.
 - Test the roster against iron-heavy, copper-heavy, alloy-heavy, and trace-recovery demand profiles. No profile should force permanent accumulation when the player selects compatible deposits and routes.
