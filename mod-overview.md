@@ -7,7 +7,7 @@
 
 This document defines the mod's north star, core pillars, and intended scope. It establishes the mission (an industrial ecosystem where extraction, refining, metallurgy, chemistry, power, pollution, military pressure, semiconductors, and endgame research support one another) and the player identity — an industrial engineer choosing and balancing processes, not a factory builder following longer recipe chains.
 
-**Scope:** Design philosophy, system map, key pillars (multiple processes, tradeoffs over upgrades, capabilities over numbers), inspirations and guardrails, and decisions still open. All system-specific details live in the six linked documents below.
+**Scope:** Design philosophy, system map, key pillars (multiple processes, tradeoffs over upgrades, capabilities over numbers), inspirations and guardrails, and decisions still open. All system-specific details live in the eight linked documents below.
 
 ## Mission
 
@@ -29,6 +29,20 @@ The player should feel less like a factory builder following longer recipe chain
 - **Capabilities over numbers:** prospecting, flotation, chemical refining, cleanrooms, programmable control, and simulation infrastructure are memorable progression goals.
 - **Knowledge before capability:** show the industrial journey in the handbook before every step can be built; unlock implementation gradually.
 
+### Mod Title (hold until endgame locked)
+
+The name should reflect the core hook/fantasy so the title itself telegraphs what the player is doing — not just what they do, but *why it matters*. Brainstormed directions:
+
+| Candidate | Tone | Why it works / falls short |
+|---|---|---|
+| *Industrial Evolution* | Descriptive | Safe, readable, but "Evolution" is overused for anything incremental. Doesn't make anyone lean in. |
+| *Industrial Genesis* | Evocative + grounded | Stronger than above. Connects to the first-industry fantasy, but still reads a bit textbook-ish. |
+| *Genesis Protocol* | System-focused, cool | "Protocol" leans heavily toward computation/rules. If the endgame is computational civilization, this maps well — but it obscures the industrial/physical side that's 80% of the gameplay. |
+| **Project Prometheus** *(recommended)* | Mythological + grounded | **Prometheus brought fire to the world against divine odds.** The player's arc — starting from dirt and ore, layering process after process, until building something planetary-scale — maps directly onto that metaphor. "Project" keeps it engineering-quality rather than pure mythology. It stays on your mind after you hear it. |
+| *Synthetic Dawn* | Poetic, abstract | Evocative but nobody looks at it and knows what they're playing. Could be any sci-fi base-builder. Loses the industrial anchor entirely. |
+
+**Recommendation: Project Prometheus.** If one name does half the job of explaining the fantasy to a newcomer, it's worth choosing early — *once* the endgame is locked so the metaphor aligns with the actual ending state.
+
 ## Intended Scope
 
 The ambition is a long overhaul playthrough, potentially 300+ hours, with complexity between Bob's/Angel's and Pyanodon's. That duration should come from geological discovery, process choice, logistics, cross-chain planning, and capability progression, not recipe inflation alone. The mineral roster and shared process vocabulary should remain bounded and learnable.
@@ -43,6 +57,8 @@ The ambition is a long overhaul playthrough, potentially 300+ hours, with comple
 | Power | Local grids, transmission tiers, conductor choice, losses, transformations, and diagnostics | [Power System](power-system.md) |
 | Endgame | Distributed wafer, compute, simulation, and planetary research facilities | [Endgame Vision](endgame-vision.md) |
 | Machines | Reusable equipment families mapped to industrial operations and progression | [Machine Systems](machine-systems.md) |
+| Military | Pollution pressure, ammo/weapon chains, defense infrastructure, process tradeoffs | [Military System](military-system.md) |
+| Logistics | Transport layers, demand-based dispatch, freight terminals, information flow | [Logistics System](logistics-system.md) |
 
 ### Mining and Refining
 
@@ -84,6 +100,7 @@ Avoid mandatory upgrades without a new capability, arbitrary complexity, a singl
 
 ## Decisions Still Open
 
+- **Mod title/name (hold until endgame locked):** *Project Prometheus* is the current leaning — see the "Mod Title" section above for full candidate list and reasoning. Final call should wait until the endgame fantasy is set in stone.
 - Final mineral roster, real deposit classes, assays, and material recovery assignments.
 - Approved chemical inventory and reaction routes.
 - Which nuclear pathways belong in the mod, and their depth.
