@@ -54,7 +54,7 @@ The ambition is a long overhaul playthrough, potentially 300+ hours, with comple
 | Mineral catalog | Candidate deposits, mineral feeds, recoverable materials, and common route patterns | [Minerals and Refining](minerals-and-refining.md) |
 | Chemistry | Named industrial reactions, coproducts, alternative pathways, catalysts, and chemical intermediates | [Chemical Products and Processes](chemical-processes.md) |
 | Manufactured intermediates | Alloys, batteries, semiconductor components, nuclear assemblies, and endgame components | [Intermediate Products](intermediate-products.md) |
-| Power | Local grids, transmission tiers, conductor choice, losses, transformations, and diagnostics | [Power System](power-system.md) |
+| Power | Generator phases, fuel density, grid tiers, transmission losses, conductor choices, diagnostics, and waste handling | [Power System](power-system.md) |
 | Endgame | Distributed wafer, compute, simulation, and planetary research facilities | [Endgame Vision](endgame-vision.md) |
 | Machines | Reusable equipment families mapped to industrial operations and progression | [Machine Systems](machine-systems.md) |
 | Military | Pollution pressure, ammo/weapon chains, defense infrastructure, process tradeoffs | [Military System](military-system.md) |
