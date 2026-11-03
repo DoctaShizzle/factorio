@@ -46,14 +46,21 @@ Every system should support the same industrial philosophy.
 Every major product should have multiple viable production methods.
 
 ## Pillar 2: Tradeoffs Instead of Progression
-Processes should optimise different constraints:
-- throughput
-- pollution
-- power
-- space
-- infrastructure cost
-- resource efficiency
-- military pressure
+Every product should have multiple viable production methods, each optimising different primary constraints.
+
+### Primary Axes (the core tension)
+- **Resource efficiency** — a la Angel's equilibrium
+- **Pollution / military pressure** — a consequence axis, not a standalone one
+- **Capital complexity** — infrastructure cost, not power or space
+
+Almost every interesting conversation maps onto those three.
+
+### Secondary Axes (useful but not central)
+- Throughput
+- Power consumption
+- Floor space
+
+Power and space matter, but they are levers — not the core tension.
 
 ## Pillar 3: Processes Instead of Recipes
 The player should ask:
@@ -70,8 +77,24 @@ Better refining should create additional options, not simply higher yields.
 ## Pillar 5: Pollution as an Optimisation Axis
 Pollution is a strategic choice, not merely punishment.
 
-## Pillar 6: Military Emerges From Industry
-Military challenge should emerge from industrial decisions.
+## Pillar 6: Military Is Economic, Not Gimmicky
+Avoid:
+- "Special enemy X attacks thing Y"
+
+Instead:
+
+**Military is the price paid for industrial decisions.**
+
+Dirty steel:
+- throughput
+- pollution → alien attacks
+
+Clean steel:
+- throughput
+- alien attacks (but deferred/managed)
+
+Pollution = **deferred military spending.**
+This connects metallurgy, refining, power generation, and military into one system.
 
 ## Pillar 7: Equilibrium Over Disposal
 Storage may exist.
@@ -85,6 +108,32 @@ The optimal solution should be:
 rather than:
 
 > disposal
+
+---
+
+## Pillar 8: Capabilities Over Numbers (NEW)
+The player should unlock:
+- prospecting
+- flotation
+- chemical refining
+- semiconductor fabrication
+- automation systems
+- simulation infrastructure
+
+rather than simply:
+```
++20% efficiency
++50% throughput
+Tier 5 machine
+```
+
+This is one of GTNH's greatest strengths. People remember:
+
+> "I got a cleanroom."
+
+Not:
+
+> "My machine got 12% faster."
 
 ---
 
