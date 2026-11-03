@@ -47,6 +47,10 @@ All mining tiers provide mineral or resource feeds; they do not each create a se
 
 Chemical chains should connect resource processing to metallurgy, construction, electronics, and the endgame. Each required product needs a straightforward route. Advanced alternatives should unlock later and offer visible tradeoffs. Candidate lists remain provisional until each product has an end use and is approved for the design.
 
+### Endgame Hook
+
+**Build a planetary digital twin by constructing a computational civilization.** The simulation models planetary systems and agent-like entities that think and make decisions; it is not an AI housed in a core building. A distinctive Planetary Simulation Core may anchor a distributed network of memory archives, compute campuses, and survey/model facilities.
+
 ### Pollution and Military Pressure
 
 Pollution is an economic consequence of industrial choices, not a collection of special-case enemy mechanics. Dirty, high-throughput production may defer costs into military pressure; cleaner routes trade for infrastructure, power, or process complexity.
