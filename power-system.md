@@ -50,6 +50,8 @@ This document defines the complete power architecture — from energy **producti
 **Phase 2 design notes:**
 - Fission power density should be **orders of magnitude higher** than combustion, creating massive spatial relief for the factory. However, the *fabrication cost* of a reactor (stainless steel pressure vessel, zirconium cladding, graphite moderator, control rods with hafnium/boron absorbers) is substantial.
 - Cooling is a genuine requirement — not just a number but physical infrastructure (heat exchangers, fluid transport, condensers). This connects to thermal management in endgame facilities.
+- **Meltdown risk** (GTNH-inspired): The reactor requires *continuous active cooling*, even when the factory grid is offline. If power is lost and backup batteries/dead-battery capacitors deplete, the core begins a visible escalation: elevated temperature → increased pressure → fuel rod stress → potential meltdown. Each stage has clear UI feedback (thermal indicators, pressure gauges, warning alarms), giving the player time to react — route emergency power, start passive cooling loops, or initiate safe shutdown.
+- The tension is not "does fission work?" but "can I keep it cool when everything else fails?" This makes thermal redundancy a meaningful engineering decision rather than a punishment loop. A player who invested in grid diversity and load-shedding diagnostics (see Diagnostics section) will have built-in resilience.
 - Fission creates **breathing room from military pressure** if operated cleanly. No combustion pollution means fewer attacks, giving the player a choice: dense power without the military consequence.
 
 ### Phase 3: Fusion (Late Game)
@@ -66,17 +68,27 @@ This document defines the complete power architecture — from energy **producti
 - The fusion chain touches more parts of the mod than any other single capability: mining (tungsten, niobium/tantalum, lithium), chemistry (deuterium concentration, lithium processing), metallurgy (superconducting alloys, plasma-facing tungsten), and semiconductor electronics (magnet control systems).
 - Fusion should be **the ultimate spatial relief** — a small footprint delivering enormous power. However, building the first fusion reactor should feel like a major project rivaling the endgame Core in scope.
 
-### Phase 4: General-Physics Simulation (Endgame / Optional)
+### Phase 4: Micro-Verse Harvesting (Endgame / Optional)
 
-*The final frontier of power research; connected to the planetary simulation network.*
+*Connected to the Planetary Simulation Core; requires active computational partnership, not just research unlocks.*
 
 | Generator concept | Principle | Design role | Key tradeoff |
 |---|---|---|---|
-| Advanced physics-driven generation | Not a real-world technology; represents simulation-governed energy extraction (e.g., vacuum-energy harvesting, exotic matter manipulation) | Endgame research frontier; optional final power source the simulation network helps unlock | Theoretical, not practical; serves as a narrative capstone for the general-physics modeling stage. Should feel conceptually distinct from all prior generation methods |
+| Micro-Verse Harvester (ZPM-inspired) | Casimir-effect cavity collapsed into a micro-parallel universe; harvested via vacuum fluctuations | Endgame energy frontier; optional capstone generator. Represents harnessing zero-point energy from an accessible parallel quantum vacuum | Requires Planetary Simulation Core as *active operational partner* for real-time stabilization; nanometer-scale fabrication precision (cleanroom, tantalum interconnects, ultra-pure silicon); no fuel supply chain but enormous infrastructure demand |
+| Kugelblitz Array (alternate concept) | Optical concentrator array collapses intense radiation field into a micro-black hole; Hawking radiation harvested via thermal-to-electric conversion | Alternate endgame path emphasizing optics and high-power transmission over precision cavity fabrication | Ironic cycle: requires enormous power *to build* the concentrators, produces more than consumed after breakeven; needs extreme-voltage infrastructure and precision mirror/glass fabrication |
 
 **Phase 4 design notes:**
-- This phase is optional and speculative. It represents what happens when the player's planetary model becomes sophisticated enough to explore energy principles beyond conventional physics.
-- Should *not* be required for victory. The simulation research that unlocks it comes from the endgame network (see [Endgame Vision](endgame-vision.md)).
+- **The simulation is operationally required**, not just a research gate. For the Micro-Verse Harvester:
+  - The Planetary Simulation Core must compute *which vacuum fluctuations are extractable* from the target universe's quantum structure (the cavity geometry depends on real-time predictions of zero-point energy density)
+  - It stabilizes the *nascent micro-universe against vacuum decay* — computing spacetime boundary conditions faster than they evolve, feeding correction parameters to the device's electromagnetic containment field
+  - As the micro-verse evolves, the simulation must *adapt extraction parameters* (cavity tuning, harmonic dampening) or efficiency degrades and risk of vacuum fluctuation feedback increases
+- The Kugelblitz variant also requires active simulation: predicting Hawking radiation spectrum for thermal conversion optimization, modeling the collapse dynamics to prevent containment breach.
+- **Harder constraint is fabrication precision, not fuel supply.** Building a nanometer-scale Casimir cavity demands semiconductor-grade silicon wafers, ultra-pure tantalum interconnects, cleanroom fabrication facilities, and precision metrology equipment. The simulation tells you *what* to build and *how to keep it stable* — it doesn't replace those material demands.
+- **The ironic Kugelblitz cycle:** You need enormous power to construct the optical concentrator array (feeding high-intensity light into a collapsing field), but once the micro-black hole stabilizes, its Hawking radiation output exceeds your construction power input. The breakeven point depends on concentrator precision — more precise mirrors = earlier breakeven.
+- Both concepts connect the endgame simulation network to *something tangible* — not just "research unlock" but an ongoing operational dependency that makes the Planetary Simulation Core feel like an indispensable factory asset, not a prestige project.
+- Should *not* be required for victory. These represent what happens when the player has demonstrated mastery of every industrial domain and wants to push beyond conventional physics. The simulation research connection comes from [Endgame Vision](endgame-vision.md).
+
+**Phase 4 vs Phase 3 boundary question:** At what point does "advanced fusion" end and "micro-verse harvesting" begin? The distinction should be clear: fusion manipulates *existing* fundamental forces (electromagnetic confinement of plasma); micro-verse harvesting creates *new spacetime structure* accessible to conventional physics. This is a research-design decision pending deeper alignment with endgame-vision.md.
 
 ## Fuel Density Spectrum (Reference Guide)
 
@@ -117,8 +129,9 @@ The mod's space-pressure design makes fuel density a critical comparison axis. T
 - **Deuterium concentration facility:** Electrolysis + concentration cascade from water source. Tied to chlor-alkali capability for hydrogen production.
 
 ### Endgame Simulation Generators
-- **Conceptual infrastructure:** Would connect to the Planetary Simulation Core network, requiring domain datasets, compute capacity, and precision measurement facilities.
-- **Not a practical building yet** — design pending endgame research loop finalization.
+- **Micro-Verse Harvester:** Requires cleanroom facility (nanometer-scale Casimir cavity fabrication), active Planetary Simulation Core connection for real-time boundary stabilization, precision metrology equipment, ultra-pure tantalum interconnects, semiconductor-grade silicon wafers.
+- **Kugelblitz Array:** Requires optical concentrator infrastructure (precision glass/mirror array, coated silicon elements), extreme-voltage power transmission systems, containment structures, active simulation network for Hawking radiation spectrum prediction.
+- Both concepts require the Planetary Simulation Core as *operational* infrastructure — not just a research unlock, but an ongoing real-time computational partner.
 
 ## Design Tensions to Resolve
 
@@ -126,10 +139,10 @@ The mod's space-pressure design makes fuel density a critical comparison axis. T
 |---|---|---|
 | Combustion pollution as military driver | Make all combustion pollute; or let scrubbing/scrubbed-fuel eliminate pollution | Pollution should be a *process choice* — clean fuel or scrubbing removes the pressure, but each option has its own cost (space, complexity, resources) |
 | Fusion: too strong too early? | Gate behind endgame network commissioning; or gate behind fusion-research from simulation model | Fusion should require deep industrial capability (tungsten refining, niobium-titanium alloy, lithium processing, precision control), which naturally gates it to late-game without arbitrary research walls |
-| Fission: is it too convenient? | Add maintenance, waste-accumulation, or meltdown risk; or keep it simple and let fabrication cost be the gate | **Keep fission reliable** — its cost is upfront complexity (fuel chain, shielding, cooling), not ongoing operational friction. The mod's design philosophy favors *choice tradeoffs*, not *punishment loops* |
+| Fission: is it too convenient? | Add maintenance, waste-accumulation, or meltdown risk; or keep it simple and let fabrication cost be the gate | **Meltdown risk via cooling dependency** — GTNH-inspired. The reactor requires continuous active cooling. If grid power is lost and backup capacitance depletes, the core escalates: elevated temperature → increased pressure → fuel rod stress → potential meltdown. Each stage has clear UI feedback (thermal indicators, pressure gauges, warning alarms) giving time to react. This makes thermal redundancy a meaningful engineering decision rather than punishment — players who invested in grid diversity and load-shedding diagnostics have built-in resilience. |
 | Space pressure from renewables vs. density axis | Do we include solar/wind as explicit generators? Or let the density axis speak for itself | **Option A:** Include a compact "solar array" machine with area-dependent output, built from semiconductor-grade silicon — connecting to the wafer/processor chain but requiring raw cells and glass. **Option B:** Let the *concept* of distributed renewables exist as design flavor (see military-system.md's space pressure section) without building explicit solar/wind generators. |
 | Fusion fuel: infinite power → does it remove all tension? | No — the *construction cost* is enormous, and once built, the generator may still need cooling, maintenance, or grid integration. The tension shifts from "can I afford fuel?" to "where do I put this facility?" | Emphasize placement/logistics over supply. Fusion solves the fuel problem but creates an *infrastructure* challenge: connecting massive power output to the grid, managing heat rejection, and protecting against grid surges |
-| Phase 4 (simulation-driven) scope | Define it concretely; or leave as placeholder for endgame finalization | **Recommend:** Leave Phase 4 largely undefined until endgame-vision.md's research loop and victory conditions are locked. A brief conceptual entry is sufficient for now |
+| Phase 4 (simulation-driven) scope | Define it concretely with simulation dependency; or leave as placeholder for endgame finalization | **Micro-Verse Harvester** (ZPM-inspired: player-built Casimir cavity that collapses into a micro-parallel universe, harvested via vacuum fluctuations) with the Planetary Simulation Core as *active operational infrastructure* — not just a research unlock. The simulation computes initial cavity geometry, stabilizes spacetime boundaries in real-time, and tunes extraction parameters as the micro-verse evolves. **Alternate: Kugelblitz Array** (optical concentrators collapse radiation into a micro-black hole; Hawking radiation harvested). Both tie to simulation meaningfully without requiring map-placed black holes. |
 
 ## Open Design Decisions (Power Production)
 
