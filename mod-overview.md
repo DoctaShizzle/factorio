@@ -31,7 +31,6 @@ The ambition is a long overhaul playthrough, potentially 300+ hours, with comple
 
 | System | Design role | Working document |
 | --- | --- | --- |
-| Mining, refining, metallurgy | Finite surface feeds, trace-bearing underground deposits, mixed Orefields, shared refining stages | [Mining, Refining & Metallurgy](mining-refining-metallurgy.md) |
 | Mineral catalog | Candidate deposits, mineral feeds, recoverable materials, and common route patterns | [Material Chain Map](material-chain-map.md) |
 | Chemistry | Named industrial reactions, coproducts, alternative pathways, catalysts, and chemical intermediates | [Chemical Products and Processes](chemical-processes.md) |
 | Manufactured intermediates | Alloys, batteries, semiconductor components, nuclear assemblies, and endgame components | [Intermediate Products](intermediate-products.md) |

@@ -3,7 +3,7 @@
 *For: Factorio Overhaul Mod*  
 *Status: Design reference / candidate catalog*
 
-Related documents: [Mining, Refining & Metallurgy](mining-refining-metallurgy.md), [Chemical Products and Processes](chemical-processes.md), and [Intermediate Products](intermediate-products.md).
+Related documents: [Chemical Products and Processes](chemical-processes.md), and [Intermediate Products](intermediate-products.md).
 
 > **Draft catalog v0.4:** Use real mineral/resource names and real geological deposit classes as identifiers; this draft does not assign invented site names. Recovery associations are candidate gameplay mappings, not claims that every specimen contains each listed element. Exact assays, ratios, and recipe availability remain to be validated.
 
