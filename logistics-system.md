@@ -165,6 +165,55 @@ Information logistics creates a **direct connection** between semiconductors, co
 5. **Belts evolve alongside materials science.** Better infrastructure is earned through industrial progress.
 6. **Information logistics becomes a late-game engineering discipline.** Moving decisions, not just items, connects to the endgame.
 7. **Logistics rewards infrastructure design, not repetitive maintenance.** The player decides architecture; the system handles execution.
+8. **Machine capability tiers are defined by build materials, not input material quality** (see research-progression.md "Machine Tiering Through Material"). Each assembler type has multiple tiers built from progressively better materials — higher tiers unlock recipes that lower-tier machines cannot perform because they must withstand higher temperatures, pressures, or precision requirements. Better raw deposits remain useful because easier purification cascades mean cheaper machine upgrades.
+9. **Machine capability scales through building higher-tier variants, not just upgrading in-place.** A furnace can accept upgrade modules for limited improvement, but building a Tier 2 or Tier 3 furnace from scratch unlocks capabilities that upgrades cannot replicate.
+
+## Engineering Complexity Patterns — Game-Wide Logistics Design
+
+These patterns create meaningful engineering decisions across all phases. They are design patterns adapted from successful overhaul games, integrated into this mod's industrial ecosystem theme.
+
+#### Coproduct/Waste Management
+
+Not all production chains produce only useful output. Some recipes generate coproducts alongside the primary product:
+- **Recycle path:** Feed coproduct back into another chain — creates routing puzzles that reward cross-domain awareness
+- **Convert path:** Add a secondary processing step to transform coproduct into something else useful — adds depth but increases infrastructure cost
+- **Manage loss:** Accept material loss and optimize around it — faster to set up but resource-inefficient
+
+This forces process strategy choice, not just machine placement. The player asks "how do I handle the waste?" as much as "which process should I use?"
+
+#### Feedback Loops (Kickstart Required)
+
+Some recipes require a small amount of their own lower-tier output as a catalyst seed. The player must:
+1. Produce an initial batch manually (slower, less efficient)
+2. Set up the feedback loop
+3. Transition to self-sustaining production
+
+This creates a satisfying "it's alive" moment and prevents the "just build enough and move on" mentality — you have to *design* the startup procedure.
+
+#### Catalyst Degradation / Replacement Cycles
+
+Catalysts wear out over time in certain processes — they are consumed slowly or lose effectiveness. This creates **maintenance rhythm**, not "build one and forget it" factories:
+- The player must design a parallel "catalyst production line" alongside their main production
+- Decide on replacement frequency: faster degradation = more efficient main process but higher maintenance burden
+- Manage shutdown windows to swap catalysts without losing too much output
+
+This fits the Prometheus industrial fantasy perfectly — the factory is a living system with wear-and-tear, not a static machine.
+
+**Open decision:** How severe should catalyst degradation be? Light (replace every few hours of in-game time) vs. heavy (every 10–20 minutes)? This determines whether it's a manageable rhythm or a constant chore.
+
+#### Complex Logistics Ratios
+
+Even though only ~30 intermediates feed into research directly, each traces back through substantial input trees with deliberate logistical difficulty:
+- **Mismatched flow ratios** (e.g., 1:20 solid inputs) force separate routes that merge late — prevents spaghetti factories from scaling linearly
+- **Mixed solid+fluid inputs** require piping infrastructure to join belt networks — creates natural spatial boundaries between production zones
+- **Three+ inputs from different origins** create convergence-point hubs that become natural organizational centers
+
+#### Machine Tiering Through Building, Not Just Upgrading
+
+Machine capability scales through **building higher-tier variants** from scratch, not just slotting in modules:
+- A basic machine can accept upgrade modules for limited improvement (throughput boost, power reduction), but these have caps — a Tier 1 furnace can never match a Tier 3 furnace's maximum throughput
+- Building a new machine unlocks capabilities that upgrades cannot replicate (new recipe access, higher material grade processing)
+- This creates retrofit engineering pressure: can you fit upgrades in your existing footprint, or do you need to tear it down and rebuild?
 
 ## Open Decisions
 
@@ -175,3 +224,5 @@ Information logistics creates a **direct connection** between semiconductors, co
 - Whether a "connection manager" UI exists for dedicated train routes, or if it's purely automated
 - How fluid logistics evolves (do pipes also have tiers? temperature/pressure matter?)
 - Interaction between information logistics and the PLC automation system
+- Catalyst degradation severity — light (manageable rhythm) vs. heavy (constant maintenance pressure)
+- Upgrade module caps — how far can modules push a machine before building a new tier becomes necessary?

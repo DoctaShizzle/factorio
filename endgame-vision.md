@@ -1,5 +1,19 @@
 # Endgame Vision - Distributed Planetary Computing
 
+*Updated to reflect locked Phase 1 design (six domains, tiered domain packs, progressive Core activation).*
+
+## Status
+
+**Phase 1: Design locked.** See [research-progression.md](research-progression.md) for complete progression details.
+
+### Key Dependencies from Locked Design
+- **Six domain packs per tier:** Superconductivity, Plasma Confinement, Nanofabrication, Isotope Separation (Particle Physics), Reaction Dynamics, Quantum States — each with T1→T2a→T2b1→T2b2→T3a→T3b→T3c tiers
+- **Core construction unlocked by:** All six domains at T2a minimum + convergence item → Phase 4 power access + basic simulation model
+- **Core Level 2 requires:** All six domains at T2b2 — ~1,320 packs total
+- **Core Level 3 / Final milestone requires:** All six domains at T3c — ~7,920+ packs spread over extended production
+- **Domain labs role after Core activation:** Shift from "research fuel" to "simulation trainers" — Model Calibration sub-facilities that improve fidelity and efficiency
+- **Handoff style:** Overlapping (Core Level 1→2→3 gradual activation), not abrupt
+
 *For: Factorio Overhaul Mod*  
 *Status: Vision / requirements phase*
 

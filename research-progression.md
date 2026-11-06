@@ -23,9 +23,9 @@ This applies to research too. Technology advancement should model **how real eng
 
 | Phase | Research Mechanism | Scope | Player identity |
 |---|---|---|---|
-| **Phase 1: Conventional** | Standard tech tree using science packs | First ~40–50% of the game. Establishes baseline industrial capability, teaching mechanics and setting up the factory for transition | Factory builder following recipe chains |
-| **Phase 2: Transitional (Domain Science)** | Hybrid system — conventional science packs continue but new *domain science packs* are introduced as additional gates | ~40–50% through the game. The borders between phases stay intentionally vague rather than a hard gate at Fission → Fusion. As conventional industry hits the physics wall and simulation help becomes necessary | Industrial engineer choosing processes |
-| **Phase 3: Simulation-Gated** | Full research loop — domain datasets → Planetary Simulation Core runs models → findings unlock technologies | Final third (~100 hours). Domain packs are produced by science-pack-style buildings. Some conventional technology remains available as an alternative path for capabilities that don't require new physics | Industrial engineer who must *understand* the universe to manipulate it |
+| **Phase 1: Conventional** | Standard tech tree using science packs | First ~30–40 hours. Establishes baseline industrial capability, teaching mechanics and setting up the factory for transition | Factory builder following recipe chains |
+| **Phase 2: Transitional (Domain Science)** | Hybrid system — conventional science packs continue but new *domain science packs* are introduced as additional gates; each domain has a five-tier pack progression that stretches Phase 2 through deep industrial investment | ~180–200 hours. The borders between phases stay intentionally vague rather than a hard gate at Fission → Fusion. As conventional industry hits the physics wall and simulation help becomes necessary, the player produces progressively deeper domain packs across all six domains — balanced investment is forced by the design | Industrial engineer choosing processes |
+| **Phase 3: Simulation-Gated** | Full research loop — domain datasets → Planetary Simulation Core runs models → findings unlock technologies. Domain pack tiers T3a–T3c produced using Core infrastructure, scaling in requirement to maintain engagement | ~70–100 hours. The simulation network consumes increasingly advanced domain packs to reach higher fidelity states; player expands Phase 2 industrial base to feed the loop. Some conventional technology remains available as an alternative path for capabilities that don't require new physics | Industrial engineer who must *understand* the universe to manipulate it |
 
 ### Why This Shape?
 
@@ -65,13 +65,57 @@ Key design points for each dedicated research facility:
 
 | Facility | Produces | Phase 2 material prerequisite | Scientific field demonstrated |
 |---|---|---|---|
-| Superconductivity Research Lab | *Plasma Physics Readings* | Electronic-grade polysilicon + Nb₃Sn wire | Condensed matter physics → plasma behavior in magnetic fields |
-| Plasma Confinement Facility | *Magnetic Confinement Data* | Nb₃Sn wire + cryogenic infrastructure | Applied electromagnetism + high-field magnet operation |
-| Nanofabrication Laboratory | *Materials Science Results* | Hafnium-oxide (HfO₂) dielectric | Surface science, nanoscale material behavior |
-| Isotope Separation & Calibration Lab | *Nuclear Cross-Section Measurements* | Deuterium-enriched water (D₂O) | Nuclear physics, neutron interaction modeling |
-| Low-Temperature Physics Facility | *Quantum Statistical Data* | High-purity cryogenic argon/nitrogen mixture | Statistical mechanics, quantum phenomena at low temperature |
+| Superconductivity Research Lab | Domain data on superconductive states and critical currents | Electronic-grade polysilicon + Nb₃Sn wire | Condensed matter physics — zero-resistance current flow, magnetic confinement |
+| Plasma Confinement Facility | Domain data on ionized gas behavior and field dynamics | Nb₃Sn wire + cryogenic infrastructure | Applied electromagnetism — high-field magnet operation, plasma stability |
+| Nanofabrication Laboratory | Domain data on materials at atomic-scale dimensions | Hafnium-oxide (HfO₂) dielectric | Materials science — surface science, nanoscale behavior, quantum tunneling |
+| Isotope Separation & Calibration Lab | Domain data on nuclear interactions and decay pathways | Deuterium-enriched water (D₂O) + enriched fuel stock | Particle physics — neutron interaction modeling, weak/strong force phenomena |
+| Reaction Dynamics Facility | Domain data on reaction rates, catalysis, and equilibrium states | Advanced catalysts + process intermediates | Chemical kinetics — how reactions move, not just that they occur |
+| Quantum States Laboratory | Domain data on atomic bonding, crystalline structures, and quantum states | High-purity cryogenic mixture + purified noble gases | Quantum mechanics — atomic structure, bond formation, phase transitions at low temperature |
 
 **Production rate tied to facility quality.** A well-designed research facility with proper materials and operating conditions produces more domain packs than a makeshift setup — rewarding competent factory engineering without over-engineering the mechanic.
+
+#### Domain Pack Tiers — Distinct Items per Tier (Not Alt Recipes)
+
+Each domain produces its own **five-tier pack progression**. Each tier is a distinct item with its own recipe — you do not upgrade one item; you produce the next tier from scratch using previous-tier output as input. This makes every tier a *capability unlock*, not just a speed boost.
+
+**Naming convention per domain:** `[Domain] [Tier Descriptor]` — e.g., *Superconductivity Sample*, *Superconductivity Analysis Packet*, *Superconductivity Characterization Report I*, *Superconductivity Characterization Report II*, *Superconductivity Simulation Bundle*. The tier descriptor is consistent across all domains for recognizability without sacrificing domain identity.
+
+| Tier | Item Name Pattern (example: Superconductivity) | Input Source | What It Represents |
+|------|---|---|---|
+| **T1** | `Superconductivity Sample` | Phase 1 products + basic bridge materials | "I observe this phenomenon" — raw observational data from the lab |
+| **T2a** | `Superconductivity Analysis Packet` | T1 output + Phase 2 intermediates (electronic-grade polysilicon, Nb₃Sn wire) | "I've modeled it once" — first theoretical pass with material-specific calibration |
+| **T2b1** | `Superconductivity Characterization Report I` | T2a output + one additional refined Phase 2 intermediate | "I understand the primary boundary conditions" |
+| **T2b2** | `Superconductivity Characterization Report II` | T2b1 output + high-purity Phase 2 intermediates from adjacent domains | "I've cross-calibrated against related domains" |
+| **T3a** | `Superconductivity Simulation Bundle` | T2b2 output + basic Core infrastructure module | "The simulation has extended my understanding" — first tier of simulated data |
+| **T3b** | `Superconductivity Calibration Bundle` | T3a output + high-fidelity infrastructure item (Core-produced) | "Simulation results validated against experimental benchmarks" |
+| **T3c** | `Superconductivity Finalized Dataset` | T3b output + convergence-level materials spanning multiple domains | "Full multi-domain synthesis" — required for Core Level 3 / final milestone |
+
+#### Core Unlock Requirements (Per Domain)
+
+| Core Stage | Packs Required per Domain | Total Packs (~6 domains) | What It Unlocks |
+|-----------|--------------------------|--------------------------|------------------|
+| **Core construction (first activation)** | All 6 domains at T2a minimum + convergence item | ~6 × 7 = ~42 packs (plus convergence item) | Phase 4 power access (Hawking engine), basic simulation model |
+| **Core Level 2** | All 6 domains at T2b2 | ~1,320 packs total | Higher-fidelity models, accelerated discovery |
+| **Core Level 3 / Final milestone** | All 6 domains at T3c | ~7,920+ packs total (spread over extended production) | General-physics discovery unlock |
+
+> The Core itself is a hybrid technology — requires both conventional science packs (real materials to build) and domain datasets (operational evidence the network functions). Convergence item bridges both by requiring one T2a pack from each of the six domains.
+
+> **Critical gate: Phase 2 must be completed in full (all six domains at T2b2) before any Core-related construction begins.** This forces balanced investment across all six physics domains — no shortcuts through specialization. The domain pack tiers are the progression bar for Phase 2; you know where you stand by asking "what's the highest tier I have on all six?"
+
+#### Domain Pack Recipes: Required Intermediate Products Per Tier
+
+The **tip of the chain** for research purposes is small — ~30 intermediates across all six domains. Each tier requires distinct inputs, creating a progressive industrial investment path:
+
+| Tier | Intermediates Needed | Examples |
+|------|---------------------|----------|
+| **T1 (6 items)** | Phase 1 products + basic bridge materials. ~6–8 distinct intermediates total: refined metals (iron, copper, aluminum), basic acids, simple solvents. Accessible from early Phase 2 |
+| **T2a (6 items)** | T1 output + Phase 2 intermediates. ~10–15 distinct intermediates: electronic-grade polysilicon, Nb₃Sn wire, HfO₂ dielectric, D₂O, cryogenic mixtures, noble gas purification |
+| **T2b1 (6 items)** | T2a output + one additional refined Phase 2 intermediate per domain. ~8–10 distinct intermediates total — domain-specific, not shared |
+| **T2b2 (6 items)** | T2b1 output + high-purity cross-domain intermediate. ~6–8 distinct intermediates — requires materials from *adjacent* domains, forcing balanced production infrastructure |
+| **T3a (6 items)** | T2b2 output + Core-produced infrastructure module. ~3–5 distinct modules across all domains, produced by facilities built using Phase 2 products but activated only after first Core construction |
+| **T3b → T3c** | Progressively complex synthesis using prior tier outputs plus convergence-level multi-domain materials. Each requires additional high-purity inputs from adjacent domains |
+
+Total estimated intermediates across all tiers: ~50–60 distinct items (including Phase 2 bridge materials). This is comparable to other overhaul mods' effective decision space — GTNH acknowledges the *effective* choice surface per player is ~40–50 categories, even if the theoretical roster is larger. The key constraint is **human cognitive capacity**: a player can only hold so many simultaneous processing decisions without fatigue. These 6 domains × 7 tiers with progressive revelation keep any given moment within that bound.
 
 ### Why Domain Packs at This Phase?
 The transition zone is where the player has mastered conventional industry but hits the physics wall: they know *how* to run fission reactors but can't independently discover how to confine fusion plasma, synthesize cleanroom materials, or model advanced molecular processes. They need **domain-level understanding** — enough expertise in a field that simulation can build on it.
@@ -79,7 +123,34 @@ The transition zone is where the player has mastered conventional industry but h
 This is also where your existing Endgame Vision "Planetary and Industrial Model" stage begins. Domain packs are the evidence the player submits to say: "I understand this domain well enough to let the simulation extend my knowledge."
 
 ### When Phase 2 Ends
-Phase 2 ends when the player has built **all five domain research facilities** and generated domain packs from each. The simulation network requires demonstrated breadth across all five physics domains before accepting any simulation fidelity tier — no shortcuts around partial coverage. This is roughly when they've established enough industrial diversity to produce all five Phase 2 bridge materials and have built the corresponding research infrastructure for Phase 3.
+Phase 2 ends when the player has produced all six domain pack progression chains through T2b2 — a wall that forces balanced investment across every physics domain. The simulation network requires demonstrated breadth and depth across all six domains before accepting any Core-related construction.
+
+This wall is deliberate, not punitive. It prevents cheating Phase 3 by specializing two domains (e.g., superconductivity + plasma) and neglecting the rest. To unlock the Planetary Simulation Core, every domain must have reached the same intermediate understanding level — the convergence item requires one T2a pack from *each* of the six domains.
+
+**Duration estimate:** Phase 2 stretches ~180–200 hours within the 300+ hour ambition. The majority of this time comes from deep mineral → refinement → chemical chains needed for Phase 2 bridge materials, not from item count. Each domain pack tier traces back through multiple minerals and processing stages, generating hours through *depth per category*, not breadth all at once
+
+### Machine Tiering Through Material — Capability Gated by Build Materials
+
+Machine tiering follows the Bob's/Angel model: each assembler/processing machine type has **multiple tiers** built from progressively better materials. Higher-tier machines don't just run faster — they unlock recipes that lower-tier machines physically cannot perform, because the machinery must withstand higher temperatures, pressures, or precision requirements. This is capability gating, not ore quality.
+
+**Committed: 5 tiers.** Each tier maps to materials available from a specific phase, creating a reinforcing progression loop — later-phase production enables higher-tier machine construction which unlocks deeper processing:
+
+| Machine Tier | Build Materials | What It Enables | Phase Availability |
+|------|----------------|-----------------|-------------------|
+| **MTier 1** | Early-game metals + basic electronics | Basic recipes only (smelting, simple assembly) | Available from start — all Phase 1 players build these |
+| **MTier 2** | Intermediate metals + improved electronics | Unlocks intermediate processing steps requiring higher precision or temperature control | Requires Phase 2 bridge materials (steel → processed intermediates). Unlocks during Wave 1–2 of Phase 2 |
+| **MTier 3** | Advanced/corrosion-resistant alloys + advanced PCB | Unlocks chemical handling at scale, electrochemistry, high-temperature processes | Requires stainless steel processing + electronics chain. Available by Wave 2–3 of Phase 2; required to build the six domain labs |
+| **MTier 4** | High-performance alloys (titanium, etc.) + semiconductor-grade components | Deep chemistry, nuclear fuel fabrication, wafer production — capabilities between MTier 3 and cleanroom grade | Requires deeper Phase 2 processing. Available by Wave 3–4 of Phase 2 |
+| **MTier 5** | Ultra-pure/specialty alloys + semiconductor-grade components | Cleanroom-grade fabrication; Phase 3 Core infrastructure modules only | Requires materials from the deepest Phase 2/Phase 3 intermediate chains. Unlocks during Wave 4–5 or later |
+
+The exact materials for each tier will be determined by the intermediate-product tree — this table describes the capability ladder mapped to phases, not the specific build recipes. What matters is that progressing through tiers requires both material capability (you must produce/build with better alloys) and machine capability (the recipe must require a tier you don't yet have).
+
+**Progression impact on research:** The same domain pack recipe may require a machine tier that doesn't exist yet. This means:
+- The player must plan *which machines to build* alongside *what materials to produce* — both are parallel gating layers
+- Building the right machine type is as important as having the right materials. A lower-tier assembler with high-purity input still can't produce a higher-tier pack because the machinery cannot maintain the required environment
+- This reinforces the "capabilities over numbers" pillar: progressing means acquiring new capabilities, not just producing more of the same thing
+
+**Cross-cutting impact on Phase 2:** The six domain labs themselves are MTier 3+ machines — they can't be built until the player has established steel → advanced alloy processing. Each lab's construction prerequisite (electronic-grade polysilicon, Nb₃Sn wire, HfO₂ dielectric) reflects both material capability and machine tier progression working together.
 
 ## Phase 3: Simulation-Gated Research (Late Game / Endgame)
 
@@ -122,9 +193,50 @@ By having Phase 4 power available *while* building the full simulation, the play
 
 ### Playtime Contribution: Simulation Construction Phase
 
-**Resolved:** The simulation network construction occupies approximately **1/3 of total game time** (~100 hours within the 300+ hour ambition). This is the final third of gameplay, bridging from fusion power through building the full distributed computational civilization.
+**Resolved:** The simulation network construction occupies approximately **1/3 of total game time** (~70–100 hours within the 300+ hour ambition).
+
+| Segment | Hours | Activities |
+|---------|-------|-----------|
+| First Core construction (T2a packs) | ~25 | Balancing all six domains, building convergence item, first Core infrastructure |
+| Core Level 2 progression (T2b2 packs) | ~30–40 | Deepening Phase 2 production, cross-domain calibration, higher-fidelity simulation tiers |
+| Core Level 3 / final milestone (T3c packs) | ~15–35 | Expanded industrial base feeding Tier 3 domain pack production, convergence synthesis |
 
 Phase 4 power generation (Hawking Radiation Engine) is available *during* this construction phase — enabled by a basic Planetary Simulation Core. The player uses Phase 4 power to fuel the massive energy demands of expanding the simulation network. As the Core grows from basic physics model → planetary industrial model → information-formed civilization, its power requirements increase, and Phase 4 scales alongside it.
+
+### Time Validation Against Design Scope
+
+The phased time estimate is realistic because **Phase 2's duration comes from mineral → refinement → chemical chain depth**, not item count. The estimated ~50–60 intermediates across all tiers sounds small compared to GTNH's thousands, but each intermediate traces back through:
+- Mining deposit (one of ~15–20 deposit types depending on mineral class)
+- Refinement route (surface → underground → polymineral processing stages)
+- Chemical processing chain (multiple reactions with coproduct handling)
+- Phase 2 bridge material synthesis
+- Domain pack tier progression
+
+GTNH's hours come from depth of tracing, not breadth of simultaneous decisions. Our approach achieves the same goal through **progressive revelation** instead: materials and chemical chains are introduced iteratively throughout Phase 2, not all at once.
+
+| Wave | Approx. Hours In | New Materials Introduced |
+|------|------------------|-------------------------|
+| Wave 1 (Phase 2 early) | ~30–40h | First 3 domains' T1 → T2a path; ~8–10 mineral types, ~15 refinements |
+| Wave 2 (Phase 2 mid) | ~60–70h | Remaining 3 domains' T1 → T2a + first wave of T2b1 for early domains |
+| Wave 3 (Phase 2 late) | ~60–70h | T2b2 chains requiring cross-domain materials; convergence item construction |
+| Wave 4 (Phase 3 early/Core L1→L2) | ~30–40h | Core infrastructure modules (T3a), first iteration of simulation feeding |
+| Wave 5 (Phase 3 mid/Core L2→L3) | ~15–35h | T3b/T3c production, convergence-level multi-domain synthesis |
+
+Total across all waves: **~280–345 hours** — consistent with the 300+ hour ambition when accounting for player exploration speed, iteration time, and industrial engineering complexity.
+
+### Logistical Complexity Across All Phases
+
+The logistical patterns that stretch Phase 2 chains also apply game-wide. For a complete list of these design patterns (coproduct management, feedback loops, catalyst degradation, mismatched flow ratios, and more), see [logistics-system.md](logistics-system.md) "Engineering Complexity Patterns — Game-Wide Logistics Design."
+
+How complexity scales across phases:
+
+| Phase | Logistical Complexity Pattern (see reference doc for full details) | Research Impact |
+|-------|----------------------|-----------------|
+| Phase 1 (Conventional) | Simple chains, minimal coproducts | Basic science packs from straightforward input trees |
+| Phase 2 (Domain Science) | Coproducts, feedback loops, mismatched ratios across domain pack chains | Domain pack intermediate recipes add routing complexity; each tier traces back through substantial input trees with deliberate logistical difficulty |
+| Phase 3 (Simulation-Gated) | Multi-chain coordination, Core module dependencies, nested feedback loops | T3c Finalized Datasets require cross-domain convergence materials whose production chains now generate coproducts from every phase's processing infrastructure simultaneously |
+
+Total across all waves: **~280–345 hours**. Playtime generated by engineering depth (solving routing problems, balancing production ratios, managing waste) rather than just mineral breadth (counting how many ores exist).
 
 ### The Final Victory Condition
 
@@ -156,8 +268,10 @@ Phase 1 (Conventional)
 Transition Point: Fission → Fusion boundary
 Phase 2 (Domain Science)
 ├── Conventional + domain packs gate nuclear advancement
-├── First experimental fusion chamber → Plasma Physics Readings
-├── Deep chemistry → Materials Science Data
+├── Six domain labs: Superconductivity, Plasma, Nanofabrication, Isotope Separation, Reaction Dynamics, Quantum States
+├── Pack tiers per domain: T1 → T2a → T2b1 → T2b2 → each producing distinct research items
+├── Phase 2 wall: all six domains at T2b2 required before Core construction (no shortcuts)
+├── Convergence item (one pack from each of six domains) unlocks Planetary Simulation Core
 └── Player learns: "I am an industrial engineer who chooses processes"
 
 Transition Point: First compute capacity commissioned, first simulation model run
@@ -188,7 +302,7 @@ The informatron pages are not just flavor text. They represent **accumulated the
 | Decision | Resolution | Notes |
 |---|---|---|
 | Dataset production mechanic | **Science-pack-style buildings.** Functionally identical to existing science packs — factory processes materials over time → outputs item. The thematic layer ("these are readings") is handled through naming and informatron descriptions, not additional game systems. | Per discussion: "It's really still the same, it's only semantics that make them feel different." Avoided over-engineering dataset mechanics into a separate system. |
-| Playtime contribution | **1/3 of total game time (~100 hours)** for simulation network construction within the 300+ hour ambition. This is the final third of gameplay, bridging from fusion power through building the full distributed computational civilization. | |
+| Playtime contribution | **1/3 of total game time (~70–100 hours)** for simulation network construction within the 300+ hour ambition. Broken down: First Core (T2a) ~25h → Core Level 2 (T2b2) ~30–40h → Core Level 3 (T3c) ~15–35h. | |
 | Phase 4 power timing | **Available DURING simulation construction,** gated only by a basic Planetary Simulation Core build. Power grows alongside the simulation core's scope until it simulates a civilization. Phase 4 is not the endgame victory condition — it's a late-game capability enabled by basic simulation infrastructure. | Provides massive energy exactly when needed to power the expanding computational civilization. Scales with Core growth. |
 
 ## Open Design Decisions

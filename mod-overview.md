@@ -208,7 +208,23 @@ This is a Factorio mod that exists in an ecosystem:
 
 ## Decisions Still Open
 
-### General (Unrelated to Domain-Specific Documents)
+### Resolved (Recent — Phase Transition Priority #1)
+
+The following design decisions were locked during active work:
+
+| Decision | Resolution |
+|---|---|
+| **What unlocks the Planetary Simulation Core?** | All six domains at T2a minimum + convergence item built from one pack each. Forces balanced investment across all physics domains — no cheating by specializing two. |
+| **When does player know about the Core?** | Progressive revelation through Phase 2 waves, not a single handbook trigger. The idea becomes concrete as players produce T1→T2a packs and realize "wait, I need materials from five other domains." |
+| **Is the handoff abrupt or overlapping?** | Overlapping. Phase 3 has its own wave structure (Core L1→L2→L3), each consuming progressively deeper domain packs. The Core itself is hungry — expanding requirements keep Phase 2 industrial base growing into Phase 3. |
+| **What changes for the six domain labs?** | They become "simulation trainers." Domain packs shift from "research fuel" to simulation calibration data. Packs feed into Model Calibration sub-facilities attached to the network, improving fidelity and efficiency rather than being consumed as mandatory fuel. |
+| **Is there a visible threshold moment?** | Core's first autonomous research output — like DSP's Universal Matrix. Global signal + handbook synthesis entry tying together everything learned in Phase 2. |
+| **Domain count** | Six domains: Superconductivity, Plasma Confinement, Nanofabrication, Isotope Separation (Particle Physics), Reaction Dynamics, Quantum States. Spans four fundamental forces + two cross-cutting lenses essential for simulation. |
+| **Domain pack tier structure** | Distinct items per tier (not alt recipes): T1 → T2a → T2b1 → T2b2 → T3a → T3b → T3c. Each tier traces back through deeper material chains. Phase 2 must be fully completed (all six domains at T2b2) before Core construction. |
+| **Domain pack names** | Naming convention: `[Domain] [Tier Descriptor]` consistent across all domains for recognizability — e.g., *Superconductivity Sample* → *Superconductivity Analysis Packet* → *Superconductivity Characterization Report I* → *II* → *Simulation Bundle* → *Calibration Bundle* → *Finalized Dataset*. |
+| **Material scope boundaries** | ~50–60 intermediates across all tiers (including Phase 2 bridge materials). Cognitive capacity preserved through progressive revelation in waves: each wave introduces only what's needed for the next set of unlocks, not "here are 100 new materials." |
+
+### General (Unresolved)
 
 - **Mod title/name:** *Project Prometheus* is the current leaning. Final call should wait until endgame fantasy is set in stone.
 - **Final victory condition specifics:** Is completing the planetary digital twin *itself* the win condition? Or does it unlock further gameplay (new physics discoveries, space expansion)? What exactly "completes" — building all facilities to a certain capacity, achieving a fidelity threshold, or running a specific final model?
@@ -223,4 +239,4 @@ Below is a summary of open design decisions tracked in each domain document. Use
 - **[Power System](power-system.md) — Production:** Exact combustion generators for Phase 1, U-235 vs Pu-239 fission paths, fusion-endgame connection, renewable generation explicit presence, military pressure contribution per generator class, waste handling depth for fission.
 - **[Power System](power-system.md) — Transmission:** Voltage tiers and exact values, conductor stats/loss formulas, loss modeling approach, diagnostics UI specifics, onboarding structure.
 - **[Endgame Vision](endgame-vision.md):** Simulation fidelity tiers (basic → accurate → predictive model), final milestone structure (single vs. staged), compute distribution requirements, power/cooling/network constraints for Core, PLC interaction without mandating general-purpose coding.
-- **[Research and Progression](research-progression.md):** Exact technology roster (which gates on what simulation level), simulation fidelity tier design and upgrades, hybrid research path availability, final victory condition specifics, playtime allocation within 300+ hours.
+- **[Research and Progression](research-progression.md):** ✅ Six domains locked (Superconductivity, Plasma Confinement, Nanofabrication, Isotope Separation/Particle Physics, Reaction Dynamics, Quantum States). Domain pack tier structure T1→T2a→T2b1→T2b2→T3a→T3b→T3c. Progressive revelation schedule (5 waves). Core requirements per stage. Technology roster pending mineral/chemical stabilization.
