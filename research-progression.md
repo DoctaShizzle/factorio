@@ -329,6 +329,7 @@ Each tier unlocks tech that previous tiers cannot touch, gated by the domain pac
 **Pre-Simulation Investment:** Each of the six domains unlocks *different* technologies with *different* gameplay impacts — not interchangeable fuel. Players strategically prioritize domains based on desired edge: materials science → better military options, particle physics → better power generation, superconductivity → advanced factory infrastructure, etc. Domain investment is a meaningful strategic choice, not just "produce everything."
 
 ### Endgame Tension Model
+
 Tension comes from two dimensions, not artificial constraints:
 
 - **Scale:** Power demands, resource demands, and space requirements all explode as tiers progress. The player must constantly scale production capacity in every dimension simultaneously to meet the next tech's demands.
@@ -339,9 +340,7 @@ No separate scarcity mechanic is needed — the implicit pressure of scaling pro
 ## Open Design Decisions
 
 - **Exact technology roster:** Which technologies gate on conventional science, which on domain packs, and which require simulation results? This can only be finalized once the mineral, chemical, and intermediate-product candidates are approved — the tech tree depends on having a stable industrial roster to reference.
-- **Simulation fidelity tiers:** Does the Planetary Simulation Core have upgradeable fidelity levels (basic model → accurate model → predictive model)? If so, what upgrades are required, and how does fidelity affect research outcomes?
-- **Conventional science retirement timing:** Does conventional packs phase out entirely at Phase 3, or do they persist as an alternative (slower, less complete) path to some technologies?
-- **Hybrid research paths:** Can a player choose to invest in simulation infrastructure early and bypass much of the conventional tech tree? Or must every player progress through all three phases in sequence?
+
 - **Final victory condition specifics:** Is completing the planetary digital twin *itself* the win condition? Or does it unlock further gameplay (new physics discoveries, space expansion)? What exactly "completes" — building all facilities to a certain capacity, achieving a fidelity threshold, or running a specific final model?
 
 ## WIP: Technology Roster Matrix
@@ -365,8 +364,6 @@ These represent the **scientific breakthroughs** each Core level unlocks — new
 | **Level 1** (T2a minimum) | **Planetary + Industrial Model** — simulation can accurately model physical systems at planetary scale. Breakthrough: *predictive modeling of known physics.* | Cleanroom fabrication protocols, high-purity refining methods, semiconductor process chains, advanced materials science frameworks | This is the first "we now have the data to go further" state. The simulation hasn't discovered new physics — it's proving it can reliably predict existing physics across all six domains. Gateway to Phase 3 research that requires cross-domain validation. |
 | **Level 2** (T2b2 minimum) | **Information-Based Civilization Model** — simulation can model populations of information-formed entities whose behavior *emerges* from their structure, not programming. Breakthrough: *understanding how structured data produces perception and decision-making.* | Deep simulation infrastructure designs, advanced factory control frameworks (PLC expansion), emergent-system modeling tools, behavioral dataset collection methods | The "new physics" here is that the simulation itself has proven it can model entities that perceive, decide, and act — not simulated AI but mathematical beings whose behavior emerges from their information structure. This is what lets the player move from "modeling physics" to "modeling intelligence." Gateway to research requiring demonstrated computational civilization understanding. |
 | **Level 3** (T3c final milestone) | **General-Physics Model** — simulation has achieved sufficient fidelity that it can predict phenomena *beyond* known physics. Breakthrough: *access to cutting-edge theoretical knowledge the player's civilization cannot independently discover.* New physics frontiers unlocked. | Phase 4 power generation specifics, advanced quantum mechanics applications, exotic matter manipulation frameworks, general-physics research protocols | This is the **final milestone**. The simulation has validated itself against every known physics domain (proven at Core L1), proven it can model emergent information structures (Core L2), and now reaches beyond — predicting phenomena that conventional science cannot reach. Unlocking "general-physics discovery" isn't a single recipe; it's the *access* to research categories previously impossible, representing humanity extending beyond what its own conventional science could achieve. |
-
-### Technology Roster Work Notes
 
 ### Technology Classification Rules
 
