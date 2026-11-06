@@ -163,12 +163,6 @@ At 300+ hours with dozens of processing routes, some form of trade mechanism may
 - A "shipping" mechanic where completed products generate score or unlock things?
 - Or strictly "you make everything yourself"?
 
-### Map Scale & Wilderness — Open
-A Bob's/Angel-level overhaul needs very large maps. But:
-- How does map scale interact with military pressure over time?
-- What happens when players exhaust their region and need to explore deeper territory?
-- Is there a wilderness vs. industrialized visual distinction that emerges from player choices?
-
 ### Mod Compatibility & Scope Boundaries — Open
 This is a Factorio mod that exists in an ecosystem:
 - Standalone or compatible with vanilla tech tree? Replaces Bob's and Angel's?
