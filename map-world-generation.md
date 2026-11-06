@@ -1,7 +1,7 @@
 # Map & World Generation - Design Proposal
 
 *For: Factorio Overhaul Mod (Project Prometheus)*  
-*Status: Vision / requirements phase — active design gap (#5 in mod-overview.md)*
+*Status: **Committed** — all open items resolved, ready for mineral-catalog.md integration.*
 
 ## Summary
 
@@ -33,16 +33,30 @@ Rather than fully random ore placement or rigid fixed biomes, terrain generation
 
 This avoids "you'll find everything near your base" while also avoiding "every 100m² is a different ore type" (GTNH's cognitive load problem). The player sees the biome → understands what *types* of deposits to expect → prospects for the specific ones they need.
 
-### Candidate Biome Types
+### Locked Biome-to-Resource Mapping
+
+The following biomes are committed for world generation. Each biome has **max 3 characteristic resources** to keep cognitive load bounded — exotic materials require discovery beyond your home biome.
 
 | Biome | Characteristic Resources | Industrial Use |
 |-------|-------------------------|---------------|
-| Sedimentary basin | Oil, salt, limestone, evaporites | Chemical feedstocks, sulfur extraction, electrolysis brine |
-| Shield region (ancient igneous) | Iron formations, nickel, copper deposits | Core metal supply — smelting, metallurgy foundation |
-| Volcanic zone | Sulfur, phosphates, gold/placer metals | Advanced chemistry, catalyst production |
-| River delta / alluvial | Placer deposits (gold, tin, rare minerals) | Early-game precious metals without deep mining |
-| Mountain range (uplifted) | Polymineral ore bodies, high-grade veins | Late-game resource richness but difficult extraction |
-| Coastal / shelf | Saltwater brines, phosphorite | Chemical processing, fertilizer chain precursor |
+| Sedimentary basin | Oil, salt/limestone, phosphorite | Chemical feedstocks, electrolysis brine, fertilizer precursors |
+| Shield region (ancient igneous) | Iron formations, copper-nickel sulfides | Core metal supply — smelting, metallurgy foundation |
+| Mountain range (uplifted) | Polymineral ore bodies, high-grade veins, coal/seams | Late-game resource richness; difficult extraction; machine tiering opportunity |
+| Volcanic zone | Sulfur, precious metals (placer/gold), rare mineral traces | Advanced chemistry, catalyst production, early Phase 2 bridge materials |
+| Coastal/shelf ⚠ hybrid | Saltwater brines, evaporites (borders all biomes at water edges) | Chemical processing; geological continuity anchor — touches every biome type |
+
+⚠ Coastal is a **hybrid biome**: it exists only where water meets land and overlays the adjacent biome's resource table with its own additions. This creates natural transition zones that reward players for exploring coastlines without requiring separate map regions.
+
+### Geological Continuity Rules
+
+The following biome adjacencies are fixed in world generation:
+
+1. **Sedimentary ↔ Shield:** Always border each other. If you find oil, iron formations are within 3–5km.
+2. **Shield ↔ Mountain:** Always connected by mountain uplift at shield edges.
+3. **Mountain ↔ Volcanic:** Always border. Polymineral mountains always have volcanic zones nearby for catalyst access.
+4. **Coastal ↔ All others:** Water creates natural bridges between biomes — coastlines are the primary exploration corridors.
+
+These rules create a **discoverable adjacency graph** that players internalize over time: *"If I see sedimentary rock, there should be oil within 2km, and if I follow that deposit chain outward, iron is probably another 3km beyond it."* The patterns feel earned through exploration rather than handed to the player.
 
 ### Map Scale Recommendation
 
@@ -144,12 +158,12 @@ The mineral catalog (mineral-catalog.md) must align with what generates on the m
 
 | Decision | Status | Notes |
 |----------|--------|-------|
-| **Biome-to-resource mapping** | Open | The candidate table above is a starting point; each biome should have ~3–5 resource types maximum (avoiding GTNH's 600+ type problem). |
-| **Prospecting mechanic explicit vs. implicit** | Open | "Knowledge before capability" favors explicit hints, but pattern-matching reduces emergent discovery. A hybrid approach (informatron gives *principles* like sedimentary = oil; players discover specifics) may be optimal. |
-| **Oil quality variation** | Open | High-viscosity vs. light sweet crude adds geological depth and creates "do I invest in heavy-oil refining?" as a meaningful choice. But it requires more chemistry entries. Worth the cost if there are two viable oil paths with visible tradeoffs. |
-| **Map edge interaction with military pressure** | Open | Need to define exactly how enemies behave at map boundaries — do they stop? Redirect? Spread out? |
-| **Geological continuity rules** | Open | If finding X implies Y is nearby, what are the rules? These need to be discoverable but not obvious. "I see iron deposits; there should be coal within a kilometer" is good. "There's definitely gold 300m west because I saw quartz veins" is too pattern-matching. |
-| **Default map size** | Open | x4 vs. x5 vs. x6 default; or make it user-selectable at world creation? |
+| **Biome-to-resource mapping** | ✅ Committed | Exactly **4 core biomes + 1 hybrid** (coastal = sedimentary/shelf overlap). Each has max **3 characteristic resources** to keep cognitive load bounded and force exploration for anything exotic. See table below for locked mapping. |
+| **Prospecting mechanic** | ✅ Committed | **Hybrid approach.** Informatron gives *principles* (e.g., "sedimentary formations suggest nearby hydrocarbon deposits") — not coordinates or exact material calls. Players discover specifics through experience. Honors "knowledge before capability" without reducing discovery to pattern-matching. |
+| **Oil quality variation** | ❌ Rejected | One oil type per biome. The diversity from "different oils" is already handled by the 5-tier machine system: MTier 3+ machines can process heavier crude that lower-tier machines physically cannot refine. No need for parallel chemistry entries or dual oil routes. |
+| **Map edge interaction with military pressure** | ✅ Committed | Enemies don't stop at edges — they thin to a **sparse patrol layer (~10% base density)**. This creates real breathing room reward for expansion while keeping the map as a place, not a hard wall. Military pressure is lowest at edges; logistics cost is highest there. The tradeoff (safe but far vs. dangerous but close) is realized. |
+| **Geological continuity rules** | ✅ Committed | Biome adjacency is **fixed**: sedimentary borders shield regions; volcanic zones always border mountain ranges; coastal biomes touch all others at water edges. Players learn discoverable patterns: "if I see X, Y is within a 2–3km radius." These are implicit rules players internalize through exploration — not explicit handbook hints. |
+| **Default map size** | ✅ Committed | **x5 default** with x4/x6 selectable at world creation. This anchors the 5–15km Phase 2 + 20–40km rare material distances committed elsewhere.
 
 ## Draft Progression — Recommended
 

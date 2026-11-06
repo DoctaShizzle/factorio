@@ -120,22 +120,7 @@ Avoid mandatory upgrades without a new capability, arbitrary complexity, a singl
 
 Items below are the current prioritized design work that needs resolution. Each is a gap that blocks further domain-level detail work until addressed. **This is a task tracker — resolved items should be removed here, not kept as historical notes.** When a question is answered, record the resolution in the appropriate domain document and delete the entry from this list.
 
-### Phase Transition: Bridge → Simulation Core — *Priority 1*
-**What happens mechanically when the player crosses from Phase 2 research into Phase 3?**
-
-The bridge defines *what* Phase 2 produces (five domain packs from five dedicated labs). But the transition itself is underspecified: how does the shift from conventional research building → simulation Core feel? What changes, what stays the same, and what signals the handoff to the player?
-
-This gap matters for pacing. Too abrupt and players experience whiplash ("first I was doing science packs through a research lab, suddenly I have a planetary computer"). Too gradual and the bridge between them dissolves — Phase 2 loses its distinct identity as the "conventional industry hitting the physics wall" phase.
-
-#### Open Design Decisions
-
-- **What unlocks the Planetary Simulation Core?** What are the concrete construction requirements? The existing research-progression doc says "build a basic Core to access Phase 4 power" but not *when* the Core itself becomes available or what gates its construction. Does it require one domain pack from each of the five labs? A specific combination?
-- **When does the player know about the Core?** Is there a moment in Phase 2 — a research finding, capability unlock, or handbook revelation — where the idea becomes concrete enough that the transition feels earned rather than magical? The handbook introduces it as the endgame goal; is there a specific Phase 2 event that makes it feel *reachable*?
-- **Is the handoff abrupt or overlapping?** Does the Core take over research *immediately* after first construction, or is there an overlap period where both the conventional research building and the Core are active for different technologies? Some gradualism may be needed so players aren't surprised that their domain pack factories just stopped being useful.
-- **What changes for the five domain labs?** Do they still produce domain packs once the Core is built? Does the Core consume them as input, or do they feed into something else? How does this change the player's relationship to those factories?
-- **Is there a visible threshold moment?** A concrete milestone that tells the player "you've just crossed from Phase 2 into Phase 3"? GTNH has a feeling ("everything is done now, start crafting"); SE has rocket parts. What does your transition look like as a visible, felt event?
-
-### Material Scope Boundaries — *Priority 2*
+### Material Scope Boundaries — *Priority 1*
 **Your exhaustive mineral/chemistry/product lists will be valuable only if bounded by human decision capacity, not completeness.**
 
 300-600 hours doesn't mean "every real chemical process." It means "enough routes to create meaningful choices that players actually want to make." GTNH's biggest mistake wasn't realism — it was 600+ ore types when the effective decision space for any player is probably 40-50 distinct material categories. More doesn't mean more choice; it means analysis paralysis and handbook bloat.
@@ -146,7 +131,7 @@ Open decisions:
 - **Where do you accept "one good route" over "multiple alternatives"?** Process choice is your pillar, but not every product needs 3 viable routes. Some can have one clear path with quality-of-life improvements instead — freeing scope for products that actually benefit from multiple approaches.
 - **How does the exhaustive list stay bounded as you deepen it?** Set a review gate: once Phase 2 intermediates are defined, stop adding new ones unless they solve an existing gap (missing capability, missing tradeoff, missing horizon). New materials only when an existing system has a hole.
 
-### Exhaustive Product Catalog — Priority Gap
+### Exhaustive Product Catalog— *Priority 2*
 **You've stated this explicitly as your design work; the gap is that the catalog itself isn't yet written.** This is not optional before deep-diving domain documents — it's the skeleton everything else hangs on. Without a complete material pipeline, every process document is building on assumptions.
 
 Sub-gaps to fill in order:
@@ -170,12 +155,6 @@ Open decisions:
 - **How does pre-simulation industrial work feed into simulation play?** If the answer is "the factories I built before become part of a bigger system," that's good — but needs articulation to guide remaining domain work.
 - **What's the endgame tension or choice?** GTNH's endgame has no tension (you can craft everything). SE has logistics as its only tension. Your endgame needs something equally intrinsic to the mechanic itself.
 - **Does completing the simulation win the game or open new gameplay?** This intersects with Victory Condition gap above — but is more specific: what does "completing" mean, and what happens after?
-
-### Map & World Generation — Open
-Factorio is its map, and this mod's geological discovery pillar depends entirely on world generation:
-- **How does terrain generate?** Random ore patches? Fixed biomes? Do rivers, mountains, and elevation matter for cooling, water access, or mining constraints?
-- **Oil/water placement strategy.** Vanilla's fixed edge wells feel wrong for a 300h overhaul. Are there more sites? Rare resources discovered through prospecting?
-- **Map edge behavior.** Expansion is core to Factorio's loop — if military pressure scales with pollution, expanding away from threats should be a meaningful choice.
 
 ### Combat & Warfare System — Open
 "Pollution pressure" and ammo chains are sketched but the enemy itself is underspecified:

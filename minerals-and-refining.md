@@ -1,7 +1,7 @@
 # Factorio Overhaul - Mineral and Refining Map
 
 *For: Factorio Overhaul Mod*  
-*Status: Design reference / candidate catalog*
+*Status: Design reference / candidate catalog — **biomes mapped** to all 3 deposit tiers, aligned with map-world-generation.md.*
 
 Related documents: [Chemical Products and Processes](chemical-processes.md), and [Intermediate Products](intermediate-products.md).
 
@@ -23,57 +23,57 @@ The tiers describe deposit/feed profiles. The same mineral may occur in multiple
 
 ### Tier 1: Surface Deposits
 
-| Primary mineral / resource | Real feed / deposit type | Primary material | Secondary material | Tertiary material |
-| --- | --- | --- | --- | --- |
-| Hematite | Hematite-bearing surface outcrop | Iron | Manganese | Silica |
-| Malachite | Oxidized copper occurrence | Copper | Cobalt | Silica |
-| Coal | Coal seam (industrial raw resource) | Carbon / coke | Sulfur | Germanium |
-| Quartz | Quartz-rich sand or vein | Metallurgical silicon | — | — |
-| Native sulfur | Native sulfur deposit | Sulfur | — | — |
-| Calcite | Carbonate rock deposit | Lime (calcium oxide) | — | Carbon dioxide |
-| Dolomite | Magnesian limestone or dolostone | Magnesium compounds | Calcium/lime | Silica traces |
-| Gypsum | Gypsum-bearing evaporite bed | Gypsum | Lime | — |
+| Primary mineral / resource | Real feed / deposit type | Biome | Primary material | Secondary material | Tertiary material |
+| --- | --- | --- | --- | --- | --- |
+| Hematite | Hematite-bearing surface outcrop | Shield region, Mountain range (BIF edges) | Iron | Manganese | Silica |
+| Malachite | Oxidized copper occurrence | Shield region (oxidized zone), Mountain range | Copper | Cobalt | Silica |
+| Coal | Coal seam (industrial raw resource) | Mountain range (uplifted seams) | Carbon / coke | Sulfur | Germanium |
+| Quartz | Quartz-rich sand or vein | Shield region, Sedimentary basin edges | Metallurgical silicon | — | — |
+| Native sulfur | Native sulfur deposit | Volcanic zone | Sulfur | — | — |
+| Calcite | Carbonate rock deposit | Sedimentary basin | Lime (calcium oxide) | — | Carbon dioxide |
+| Dolomite | Magnesian limestone or dolostone | Sedimentary basin | Magnesium compounds | Calcium/lime | Silica traces |
+| Gypsum | Gypsum-bearing evaporite bed | Sedimentary basin, Coastal/shelf hybrid | Gypsum | Lime | — |
 
 These are finite starter supplies of foundational materials. Secondary and tertiary recovery are later refining capabilities; listing a material here does not mean the early process exposes it.
 
 ### Tier 2: Underground Deposits
 
-| Primary mineral | Secondary mineral | Tertiary mineral / trace phase | Real deposit setting |
-| --- | --- | --- | --- |
-| Magnetite | Ilmenite | Pyrite | Titanomagnetite / iron-titanium oxide setting |
-| Chalcopyrite | Pyrite | Arsenopyrite or native gold | Porphyry copper or polymetallic sulfide setting |
-| Native gold | Arsenopyrite | Pyrite | Orogenic gold-bearing quartz vein |
-| Sphalerite | Galena | Pyrite | Zinc-lead sulfide replacement or vein deposit |
-| Galena | Sphalerite | Pyrite | Lead-zinc sulfide vein or replacement deposit |
-| Pentlandite | Chalcopyrite | Cooperite | Magmatic nickel-copper sulfide setting |
-| Bauxite | Quartz | Rutile | Lateritic or karst bauxite profile |
-| Chromite | Magnetite | Cooperite | Chromitite in a layered or ultramafic intrusion |
-| Cassiterite | Columbite-tantalite | Beryl | Tin-bearing granite, pegmatite, greisen, or placer |
-| Scheelite | Molybdenite | Fluorite | Tungsten skarn or W-Mo greisen |
-| Pyrolusite | Hematite | Apatite | Sedimentary or supergene manganese oxide deposit |
-| Zircon | Ilmenite | Rutile | Heavy-mineral placer sand |
-| Graphite | Pyrite | Apatite | Graphite-bearing metamorphic rock |
-| Trona | Evaporite soda-ash deposit | Sodium carbonate | Potassium compounds | Borates traces |
-| Brine (subsurface) | Concentrated saltwater aquifer | Bromine compounds | Sodium | Potassium, lithium traces |
-| Apatite | Monazite | Calcite | Phosphorite or apatite-rich igneous deposit |
-| Spodumene | Beryl | Columbite-tantalite | Rare-element pegmatite |
-| Halite | Sylvite | Gypsum | Evaporite basin |
-| Bastnaesite | Monazite | Fluorite | Carbonatite or alkaline igneous rare-earth setting |
-| Uraninite | Pyrite | Monazite | Uranium-bearing vein or sandstone-hosted deposit |
+| Primary mineral | Secondary mineral | Tertiary mineral / trace phase | Real deposit setting | Biome(s) |
+| --- | --- | --- | --- | --- |
+| Magnetite | Ilmenite | Pyrite | Titanomagnetite / iron-titanium oxide setting | Shield region, Mountain range (BIF edges) |
+| Chalcopyrite | Pyrite | Arsenopyrite or native gold | Porphyry copper or polymetallic sulfide setting | Shield region, Volcanic zone |
+| Native gold | Arsenopyrite | Pyrite | Orogenic gold-bearing quartz vein | Volcanic zone, Mountain range (adjacent) |
+| Sphalerite | Galena | Pyrite | Zinc-lead sulfide replacement or vein deposit | Mountain range |
+| Galena | Sphalerite | Pyrite | Lead-zinc sulfide vein or replacement deposit | Mountain range |
+| Pentlandite | Chalcopyrite | Cooperite | Magmatic nickel-copper sulfide setting | Shield region |
+| Bauxite | Quartz | Rutile | Lateritic or karst bauxite profile | Shield region (weathering cap), Volcanic zone edges |
+| Chromite | Magnetite | Cooperite | Chromitite in a layered or ultramafic intrusion | Shield region |
+| Cassiterite | Columbite-tantalite | Beryl | Tin-bearing granite, pegmatite, greisen, or placer | Mountain range, Coastal/shelf hybrid (placer) |
+| Scheelite | Molybdenite | Fluorite | Tungsten skarn or W-Mo greisen | Mountain range |
+| Pyrolusite | Hematite | Apatite | Sedimentary or supergene manganese oxide deposit | Sedimentary basin, Shield region (oxidized zone) |
+| Zircon | Ilmenite | Rutile | Heavy-mineral placer sand | Coastal/shelf hybrid, river deltas |
+| Graphite | Pyrite | Apatite | Graphite-bearing metamorphic rock | Mountain range |
+| Trona | Evaporite soda-ash deposit | Sodium carbonate | Potassium compounds | Sedimentary basin |
+| Brine (subsurface) | — | Bromine compounds; Sodium; Potassium, lithium traces | Concentrated saltwater aquifer | Sedimentary basin, Coastal/shelf hybrid |
+| Apatite | Monazite | Calcite | Phosphorite or apatite-rich igneous deposit | Sedimentary basin, Mountain range (carbonatite) |
+| Spodumene | Beryl | Columbite-tantalite | Rare-element pegmatite | Mountain range |
+| Halite | Sylvite | Gypsum | Evaporite basin | Sedimentary basin, Coastal/shelf hybrid |
+| Bastnaesite | Monazite | Fluorite | Carbonatite or alkaline igneous rare-earth setting | Mountain range |
+| Uraninite | Pyrite | Monazite | Uranium-bearing vein or sandstone-hosted deposit | Shield region, Sedimentary basin |
 
 ### Tier 3: Polymineral Deposits
 
 **Polymineral deposit** is the player-facing category for large polymineral deposits. The UI can show the real deposit class and its primary, secondary, and tertiary minerals. The trace-phase column is design metadata and need not be shown in the UI. Composition varies by formation and should be prospectable before full-scale extraction.
 
-| Real deposit class | Primary mineral | Secondary mineral | Tertiary mineral | Deposit-dependent trace phases |
-| --- | --- | --- | --- | --- |
-| Volcanogenic massive sulfide (VMS) | Chalcopyrite | Sphalerite | Galena | Pyrite; possible gold and silver |
-| Banded iron formation (BIF) | Hematite | Magnetite | Quartz | Apatite or ilmenite in some deposits |
-| Porphyry copper-molybdenum | Chalcopyrite | Molybdenite | Pyrite | Gold in some deposits |
-| Rare-element pegmatite | Spodumene | Columbite-tantalite | Beryl | Cassiterite and quartz |
-| Layered mafic-ultramafic intrusion | Chromite | Pentlandite | Magnetite | Platinum-group minerals in some deposits |
-| Evaporite basin | Halite | Sylvite | Gypsum | Borate minerals in some deposits |
-| Orogenic gold / greenstone-hosted lode | Native gold | Arsenopyrite | Pyrite | Chalcopyrite only in polymetallic variants |
+| Real deposit class | Primary mineral | Secondary mineral | Tertiary mineral | Deposit-dependent trace phases | Biome(s) |
+| --- | --- | --- | --- | --- | --- |
+| Volcanogenic massive sulfide (VMS) | Chalcopyrite | Sphalerite | Galena | Pyrite; possible gold and silver | Volcanic zone, Mountain range (adjacent) |
+| Banded iron formation (BIF) | Hematite | Magnetite | Quartz | Apatite or ilmenite in some deposits | Shield region, Mountain range edges |
+| Porphyry copper-molybdenum | Chalcopyrite | Molybdenite | Pyrite | Gold in some deposits | Mountain range, Shield region (uplifted zone) |
+| Rare-element pegmatite | Spodumene | Columbite-tantalite | Beryl | Cassiterite and quartz | Mountain range |
+| Layered mafic-ultramafic intrusion | Chromite | Pentlandite | Magnetite | Platinum-group minerals in some deposits | Shield region |
+| Evaporite basin | Halite | Sylvite | Gypsum | Borate minerals in some deposits | Sedimentary basin, Coastal/shelf hybrid |
+| Orogenic gold / greenstone-hosted lode | Native gold | Arsenopyrite | Pyrite | Chalcopyrite only in polymetallic variants | Volcanic zone, Mountain range (adjacent) |
 
 These are candidate formation archetypes, not guaranteed recipes. Polymineral deposits should combine minerals in geology-inspired profiles, rather than one universal composition.
 

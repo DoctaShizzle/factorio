@@ -78,17 +78,17 @@ Key design points for each dedicated research facility:
 
 Each domain produces its own **five-tier pack progression**. Each tier is a distinct item with its own recipe — you do not upgrade one item; you produce the next tier from scratch using previous-tier output as input. This makes every tier a *capability unlock*, not just a speed boost.
 
-**Naming convention per domain:** `[Domain] [Tier Descriptor]` — e.g., *Superconductivity Sample*, *Superconductivity Analysis Packet*, *Superconductivity Characterization Report I*, *Superconductivity Characterization Report II*, *Superconductivity Simulation Bundle*. The tier descriptor is consistent across all domains for recognizability without sacrificing domain identity.
+**Naming convention per domain:** `[Domain] [Tier Descriptor]` — e.g., *Superconductivity Observation Log*, *Superconductivity Analysis Dossier*, *Superconductivity Condition Survey*, *Superconductivity Cross-Reference Study*, *Superconductivity Simulation Record*. The tier descriptor is consistent across all domains for recognizability without sacrificing domain identity.
 
 | Tier | Item Name Pattern (example: Superconductivity) | Input Source | What It Represents |
 |------|---|---|---|
-| **T1** | `Superconductivity Sample` | Phase 1 products + basic bridge materials | "I observe this phenomenon" — raw observational data from the lab |
-| **T2a** | `Superconductivity Analysis Packet` | T1 output + Phase 2 intermediates (electronic-grade polysilicon, Nb₃Sn wire) | "I've modeled it once" — first theoretical pass with material-specific calibration |
-| **T2b1** | `Superconductivity Characterization Report I` | T2a output + one additional refined Phase 2 intermediate | "I understand the primary boundary conditions" |
-| **T2b2** | `Superconductivity Characterization Report II` | T2b1 output + high-purity Phase 2 intermediates from adjacent domains | "I've cross-calibrated against related domains" |
-| **T3a** | `Superconductivity Simulation Bundle` | T2b2 output + basic Core infrastructure module | "The simulation has extended my understanding" — first tier of simulated data |
-| **T3b** | `Superconductivity Calibration Bundle` | T3a output + high-fidelity infrastructure item (Core-produced) | "Simulation results validated against experimental benchmarks" |
-| **T3c** | `Superconductivity Finalized Dataset` | T3b output + convergence-level materials spanning multiple domains | "Full multi-domain synthesis" — required for Core Level 3 / final milestone |
+| **T1** | `Superconductivity Observation Log` | Phase 1 products + basic bridge materials | "I observe this phenomenon" — raw observational data from the lab |
+| **T2a** | `Superconductivity Analysis Dossier` | T1 output + Phase 2 intermediates (electronic-grade polysilicon, Nb₃Sn wire) | "I've modeled it once" — first theoretical pass with material-specific calibration |
+| **T2b1** | `Superconductivity Condition Survey` | T2a output + one additional refined Phase 2 intermediate | "I understand the primary boundary conditions" — mapping what conditions the phenomenon operates under |
+| **T2b2** | `Superconductivity Cross-Reference Study` | T2b1 output + high-purity Phase 2 intermediates from adjacent domains | "I've cross-calibrated against related domains" — validating results across multiple domains |
+| **T3a** | `Superconductivity Simulation Record` | T2b2 output + basic Core infrastructure module | "The simulation has extended my understanding" — the simulation network produces its own model of this domain |
+| **T3b** | `Superconductivity Calibration Report` | T3a output + high-fidelity infrastructure item (Core-produced) | Simulation results checked against experimental benchmarks |
+| **T3c** | `Superconductivity Synthesis Report` | T3b output + convergence-level materials spanning multiple domains | "Full multi-domain synthesis" — required for Core Level 3 / final milestone |
 
 #### Core Unlock Requirements (Per Domain)
 
