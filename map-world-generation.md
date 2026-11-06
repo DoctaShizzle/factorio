@@ -15,12 +15,17 @@ This document defines how the game world is generated to support this mod's geol
 
 World generation is **not a screen.** In this mod, the map drives play before any factory is built — it creates goals, forces exploration decisions, and ensures that player's industrial journey is shaped by *where they are* on the planet, not just *what they've researched.
 
+This mod has **no trade system. No economy. Every material used was extracted and refined by the player.** This is not a limitation — it's the narrative core of *Project Prometheus*. The player's arc — starting from dirt and ore, layering process after process, until building something planetary-scale — maps onto Prometheus who brought fire to the world against divine odds. You don't trade for what you need; you learn where it is and earn it.
+
 ### Key Principles
 
-1. **Resource clustering drives natural exploration.** Resources are not evenly distributed; finding everything you need requires planning expansion routes and choosing where to invest early infrastructure.
-2. **Geographic resource clusters should be large enough to justify dedicated mining operations but small enough that exhaustion becomes a real pressure.** This creates the "expand outward" loop without map edge being unreachable dead ends.
-3. **World gen supports geological discovery as a core pillar.** Players *learn* to read the world — prospecting, analyzing deposits, predicting what's nearby based on adjacent geology patterns.
-4. **Military pressure and expansion interact meaningfully.** Dirty factories attract enemies; expanding into "clean" territory is a real strategy but has long-term opportunity costs (you're moving away from the good ore bodies).
+1. **Your starting biome gives you a foundation; other biomes give you necessities.** No biome has everything. Each of the 4 core biomes has max 3 characteristic resources. Sedimentary basins give chemical feedstocks but no core metals. Mountain ranges have polymineral ore but lack salt/limestone. Exploration is driven by geology, not scarcity.
+2. **Resource clustering drives natural exploration.** Resources are not evenly distributed; finding everything you need requires planning expansion routes and choosing where to invest early infrastructure.
+3. **Geographic resource clusters should be large enough to justify dedicated mining operations but small enough that exhaustion becomes a real pressure.** This creates the "expand outward" loop without map edge being unreachable dead ends.
+4. **Exploration is achievable through industrial capability, never impossible — but always costly.** Military pressure increases as you expand, but clean power and better equipment let you push forward. The map edge has sparse patrol layer (~10% base density), giving breathing room at the cost of logistics expense. It's never a hard wall; it costs effort, choice, and engineering.
+5. **World gen supports geological discovery as a core pillar.** Players *learn* to read the world — prospecting, analyzing deposits, predicting what's nearby based on adjacent geology patterns.
+6. **Military pressure and expansion interact meaningfully.** Dirty factories attract enemies; expanding into "clean" territory is a real strategy but has long-term opportunity costs (you're moving away from the good ore bodies).
+7. **Geological necessity is the exploration driver, not resource depletion.** The player explores because their home biome doesn't have what they need for Phase 2+ — not because local resources ran out. Phase 1 essentials are available near base; Phase 2+ materials require traveling to other biomes.
 
 ## Terrain & Biome Generation
 

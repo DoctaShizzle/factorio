@@ -157,12 +157,6 @@ We've deferred "Does completing the planetary digital twin unlock further gamepl
 - **How does pollution scale into attacks?** Distance-based (closer factories = more attacks)? Frequency-based (dirty production → constant pressure vs. clean → occasional raids)?
 - **Military defense vs. industrial capability.** Does better ammo require advanced chemistry, or is there a separate supply chain?
 
-### Economy & Trade — Open
-At 300+ hours with dozens of processing routes, some form of trade mechanism may be needed:
-- Inter-region trade (rare resources in one biome needed elsewhere)?
-- A "shipping" mechanic where completed products generate score or unlock things?
-- Or strictly "you make everything yourself"?
-
 ### Mod Compatibility & Scope Boundaries — Open
 This is a Factorio mod that exists in an ecosystem:
 - Standalone or compatible with vanilla tech tree? Replaces Bob's and Angel's?
