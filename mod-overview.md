@@ -137,16 +137,53 @@ Open decisions:
 - **Does every intermediate product need multiple routes?** No. Only products that create meaningful tradeoffs get multiple processes. Many can have one good route. Use the Material Scope Boundaries criteria to gate this.
 - **What's the catalog format?** A table by pipeline stage (mineral → refined → intermediate → end)? By domain? Something else that makes it useful during design work?
 
-### Endgame Feedback Loop — *Priority 2*
+### Endgame Feedback Loop — *Active Design Work*
 **"Modeling an entire world" is conceptually rich but mechanically underspecified at the strategic level. What does this mean as gameplay decisions?**
 
-Your planetary simulation network has a stronger endgame hook than GTNH ("craft everything") or SE ("launch into space"), but you need to articulate what players actually *do* that feels satisfying — not as UI details, but as a strategic loop.
+The structural skeleton is solid and locked: six domains with tiered packs, Core milestones per stage, Phase 4 power timing (available during simulation construction), playtime allocation (~70–100h). The domain pack production mechanic is resolved: science-pack-style buildings, simple input→output. What's missing is the **strategic gameplay layer** — what decisions does the player actually make inside the simulation network beyond "produce more packs to level up the Core"?
 
-Open decisions:
-- **What is the gameplay verb of Phase 3/4?** Not "build a big thing." What decision-making keeps players engaged for 100 hours? Feeding factories? Running models? Debugging information-formed entities? Competing objectives?
-- **How does pre-simulation industrial work feed into simulation play?** If the answer is "the factories I built before become part of a bigger system," that's good — but needs articulation to guide remaining domain work.
-- **What's the endgame tension or choice?** GTNH's endgame has no tension (you can craft everything). SE has logistics as its only tension. Your endgame needs something equally intrinsic to the mechanic itself.
-- **Does completing the simulation win the game or open new gameplay?** This intersects with Victory Condition gap above — but is more specific: what does "completing" mean, and what happens after?
+The current design reads like a well-organized supply chain feeding into something that hasn't been designed yet. Without meaningful choices, it's just production capacity scaled up by an order of magnitude.
+
+#### Resolved (Do Not Revisit)
+| Decision | Resolution |
+|---|---|
+| Six domains | Superconductivity, Plasma Confinement, Nanofabrication, Isotope Separation, Reaction Dynamics, Quantum States |
+| Domain pack tiers | T1→T2a→T2b2 (Phase 2), T3a→T3b→T3c (Phase 3) |
+| Core milestones | T2a (~42 packs) → T2b2 (~1,320) → T3c (~7,920+) |
+| Dataset mechanic | Science-pack-style buildings: factory processes materials → outputs item. Thematic layer via naming/informatron only |
+| Phase 4 timing | Available during simulation construction, gated by basic Core completion |
+| Playtime | ~70–100 hours for the simulation phase across all waves |
+
+#### Still Open — Endgame Feedback Loop
+
+**1. Simulation Output — What the Core Actually *Produces* as Findings**
+The document says "results unlock selected technologies" but never specifies what those results are or how they manifest. Is it a list of new technology unlocks? Unlock conditions that change? A choice between paths (submit domain data → Core evaluates your factory → tells you which physics apply → unlocks specific research)? This is the core loop: *input → processing → output*. We have input and processing, but no defined output mechanism.
+
+**2. How Simulation Findings Differ by Fidelity Tier**
+Core Level 1 vs Level 2 vs Level 3 each require different pack tiers, but what changes between them? If the mechanic is just "submit more packs to unlock more tech," that's not a feedback loop — it's just a longer recipe chain. Higher fidelity must produce *different* or *better* findings in a meaningful way. Does Level 2 unlock tech Level 1 can't access? Different research paths? Faster research efficiency?
+
+**3. How Pre-Simulation Investment Connects to Simulation Output**
+Domain packs are "evidence the player submits" but it's unclear whether:
+- *Which domains* invested in has any bearing on findings (or are all six fungible inputs?)
+- *How well labs are run* (facility quality → production rate) affects data quality / simulation accuracy
+- *What data quality* produced changes what the simulation can model or what paths it offers
+
+If all six domain packs are interchangeable and the output is always "more tech," the pre-simulation work is disconnected from the simulation play — just a toll booth.
+
+**4. Endgame Tension — What Forces Meaningful Choice**
+GTNH has no tension (craft everything). SE has logistics as its only real tension. The current design produces: *make domain packs → submit to Core → unlock tech → repeat*. That's a production simulation, not a decision loop. Possibilities:
+- *Model conflicts:* simulation gives different findings based on what you've optimized for
+- *Resource contention:* limited Core compute capacity forces prioritization of which simulations to run and when
+- *Information-formed entities behave unpredictably:* emergent data creates new research opportunities or problems
+- *Fidelity tradeoffs:* higher fidelity costs more resources/time to maintain, forcing allocation decisions
+
+**5. After the Final Milestone — What "Completing" Unlocks**
+"Unlocks general-physics discovery" is stated but never specified. Does this mean:
+- New recipes? New physics capabilities (matter manipulation)?
+- A final event/sequence? 
+- Pure sandbox with no further progression hooks?
+
+This intersects with Victory Condition, but specifically: what does "completing" *look like* and what does it *unlock*?
 
 ### Victory Condition & Game End State — *Priority 3*
 We've deferred "Does completing the planetary digital twin unlock further gameplay?" without resolving it:
