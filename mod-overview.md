@@ -75,6 +75,7 @@ The ambition is a long overhaul playthrough, potentially 300+ hours, with comple
 | Machines | Reusable equipment families mapped to industrial operations and progression | [Machine Systems](machine-systems.md) |
 | Military | Pollution pressure, ammo/weapon chains, defense infrastructure, process tradeoffs | [Military System](military-system.md) |
 | Logistics | Transport layers, demand-based dispatch, freight terminals, information flow | [Logistics System](logistics-system.md) |
+| Technical architecture | Modpack structure, dependencies, performance constraints, extension packs | [Technical Architecture](technical-architecture.md) |
 
 ### Mining and Refining
 
@@ -129,6 +130,8 @@ Sub-gaps to fill in order:
 - **Intermediate products:** Materials that are inputs to other recipes but have no direct machine use — alloys, acids, reagents, semiconductor precursors, battery chemistries, nuclear assemblies, etc. This is where your chemical-processes.md connects to intermediate-products.md.
 - **End products (Phase 3/4 components):** Items that feed the simulation network or represent final capabilities — not "everything in the mod" but things that matter for progression momentum and endgame construction.
 
+**Performance constraint for chemistry domain:** Batch similar chemical processes where possible; avoid creating a unique fluid recipe per minor variation. Oil processing chains with petroleum create the heaviest per-tick overhead due to continuous recipe recalculations. Group chemically similar fluids into shared intermediates rather than individual recipes for every variant. Example: instead of "diluted acid A," "diluted acid B," and "diluted acid C" — use a generic "diluted acid" that differentiates only through recipe inputs/outputs, not distinct fluid types.
+
 Open decisions:
 - **Where does this catalog live?** As a single document, distributed across domain docs with cross-references, or a master list file with domain-specific deep dives?
 - **Does every intermediate product need multiple routes?** No. Only products that create meaningful tradeoffs get multiple processes. Many can have one good route. Use the Material Scope Boundaries criteria to gate this.
@@ -157,11 +160,6 @@ We've deferred "Does completing the planetary digital twin unlock further gamepl
 - **How does pollution scale into attacks?** Distance-based (closer factories = more attacks)? Frequency-based (dirty production → constant pressure vs. clean → occasional raids)?
 - **Military defense vs. industrial capability.** Does better ammo require advanced chemistry, or is there a separate supply chain?
 
-### Mod Compatibility & Scope Boundaries — Open
-This is a Factorio mod that exists in an ecosystem:
-- Standalone or compatible with vanilla tech tree? Replaces Bob's and Angel's?
-- How does massive complexity impact save file size and performance?
-
 ## Decisions Still Open
 
 ### General (Unresolved)
@@ -180,3 +178,4 @@ Below is a summary of open design decisions tracked in each domain document. Use
 - **[Power System](power-system.md) — Transmission:** Voltage tiers and exact values, conductor stats/loss formulas, loss modeling approach, diagnostics UI specifics, onboarding structure.
 - **[Endgame Vision](endgame-vision.md):** Simulation fidelity tiers (basic → accurate → predictive model), final milestone structure (single vs. staged), compute distribution requirements, power/cooling/network constraints for Core, PLC interaction without mandating general-purpose coding.
 - **[Research and Progression](research-progression.md):** ✅ Six domains locked (Superconductivity, Plasma Confinement, Nanofabrication, Isotope Separation/Particle Physics, Reaction Dynamics, Quantum States). Domain pack tier structure T1→T2a→T2b1→T2b2→T3a→T3b→T3c. Progressive revelation schedule (5 waves). Core requirements per stage. Technology roster pending mineral/chemical stabilization.
+- **[Technical Architecture](technical-architecture.md):** Modpack deployment model (SE pattern: core sub-mods + opt-in extension packs), scope targets, dependency strategy, performance constraints and red lines.
