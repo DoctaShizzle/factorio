@@ -120,18 +120,7 @@ Avoid mandatory upgrades without a new capability, arbitrary complexity, a singl
 
 Items below are the current prioritized design work that needs resolution. Each is a gap that blocks further domain-level detail work until addressed. **This is a task tracker — resolved items should be removed here, not kept as historical notes.** When a question is answered, record the resolution in the appropriate domain document and delete the entry from this list.
 
-### Material Scope Boundaries — *Priority 1*
-**Your exhaustive mineral/chemistry/product lists will be valuable only if bounded by human decision capacity, not completeness.**
-
-300-600 hours doesn't mean "every real chemical process." It means "enough routes to create meaningful choices that players actually want to make." GTNH's biggest mistake wasn't realism — it was 600+ ore types when the effective decision space for any player is probably 40-50 distinct material categories. More doesn't mean more choice; it means analysis paralysis and handbook bloat.
-
-Open decisions:
-- **What is the hard cap on mineral/material categories?** Not "how many real things exist" but how many simultaneous processing decisions a player can hold in their head without fatigue. Consider whether 50 categories with deep internal choices beats 600+ categories with shallow ones.
-- **Which materials earn their roster spot?** Each needs an end use that matters — not just "it exists" or "it's in this chain." If it doesn't create a visible tradeoff or unlock a meaningful capability, it shouldn't be in the final roster.
-- **Where do you accept "one good route" over "multiple alternatives"?** Process choice is your pillar, but not every product needs 3 viable routes. Some can have one clear path with quality-of-life improvements instead — freeing scope for products that actually benefit from multiple approaches.
-- **How does the exhaustive list stay bounded as you deepen it?** Set a review gate: once Phase 2 intermediates are defined, stop adding new ones unless they solve an existing gap (missing capability, missing tradeoff, missing horizon). New materials only when an existing system has a hole.
-
-### Exhaustive Product Catalog— *Priority 2*
+### Exhaustive Product Catalog— *Priority 1*
 **You've stated this explicitly as your design work; the gap is that the catalog itself isn't yet written.** This is not optional before deep-diving domain documents — it's the skeleton everything else hangs on. Without a complete material pipeline, every process document is building on assumptions.
 
 Sub-gaps to fill in order:
@@ -145,7 +134,7 @@ Open decisions:
 - **Does every intermediate product need multiple routes?** No. Only products that create meaningful tradeoffs get multiple processes. Many can have one good route. Use the Material Scope Boundaries criteria to gate this.
 - **What's the catalog format?** A table by pipeline stage (mineral → refined → intermediate → end)? By domain? Something else that makes it useful during design work?
 
-### Endgame Feedback Loop — *Priority 3*
+### Endgame Feedback Loop — *Priority 2*
 **"Modeling an entire world" is conceptually rich but mechanically underspecified at the strategic level. What does this mean as gameplay decisions?**
 
 Your planetary simulation network has a stronger endgame hook than GTNH ("craft everything") or SE ("launch into space"), but you need to articulate what players actually *do* that feels satisfying — not as UI details, but as a strategic loop.
@@ -156,17 +145,17 @@ Open decisions:
 - **What's the endgame tension or choice?** GTNH's endgame has no tension (you can craft everything). SE has logistics as its only tension. Your endgame needs something equally intrinsic to the mechanic itself.
 - **Does completing the simulation win the game or open new gameplay?** This intersects with Victory Condition gap above — but is more specific: what does "completing" mean, and what happens after?
 
+### Victory Condition & Game End State — *Priority 3*
+We've deferred "Does completing the planetary digital twin unlock further gameplay?" without resolving it:
+- Is the game winnable or endless sandbox with milestones?
+- What's the final moment if won? A visual event in-game? Launching something? Activating the simulation network?
+- If not won, what replaces "launch rockets" as the north star once the simulation is complete?
+
 ### Combat & Warfare System — Open
 "Pollution pressure" and ammo chains are sketched but the enemy itself is underspecified:
 - **What are the enemies?** Mutant creatures? Indigenous life reacting to industrial encroachment? Something thematically aligned with Prometheus?
 - **How does pollution scale into attacks?** Distance-based (closer factories = more attacks)? Frequency-based (dirty production → constant pressure vs. clean → occasional raids)?
 - **Military defense vs. industrial capability.** Does better ammo require advanced chemistry, or is there a separate supply chain?
-
-### Victory Condition & Game End State — Open
-We've deferred "Does completing the planetary digital twin unlock further gameplay?" without resolving it:
-- Is the game winnable or endless sandbox with milestones?
-- What's the final moment if won? A visual event in-game? Launching something? Activating the simulation network?
-- If not won, what replaces "launch rockets" as the north star once the simulation is complete?
 
 ### Economy & Trade — Open
 At 300+ hours with dozens of processing routes, some form of trade mechanism may be needed:
@@ -186,22 +175,6 @@ This is a Factorio mod that exists in an ecosystem:
 - How does massive complexity impact save file size and performance?
 
 ## Decisions Still Open
-
-### Resolved (Recent — Phase Transition Priority #1)
-
-The following design decisions were locked during active work:
-
-| Decision | Resolution |
-|---|---|
-| **What unlocks the Planetary Simulation Core?** | All six domains at T2a minimum + convergence item built from one pack each. Forces balanced investment across all physics domains — no cheating by specializing two. |
-| **When does player know about the Core?** | Progressive revelation through Phase 2 waves, not a single handbook trigger. The idea becomes concrete as players produce T1→T2a packs and realize "wait, I need materials from five other domains." |
-| **Is the handoff abrupt or overlapping?** | Overlapping. Phase 3 has its own wave structure (Core L1→L2→L3), each consuming progressively deeper domain packs. The Core itself is hungry — expanding requirements keep Phase 2 industrial base growing into Phase 3. |
-| **What changes for the six domain labs?** | They become "simulation trainers." Domain packs shift from "research fuel" to simulation calibration data. Packs feed into Model Calibration sub-facilities attached to the network, improving fidelity and efficiency rather than being consumed as mandatory fuel. |
-| **Is there a visible threshold moment?** | Core's first autonomous research output — like DSP's Universal Matrix. Global signal + handbook synthesis entry tying together everything learned in Phase 2. |
-| **Domain count** | Six domains: Superconductivity, Plasma Confinement, Nanofabrication, Isotope Separation (Particle Physics), Reaction Dynamics, Quantum States. Spans four fundamental forces + two cross-cutting lenses essential for simulation. |
-| **Domain pack tier structure** | Distinct items per tier (not alt recipes): T1 → T2a → T2b1 → T2b2 → T3a → T3b → T3c. Each tier traces back through deeper material chains. Phase 2 must be fully completed (all six domains at T2b2) before Core construction. |
-| **Domain pack names** | Naming convention: `[Domain] [Tier Descriptor]` consistent across all domains for recognizability — e.g., *Superconductivity Sample* → *Superconductivity Analysis Packet* → *Superconductivity Characterization Report I* → *II* → *Simulation Bundle* → *Calibration Bundle* → *Finalized Dataset*. |
-| **Material scope boundaries** | ~50–60 intermediates across all tiers (including Phase 2 bridge materials). Cognitive capacity preserved through progressive revelation in waves: each wave introduces only what's needed for the next set of unlocks, not "here are 100 new materials." |
 
 ### General (Unresolved)
 

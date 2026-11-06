@@ -23,6 +23,17 @@ Chemistry is an industrial decision layer, not a catalog of reactions for its ow
 - Keep reaction chains and chemical products here. Track solid alloys, components, and assemblies in the [Intermediate Products](intermediate-products.md) document.
 - Treat recipe ratios and simplified reactions as gameplay abstractions, and distinguish them from universal real-world assays in educational text.
 
+#### Scope Boundaries
+
+The chemical registry is bounded by the Phase 2 intermediate cap (~50-60 total) and ~30 intermediates that directly feed research. New entries are added only when an existing system has a hole — never for catalog completeness.
+
+| Scope | Bound By |
+|---|---|
+| Total candidates in registry | ~45 reactions; only those with verified end use or meaningful tradeoff promoted to approved design |
+| Adding new chemical entries | Must solve an existing gap (missing capability, missing tradeoff, missing horizon). Each must have a visible downstream consumer beyond "it exists in the chain" |
+| Semiconductor process chemicals guardrail | Entries like WF₆, SF₆, NF₃ earn their place through storyline/progression necessity (required for cleanroom and simulation infrastructure), not because they are chemically interesting. Review against this standard before promotion |
+| Alternative routes gate | Only products creating meaningful tradeoffs get multiple processes. Many have one clear path with QoL improvements instead |
+
 ## Core Chemical Chains
 
 These four chains are the initial chemistry scope. Each needs a readable first route; alternatives are added only when they earn their complexity.

@@ -127,7 +127,19 @@ Phase 2 ends when the player has produced all six domain pack progression chains
 
 This wall is deliberate, not punitive. It prevents cheating Phase 3 by specializing two domains (e.g., superconductivity + plasma) and neglecting the rest. To unlock the Planetary Simulation Core, every domain must have reached the same intermediate understanding level — the convergence item requires one T2a pack from *each* of the six domains.
 
-**Duration estimate:** Phase 2 stretches ~180–200 hours within the 300+ hour ambition. The majority of this time comes from deep mineral → refinement → chemical chains needed for Phase 2 bridge materials, not from item count. Each domain pack tier traces back through multiple minerals and processing stages, generating hours through *depth per category*, not breadth all at once
+**Duration estimate:** Phase 2 stretches ~180–200 hours within the 300+ hour ambition. The majority of this time comes from deep mineral → refinement → chemical chains needed for Phase 2 bridge materials, not from item count. Each domain pack tier traces back through multiple minerals and processing stages, generating hours through *depth per category*, not breadth all at once.
+
+#### Six Domains — Equal Depth Requirement
+
+All six physics domains must reach approximately equal depth. Balance is achieved either through the number of intermediates or the logistics complexity required for each domain — whichever is appropriate for that domain's natural complexity. This prevents artificial padding in low-complexity domains and ensures no single domain dominates the Phase 2 time budget.
+
+#### Phase 2 Freeze Gate
+
+Once Phase 2 intermediates are defined, stop adding new ones unless they solve an existing gap. The intermediate catalog is frozen; expansion only when an existing system has a hole (missing capability, missing tradeoff, missing horizon). Total intermediates across all tiers: ~50-60 distinct items.
+
+#### Player Context
+
+Target players are fluent vanilla Factorio players — vanilla is essentially the tutorial for this overhaul (similar to how Space Exploration players approach the game). The six-parallel-chain depth is a proven pattern; the iterative wave structure (Satisfactory/SE model) ensures no single moment requires tracking 90+ items simultaneously. Players iterate through tiers progressively, not all at once.
 
 ### Machine Tiering Through Material — Capability Gated by Build Materials
 

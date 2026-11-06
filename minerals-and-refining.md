@@ -21,6 +21,16 @@ The tiers describe deposit/feed profiles. The same mineral may occur in multiple
 
 "Mineral" is used here as a player-facing umbrella for mined feeds. Some entries are technically rocks or commodities rather than single mineral species: coal, bauxite, limestone, gypsum, and mineral-sand concentrates. Educational articles should identify that distinction.
 
+#### Scope Boundaries
+
+The mineral catalog is bounded by the Phase 2 intermediate cap (~50-60 total). Every deposit type must earn its place through gameplay value — either enabling a unique capability or creating a meaningful tradeoff. The current roster of ~36 deposit types across 3 tiers stays within cognitive capacity for fluent vanilla players.
+
+| Scope | Bound By |
+|---|---|
+| Total deposits | ~36 types (8 Tier 1 surface + 21 Tier 2 underground + 7 Tier 3 polymineral) |
+| Primary materials per deposit | One clear dominant output; secondary/tertiary listed only where they connect to usable capabilities |
+| Adding new deposits | Must solve an existing gap — missing capability, missing tradeoff, or missing horizon. "It exists in real geology" is not sufficient |
+
 ### Tier 1: Surface Deposits
 
 | Primary mineral / resource | Real feed / deposit type | Biome | Primary material | Secondary material | Tertiary material |
