@@ -137,7 +137,7 @@ Open decisions:
 - **Does every intermediate product need multiple routes?** No. Only products that create meaningful tradeoffs get multiple processes. Many can have one good route. Use the Material Scope Boundaries criteria to gate this.
 - **What's the catalog format?** A table by pipeline stage (mineral → refined → intermediate → end)? By domain? Something else that makes it useful during design work?
 
-### Victory Condition & Game End State — *Priority 3*
+### Victory Condition & Game End State — *Priority 2*
 What "completing" the planetary digital twin *looks like* and what it *unlocks* is still open. The leading candidate: **general-physics discovery** — pushing beyond known physics after demonstrating mastery of every industrial domain. But the specifics need defining.
 
 Open questions:
@@ -146,10 +146,10 @@ Open questions:
 - Does "general-physics discovery" mean new research categories, new physics capabilities (e.g., matter manipulation), or a final event/sequence?
 - If not won, what replaces "launch rockets" as the north star once the simulation is complete?
 
-This intersects with Endgame Feedback Loop item #5 above, but this section owns the decision; the feedback loop section handles implementation.
+This intersects with Endgame Feedback Loop in [research-progression.md](research-progression.md), but this section owns the decision; that section handles implementation details.
 
-### Open Technology Roster
-**The full technology roster hasn't been defined yet.** This blocks all domain documents because every tech tree depends on knowing what materials and capabilities exist. Needs a matrix mapping: each technology → which packs gate it (conventional, specific domain tier, or simulation finding) → which Core level unlocks it if applicable. See the WIP matrix in [research-progression.md](research-progression.md) for working structure.
+### Open Technology Roster — *Priority 3*
+**The full technology roster hasn't been defined yet.** This blocks all domain documents because every tech tree depends on knowing what materials and capabilities exist. See the WIP matrix and classification rules in [research-progression.md](research-progression.md) for working structure.
 
 ### Combat & Warfare System
 "Pollution pressure" and ammo chains are sketched but the enemy itself is underspecified:
@@ -157,22 +157,17 @@ This intersects with Endgame Feedback Loop item #5 above, but this section owns 
 - **How does pollution scale into attacks?** Distance-based (closer factories = more attacks)? Frequency-based (dirty production → constant pressure vs. clean → occasional raids)?
 - **Military defense vs. industrial capability.** Does better ammo require advanced chemistry, or is there a separate supply chain?
 
-## Decisions Still Open
+## Open Items by Domain
 
-### General (Unresolved)
+Each domain document tracks its own open decisions at the bottom of that doc — use these links for detailed decision tracking during deep-dive work.
 
-- **Mod title/name:** *Project Prometheus* is the current leaning. Final call should wait until endgame fantasy is set in stone.
-- **Final victory condition specifics:** Is completing the planetary digital twin *itself* the win condition? Or does it unlock further gameplay (new physics discoveries, space expansion)? What exactly "completes" — building all facilities to a certain capacity, achieving a fidelity threshold, or running a specific final model?
-
-### Domain-Specific Decisions (Link Out)
-
-Below is a summary of open design decisions tracked in each domain document. Use these links for detailed decision tracking during deep-dive work.
-
-- **[Minerals and Refining](minerals-and-refining.md):** Final mineral roster, real deposit classes, assays, material recovery assignments; process template consistency across routes.
-- **[Chemical Products and Processes](chemical-processes.md):** Approved chemical inventory and reaction routes; catalyst requirements for key reactions.
-- **[Intermediate Products](intermediate-products.md):** Specific battery chemistry selection (not every formulation), coherent fission reactor family choice (don't combine every real-world option).
-- **[Power System](power-system.md) — Production:** Exact combustion generators for Phase 1, U-235 vs Pu-239 fission paths, fusion-endgame connection, renewable generation explicit presence, military pressure contribution per generator class, waste handling depth for fission.
-- **[Power System](power-system.md) — Transmission:** Voltage tiers and exact values, conductor stats/loss formulas, loss modeling approach, diagnostics UI specifics, onboarding structure.
-- **[Endgame Vision](endgame-vision.md):** Simulation fidelity tiers (basic → accurate → predictive model), final milestone structure (single vs. staged), compute distribution requirements, power/cooling/network constraints for Core, PLC interaction without mandating general-purpose coding.
-- **[Research and Progression](research-progression.md):** ✅ Six domains locked (Superconductivity, Plasma Confinement, Nanofabrication, Isotope Separation/Particle Physics, Reaction Dynamics, Quantum States). Domain pack tier structure T1→T2a→T2b1→T2b2→T3a→T3b→T3c. Progressive revelation schedule (5 waves). Core requirements per stage. Technology roster pending mineral/chemical stabilization.
-- **[Technical Architecture](technical-architecture.md):** Modpack deployment model (SE pattern: core sub-mods + opt-in extension packs), scope targets, dependency strategy, performance constraints and red lines.
+| Document | Key Open Decisions |
+|---|---|
+| [Minerals and Refining](minerals-and-refining.md) | Final mineral roster, real deposit classes, assays, material recovery assignments; process template consistency across routes |
+| [Chemical Products and Processes](chemical-processes.md) | Approved chemical inventory and reaction routes; catalyst requirements for key reactions |
+| [Intermediate Products](intermediate-products.md) | Specific battery chemistry selection (not every formulation), coherent fission reactor family choice |
+| [Power System](power-system.md) — Production | Exact combustion generators for Phase 1, U-235 vs Pu-239 fission paths, fusion-endgame connection, renewable generation explicit presence, military pressure contribution per generator class |
+| [Power System](power-system.md) — Transmission | Voltage tiers and exact values, conductor stats/loss formulas, loss modeling approach, diagnostics UI specifics, onboarding structure |
+| [Endgame Vision](endgame-vision.md) | Simulation fidelity tiers (basic → accurate → predictive model), final milestone structure (single vs. staged), compute distribution requirements, power/cooling/network constraints for Core |
+| [Research and Progression](research-progression.md) | ✅ Six domains locked (Superconductivity, Plasma Confinement, Nanofabrication, Isotope Separation/Particle Physics, Reaction Dynamics, Quantum States). Domain pack tier structure T1→T2a→T2b1→T2b2→T3a→T3b→T3c. Progressive revelation schedule (5 waves). Core requirements per stage. Technology roster pending mineral/chemical stabilization — see [Open Items](research-progression.md#open-items-all-phase-independent) |
+| [Technical Architecture](technical-architecture.md) | Modpack deployment model (SE pattern: core sub-mods + opt-in extension packs), scope targets, dependency strategy, performance constraints and red lines |

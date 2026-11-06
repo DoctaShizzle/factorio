@@ -126,13 +126,23 @@ Each domain produces its own **five-tier pack progression**. Each tier is a dist
 
 | Core Stage | Packs Required per Domain | Total Packs (~6 domains) | What It Unlocks |
 |-----------|--------------------------|--------------------------|------------------|
-| **Core construction (first activation)** | All 6 domains at T2a minimum + convergence item | ~6 × 7 = ~42 packs (plus convergence item) | Phase 4 power access (Hawking engine), basic simulation model |
+| **Core construction (first activation)** | All 6 domains at T2a minimum + convergence item | ~42 packs (plus convergence) | Phase 4 power access (Hawking engine), basic simulation model |
 | **Core Level 2** | All 6 domains at T2b2 | ~1,320 packs total | Higher-fidelity models, accelerated discovery |
 | **Core Level 3 / Final milestone** | All 6 domains at T3c | ~7,920+ packs total (spread over extended production) | General-physics discovery unlock |
 
 > The Core itself is a hybrid technology — requires both conventional science packs (real materials to build) and domain datasets (operational evidence the network functions). Convergence item bridges both by requiring one T2a pack from each of the six domains.
 
 > **Critical gate: Phase 2 must be completed in full (all six domains at T2b2) before any Core-related construction begins.** This forces balanced investment across all six physics domains — no shortcuts through specialization. The domain pack tiers are the progression bar for Phase 2; you know where you stand by asking "what's the highest tier I have on all six?"
+
+#### Breakthroughs Per Core Level (Phase 3 Capabilities)
+
+Each Core level adds *new* research categories — different technology pools, not just "more of the same."
+
+| Core Level | Breakthrough Category | Unlockable Tech Classes | Design Notes |
+|---|---|---|---|
+| **Level 1** (T2a minimum) | **Planetary + Industrial Model** — simulation can accurately model physical systems at planetary scale. Breakthrough: *predictive modeling of known physics.* | Cleanroom fabrication protocols, high-purity refining methods, semiconductor process chains, advanced materials science frameworks | First "we now have the data to go further" state. Simulation hasn't discovered new physics — it's proving it can reliably predict existing physics across all six domains. Gateway to Phase 3 research requiring cross-domain validation. |
+| **Level 2** (T2b2 minimum) | **Information-Based Civilization Model** — simulation can model populations of information-formed entities whose behavior *emerges* from structure, not programming. Breakthrough: *understanding how structured data produces perception and decision-making.* | Deep simulation infrastructure designs, advanced factory control frameworks (PLC expansion), emergent-system modeling tools, behavioral dataset collection methods | The "new physics" here is that the simulation itself has proven it can model entities that perceive, decide, and act — not simulated AI but mathematical beings whose behavior emerges from their information structure. Moves player from "modeling physics" to "modeling intelligence." |
+| **Level 3** (T3c final milestone) | **General-Physics Model** — simulation has achieved sufficient fidelity that it can predict phenomena *beyond* known physics. Breakthrough: *access to cutting-edge theoretical knowledge the player's civilization cannot independently discover.* New physics frontiers unlocked. | Phase 4 power generation specifics, advanced quantum mechanics applications, exotic matter manipulation frameworks, general-physics research protocols | The **final milestone**. Simulation has validated itself against every known physics domain (Core L1), proven it can model emergent information structures (Core L2), and now reaches beyond — predicting phenomena that conventional science cannot reach. Unlocking "general-physics discovery" isn't a single recipe; it's *access* to research categories previously impossible. |
 
 #### Domain Pack Recipes: Required Intermediate Products Per Tier
 
@@ -337,37 +347,29 @@ Tension comes from two dimensions, not artificial constraints:
 
 No separate scarcity mechanic is needed — the implicit pressure of scaling production capacity and complexity across all dimensions simultaneously is sufficient to maintain engagement for 70–100 hours.
 
-## Open Design Decisions
+## Open Items (All Phase-Independent)
 
-- **Exact technology roster:** Which technologies gate on conventional science, which on domain packs, and which require simulation results? This can only be finalized once the mineral, chemical, and intermediate-product candidates are approved — the tech tree depends on having a stable industrial roster to reference.
+These decisions block further detail work across all domains. **Pending: mineral, chemical, and intermediate-product stabilization.** Once the material pipeline is locked, all items below can be finalized.
 
-- **Final victory condition specifics:** Is completing the planetary digital twin *itself* the win condition? Or does it unlock further gameplay (new physics discoveries, space expansion)? What exactly "completes" — building all facilities to a certain capacity, achieving a fidelity threshold, or running a specific final model?
+| Item | Status | Blocks |
+|------|--------|--------|
+| **Exact technology roster** | Open — which techs gate on conventional vs domain packs vs simulation findings? | Finalizing domain pack recipes, simulating time budget accuracy |
+| **Final victory condition specifics** | Open — is completing the planetary digital twin itself the win, or does it unlock further gameplay? | Endgame Vision alignment, Core L3 milestone definition |
+| **Technology classification matrix (WIP)** | See table below — placeholder categories until mineral/chemical roster approved | All domain documents' tech tree planning |
 
-## WIP: Technology Roster Matrix
+### WIP: Technology Roster Matrix (Placeholder)
 
-**Work in progress.** This table tracks which technologies gate on which inputs. Categories are placeholders — the full roster will be finalized once mineral/chemical rosters and intermediate products are approved. A technology may gate on multiple domain packs if it spans >1 physics domain.
+A technology may gate on multiple domain packs if it spans >1 physics domain. The exact roster will be finalized once the material pipeline is stable.
 
-| Tech Name (placeholder) | Phase | Conventional Packs | Domain Pack(s) | Simulation Finding Required? | Notes |
+| Tech Name (placeholder) | Phase | Conventional Packs | Domain Pack(s) | Simulation Finding? | Notes |
 |---|---|---|---|---|---|
-| *— pending mineral/chemical stabilization —* | Phase 1 | ✅ required | — | No | Baseline industrial tech |
-| *e.g., enriched uranium fuel* | Phase 2 | ✅ + domain pack(s) | e.g., Superconductivity T2a + Isotope Separation T2b1 | No | Domain packs supplement conventional research building |
-| *e.g., cleanroom fabrication* | Phase 3 | — | All six domains at T2b2+ | Yes, Core L1 finding | Requires simulation understanding |
-| *e.g., tungsten armor tiles* | Phase 3 | — | e.g., Plasma Confinement T3a + Superconductivity T3a | Yes, Core L2 finding | Specific domain fidelity gate |
-| *— core infrastructure techs —* | Phase 3 | Hybrid (varies) | Variable per tech | Yes, Core L1/L2/L3 | Final milestone chain gates on Core Level 3 synthesis reports |
-
-### Simulation Findings by Core Level (Tentative Breakthroughs)
-
-These represent the **scientific breakthroughs** each Core level unlocks — new physics knowledge that lets the player research technologies previously impossible:
-
-| Core Level | What the Simulation Unlocks (Breakthrough Category) | Examples of Unlockable Tech Classes | Design Notes |
-|---|---|---|---|
-| **Level 1** (T2a minimum) | **Planetary + Industrial Model** — simulation can accurately model physical systems at planetary scale. Breakthrough: *predictive modeling of known physics.* | Cleanroom fabrication protocols, high-purity refining methods, semiconductor process chains, advanced materials science frameworks | This is the first "we now have the data to go further" state. The simulation hasn't discovered new physics — it's proving it can reliably predict existing physics across all six domains. Gateway to Phase 3 research that requires cross-domain validation. |
-| **Level 2** (T2b2 minimum) | **Information-Based Civilization Model** — simulation can model populations of information-formed entities whose behavior *emerges* from their structure, not programming. Breakthrough: *understanding how structured data produces perception and decision-making.* | Deep simulation infrastructure designs, advanced factory control frameworks (PLC expansion), emergent-system modeling tools, behavioral dataset collection methods | The "new physics" here is that the simulation itself has proven it can model entities that perceive, decide, and act — not simulated AI but mathematical beings whose behavior emerges from their information structure. This is what lets the player move from "modeling physics" to "modeling intelligence." Gateway to research requiring demonstrated computational civilization understanding. |
-| **Level 3** (T3c final milestone) | **General-Physics Model** — simulation has achieved sufficient fidelity that it can predict phenomena *beyond* known physics. Breakthrough: *access to cutting-edge theoretical knowledge the player's civilization cannot independently discover.* New physics frontiers unlocked. | Phase 4 power generation specifics, advanced quantum mechanics applications, exotic matter manipulation frameworks, general-physics research protocols | This is the **final milestone**. The simulation has validated itself against every known physics domain (proven at Core L1), proven it can model emergent information structures (Core L2), and now reaches beyond — predicting phenomena that conventional science cannot reach. Unlocking "general-physics discovery" isn't a single recipe; it's the *access* to research categories previously impossible, representing humanity extending beyond what its own conventional science could achieve. |
+| *— pending stabilization —* | Phase 1 | ✅ required | — | No | Baseline industrial tech |
+| *e.g., enriched uranium fuel* | Phase 2 | ✅ + domain pack(s) | e.g., Superconductivity T2a + Isotope Separation T2b1 | No | Supplement conventional research building |
+| *e.g., cleanroom fabrication* | Phase 3 | — | All six domains at T2b2+ | Yes, Core L1 | Requires simulation understanding |
+| *e.g., tungsten armor tiles* | Phase 3 | — | e.g., Plasma Confinement T3a + Superconductivity T3a | Yes, Core L2 | Specific domain fidelity gate |
+| *— core infrastructure techs —* | Phase 3 | Hybrid (varies) | Variable per tech | Yes, Core L1/L2/L3 | Final milestone chain gates on Core L3 synthesis reports |
 
 ### Technology Classification Rules
-
-These rules govern how technologies gate across all phases:
 
 | Gate Type | Meaning | Phase |
 |-----------|---------|-------|
@@ -375,8 +377,13 @@ These rules govern how technologies gate across all phases:
 | `conventional + domain pack(s)` | Requires specific physics knowledge from one or more domains | Phase 2 |
 | `simulation finding` | Cannot be discovered without a computational model | Phase 3 |
 
-### Work Notes by Phase
+### Endgame Vision Dependencies
 
-- **Phase 1 (Conventional):** All tech gated on vanilla-inspired conventional science packs. No domain packs needed — these are well-understood processes where we already know the answers.
-- **Phase 2 (Domain Bridge):** Tech gating uses hybrid: conventional packs + domain pack(s). Each technology that requires cross-domain understanding gates on specific domain tiers, not just "any domain pack." The player must demonstrate breadth across relevant physics disciplines.
-- **Phase 3 (Simulation-Gated):** All tech gated on simulation findings from the Core at appropriate level. Conventional packs may persist as an alternative path for non-new-physics capabilities but are not primary gates.
+These decisions in [Endgame Vision](endgame-vision.md) block or gate on the work tracked above:
+
+| Dependency | Status | Blocks |
+|-----------|--------|--------|
+| Simulation fidelity tiers (basic → accurate → predictive model) | Open | Core requirement definitions, technology unlock gates |
+| Final milestone structure (single vs. staged) | Open | Core L3 requirements, victory condition specifics |
+| Compute distribution requirements | Open | Phase 3 infrastructure planning, power scaling |
+| Power/cooling/network constraints for Core | Open | Facility design specs, phase 4 power integration |
