@@ -35,9 +35,21 @@ The lists are candidates, not a promise that every product is mandatory. Favor a
 
 Chromium and niobium have confirmed roles in steelmaking. The gameplay distinction can be capability-based: stainless steel unlocks corrosive service, while niobium microalloyed steel enables high-strength structural parts.
 
-## Battery and Electrochemical Products
+## Phase 2 Bridge Products (Cross-Domain Capability Materials)
 
-Chemical routes for the feed compounds belong in [Chemical Products and Processes](chemical-processes.md); this table covers their use in manufactured products.
+These five materials are the primary bridge between Phase 1 conventional industry and Phase 3 simulation-gated research. Each is a *material* — not a research item itself — that serves as the industrial prerequisite for building one of five dedicated domain science facilities. The facility (not the material) produces the domain science pack.
+
+Each product requires deep Phase 1 capability (high-purity processing, isotopic separation, cryogenics). Every description follows the design guideline from [mod-overview.md](mod-overview.md): a concrete physical property ("what happens") followed by its implication ("why it matters").
+
+| Product | Candidate inputs / route | Industrial role & capability unlock | Description hook |
+|---|---|---|---|
+| Electronic-grade polysilicon | Metallurgical silicon → chlorosilane purification → deposition (4–6N purity) | Wafer fabrication gateway; enables Superconductivity Research Lab. Silicon purified to a level where every impurity matters — one wrong atom in a billion changes how it conducts electricity. At this purity, you can *choose* which state it's in by adding the right trace element. |
+| Nb₃Sn superconducting wire | Niobium + tin/silver alloy → wire drawing + cryogenic treatment | High-field magnet material; enables Plasma Confinement Facility. When cooled below a threshold, this alloy carries electric current with zero resistance — and generates magnetic fields strong enough to confine plasma at temperatures hotter than the sun's core. It's one of the few materials that can survive both. |
+| Hafnium-oxide (HfO₂) dielectric | Hafnium from zirconium-bearing feed → oxide conversion → high-purity deposition | Cleanroom fabrication gate; enables Nanofabrication Laboratory. At thicknesses approaching a single molecule, hafnium oxide becomes one of the most effective electrical insulators known — yet it conducts heat well enough to prevent the structure it protects from melting. It solves a problem classical materials couldn't. |
+| Deuterium-enriched water (D₂O) | Brine/water → large-scale electrolysis → isotopic enrichment | Fusion fuel feedstock + neutron moderator; enables Isotope Separation & Calibration Lab. Water where the hydrogen atoms carry an extra neutron — heavy enough that it behaves differently in nuclear reactions. A single drop can reveal how neutrons interact with matter, information no ordinary element provides. |
+| High-purity cryogenic argon/nitrogen mixture | Air → multi-stage refrigeration cascade → cryogenic distillation | Superconducting cooling infrastructure + low-temperature experiments; enables Low-Temperature Physics Facility. Gases cooled to within degrees of absolute zero — the point where thermal noise disappears and quantum effects become macroscopically visible. Below certain temperatures, matter stops behaving like particles and starts behaving like waves. |
+
+**Domain distribution:** These five products span five distinct physics disciplines (solid-state/quantum, superconductivity, surface science/nanotech, nuclear/isotope physics, cryogenic/statistical thermo). All five are required before advancing any simulation fidelity tier — the gate is breadth across domains, not depth in one.
 
 | Product | Candidate inputs | Industrial role |
 | --- | --- | --- |

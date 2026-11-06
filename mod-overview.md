@@ -34,6 +34,17 @@ The player should feel less like a factory builder following longer recipe chain
 - **Capabilities over numbers:** prospecting, flotation, chemical refining, cleanrooms, programmable control, and simulation infrastructure are memorable progression goals.
 - **Knowledge before capability:** show the industrial journey in the handbook before every step can be built; unlock implementation gradually.
 
+### Material Description Guideline
+
+All material, product, and facility names must include a clear description that answers two questions for non-scientists: **what happens** (concrete physical property or behavior) followed by **why it matters** (the implication). This follows the pattern used by Satisfactory and Space Exploration — accessible without sacrificing accuracy.
+
+Structure for every material/product description: *"At [extreme/condition], [material] does [unexpected thing]. It [enables/solves] [capability]." *Examples from Phase 2 products:*
+
+- **Electronic-grade polysilicon:** *"Silicon purified to a level where every impurity matters — one wrong atom in a billion changes how it conducts electricity. At this purity, silicon doesn't just conduct or insulate; you can choose which state it's in by adding the right trace element."*
+- **Nb₃Sn superconducting wire:** *"When cooled below a threshold, this alloy carries electric current with zero resistance — and generates magnetic fields strong enough to confine plasma at temperatures hotter than the sun's core. It's one of the few materials that can survive both."*
+
+Apply this standard to all materials, products, facilities, and recipes across every domain document.
+
 ### Mod Title (hold until endgame locked)
 
 The name should reflect the core hook/fantasy so the title itself telegraphs what the player is doing — not just what they do, but *why it matters*. Brainstormed directions:
@@ -105,20 +116,24 @@ Phase 4 power generation (Hawking Radiation Engine) is available *during* simula
 
 Avoid mandatory upgrades without a new capability, arbitrary complexity, a single correct production route, required voiding, and mechanics whose state cannot be diagnosed clearly.
 
-## Grand-Design Gaps (Block Domain Work Until Resolved)
+## Open Design Questions (Active Work Queue)
 
-The following areas are too vague or nonexistent at the grand-design level to proceed confidently on domain details. They need a dedicated agentic session before deepening individual documents.
+Items below are the current prioritized design work that needs resolution. Each is a gap that blocks further domain-level detail work until addressed. **This is a task tracker — resolved items should be removed here, not kept as historical notes.** When a question is answered, record the resolution in the appropriate domain document and delete the entry from this list.
 
-### Phase 2 Bridge Architecture — *Priority 1*
-**How does the realistic-processing phase (Phase 1) create forward momentum so players don't burn out before sci-fi payoff?**
+### Phase Transition: Bridge → Simulation Core — *Priority 1*
+**What happens mechanically when the player crosses from Phase 2 research into Phase 3?**
 
-This is your single highest-leverage design question. GTNH fails here: realistic chemistry dominates 80% of playtime with sci-fi payoff 600+ hours in, burning out players long before the "good stuff." Your mod needs to answer what makes sulfuric acid purification feel *purposeful* at hour 30 and why the player should care about Phase 2 by hour 60.
+The bridge defines *what* Phase 2 produces (five domain packs from five dedicated labs). But the transition itself is underspecified: how does the shift from conventional research building → simulation Core feel? What changes, what stays the same, and what signals the handoff to the player?
 
-Open decisions:
-- **What's visible on the horizon by hour 60?** Specific sci-fi intermediate products? The Planetary Simulation Core concept shown in handbook + map-visible observation stations hinting at what's possible?
-- **Parallel pathways or unified progression?** Should Phase 2 introduce advanced/futuristic capabilities *alongside* realistic ones (parallel) or only *after* realistic mastery (sequential)? Market research strongly favors parallel.
-- **How many early sci-fi intermediates by Phase 2?** 3-5 appears in market research as a good bound — enough to give visibility into the future without adding excessive scope.
-- **What does each early sci-fi product enable?** They must unlock meaningful new capability, not just "better numbers." Each should be a visible milestone that makes current complexity feel like progress toward something worth reaching.
+This gap matters for pacing. Too abrupt and players experience whiplash ("first I was doing science packs through a research lab, suddenly I have a planetary computer"). Too gradual and the bridge between them dissolves — Phase 2 loses its distinct identity as the "conventional industry hitting the physics wall" phase.
+
+#### Open Design Decisions
+
+- **What unlocks the Planetary Simulation Core?** What are the concrete construction requirements? The existing research-progression doc says "build a basic Core to access Phase 4 power" but not *when* the Core itself becomes available or what gates its construction. Does it require one domain pack from each of the five labs? A specific combination?
+- **When does the player know about the Core?** Is there a moment in Phase 2 — a research finding, capability unlock, or handbook revelation — where the idea becomes concrete enough that the transition feels earned rather than magical? The handbook introduces it as the endgame goal; is there a specific Phase 2 event that makes it feel *reachable*?
+- **Is the handoff abrupt or overlapping?** Does the Core take over research *immediately* after first construction, or is there an overlap period where both the conventional research building and the Core are active for different technologies? Some gradualism may be needed so players aren't surprised that their domain pack factories just stopped being useful.
+- **What changes for the five domain labs?** Do they still produce domain packs once the Core is built? Does the Core consume them as input, or do they feed into something else? How does this change the player's relationship to those factories?
+- **Is there a visible threshold moment?** A concrete milestone that tells the player "you've just crossed from Phase 2 into Phase 3"? GTNH has a feeling ("everything is done now, start crafting"); SE has rocket parts. What does your transition look like as a visible, felt event?
 
 ### Material Scope Boundaries — *Priority 2*
 **Your exhaustive mineral/chemistry/product lists will be valuable only if bounded by human decision capacity, not completeness.**

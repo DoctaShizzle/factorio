@@ -49,14 +49,21 @@ The Core and its peripheral facilities may be built and upgraded in stages. Each
 
 ## Candidate Model Inputs
 
-The network should be fed evidence that the factory has built the capabilities it is modeling. Rather than adding a large generic science-pack family, consider a small number of traceable dataset products:
+The network is fed evidence that the factory has built the capabilities it is modeling. Domain science packs from five dedicated research buildings represent cross-domain knowledge demonstration — breadth across physics disciplines, not depth in one:
 
-- **Planetary survey data:** prospecting, mineral analysis, and resource mapping.
-- **Industrial process data:** operating chemical, refining, metallurgy, and power systems.
-- **Materials and physics data:** cleanroom fabrication, precision measurements, and advanced experiments.
-- **Information-based / civilization models:** later simulation inputs representing structured data entities that perceive, decide, and interact within the modeled world.
+- **Plasma Physics Readings** (Superconductivity Research Lab) — requires electronic-grade polysilicon + Nb₃Sn wire as facility materials
+- **Magnetic Confinement Data** (Plasma Confinement Facility) — requires Nb₃Sn wire + cryogenic infrastructure
+- **Materials Science Results** (Nanofabrication Laboratory) — requires hafnium-oxide dielectric for cleanroom operation
+- **Nuclear Cross-Section Measurements** (Isotope Separation & Calibration Lab) — requires deuterium-enriched water
+- **Quantum Statistical Data** (Low-Temperature Physics Facility) — requires cryogenic argon/nitrogen mixture
 
-The number and exact form of datasets remain open. They should come from meaningful processes, not require every ordinary machine to emit a bookkeeping item.
+### How Domain Packs Are Used
+
+**Phase 2 (Bridge):** Domain packs are fed into the conventional research building *alongside* standard science packs, augmenting the existing tech tree. This is the Space Exploration model — domain packs supplement but don't replace the standard research infrastructure. They do **not** go to a simulation Core at this stage because the Core does not yet exist. The player is still researching technologies through the conventional research building; domain packs simply add *additional capability gates* that require cross-domain knowledge before certain technologies can be unlocked.
+
+**Phase 3 (Simulation-gated):** Only after all five domain research facilities are operational and domain pack production begins do we transition to the Planetary Simulation Core. Phase 3 introduces the core loop: domain datasets → simulation models → findings unlock new technologies.
+
+These are five separate research facilities, each requiring a distinct Phase 2 bridge product as industrial prerequisite. The player must demonstrate knowledge across all five domains before advancing any simulation fidelity tier.
 
 ## Simulation Scope Candidates
 

@@ -52,15 +52,26 @@ Phase 1 transitions to Phase 2 when the player reaches the **Fission → Fusion 
 ### Mechanism
 Conventional science packs continue to function but domain science packs are introduced as *additional* requirements alongside conventional packs. Some technologies can be researched with conventional packs alone; others require both conventional + domain pack. The ratio shifts over time — earlier in Phase 2, conventional dominance is strong; later, domain packs become the primary gate.
 
-### Domain Science Packs: Design
-Domain science packs are produced by operating specific facilities and capturing readings/experimental data. They represent **accumulated understanding** of a physical domain, not just "items from a machine." Key design points:
+**Where they go:** Domain packs are fed into the **conventional research building**, not to a simulation Core. At this stage there *is* no simulation Core. This follows the Space Exploration model: domain packs supplement and gate the existing vanilla tech tree through the standard research infrastructure. Each technology may require different combinations of conventional + domain packs, creating a hybrid gating system.
 
-| Aspect | Design Approach |
-|---|---|
-| **Source** | Meaningful facilities already built for production (not dedicated research machines) |
-| **Mechanic** | Facility operates at specific conditions → captures data over time → outputs a domain science pack representing accumulated understanding |
-| **Examples** | *Nuclear Physics Readings* from operating fission reactors; *Plasma Physics Readings* from experimental fusion chambers; *Materials Science Data* from cleanroom analysis facilities; *Thermodynamics Measurements* from high-throughput chemical processing |
-| **Production rate** | Tied to facility operation quality — a well-run reactor produces more/better readings than one that's barely functional. This rewards competent factory engineering. |
+### Domain Science Packs: Design
+Domain science packs are produced by **dedicated research buildings** (modeled after Space Exploration's domain labs), not by running industrial machinery. These buildings function mechanically identically to existing science pack factories — they process materials over time → output a science pack item — but the semantic layer ("measurements" or "results of experiments") is handled through naming and informatron descriptions, not additional game systems.
+
+**Industrial products are prerequisites.** Each Phase 2 bridge product (electronic-grade polysilicon, Nb₃Sn wire, HfO₂ dielectric, D₂O, cryogenic argon/nitrogen) serves as the industrial prerequisite for building one specific domain research facility. The player produces the material to construct and power the research building; the building itself is what generates the domain pack as output. This separation means:
+- **Phase 2 products = materials** (industrial outputs, factory engineering problems). They enable the *capability* to build and operate a research facility.
+- **Research buildings = dedicated science pack generators** (like any other production line). They consume raw inputs over time and produce domain packs as output.
+
+Key design points for each dedicated research facility:
+
+| Facility | Produces | Phase 2 material prerequisite | Scientific field demonstrated |
+|---|---|---|---|
+| Superconductivity Research Lab | *Plasma Physics Readings* | Electronic-grade polysilicon + Nb₃Sn wire | Condensed matter physics → plasma behavior in magnetic fields |
+| Plasma Confinement Facility | *Magnetic Confinement Data* | Nb₃Sn wire + cryogenic infrastructure | Applied electromagnetism + high-field magnet operation |
+| Nanofabrication Laboratory | *Materials Science Results* | Hafnium-oxide (HfO₂) dielectric | Surface science, nanoscale material behavior |
+| Isotope Separation & Calibration Lab | *Nuclear Cross-Section Measurements* | Deuterium-enriched water (D₂O) | Nuclear physics, neutron interaction modeling |
+| Low-Temperature Physics Facility | *Quantum Statistical Data* | High-purity cryogenic argon/nitrogen mixture | Statistical mechanics, quantum phenomena at low temperature |
+
+**Production rate tied to facility quality.** A well-designed research facility with proper materials and operating conditions produces more domain packs than a makeshift setup — rewarding competent factory engineering without over-engineering the mechanic.
 
 ### Why Domain Packs at This Phase?
 The transition zone is where the player has mastered conventional industry but hits the physics wall: they know *how* to run fission reactors but can't independently discover how to confine fusion plasma, synthesize cleanroom materials, or model advanced molecular processes. They need **domain-level understanding** — enough expertise in a field that simulation can build on it.
@@ -68,7 +79,7 @@ The transition zone is where the player has mastered conventional industry but h
 This is also where your existing Endgame Vision "Planetary and Industrial Model" stage begins. Domain packs are the evidence the player submits to say: "I understand this domain well enough to let the simulation extend my knowledge."
 
 ### When Phase 2 Ends
-Phase 2 ends when the player commissions their **first regional compute capacity** and connects it to a research facility, enabling their first full simulation model run. This is roughly when they've built enough industrial diversity to produce all required domain datasets and have established the infrastructure for Phase 3.
+Phase 2 ends when the player has built **all five domain research facilities** and generated domain packs from each. The simulation network requires demonstrated breadth across all five physics domains before accepting any simulation fidelity tier — no shortcuts around partial coverage. This is roughly when they've established enough industrial diversity to produce all five Phase 2 bridge materials and have built the corresponding research infrastructure for Phase 3.
 
 ## Phase 3: Simulation-Gated Research (Late Game / Endgame)
 
