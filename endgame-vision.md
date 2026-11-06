@@ -50,14 +50,40 @@ Wafer and processor fabrication are means to build the computational civilizatio
 
 ## Recognizable Structure and Peripheral Network
 
-The **Planetary Simulation Core** is a candidate signature building: a distinctive coordinator and visible project anchor, not a single megastructure containing all computation or an AI persona. It schedules and aggregates model runs; most compute and memory capacity remains in connected facilities. Its footprint, graphics, construction requirements, and stages are undecided.
+### The Planetary Simulation Core
 
-| Facility role | Candidate function |
-| --- | --- |
-| Planetary Simulation Core | Coordinates model runs, reports model coverage/progress, and issues simulation projects |
-| Memory/archive facilities | Store survey data, process data, model states, and simulation results |
-| Regional compute campuses | Add processor capacity, power demand, and cooling requirements |
-| Research/observation facilities | Analyze samples and operating data, then submit domain datasets to the network |
+The Core is a **modular orchestration hub** — not a megastructure, not an AI persona. It sits at the center of a distributed network, receives domain datasets from six facility types, coordinates model runs across compute campuses, and outputs research findings that unlock Phase 3 technologies.
+
+**Core Structure Components:**
+
+| Component | Required Inputs | Physical Meaning |
+|-----------|----------------|------------------|
+| **Thermal Frame Assembly** | Heat exchanger coils, cryogenic insulation panels, thermal interface materials, refrigeration cascade components (liquid N₂/Ar circuits), corrosion-resistant structural steel framework | Mandatory first Core assembly — cascading thermal loop infrastructure that removes computation heat and stabilizes measurement temperatures across all subsystems. Without this, no precision operation is possible. |
+| **Computation Cluster** | Packaged ICs, ultra-pure copper bonding wire, advanced thermal interface materials, shielded memory enclosures | Physical computational center: precision computation modules with dedicated cooling channels, memory arrays in electromagnetic-shielded enclosures, synchronization hardware. Each module is individually servicable — not an abstract array. |
+| **Integration Bus** | Superconducting interconnect cable (Nb₃Sn/NbTi), photolithography-processed glass optical waveguides, EM shielding material (mu-metal/permalloy alloy), fiber routing hardware with precision mechanical mounts | Physical interconnect infrastructure — cables, waveguides, and isolation enclosures connecting satellite nodes to the Core. Upgradeable across tiers: early cores have basic connections; higher tiers require faster/more reliable Phase 2 materials. |
+| **Calibration Reference Frame** | Unified Metrology Reference Array + precision alignment mechanism (semiconductor-grade positioning stages), vibration isolation system, environmental control components tied to thermal infrastructure | Where the convergence array is mounted and *actively functions* — not just a piece that "unlocks" something. Active temperature/vibration control makes it genuine calibration hardware. |
+| **Unified Metrology Reference Array** | Nb₃Sn wire + electronic-grade polysilicon; D₂O + enriched fuel stock; rhenium-catalyst powder + graphite support; cryogenic Ar/N₂ mixture → single precision-instrument enclosure mounted in Calibration Reference Frame | Active calibration hardware: coherent instrument integrating six physics measurement zones into one physical device. Each zone is genuine scientific hardware — not administrative proof but real instrumentation that produces measurable reference data while the Core operates. Cross-domain calibration between zones enables multi-physics validation. The "convergence" is the physical co-location of these six zones, allowing each to calibrate the others in real time: the neutron standard calibrates the superconducting sensor; the cryogenic bath validates thermal models. |
+
+**Physical description:** *A precision metrology instrument that integrates six distinct physics measurement domains into one coherent device mounted inside a vibration-isolated, thermally-stabilized calibration frame. Each zone operates as independent instrumentation, scientific hardware from each practitioner's field — co-located to enable cross-domain calibration while the simulation network runs.*
+
+### Satellite Buildings
+
+The Core has four satellite facility types, each adding capacity or data streams:
+
+| Satellite | Function | Links to Core |
+|-----------|---------|---------------|
+| **Compute Campus Node** | Adds processor capacity for model runs | Connected via integration bus (superconducting cables + optical waveguides) to Computation Cluster |
+| **Memory/Archive Module** | Stores model states and simulation results for feedback loops | Direct storage interface with Thermal Frame cooling infrastructure |
+| **Regional Observation Facility** | Analyzes samples/operating data → submits domain datasets | Feeds raw measurement data into the Calibration Reference Frame hardware |
+| **Calibration Sub-Network** | Improves model fidelity and efficiency via domain-lab feedback loops | Uses all six domain labs as active measurement calibration reference points (labs don't just "produce packs" — they calibrate Core measurement fidelity) |
+
+The Core's tier progression:
+
+| Tier | What Changes | Upgrade Requirements |
+|------|-------------|---------------------|
+| **Activation (T1)** | Basic coordination of 6 domain inputs | Thermal Frame + Computation Cluster + Calibration Reference Frame (with Unified Metrology Array mounted) |
+| **Level 2** | Higher-fidelity models, accelerated discovery | Quantum-state enhancement module + memory expansion + Integration Bus upgrade for faster satellite communication |
+| **Level 3 / Final Milestone** | General-physics discovery unlock | Multi-domain synthesis components — fully integrated across all facilities; Calibration Reference can model phenomena beyond known physics |
 
 The Core and its peripheral facilities may be built and upgraded in stages. Each stage can require complex products from several parts of the factory, in the spirit of a major project such as Satisfactory's Space Elevator, while keeping most compute and memory physically distributed.
 
@@ -69,7 +95,8 @@ The network is fed evidence that the factory has built the capabilities it is mo
 - **Magnetic Confinement Data** (Plasma Confinement Facility) — requires Nb₃Sn wire + cryogenic infrastructure
 - **Materials Science Results** (Nanofabrication Laboratory) — requires hafnium-oxide dielectric for cleanroom operation
 - **Nuclear Cross-Section Measurements** (Isotope Separation & Calibration Lab) — requires deuterium-enriched water
-- **Quantum Statistical Data** (Low-Temperature Physics Facility) — requires cryogenic argon/nitrogen mixture
+- **Chemical Kinetics Data** (Reaction Dynamics Facility) — requires **high-performance rhenium-catalyst powder** 
+- **Quantum Statistical Data** (Quantum States Laboratory) — requires cryogenic argon/nitrogen mixture
 
 ### How Domain Packs Are Used
 
@@ -77,7 +104,7 @@ The network is fed evidence that the factory has built the capabilities it is mo
 
 **Phase 3 (Simulation-gated):** Only after all five domain research facilities are operational and domain pack production begins do we transition to the Planetary Simulation Core. Phase 3 introduces the core loop: domain datasets → simulation models → findings unlock new technologies.
 
-These are five separate research facilities, each requiring a distinct Phase 2 bridge product as industrial prerequisite. The player must demonstrate knowledge across all five domains before advancing any simulation fidelity tier.
+These are six separate research facilities, each requiring a distinct Phase 2 bridge product as industrial prerequisite. The player must demonstrate knowledge across all six domains before advancing any simulation fidelity tier.
 
 ## Simulation Scope Candidates
 

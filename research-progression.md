@@ -101,7 +101,7 @@ Key design points for each dedicated research facility:
 | Plasma Confinement Facility | Domain data on ionized gas behavior and field dynamics | Nb₃Sn wire + cryogenic infrastructure | Applied electromagnetism — high-field magnet operation, plasma stability |
 | Nanofabrication Laboratory | Domain data on materials at atomic-scale dimensions | Hafnium-oxide (HfO₂) dielectric | Materials science — surface science, nanoscale behavior, quantum tunneling |
 | Isotope Separation & Calibration Lab | Domain data on nuclear interactions and decay pathways | Deuterium-enriched water (D₂O) + enriched fuel stock | Particle physics — neutron interaction modeling, weak/strong force phenomena |
-| Reaction Dynamics Facility | Domain data on reaction rates, catalysis, and equilibrium states | Advanced catalysts + process intermediates | Chemical kinetics — how reactions move, not just that they occur |
+| Reaction Dynamics Facility | Domain data on reaction rates, catalysis, and equilibrium states | High-performance rhenium-catalyst powder (from molybdenite trace recovery) | Chemical kinetics — how reactions move, not just that they occur |
 | Quantum States Laboratory | Domain data on atomic bonding, crystalline structures, and quantum states | High-purity cryogenic mixture + purified noble gases | Quantum mechanics — atomic structure, bond formation, phase transitions at low temperature |
 
 **Production rate tied to facility quality.** A well-designed research facility with proper materials and operating conditions produces more domain packs than a makeshift setup — rewarding competent factory engineering without over-engineering the mechanic.
@@ -126,11 +126,11 @@ Each domain produces its own **five-tier pack progression**. Each tier is a dist
 
 | Core Stage | Packs Required per Domain | Total Packs (~6 domains) | What It Unlocks |
 |-----------|--------------------------|--------------------------|------------------|
-| **Core construction (first activation)** | All 6 domains at T2a minimum + convergence item | ~42 packs (plus convergence) | Phase 4 power access (Hawking engine), basic simulation model |
-| **Core Level 2** | All 6 domains at T2b2 | ~1,320 packs total | Higher-fidelity models, accelerated discovery |
-| **Core Level 3 / Final milestone** | All 6 domains at T3c | ~7,920+ packs total (spread over extended production) | General-physics discovery unlock |
+| Core construction (first activation) | All 6 domains at T2a + **Unified Metrology Reference Array** → calibrated reference hardware mounted in Calibration Reference Frame | Thermal Frame + Computation Cluster installed; Phase 4 power access (Hawking engine), basic simulation model operational |
+| **Core Level 2** | All six domains at T2b2 — ~1,320 packs total | Quantum-state enhancement module + memory expansion + Integration Bus upgrade for faster satellite communication | Higher-fidelity models, accelerated discovery |
+| **Core Level 3 / Final milestone** | All six domains at T3c — ~7,920+ packs spread over extended production | Multi-domain synthesis components fully integrated; Calibration Reference can model phenomena beyond known physics | General-physics discovery unlock |
 
-> The Core itself is a hybrid technology — requires both conventional science packs (real materials to build) and domain datasets (operational evidence the network functions). Convergence item bridges both by requiring one T2a pack from each of the six domains.
+> The Core itself is a hybrid technology — requires both conventional science packs (real materials to build) and domain datasets (operational evidence the network functions). **Unified Metrology Reference Array** bridges both by integrating six genuine scientific instruments measuring real physical quantities.
 
 > **Critical gate: Phase 2 must be completed in full (all six domains at T2b2) before any Core-related construction begins.** This forces balanced investment across all six physics domains — no shortcuts through specialization. The domain pack tiers are the progression bar for Phase 2; you know where you stand by asking "what's the highest tier I have on all six?"
 
