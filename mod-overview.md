@@ -72,7 +72,7 @@ The ambition is a long overhaul playthrough, potentially 300+ hours, with comple
 | Manufactured intermediates | Alloys, batteries, semiconductor components, nuclear assemblies, and endgame components | [Intermediate Products](intermediate-products.md) |
 | Power | Generator phases, fuel density, grid tiers, transmission losses, conductor choices, diagnostics, and waste handling | [Power System](power-system.md) |
 | Endgame | Distributed computational civilization; simulation milestones from planetary model → industrial model → information-based beings → general-physics discovery | [Endgame Vision](endgame-vision.md), [Research and Progression](research-progression.md) |
-| Machines | Reusable equipment families mapped to industrial operations and progression | [Machine Systems](machine-systems.md) |
+| Infrastructure | Infrastructure mapped to industrial operations, progression, logistics and military | [Infrastructure](infrastructure.md) |
 | Military | Pollution pressure, ammo/weapon chains, defense infrastructure, process tradeoffs | [Military System](military-system.md) |
 | Logistics | Transport layers, demand-based dispatch, freight terminals, information flow | [Logistics System](logistics-system.md) |
 | Technical architecture | Modpack structure, dependencies, performance constraints, extension packs | [Technical Architecture](technical-architecture.md) |
