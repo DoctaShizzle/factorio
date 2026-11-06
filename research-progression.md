@@ -309,13 +309,32 @@ From the Power System document — informatron pages explaining underlying physi
 
 The informatron pages are not just flavor text. They represent **accumulated theoretical understanding** that the simulation network synthesizes into actionable research findings. A player who engages with the deeper explanations gets better context for what each technology represents physically.
 
-## Resolved Design Decisions
+## Endgame Feedback Loop — Design Resolutions
 
-| Decision | Resolution | Notes |
-|---|---|---|
-| Dataset production mechanic | **Science-pack-style buildings.** Functionally identical to existing science packs — factory processes materials over time → outputs item. The thematic layer ("these are readings") is handled through naming and informatron descriptions, not additional game systems. | Per discussion: "It's really still the same, it's only semantics that make them feel different." Avoided over-engineering dataset mechanics into a separate system. |
-| Playtime contribution | **1/3 of total game time (~70–100 hours)** for simulation network construction within the 300+ hour ambition. Broken down: First Core (T2a) ~25h → Core Level 2 (T2b2) ~30–40h → Core Level 3 (T3c) ~15–35h. | |
-| Phase 4 power timing | **Available DURING simulation construction,** gated only by a basic Planetary Simulation Core build. Power grows alongside the simulation core's scope until it simulates a civilization. Phase 4 is not the endgame victory condition — it's a late-game capability enabled by basic simulation infrastructure. | Provides massive energy exactly when needed to power the expanding computational civilization. Scales with Core growth. |
+These resolutions were discussed and finalized during active design work. They are committed decisions, not open questions.
+
+### Core as Phase 3 Research Center (Resolved)
+**Simulation Output:** The Planetary Simulation Core becomes the Phase 3 research center. Players upload domain packs into the Core itself, and the Core advances the tech tree at that stage. This is a mechanical shift: Phase 2 uses conventional research buildings; Phase 3 uses the Core as the research facility.
+
+### Breakthrough Categories Per Core Level (Resolved)
+**Fidelity Tier Differences:** Each Core level adds *new* research categories to the tree — different technology pools, not just "more of the same." The progression is:
+
+- **Core Level 1 (T2a):** Predictive modeling of known physics → unlocks cross-domain validated research capabilities. Cleanroom fabrication protocols, high-purity refining methods, semiconductor process chains.
+- **Core Level 2 (T2b2):** Emergent information structure modeling → unlocks computational civilization understanding. Deep simulation infrastructure designs, advanced factory control frameworks, emergent-system modeling tools.
+- **Core Level 3 (T3c):** Phenomena beyond known physics → general-physics discovery. Access to cutting-edge theoretical knowledge the player's civilization cannot independently discover. New physics frontiers unlocked.
+
+Each tier unlocks tech that previous tiers cannot touch, gated by the domain pack tiers required for that Core level.
+
+### Domain-Specific Tech Impact (Resolved)
+**Pre-Simulation Investment:** Each of the six domains unlocks *different* technologies with *different* gameplay impacts — not interchangeable fuel. Players strategically prioritize domains based on desired edge: materials science → better military options, particle physics → better power generation, superconductivity → advanced factory infrastructure, etc. Domain investment is a meaningful strategic choice, not just "produce everything."
+
+### Endgame Tension Model (Resolved)
+Tension comes from two dimensions, not artificial constraints:
+
+- **Scale:** Power demands, resource demands, and space requirements all explode as tiers progress. The player must constantly scale production capacity in every dimension simultaneously to meet the next tech's demands.
+- **Complexity:** Manufacturing tree depth increases significantly — Phase 4 end is far more complex than Phase 3 start (similar to Satisfactory where each major milestone adds layers of processing depth, not just more belts and machines). The tension isn't "build a bigger factory" but "build a *deeper* and *more interconnected* factory while managing the complexity."
+
+No separate scarcity mechanic is needed — the implicit pressure of scaling production capacity and complexity across all dimensions simultaneously is sufficient to maintain engagement for 70–100 hours.
 
 ## Open Design Decisions
 
@@ -324,3 +343,42 @@ The informatron pages are not just flavor text. They represent **accumulated the
 - **Conventional science retirement timing:** Does conventional packs phase out entirely at Phase 3, or do they persist as an alternative (slower, less complete) path to some technologies?
 - **Hybrid research paths:** Can a player choose to invest in simulation infrastructure early and bypass much of the conventional tech tree? Or must every player progress through all three phases in sequence?
 - **Final victory condition specifics:** Is completing the planetary digital twin *itself* the win condition? Or does it unlock further gameplay (new physics discoveries, space expansion)? What exactly "completes" — building all facilities to a certain capacity, achieving a fidelity threshold, or running a specific final model?
+
+## WIP: Technology Roster Matrix
+
+**Work in progress.** This table tracks which technologies gate on which inputs. Categories are placeholders — the full roster will be finalized once mineral/chemical rosters and intermediate products are approved. A technology may gate on multiple domain packs if it spans >1 physics domain.
+
+| Tech Name (placeholder) | Phase | Conventional Packs | Domain Pack(s) | Simulation Finding Required? | Notes |
+|---|---|---|---|---|---|
+| *— pending mineral/chemical stabilization —* | Phase 1 | ✅ required | — | No | Baseline industrial tech |
+| *e.g., enriched uranium fuel* | Phase 2 | ✅ + domain pack(s) | e.g., Superconductivity T2a + Isotope Separation T2b1 | No | Domain packs supplement conventional research building |
+| *e.g., cleanroom fabrication* | Phase 3 | — | All six domains at T2b2+ | Yes, Core L1 finding | Requires simulation understanding |
+| *e.g., tungsten armor tiles* | Phase 3 | — | e.g., Plasma Confinement T3a + Superconductivity T3a | Yes, Core L2 finding | Specific domain fidelity gate |
+| *— core infrastructure techs —* | Phase 3 | Hybrid (varies) | Variable per tech | Yes, Core L1/L2/L3 | Final milestone chain gates on Core Level 3 synthesis reports |
+
+### Simulation Findings by Core Level (Tentative Breakthroughs)
+
+These represent the **scientific breakthroughs** each Core level unlocks — new physics knowledge that lets the player research technologies previously impossible:
+
+| Core Level | What the Simulation Unlocks (Breakthrough Category) | Examples of Unlockable Tech Classes | Design Notes |
+|---|---|---|---|
+| **Level 1** (T2a minimum) | **Planetary + Industrial Model** — simulation can accurately model physical systems at planetary scale. Breakthrough: *predictive modeling of known physics.* | Cleanroom fabrication protocols, high-purity refining methods, semiconductor process chains, advanced materials science frameworks | This is the first "we now have the data to go further" state. The simulation hasn't discovered new physics — it's proving it can reliably predict existing physics across all six domains. Gateway to Phase 3 research that requires cross-domain validation. |
+| **Level 2** (T2b2 minimum) | **Information-Based Civilization Model** — simulation can model populations of information-formed entities whose behavior *emerges* from their structure, not programming. Breakthrough: *understanding how structured data produces perception and decision-making.* | Deep simulation infrastructure designs, advanced factory control frameworks (PLC expansion), emergent-system modeling tools, behavioral dataset collection methods | The "new physics" here is that the simulation itself has proven it can model entities that perceive, decide, and act — not simulated AI but mathematical beings whose behavior emerges from their information structure. This is what lets the player move from "modeling physics" to "modeling intelligence." Gateway to research requiring demonstrated computational civilization understanding. |
+| **Level 3** (T3c final milestone) | **General-Physics Model** — simulation has achieved sufficient fidelity that it can predict phenomena *beyond* known physics. Breakthrough: *access to cutting-edge theoretical knowledge the player's civilization cannot independently discover.* New physics frontiers unlocked. | Phase 4 power generation specifics, advanced quantum mechanics applications, exotic matter manipulation frameworks, general-physics research protocols | This is the **final milestone**. The simulation has validated itself against every known physics domain (proven at Core L1), proven it can model emergent information structures (Core L2), and now reaches beyond — predicting phenomena that conventional science cannot reach. Unlocking "general-physics discovery" isn't a single recipe; it's the *access* to research categories previously impossible, representing humanity extending beyond what its own conventional science could achieve. |
+
+### Technology Roster Work Notes
+
+- **Phase 1 (Conventional):** All tech gated on vanilla-inspired conventional science packs. No domain packs needed — these are well-understood processes where we already know the answers.
+- **Phase 2 (Domain Bridge):** Tech gating uses hybrid: conventional packs + domain pack(s). Each technology that requires cross-domain understanding gates on specific domain tiers, not just "any domain pack." The player must demonstrate breadth across relevant physics disciplines.
+- **Phase 3 (Simulation-Gated):** All tech gated on simulation findings from the Core at appropriate level. Conventional packs may persist as alternative path for non-new-physics capabilities but are not primary gates.
+- **Technology classification rules:** 
+  - Gates on `conventional only` = real-world science already solved (Phase 1 / Phase 2 bridge)
+  - Gates on `conventional + domain pack(s)` = requires specific physics knowledge from one or more domains
+  - Gates on `simulation finding` = cannot be discovered without computational model (Phase 3)
+
+- **Core-level tech expansion:** Each Core level unlocks *different* research categories, not just "more of the same." Level 1 opens cross-domain validated capabilities; Level 2 adds computational civilization understanding; Level 3 provides access to phenomena beyond known physics. Each tier's unlocked tech is inaccessible at lower tiers.
+- **Domain-specific tech impact:** Before and after Core unlock, each of the six domains unlocks *different* technologies with different gameplay impacts. Players strategically prioritize domains based on desired edge — e.g., materials science → better military options, particle physics → better power generation, superconductivity → advanced factory infrastructure. This makes domain investment a meaningful strategic choice.
+- **Endgame tension model:** Tension comes from two dimensions:
+  - **Scale:** Power demands, resource demands, and space requirements all explode as tiers progress. The player must constantly scale production capacity in every dimension simultaneously to meet the next tech's demands.
+  - **Complexity:** Manufacturing tree depth increases significantly — Phase 4 end is far more complex than Phase 3 start. Each major milestone adds layers of processing depth, not just more belts and machines. The tension isn't "build a bigger factory" but "build a *deeper* and *more interconnected* factory while managing the complexity."
+- **No artificial scarcity needed:** The implicit pressure of scaling production capacity and complexity across all dimensions simultaneously is sufficient to maintain engagement for 70–100 hours. There is no need for separate mechanics (compute slots, simulation queues) forcing one specific tradeoff — the core loop works because Factorio players naturally engage with this kind of scaling tension.
