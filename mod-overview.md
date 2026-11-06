@@ -148,10 +148,10 @@ Open questions:
 
 This intersects with Endgame Feedback Loop item #5 above, but this section owns the decision; the feedback loop section handles implementation.
 
-### Open Technology Roster — *New Gap*
+### Open Technology Roster
 **The full technology roster hasn't been defined yet.** This blocks all domain documents because every tech tree depends on knowing what materials and capabilities exist. Needs a matrix mapping: each technology → which packs gate it (conventional, specific domain tier, or simulation finding) → which Core level unlocks it if applicable. See the WIP matrix in [research-progression.md](research-progression.md) for working structure.
 
-### Combat & Warfare System — Open
+### Combat & Warfare System
 "Pollution pressure" and ammo chains are sketched but the enemy itself is underspecified:
 - **What are the enemies?** Mutant creatures? Indigenous life reacting to industrial encroachment? Something thematically aligned with Prometheus?
 - **How does pollution scale into attacks?** Distance-based (closer factories = more attacks)? Frequency-based (dirty production → constant pressure vs. clean → occasional raids)?
