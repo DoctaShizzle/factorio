@@ -109,37 +109,84 @@ Avoid mandatory upgrades without a new capability, arbitrary complexity, a singl
 
 The following areas are too vague or nonexistent at the grand-design level to proceed confidently on domain details. They need a dedicated agentic session before deepening individual documents.
 
-### Map & World Generation — No Dedicated Coverage
+### Phase 2 Bridge Architecture — *Priority 1*
+**How does the realistic-processing phase (Phase 1) create forward momentum so players don't burn out before sci-fi payoff?**
+
+This is your single highest-leverage design question. GTNH fails here: realistic chemistry dominates 80% of playtime with sci-fi payoff 600+ hours in, burning out players long before the "good stuff." Your mod needs to answer what makes sulfuric acid purification feel *purposeful* at hour 30 and why the player should care about Phase 2 by hour 60.
+
+Open decisions:
+- **What's visible on the horizon by hour 60?** Specific sci-fi intermediate products? The Planetary Simulation Core concept shown in handbook + map-visible observation stations hinting at what's possible?
+- **Parallel pathways or unified progression?** Should Phase 2 introduce advanced/futuristic capabilities *alongside* realistic ones (parallel) or only *after* realistic mastery (sequential)? Market research strongly favors parallel.
+- **How many early sci-fi intermediates by Phase 2?** 3-5 appears in market research as a good bound — enough to give visibility into the future without adding excessive scope.
+- **What does each early sci-fi product enable?** They must unlock meaningful new capability, not just "better numbers." Each should be a visible milestone that makes current complexity feel like progress toward something worth reaching.
+
+### Material Scope Boundaries — *Priority 2*
+**Your exhaustive mineral/chemistry/product lists will be valuable only if bounded by human decision capacity, not completeness.**
+
+300-600 hours doesn't mean "every real chemical process." It means "enough routes to create meaningful choices that players actually want to make." GTNH's biggest mistake wasn't realism — it was 600+ ore types when the effective decision space for any player is probably 40-50 distinct material categories. More doesn't mean more choice; it means analysis paralysis and handbook bloat.
+
+Open decisions:
+- **What is the hard cap on mineral/material categories?** Not "how many real things exist" but how many simultaneous processing decisions a player can hold in their head without fatigue. Consider whether 50 categories with deep internal choices beats 600+ categories with shallow ones.
+- **Which materials earn their roster spot?** Each needs an end use that matters — not just "it exists" or "it's in this chain." If it doesn't create a visible tradeoff or unlock a meaningful capability, it shouldn't be in the final roster.
+- **Where do you accept "one good route" over "multiple alternatives"?** Process choice is your pillar, but not every product needs 3 viable routes. Some can have one clear path with quality-of-life improvements instead — freeing scope for products that actually benefit from multiple approaches.
+- **How does the exhaustive list stay bounded as you deepen it?** Set a review gate: once Phase 2 intermediates are defined, stop adding new ones unless they solve an existing gap (missing capability, missing tradeoff, missing horizon). New materials only when an existing system has a hole.
+
+### Exhaustive Product Catalog — Priority Gap
+**You've stated this explicitly as your design work; the gap is that the catalog itself isn't yet written.** This is not optional before deep-diving domain documents — it's the skeleton everything else hangs on. Without a complete material pipeline, every process document is building on assumptions.
+
+Sub-gaps to fill in order:
+- **Minerals & deposits (mineral-catalog.md?):** Complete list of ore/deposit types with their class (surface/underground/polymineral), location strategy, and what each deposit produces. This connects directly to the Map & World Generation gap.
+- **Refined outputs (pure raw materials):** What comes out of your processing stages — ingots, concentrates, refined chemicals, etc. Each needs a clear input-from and output-to so it's not just "it exists in the chain."
+- **Intermediate products:** Materials that are inputs to other recipes but have no direct machine use — alloys, acids, reagents, semiconductor precursors, battery chemistries, nuclear assemblies, etc. This is where your chemical-processes.md connects to intermediate-products.md.
+- **End products (Phase 3/4 components):** Items that feed the simulation network or represent final capabilities — not "everything in the mod" but things that matter for progression momentum and endgame construction.
+
+Open decisions:
+- **Where does this catalog live?** As a single document, distributed across domain docs with cross-references, or a master list file with domain-specific deep dives?
+- **Does every intermediate product need multiple routes?** No. Only products that create meaningful tradeoffs get multiple processes. Many can have one good route. Use the Material Scope Boundaries criteria to gate this.
+- **What's the catalog format?** A table by pipeline stage (mineral → refined → intermediate → end)? By domain? Something else that makes it useful during design work?
+
+### Endgame Feedback Loop — *Priority 3*
+**"Modeling an entire world" is conceptually rich but mechanically underspecified at the strategic level. What does this mean as gameplay decisions?**
+
+Your planetary simulation network has a stronger endgame hook than GTNH ("craft everything") or SE ("launch into space"), but you need to articulate what players actually *do* that feels satisfying — not as UI details, but as a strategic loop.
+
+Open decisions:
+- **What is the gameplay verb of Phase 3/4?** Not "build a big thing." What decision-making keeps players engaged for 100 hours? Feeding factories? Running models? Debugging information-formed entities? Competing objectives?
+- **How does pre-simulation industrial work feed into simulation play?** If the answer is "the factories I built before become part of a bigger system," that's good — but needs articulation to guide remaining domain work.
+- **What's the endgame tension or choice?** GTNH's endgame has no tension (you can craft everything). SE has logistics as its only tension. Your endgame needs something equally intrinsic to the mechanic itself.
+- **Does completing the simulation win the game or open new gameplay?** This intersects with Victory Condition gap above — but is more specific: what does "completing" mean, and what happens after?
+
+### Map & World Generation — Open
 Factorio is its map, and this mod's geological discovery pillar depends entirely on world generation:
 - **How does terrain generate?** Random ore patches? Fixed biomes? Do rivers, mountains, and elevation matter for cooling, water access, or mining constraints?
 - **Oil/water placement strategy.** Vanilla's fixed edge wells feel wrong for a 300h overhaul. Are there more sites? Rare resources discovered through prospecting?
 - **Map edge behavior.** Expansion is core to Factorio's loop — if military pressure scales with pollution, expanding away from threats should be a meaningful choice.
 
-### Combat & Warfare System — Militaries doc is Thin
+### Combat & Warfare System — Open
 "Pollution pressure" and ammo chains are sketched but the enemy itself is underspecified:
 - **What are the enemies?** Mutant creatures? Indigenous life reacting to industrial encroachment? Something thematically aligned with Prometheus?
 - **How does pollution scale into attacks?** Distance-based (closer factories = more attacks)? Frequency-based (dirty production → constant pressure vs. clean → occasional raids)?
 - **Military defense vs. industrial capability.** Does better ammo require advanced chemistry, or is there a separate supply chain?
 
-### Victory Condition & Game End State — Explicitly Open but Also Vague
+### Victory Condition & Game End State — Open
 We've deferred "Does completing the planetary digital twin unlock further gameplay?" without resolving it:
 - Is the game winnable or endless sandbox with milestones?
 - What's the final moment if won? A visual event in-game? Launching something? Activating the simulation network?
 - If not won, what replaces "launch rockets" as the north star once the simulation is complete?
 
-### Economy & Trade — Completely Absent
+### Economy & Trade — Open
 At 300+ hours with dozens of processing routes, some form of trade mechanism may be needed:
 - Inter-region trade (rare resources in one biome needed elsewhere)?
 - A "shipping" mechanic where completed products generate score or unlock things?
 - Or strictly "you make everything yourself"?
 
-### Map Scale & Wilderness — Unresolved
+### Map Scale & Wilderness — Open
 A Bob's/Angel-level overhaul needs very large maps. But:
 - How does map scale interact with military pressure over time?
 - What happens when players exhaust their region and need to explore deeper territory?
 - Is there a wilderness vs. industrialized visual distinction that emerges from player choices?
 
-### Mod Compatibility & Scope Boundaries — Unstated
+### Mod Compatibility & Scope Boundaries — Open
 This is a Factorio mod that exists in an ecosystem:
 - Standalone or compatible with vanilla tech tree? Replaces Bob's and Angel's?
 - How does massive complexity impact save file size and performance?
