@@ -156,21 +156,68 @@ The mod's space-pressure design makes fuel density a critical comparison axis. T
 - **Liquid-fuel burner:** Requires fuel tank input. Higher combustion efficiency than solid burning. Off-gas scrubbing option connects to pollution mitigation (military system).
 
 ### Fission Generators
-- **Pressure vessel / core:** Requires refractory steel, zirconium cladding, graphite moderator, hafnium/boron control absorbers.
-- **Heat exchanger loop:** Transfers reactor heat to steam → turbine or directly to power conversion. Requires fluid transport infrastructure (pipes, pumps).
-- **Fuel fabrication line:** Uranium concentration → conversion → pellet pressing → sintering → cladding. Parallel chain from minerals-and-refining through chemistry.
-- **Waste handling:** Spent fuel storage; optional reprocessing pathway (plutonium extraction) connects to military system's nuclear-ammo scope.
+
+#### Reactor Core Assembly (infra.md §10)
+
+| Component | Infrastructure Source | Power Requirements | Design Notes |
+|-----------|----------------------|-------------------|--------------|
+| Pressure vessel shell | Refractory steel panels + zirconium cladding ingots (infra.md §4 smelting) | Tier 2 welding/inspection infrastructure during construction | High-pressure coolant containment; rated for MTier 4 power at highest reactor tier |
+| Graphite moderator blocks | Pure graphite from carbon processing chain | None directly, but thermal management critical | Neutron moderation without electrical input; precise spacing controlled by servo mechanisms (Automation §5) |
+| Hafnium control rod assemblies | Hafnium Absorber Plate Liner + Boron Carbide Press/Sintering Furnace (infra.md §10) | Servo motors for insertion/extraction (~kW range); Tier 0 stable power | Neutron-absorbing plates with B₄C filler; tier determines reactivity control precision and lifespan |
+
+#### Fuel Fabrication Chain — Parallel Supply Line (infra.md §10)
+
+| Sub-component | Source (infra.md §10) | Power Needs | Design Notes |
+|--------------|----------------------|-------------|--------------|
+| Uranium Conversion Line | Leach/purification → precipitation → pellet pressing → sintering furnace (infra.md §10) | Tier 1 grid for chemical pumps, heaters, agitators | Parallel chain from minerals-and-refining through chemistry; each sub-step has independent power draw |
+| Fuel Pellet Sintering Furnace | infra.md §10; refractory construction | Tier 2+ thermal process; draws heavy power during firing cycle | High-temperature densification; green pellets → sintered fuel pellets |
+| Cladding Tube Mill | infra.md §10: Zr-alloy tube extrusion + pilger rolling | Tier 1 stable power for hydraulic forming systems | Produces hollow zirconium cladding for fuel rods; tier determines pressure vessel quality and precision |
+| Fuel Rod Assembly Line (MTier 1-3) | infra.md §10: manual load → semi-auto → fully automated with inline inspection | Tier 1 grid; higher tiers add semiconductor inspection systems | Three sub-steps on one line: pellet loading → end-cap welding → helium leak-testing. MTier 3 adds automated QC with precision sensors (Automation §5) |
+| Zr/Hf Separation Plant | infra.md §10: fractional distillation of chlorides + hydrometallurgical purification | Tier 2 grid for distillation columns and separation tanks | Critical nuclear gate — hafnium absorbs neutrons and must be removed for fuel-grade zirconium. Co-product: Hf for control rod absorber plates |
+
+#### Waste Handling & Maintenance (infra.md §10 cross-reference)
+- Spent fuel storage pools require active cooling pumps connected to power grid (Tier 0 or Tier 1 for reliable continuous operation)
+- Optional reprocessing pathway (plutonium extraction from spent fuel) connects to military system's nuclear-ammo scope via plutonium feedstock
+- Dead-Battery Capacitor / Fuse Link (Power Storage table above): safety device that intentionally depletes to shut down the core before meltdown; not reusable
 
 ### Fusion Generators
-- **Tungsten plasma-facing armor:** Refined tungsten tiles/tiles assembly. High-material-demand, late-game construction milestone.
-- **Nb3Sn/NbTi superconducting magnet coil:** Niobium + tin/titanium processing + cryogenic wiring. Connects to metallurgy and specialty-alloy chains.
-- **Lithium breeder blanket module:** Lithium-bearing ceramic or liquid feed → processed into breeding form → assembled module. Direct link to mineral-refining (spodumene, brine) and chemical processing.
-- **Deuterium concentration facility:** Electrolysis + concentration cascade from water source. Tied to chlor-alkali capability for hydrogen production.
+
+| Component | Infrastructure Source (infra.md) | Power Requirements | Design Notes |
+|-----------|----------------------------------|-------------------|--------------|
+| Tungsten Plasma-Facing Armor Tiles | infra.md §10: Tungsten Armor Tile Molder (Phase 4+) | Pre-assembly heating during fabrication; no operational power draw | High-material-demand construction milestone. Each tile sintered under extreme pressure/temperature |
+| Nb₃Sn/NbTi Superconducting Magnet Coils | infra.md §10: Coil Winding Machine (MTier 2-4) | Cryogenic cooling during operation (~MW range); winding precision determines magnetic field strength | Niobium + tin/titanium processing + cryogenic wiring. Tier = winding tension control + insulation precision |
+| Lithium Breeder Blanket Panels | infra.md §10: Lithium Breeder Blanket Panel Assembler (Phase 4+) | Liquid lithium circulation requires pumps connected to coolant loop; blanket fabrication is endgame project | Direct link to mineral-refining (spodumene, brine) and chemical processing |
+| Deuterium Concentration Facility | infra.md §7: Chlor-Alkali Membrane Cell + AEM Water Electrolyzer | Sustained DC current for electrochemical separation; tier = membrane quality + electrode area | Concentration cascade from water source → fusion-grade D₂. Tied to chlor-alkali capability for H₂ production |
+| Tokamak Vacuum Vessel Assembly | infra.md §10: Extreme-Pressure Containment Vessel Assembler (Phase 4+) | Tier 2+ welding inspection systems; autoclave curing of composite layers | Multi-layer pressure vessel shells for plasma containment. Weld forming → autoclave curing → in-situ inspection at high tiers |
 
 ### Endgame Physics-Driven Generators
-- **Hawking Radiation Engine:** Requires optical concentrator infrastructure (precision glass/mirror array, coated silicon elements), extreme-voltage input power systems for singularity creation, superconducting magnetic containment structures, thermal-to-electric conversion loop, active simulation network for Hawking radiation spectrum prediction and lifetime modeling. Feeding matter into the singularity connects back to fuel-density spectrum.
-- **Subspace Capacitor:** Requires cleanroom facility (nanometer-scale precision fabrication), ultra-pure silicon wafer production chain, tantalum alloy containment lattice forging, precision crystal resonators (advanced optics), quantum computation module, Planetary Simulation Core during construction for spacetime boundary condition computation. Each capacitor is finite but lasts thousands of years at moderate draw.
-- Both concepts require the Planetary Simulation Core as *operational* infrastructure — not just a research unlock, but active computational partner during construction and/or ongoing operation.
+
+#### Hawking Radiation Engine — Construction Infrastructure
+
+The Hawking Engine requires four distinct endgame infrastructure categories from infra.md Section 10:
+
+| Component | Source (infra.md) | Phase | Power Requirements | Role in Engine |
+|-----------|-------------------|-------|-------------------|----------------|
+| Precision Optics Fabrication Station | infra.md §10; Phase 4+, cleanroom required | Construction | Tier 0 stable power (cleanroom-grade) + precision servo motors (Automation §5) | Produces lenses/mirrors/interferometers for optical concentrator array that collapses radiation into micro-singularity |
+| Extreme-Pressure Containment Vessel Assembler | infra.md §10; MTier 3+ required | Construction | Tier 2 infrastructure for welding inspection systems and autoclave curing | Welds multi-layer pressure vessel shells for singularity containment |
+| Thermoelectric Conversion Array Module | infra.md §10; Phase 4+, p-type/n-type semiconductor junctions | Operational (power output, not consumption) | Connects directly to engine's Tier 3 HVDC output | Converts Hawking radiation heat to electricity via Seebeck effect; assembled from thermocouple pairs on semiconductor packaging line |
+| Superconducting Magnetic Containment Structure | infra.md §10: Coil Winding Machine + Nb₃Sn/NbTi wire | Construction → Operation | Tier 3 power during winding operations; cryogenic cooling during operation | Maintains singularity within confinement field during construction phase; determines containment stability |
+
+**Operational details:**
+- **Feeding matter to extend life:** Player feeds concentrated matter/fuel into the singularity (mass → energy via E=mc²). Each fuel type has different mass-energy yield connecting back to the [fuel-density spectrum](#fuel-density-spectrum-reference-guide) table.
+- **Size vs. lifetime tradeoff:** Smaller initial black hole has higher Hawking temperature (more efficient thermal conversion via Thermoelectric Array) but evaporates faster. Player chooses: compact fast-burning engine vs. massive slow-dying one.
+- **Simulation's role:** Planetary Simulation Core computes Hawking radiation spectrum for Thermal Converter optimization, models collapse dynamics during construction to prevent containment breach, predicts remaining lifetime based on feeding schedule.
+
+#### Subspace Capacitor — Reference Only (dropped per design rationale)
+
+The Subspace Capacitor is kept as documentation only — see [Design rationale section](#design-rationale-hawking-engine-preferred-over-subspace-capacitor) above for why Option B was chosen over Option A. Its infrastructure requirements are:
+- Cleanroom facility (nanometer-scale precision fabrication, infra.md §9)
+- Ultra-pure silicon wafer production chain (infra.md §9: Czochralski Crystal Grower, CMP Polisher)
+- Tantalum alloy containment lattice (forged under extreme pressure/temperature, infra.md §4)
+- Precision crystal resonators (advanced optics/optical glass chain)
+- Quantum computation module (simulation chip output from Planetary Simulation Core infrastructure)
+
+**Note:** Both concepts require the Planetary Simulation Core as *operational* infrastructure — not just a research unlock, but active computational partner during construction and/or ongoing operation.
 
 ## Design Tensions to Resolve
 
@@ -181,7 +228,9 @@ The mod's space-pressure design makes fuel density a critical comparison axis. T
 | Fission: is it too convenient? | Add maintenance, waste-accumulation, or meltdown risk; or keep it simple and let fabrication cost be the gate | **Meltdown risk via cooling dependency** — GTNH-inspired. The reactor requires continuous active cooling. If grid power is lost and backup capacitance depletes, the core escalates: elevated temperature → increased pressure → fuel rod stress → potential meltdown. Each stage has clear UI feedback (thermal indicators, pressure gauges, warning alarms) giving time to react. This makes thermal redundancy a meaningful engineering decision rather than punishment — players who invested in grid diversity and load-shedding diagnostics have built-in resilience. |
 | Space pressure from renewables vs. density axis | Do we include solar/wind as explicit generators? Or let the density axis speak for itself | **Option A:** Include a compact "solar array" machine with area-dependent output, built from semiconductor-grade silicon — connecting to the wafer/processor chain but requiring raw cells and glass. **Option B:** Let the *concept* of distributed renewables exist as design flavor (see military-system.md's space pressure section) without building explicit solar/wind generators. |
 | Fusion fuel: infinite power → does it remove all tension? | No — the *construction cost* is enormous, and once built, the generator may still need cooling, maintenance, or grid integration. The tension shifts from "can I afford fuel?" to "where do I put this facility?" | Emphasize placement/logistics over supply. Fusion solves the fuel problem but creates an *infrastructure* challenge: connecting massive power output to the grid, managing heat rejection, and protecting against grid surges |
-| Phase 4 (simulation-driven) scope | Define it concretely with simulation dependency; or leave as placeholder for endgame finalization | **Two documented options, neither required for victory:** <br>**Option B: Hawking Radiation Engine** — optical concentrators collapse radiation into a micro-black hole; Hawking radiation harvested. Finite lifetime extendable by feeding matter (mass → energy). Simulations predict spectrum/lifetime and model collapse dynamics.<br>**Option A: Subspace Capacitor** — player-built device creating artificial subspace pocket; extracts zero-point energy until entropy equilibrium. Simulation computes boundary conditions during construction; different planets yield different yields. Finite but lasts thousands of years at moderate draw.<br>Both tie to simulation meaningfully without requiring map-placed black holes or finding pre-made ZPMs on the map. |
+| Phase 4 (simulation-driven) scope | Define it concretely with simulation dependency; or leave as placeholder for endgame finalization | **Option B chosen:** Hawking Radiation Engine — optical concentrators collapse radiation into a micro-black hole; Hawking radiation harvested. Finite lifetime extendable by feeding matter (mass → energy). Simulations predict spectrum/lifetime and model collapse dynamics. Option A (Subspace Capacitor) dropped: same gameplay shape as fusion with less engagement. See "Design rationale" section above. |
+| Grid transmission infrastructure: voltage tiers, conductors, transformers | How detailed should grid model be at this stage? | **Fully specified:** 4-tier voltage model (0–3), 5 conductor materials mapped to tiers, transformer MTier 1–3 progression with material upgrades. See Candidate Grid Model section below for complete catalog. |
+| Underground power cable vs overhead towers | Should players have both; or pick one transmission aesthetic? | **Both:** overhead towers for early/mid-game (visual clarity, standard infrastructure), underground trench system for Phase 3+ (space savings, no line-of-sight constraints). Same conductor options in concrete conduit. |
 
 ## Open Design Decisions (Power Production)
 
@@ -199,36 +248,115 @@ Power should be a factory-design decision, not a global infinite bus. Local gene
 
 Power and floor space are secondary optimization axes in the overall design. They should create meaningful tradeoffs without becoming opaque punishment or maintenance busywork.
 
-Power should be a factory-design decision, not a global infinite bus. Local generation, industrial clustering, conductor choice, and transmission infrastructure should matter, while diagnostics make losses and limits understandable.
-
-Power and floor space are secondary optimization axes in the overall design. They should create meaningful tradeoffs without becoming opaque punishment or maintenance busywork.
-
 ## Candidate Grid Model
 
-### Transmission Tiers
+### Voltage Tier Catalog
 
-- **Low-voltage distribution:** local wiring for small loads and early factories, with limited reach and capacity.
-- **High-voltage transmission:** long-distance lines for large or remote loads, with conversion stations between local and transmission networks.
-- **Transformation stations:** step voltage up for transmission and down for industrial consumers; placement and capacity are factory layout choices.
+| Tier | Name | Power Range | Typical Reach (tiles/segment) | Primary Consumers |
+|------|------|-------------|------------------------------|-------------------|
+| 0 | Low-voltage distribution | 1–25 kW | Short (~50 tiles) | Generators (steam, solar, wind), small machine loads, early factories |
+| 1 | Medium-voltage transmission | 25–250 kW | Medium (~200 tiles) | Industrial clusters (smelters, electrochemical cells, chemical reactors) |
+| 2 | High-voltage transmission | 250 kW–2.5 MW | Long (~500 tiles) | Large fission reactors output feed, remote generator aggregation |
+| 3 | Ultra-high-voltage DC (HVDC) | 2.5–25 MW | Very long (1000+ tiles) / unlimited with repeater stations | Endgame generators (fusion, Hawking Engine), planetary-scale grid backbone |
 
-Exact voltages, distances, and conversion ratios remain undecided. The model should teach a useful voltage/current/resistance analogy without requiring players to perform electrical engineering calculations by hand.
+Exact distances and power ceilings are tuned values — the tiers convey a meaningful engineering analogy: higher voltage means fewer losses over distance, but requires expensive transformers to convert up/down.
 
-### Conductor Materials
+### Conductor Capabilities by Tier
 
-Candidate conductor materials can trade cost, capacity, transmission loss, and physical placement:
+Candidate conductor materials mapped to which voltage tiers they are valid for:
 
-| Conductor | Candidate role |
-| --- | --- |
-| Tin | Cheap early/local wiring with lower capacity |
-| Copper | Reliable general-purpose conductor |
-| Aluminum | Lightweight, long-distance transmission option |
-| Gold | High-performance specialist conductor for late-game precision or compact high-load networks |
+| Conductor | Valid Voltage Tiers | Max Capacity per Segment | Transmission Loss Factor | Design Role |
+| --- | --- | --- | --- | --- |
+| Tin-plated copper wire | Tier 0 only | ~5 kW | 8% per 100 tiles | Cheap early/local wiring; low capacity, high loss |
+| Copper cable | Tier 0–1 | ~25 kW | 4% per 100 tiles (T0), 3% per 100 tiles (T1 with transformer) | Reliable general-purpose conductor; sweet spot for most factory distribution |
+| Aluminum wire | Tier 1–2 | ~100 kW | 2.5% per 100 tiles | Lightweight, long-distance transmission option; lighter than copper for equivalent capacity |
+| Aluminum-steel composite cable | Tier 2 | ~500 kW | 1.5% per 100 tiles | Mid-game long-haul; cheaper than pure metal conductor for high-voltage segments |
+| Gold alloy wire | Tier 3 | ~2 MW | 0.5% per 100 tiles | Endgame ultra-low-loss specialist conductor; extremely expensive, only viable for critical backbone segments |
 
-These roles are initial design hypotheses; the final list should follow the approved material roster and avoid making rare metals mandatory for ordinary factory power.
+These tiers create meaningful infrastructure decisions: a player routing power from a remote fission reactor through copper cable suffers ~7% loss across tiers (step-up → transmit → step-down), while the same route with aluminum composite drops to ~4%. Gold at Tier 3 cuts that to ~1.5%, but costs orders of magnitude more per segment. The tradeoff — infrastructure cost vs. sustained power delivery — makes grid layout a genuine engineering problem.
 
-### Transmission Losses and Factory Layout
+### Transformer Progression by Tier
 
-Transmission losses should depend on line length, conductor properties, voltage tier, and load. This should make remote power generation and industrial clusters situationally valuable, not universally superior. Generators may be placed near large process loads to avoid long-haul loss, while high-voltage lines can connect separated facilities when their infrastructure cost is worthwhile.
+Transformers enable voltage conversion between tiers. Each tier adds capacity and control sophistication:
+
+| Transformer Tier | Material / Components | Capabilities |
+|-----------------|----------------------|---------------|
+| MTier 1 (Iron-core) | Iron plates, basic copper windings, insulating ceramic | Basic step-up / step-down between adjacent tiers only (0→1 or 1→2). No load balancing. Single-input/output port |
+| MTier 2 (Copper-wound + Tap Changer) | Refined copper wire, tap-changing switch, reinforced core | Step-up/step-down across one additional tier gap (0→2 allowed). Limited load balancing — can prioritize outputs under stress | Multi-port with directional flow control; allows asymmetric power routing |
+| MTier 3 (Digital Monitoring + Active Load Balancer) | Semiconductor-grade sensors, programmable controller, gold-contact relays | Unlimited cross-tier conversion (0↔1↔2↔3). Real-time load balancing across all connected segments. Auto-detects and isolates overloads | Intelligent grid node — prevents cascade failures by cutting underloaded branches before they propagate |
+
+### Generator-to-Voltage Mapping
+
+Every generator has minimum voltage tier requirements for its output — this is a hard capability constraint, not just flavor:
+
+| Phase | Generator Type | Min Voltage Tier | Notes |
+|-------|---------------|------------------|-------|
+| 1 | Enhanced Steam Engine (all tiers) | Tier 0 | Direct power to nearby machines only; must step up via transformer for long-distance |
+| 1 | Wind Turbine (Enhanced) | Tier 0 | Output varies by season/weather; same range limitations as steam |
+| 1 | Solar Panel Array (MTier 1-3) | Tier 0 | No built-in storage; output depends on time/day cycle. Higher tiers = more panels per unit |
+| 1 | Oil Gasifier / Producer-Gas Reactor | Tier 0 | Early diversification when oil is available; bridges solid-fuel to liquid-fuel power |
+| 1 | Diesel Burner / Liquid-Fuel Engine | Tier 0 | First reliable high-output continuous power before fission |
+| 1 | Biomass Digester / Biogas Reactor | Tier 0 | Alternative renewable; location-dependent for feedstock supply |
+| 2 | Geothermal Tap / Heat Exchanger Station | Tier 1 required | Location-dependent (volcanic zones only); high steady output requires transmission connection |
+| 2 | Thermal Fission Reactor (MTier 1-4) | Tier 1 min, Tier 2 recommended | Output so large that Tier 0 grid cannot handle it at MTier 3+; step-up transformer mandatory |
+| 2 | Hydroelectric Dam Generator | Tier 1 required | Location-dependent (near rivers/large water bodies); high steady output |
+| 2 | Concentrated Solar Power Tower + Storage | Tier 0 or Tier 1 | Depends on storage medium: direct PV can go to Tier 0, thermal→steam cycle benefits from Tier 1 |
+| 3 | Fusion Tokamak Reactor | Tier 2 min (Tier 3 optimal) | Massive output dwarfs all previous generators; requires aluminum-steel composite or gold conductor for delivery |
+| 3 | Advanced Wind Array / Offshore Wind Farm | Tier 1 or 2 depending on array size | Individual turbines produce at Tier 0; aggregated farm output steps up to Tier 2 via central substation |
+| 3 | Tidal/Wave Generator | Tier 1 required | Location-dependent (coastal biome only); steady but location-locked output |
+| Endgame | Hawking Radiation Engine | Tier 3 mandatory | Ultimate power source; requires ultra-high-voltage DC infrastructure for grid integration |
+
+### Transmission Infrastructure Catalog
+
+All transmission/grid machines are defined in detail in [Infrastructure](infrastructure.md), Section 11 "Power Generation + Transmission". This section maps them to the voltage tier model and notes critical grid integration constraints.
+
+| Machine (infra.md) | Voltage Tier(s) | Power Role | Grid Integration Notes |
+|--------------------|-----------------|------------|------------------------|
+| Wooden Distribution Pole + Line (Phase 1) | Tier 0 only | Short-range distribution from early generators | ~50 tile max reach; replaces vanilla pole. Only for generator-to-nearby-machine connections. Cannot cross voltage tiers. Build: treated wood + basic copper wire. |
+| Steel Transmission Tower + High-Voltage Line (MTier 1–3) | Tiers 1–2 | Long-distance bulk power transmission | MTier 1: basic steel tower, copper conductors (~25 kW/tile). MTier 2: reinforced with composite insulators (~100 kW/tile). MTier 3: ultra-high-tension towers supporting gold-alloy endgame conductor. **Critical constraint:** must connect to transformers for tier crossing — cannot bridge voltage tiers directly. |
+| Step-Down Transformer / Substation (MTier 1–3) | Crosses any tier boundary | Converts high-voltage → industrial-use voltage for factory machines | See "Transformer Progression by Tier" above. MTier 1 = adjacent-tier only; MTier 2 = one-gap bridging; MTier 3 = all-tier conversion with active load balancing. Placement is a factory layout decision: step-up near generator, step-down at load cluster. Every conversion adds cost and potential failure point (cascade risk without surge protection). |
+| Underground Power Cable Trench System (Phase 3+) | Tiers 1–2 | Bury power lines to free surface space; reduce exposure loss | Higher construction cost than overhead towers but no line-of-sight requirement for routing. Uses same conductor materials (copper/aluminum/composite in concrete conduit). Recommended for dense factory zones where overhead towers would block expansion or visual clarity. |
+| HVDC Converter Station (Phase 4+) | Tier 3 | AC→DC conversion for ultra-long-distance transmission with minimal losses | Endgame grid optimization: connects remote generators (offshore wind, geothermal taps) to main factory networks. Loss is ~0.5% per 100 tiles vs ~1.5% AC equivalent at same distance. Requires semiconductor-grade control systems and gold-alloy conductors. **Required infrastructure** for fusion/Hawking Engine grid integration — these generators cannot feed Tier 2 AC grids. |
+
+### Transmission Losses and Factory Layout Rules
+
+Transmission losses depend on line length, conductor properties, voltage tier, and load. Pre-tuning rule of thumb:
+
+| Tier | Loss per 100 tiles (standard) | Loss per 100 tiles (optimized) |
+|------|-------------------------------|--------------------------------|
+| 0 (tin-plated copper) | ~8% | ~4% (upgrade to pure copper) |
+| 0–1 (copper, no transformer) | ~7% | — |
+| 1–2 (aluminum wire) | ~2.5% | ~1.5% (aluminum-steel composite) |
+| 3 HVDC (gold alloy) | — | ~0.5% |
+
+**Layout implications for factory planning:**
+- Place high-output generators (fission at MTier 3+, fusion) near their primary load clusters to avoid expensive step-up/step-down sequences
+- Use Tier 2–3 transmission only beyond ~200 tile distance — the infrastructure cost doesn't pay off for short runs despite lower loss percentage
+- HVDC Converter Station becomes mandatory when connecting remote power sources >1 km from main grid — AC losses compound too rapidly at Tier 2+ power levels (hundreds of kW to MW range)
+- Transformer placement creates strategic choke points: players who cluster transformers at factory edges free up interior space but risk cascading failures
+
+**Grid fault propagation:** When a generator trips offline, the sudden load shift propagates through connected lines. Without frequency regulators and surge protectors (grid stabilization devices), this causes cascading brownouts that can shut down sensitive process equipment (electrochemical cells require stable power, cleanrooms trip on voltage drops). Phase 3+ grids must include stabilization at every major node — this is a non-negotiable infrastructure requirement, not optional optimization.
+
+## Power Storage and Stabilization
+
+The grid needs both energy storage and voltage stabilization to handle variable generation, peak demand, and fault conditions.
+
+### Energy Storage Systems
+
+| Machine / Entity | Phase | Role | Key Design Notes |
+|-----------------|-------|------|-----------------|
+| Capacitor Bank (accumulation) | Phase 1 | Buffer short-term power fluctuations; provides burst power for machine startups | Upgrade path uses battery + circuit components per tier. Same function as vanilla accumulator but with multi-tier build |
+| Battery Storage Unit | Phase 2+ | Longer-duration energy storage for load leveling, backup power during outages | Requires refined copper, processed chemicals (electrolyte); higher capacity and discharge rate per tier |
+| Dead-Battery Capacitor / Fuse Link | Phase 2 | Safety device that intentionally depletes to shut down a fission reactor core before meltdown | Critical safety mechanism for fission reactors — provides the last-resort power cutoff when grid fails. Not reusable; must be replaced after activation |
+| Flywheel Energy Store | Phase 3+ | Mechanical kinetic energy storage with high round-trip efficiency | Alternative to batteries; requires precision manufacturing (semiconductor components at high tiers) but no chemical degradation |
+
+### Grid Stabilization
+
+| Machine / System | Phase | Role | Key Design Notes |
+|-----------------|-------|------|-----------------|
+| Reactive Power Compensator | Phase 2+ | Maintain voltage stability on AC lines; prevents brownouts when large loads start up | Required for high-capacity industrial clusters (electrochemical cells, EAF); tier = compensation capacity |
+| Surge Protector / Lightning Arrester | Phase 1+ | Divert power spikes to ground before they damage grid or equipment | Prevents cascading failures from generator trip events; essential for fission reactor safety |
+| Frequency Regulator | Phase 3+ | Maintain stable AC frequency when load/generation balance shifts rapidly | Required when connecting variable renewables (wind, solar) to main grid; prevents frequency drift that damages sensitive equipment |
 
 ## Diagnostics and Onboarding
 

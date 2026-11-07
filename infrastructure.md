@@ -208,6 +208,31 @@ Related documents: [Minerals and Refining](minerals-and-refining.md), [Chemical 
 | Underground Power Cable Trench System | Phase 3+ | Bury power lines to free surface space; reduce exposure loss | Endgame grid infrastructure; higher construction cost but no line-of-sight requirement for routing |
 | HVDC Converter Station | Phase 4+ | Convert AC power to high-voltage DC for ultra-long-distance transmission with minimal losses | Endgame grid optimization: connects remote generators (offshore wind, geothermal) to main factory networks |
 
+### Energy Storage Systems (Multi-Tier)
+| Machine Name | Tier/Phase | Operations | Design Notes |
+|-------------|-----------|------------|--------------|
+| Capacitor Bank (accumulation) | Phase 1 | Buffer short-term power fluctuations; provides burst power for machine startups | Upgrade path uses battery + circuit components per tier. Same function as vanilla accumulator but with multi-tier build. Tier = storage capacity + discharge rate |
+| Battery Storage Unit | Phase 2+ | Longer-duration energy storage for load leveling, backup power during outages | Requires refined copper, processed chemicals (electrolyte); higher capacity and discharge rate per tier. MTier 3 adds smart-cell management via semiconductor monitoring |
+| Dead-Battery Capacitor / Fuse Link | Phase 2 | Safety device that intentionally depletes to shut down a fission reactor core before meltdown | **Not reusable** — must be replaced after activation. Critical safety mechanism for fission reactors: provides the last-resort power cutoff when grid fails and active cooling is at risk. No upgrade path; single-tier safety item |
+| Flywheel Energy Store | Phase 3+ | Mechanical kinetic energy storage with high round-trip efficiency | Alternative to batteries — no chemical degradation over time. Requires precision manufacturing (semiconductor components at MTier 2+, servo motors from Automation §5). Tier = rotational mass + bearing quality |
+
+### Grid Stabilization Infrastructure
+| Machine Name | Tier/Phase | Operations | Design Notes |
+|-------------|-----------|------------|--------------|
+| Reactive Power Compensator | Phase 2+ | Maintain voltage stability on AC lines; prevents brownouts when large loads start up | Required for high-capacity industrial clusters (electrochemical cells, EAF). Tier = compensation capacity + control precision. Prevents cascading failures from generator trip events |
+| Surge Protector / Lightning Arrester | Phase 1+ | Divert power spikes to ground before they damage grid or equipment | Essential for fission reactor safety — must be installed at every step-up/down transformer in the reactor's feed path. Tier = spike capacity handled, response time |
+| Frequency Regulator | Phase 3+ | Maintain stable AC frequency when load/generation balance shifts rapidly | Required when connecting variable renewables (wind, solar) to main grid. Prevents frequency drift that damages sensitive equipment (electrochemical cells require stable power, cleanrooms trip on voltage drops). Phase 3+ grids must include stabilization at every major node — non-negotiable infrastructure requirement |
+
+### Power Generation + Transmission Infrastructure Summary
+| Infrastructure Type | Total Items | Tiered? | Key Capability Tiers |
+|---------------------|-------------|---------|----------------------|
+| Generators (Phases 1-4 + Endgame) | 14 types | Yes (varies by type) | Steam engine MTier 1-3; fission reactor MTier 1-4; fusion Tokamak Phase 4; Hawking Engine endgame |
+| Transmission Towers + Lines | 3 variants (wood pole, steel tower, underground trench) | Steel towers MTier 1-3 | Conductor upgrades: tin-plated copper → copper → aluminum-composite → gold alloy per tier |
+| Transformers / Substations | 1 type, MTier 1-3 | Yes | Iron-core → copper-wound + tap changer → digital monitoring + load balancer |
+| Energy Storage Systems | 4 types (capacitor, battery, dead-battery fuse, flywheel) | 3/4 tiered | Capacitor bank MTier; battery storage MTier; flywheel MTier 2+ |
+| Grid Stabilization Devices | 3 types (compensator, surge protector, frequency regulator) | All tiered or Phase-gated | Phase progression determines availability; stabilizers critical for Phase 3+ grid integrity |
+| HVDC Converter Station | 1 type (Phase 4+) | No tiering yet (single endgame item) | Required for fusion/Hawking Engine integration to Tier 3 backbone |
+
 ## 12. Military Infrastructure
 
 ### Weapons & Turrets
