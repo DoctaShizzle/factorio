@@ -244,25 +244,63 @@ Related documents: [Minerals and Refining](minerals-and-refining.md), [Chemical 
 
 ## 12. Military Infrastructure
 
-### Weapons & Turrets
-| Machine Name | Tier/Phase | Operations | Design Notes |
-|-------------|-----------|------------|--------------|
-| Kinetic Turret (Steel/Copper) | MTier 1–3 (Phases 1–3) | Automated lead-core bullet firing with copper-jacketed projectiles; basic targeting electronics | Larger caliber, faster rate of fire, better ammo capacity at higher tiers. Requires kinetic ammo production line |
-| Ammunition Press / Loading Machine | Phase 1–2 | Combine lead core + copper jacket + steel case + propellant into finished bullets | Intermediate processing for kinetic ammo; tier = throughput speed and precision alignment |
-| Incendiary Turret | MTier 1–3 (Phases 2–3) | Fire fuel/oxidizer incendiary rounds with ignition compound trigger | Larger payload, wider splash radius, better target tracking at higher tiers. Requires incendiary compound production |
-| Explosive Mortar (HE) | MTier 1–3 (Phases 3–4) | Fire high-explosive shells with advanced detonator mechanism; indirect fire arc | Larger shell diameter, faster loading, GPS-assisted targeting at highest tiers. Requires nitric-acid-derived HE + precision detonator production |
-| AP Cannon (Tungsten-Core Penetrator) | Phase 4+ | Fire tungsten-core rounds through specialized high-pressure barrel mechanism | Maximum damage against armored targets; requires full Phase 2 tungsten refining chain for AP ammo production |
-| Laser/Beam Emitter Turret | Phase 4+ | Focus directed energy onto target using precision optics + power grid feed | Endgame defense: minimal ammo consumption (just power), needs dedicated power routing and cooling infrastructure |
-| Plasma Discharge Emitter | Phase 4+ | Release concentrated plasma burst from magnetic containment field | Requires superconducting magnetic coils; damage scales with stored magnetic energy |
-| Railgun / Coilgun Turret | Endgame | Accelerate ferromagnetic projectile using extreme electromagnetic force | Ultimate kinetic weapon; requires massive power draw, superconducting magnets, precision capacitor bank |
+**Design Decision:** Core mod extends vanilla turrets with tiered ammunition support only — no new turret families. All military products (ammo types) are manufactured intermediate items with full supply trees defined in [military-system.md](military-system.md). Extension packs may add advanced weapon systems as opt-in content.
 
-### Military Component Production (Support Machines)
+### A. Turret Systems (Core Mod — Vanilla Extended)
+
+| Machine Name | Tier/Phase | Operations | Design Notes | Industrial Gate |
+|-------------|-----------|------------|--------------|---------------|
+| Gun Turret (Tiered Ammo Support) | MTier 1–3 (Phases 1–4) | Automated lead-core bullet firing; accepts kinetic → AP penetrator ammo per tier. Larger caliber, faster rate of fire, better ammo capacity at higher tiers. | Kinetic (T1) → Incendiary (T2a) → HE Explosive (T2b) → AP Tungsten-Core (T3). Each ammo tier unlocks different engagement profiles. | Basic steel + lead/copper processing for Tier 1; AP penetrator requires tungsten refining chain (Phase 3) |
+| Laser Turret (Tiered Ammo Support) | MTier 1–3 (Phases 2–4) | Focused directed energy onto target via precision optics + power grid feed. Self-contained energy weapon — no ammo supply chain, just power draw scaling with tier. | Tier = beam intensity and tracking precision; requires semiconductor targeting module for advanced tiers. | Semiconductor targeting module (T2) + precision optics chain from cleanroom fabrication |
+| Flamethrower Turret / Incendiary Launcher | MTier 1–3 (Phases 2–3) | Fire fuel/oxidizer incendiary rounds with ignition compound trigger; anti-spitter specialization. Larger payload, wider splash radius at higher tiers. | First genuine capability shift over kinetic — burns through armor instead of relying on kinetic penetration. | Petrochemical cracking or oil refining for incendiary fuel compounds |
+| Rocket Turret (Tiered Ammo Support) | MTier 1–3 (Phases 3–4) | Fire HE shell → penetration rocket per tier; heavy anti-bunker capability against fortified enemy encampments. | Tier progression: HE explosive shell (T2b) → Penetration rocket with enriched uranium/tungsten payload (T4). | Explosive compound chain / nuclear fuel cycle for T4 penetrator |
+
+### B. Ammo Products — Manufactured Intermediate Items
+
+*These are manufactured items, not machines. Each requires real supply chains from minerals and chemistry.*
+
+| Product | Tier | Primary Feed Materials | Recipe Input Chain (key intermediates) | Infrastructure Source (infra.md §) |
+|---------|------|----------------------|--------------------------------------|-----------------------------------|
+| **Kinetic Bullet (T1)** | T1 | Lead core, copper jacket, steel case, gunpowder propellant | Galena → roasted/smeled lead ingot + chalcopyrite flotation → electrolytic Cu + hematite → pig iron → EAF steel + sulfur combustion + charcoal → carbonized biomass/coal coke → ground powder | §4 Smelting, §2 Flotation, §7 Electrochemical, §3 Thermal |
+| **Incendiary Bullet (T2a)** | T2a | Fuel/oxidizer mix, magnesium ignition compound, steel casing | Oil refining → hydrocarbon fraction + chlor-alkali NaOH → hydrogenation FT synth glycerol or coconut palm oil + spodumene/carnotite → MgO calcined + sintered igniter pellet | §8 Polymer/Composite, §5 Reactors, §6 Solution Proc. |
+| **Explosive HE Shell (T2b)** | T2b | High-explosive core, detonator compound, steel casing | Chlor-alkali → NaOH + H₂ → Haber-Bosch NH₃ + Ostwald chain → concentrated HNO₃ + FT glycerol or coconut palm oil → nitroglycerin precursor + galena lead → lead azide initiator (or cheaper ammonium nitrate alternative) | §5 Reactors, §6 Solution Proc., §8 Polymer/Composite |
+| **Armor-Piercing Round (T3)** | T3 | Tungsten core alloy, specialized propellant, copper sabot | Scheelite/Tungstenite → Caustic leach + purification → W powder + pressing/sintering + nitrocellulose/tungstenite + carbonized charcoal/calcined biomass | §5 Reactors, §8 Polymer/Composite, §4 Smelting |
+| **Penetration Rocket (T4)** | T4 | Enriched uranium/tungsten payload, solid fuel booster, guidance module | Uraninates → acid leach → purification → enrichment cascade or thorium monazite → Th-cycle fuel + Zr-Cl₄ chlorination → metal reduction → Zr cladding for casing + fission reactor → enriched U/W penetrator core | §10 Nuclear Fuel Fabrication, §6 Solution Proc. |
+
+### C. Military Component Support Machines (Core Mod)
+
 | Machine Name | Tier/Phase | Operations | Design Notes |
 |-------------|-----------|------------|--------------|
-| Incendiary Compound Mixer / Reactor | Phase 2–3 | Mix fuel/oxidizer compounds with ignition catalyst for incendiary rounds | Reuses general chemical reactor or dedicated small-scale mixer; requires specific reagents (from Phase 1-2 chemistry) |
-| HE Explosive Formulation Tank + Nitration Station | Phase 3 | Synthesize nitric-acid-derived explosives via controlled nitration reactions under pressure/temperature control | Requires pressure-rated vessel + safety controls; tier = pressure rating, temperature control precision, safety interlocks |
-| Precision Detonator Assembly Machine | Phase 3 | Assemble reliable detonation initiation components from explosive, primer, and electrical parts | Combines chemistry (explosive compounds) + electronics (trigger circuits); produces reliable firing mechanisms |
-| Tungsten Core Forging Press | Phase 4+ | Forge tungsten-carbide penetrator cores under extreme pressure for AP rounds | Requires refractory tooling + hydraulic press at high MTier; intermediate product between raw tungsten and finished AP ammo |
+| Ammunition Press / Loading Machine | Phase 1–2 | Combine lead core + copper jacket + steel case + propellant into finished kinetic bullets | Intermediate processing for T1 ammo; tier = throughput speed and precision alignment. Reuses pellet press/briquette machine family from Thermal Processing §3 with tooling swap. |
+| Incendiary Compound Mixer / Reactor | Phase 2–3 | Mix fuel/oxidizer compounds with ignition catalyst for incendiary rounds | Reuses general chemical reactor or dedicated small-scale mixer; tier = mixing precision, temperature control. No unique build required — use existing reactor infrastructure from §5. |
+| HE Explosive Formulation Tank + Nitration Station | Phase 3 | Synthesize nitric-acid-derived explosives via controlled nitration reactions under pressure/temperature control | Requires pressure-rated vessel + safety controls; tier = pressure rating, temperature control precision, safety interlocks. Uses pressure leach autoclave family from §5 with specialized internals. |
+| Precision Detonator Assembly Machine | Phase 3 | Assemble reliable detonation initiation components from explosive, primer, and electrical parts | Combines chemistry (explosive compounds) + electronics (trigger circuits); produces reliable firing mechanisms. Tier = assembly precision + testing reliability. |
+| Tungsten Core Forging Press | Phase 4+ | Forge tungsten-carbide penetrator cores under extreme pressure for AP rounds | Requires refractory tooling + hydraulic press at high MTier; intermediate product between raw tungsten and finished AP ammo. Uses pellet press/briquette family from §3 with specialized dies. |
+
+### D. Advanced Weapon Systems — Extension Pack Scope Only (Opt-In)
+
+*Not in core mod scope. These are opt-in content for players who want deeper military complexity.*
+
+| Machine Name | Tier/Phase | Operations | Design Notes | Requires Extension |
+|-------------|-----------|------------|--------------|-------------------|
+| Plasma Discharge Emitter | Phase 4+ (EXT) | Release concentrated plasma burst from magnetic containment field; requires superconducting magnetic coils | Opt-in: extends combat with energy-based military tech. Connects to Nb₃Sn superconducting wire chain. | `difficulty-advanced` or `power-nuclear-waste` extension |
+| Railgun / Coilgun Turret | Endgame (EXT) | Accelerate ferromagnetic projectile using extreme electromagnetic force; ultimate kinetic weapon | Requires massive power draw, superconducting magnets, precision capacitor bank. For players who want endgame military depth. | `difficulty-extreme` or dedicated `military-endgame` extension |
+| Anti-Materiel Rifle / Heavy Cannon | T4 (EXT) | Pierces through fortified structures and heavily armored enemies with AP penetrator + HE dual-compatible ammo | Extended weapon tier for ground combat; requires tungsten refining chain from Phase 3. | `difficulty-advanced` extension |
+
+**Design Decision:** No new vanilla-derived turret families in the core mod. This matches Bob's Weapons Pack's proven model — extend existing turrets with tiered ammo rather than creating new machine types that would inflate the ~80 machine scope target and complicate balance. Advanced weapon systems are opt-in extensions only.
+
+### E. Defense Infrastructure Progression
+
+Defense follows the mod's progression philosophy — earned through industrial capability, not just tech tree advancement.
+
+| Stage | Defense type | Driven by | Industrial Gate |
+|---|---|---|---|
+| Early (Phase 1) | Passive barriers, basic turrets with kinetic ammo | Basic steel, lead, simple chemistry | Hematite mining + sulfur refining → basic gun turret + T1 kinetic ammo |
+| Mid (Phase 2–3) | Active defense grids, incendiary/explosive ammo supply | Chemical intermediates, alloy production, precision manufacturing | Petrochemical cracking OR oil refining → incendiary compounds; Ostwald chain → HE explosives |
+| Late (Phase 3–4) | Distributed defense network, AP penetrator capability, automated targeting | Semiconductors, tungsten processing, advanced automation | Tungsten refining (scheelite/Tungstenite) → AP rounds; cleanroom → semiconductor guidance modules |
+| Endgame (optional) | Strategic deterrence via penetration rockets, advanced weapon extensions | Full nuclear fuel cycle + fusion materials chain | Enriched uranium/tungsten payload + semiconductor guidance module from Tier 4 cleanroom fabrication |
+
+**Note:** Defense automation is not built into the core mod. Defense logistics are handled by vanilla logistics/bots + manual turret aiming. Optional extension packs may add automated targeting integrations as opt-in QOL features (see [technical-architecture.md](technical-architecture.md)).
 
 ## 13. Logistics & Material Handling
 
@@ -360,7 +398,7 @@ This table maps every machine category to its total tier count and which tiers m
 | Semiconductor Fabrication | 12 | Yes (crystal grower, CVD/PVD, lithography) | Each step is multi-tier; cleanroom quality and precision scale across all |
 | Nuclear Fuel & Component Fabrication | 13 | Partial (coil winder, fuel rod assembly) | Multi-stage lines: each sub-step has tier progression from manual → semi-auto → fully automated |
 | Power Generation + Transmission | 20 (14 gen + 6 transmission) | Yes (steam engine primary multi-tier) | Steam engine tiers most impactful for early game; reactors scale linearly with tier power output |
-| Military Infrastructure | 8 weapons + 5 support | Partial (turrets scale damage/capacity) | Turret tiers = caliber/range/damage; support machines scale throughput and precision |
+| Military Infrastructure | 4 turrets + 5 support machines + 5 ammo products (core) | Partial (turrets scale damage/capacity; support machines scale throughput) | Turret tiers = caliber/range/damage per ammo type; support machines scale throughput and precision. Ammo are manufactured products, not machines. |
 | Logistics & Material Handling | 10 types + infrastructure | Yes (belts, freight terminal, storage) | Belt speed/weight capacity per tier; freight terminal tiers = automation level |
 | Fluid Handling & Transport | 6 types | Partial (pipes, heat exchanger multi-tier) | Pipe network tiers most important for pressure/temperature tolerance across distances |
 | Waste Processing & Loopback | 4 types | Partial (tailings unit) | Each scales recovery efficiency with tier |
