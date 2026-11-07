@@ -5,13 +5,43 @@
 
 Related documents: [Chemical Products and Processes](chemical-processes.md) for fuels and reagents; [Intermediate Products](intermediate-products.md) for nuclear materials, batteries, and endgame infrastructure; [Minerals and Refining](minerals-and-refining.md) for fuel-resource links; [Endgame Vision](endgame-vision.md) for late-game research network.
 
-## Summary
+## Design Decisions
 
-This document defines the complete power architecture — from energy **production** through generator phases and fuel-density progression, to **transmission** across a factory grid with voltage tiers, conductor tradeoffs, loss modeling, and diagnostics. Power is an industrial decision layer, not a global infinite bus.
+| Decision | Resolution | Date |
+|----------|-----------|------|
+| **Core mod power delivery** | All generators feed vanilla Factorio pole grid. No voltage tiers, no transmission loss, no custom conductors. Generators produce different power outputs to create tradeoffs through placement pressure (proximity to loads). | 2026-11-07 |
+| **Full power-system replacement (Approach C)** | Deferred as a future extension mod `power-transmission-override`. Would add voltage tiers, loss-bearing transmission lines, transformers, HVDC converter stations, grid diagnostics, and fault propagation. This is an opt-in complexity layer — not required for the core experience. | 2026-11-07 |
 
-**What it covers:** Four phases of power generation (combustion → fission → fusion → simulation), fuel-density spectrum, infrastructure hooks per generator class, grid transmission model with voltage tiers, conductor material choices, transmission loss principles, required diagnostic overlays, and onboarding needs.
+### Why Vanilla for Core?
 
-**What it does not cover:** Specific recipe ratios or exact MW/kWh values (to be defined during tuning); detailed fuel-cycling for fission/fusion (covered in [Intermediate Products](intermediate-products.md)); machine power consumption numbers; electrical engineering formulas — the model should teach a useful voltage/current/resistance analogy without requiring players to calculate circuits by hand.
+Research into existing Factorio mods (Space Exploration, Bob's Mods, Pyanodons) confirms that all major overhaul mods use vanilla power poles. The closest comparisons:
+
+- **Space Exploration** — adds fusion reactors and dozens of generator types but uses vanilla pole projection 100%. The SpEx author explicitly chose this to maintain mod compatibility and avoid rewriting Factorio's core power architecture.
+- **Advanced Power Poles** — the most invasive dedicated power mod; it only adds larger poles with more range/capacity, not a new transmission system.
+- **Bob's/Pyanodons** — deep chemistry/industry overhauls that still use vanilla poles entirely.
+
+Replacing Factorio's pole-projection system would require rewriting one of the game's most fundamental C++ subsystems via Lua. This is: incompatible with other power mods; fragile across Factorio updates; and a massive additional engineering burden on top of ~80 new machines, 1200 items, and 4000 recipes already planned.
+
+### What Approach C Would Add (Deferred Extension)
+
+| Mechanic | Description |
+|----------|-------------|
+| Discrete transmission lines | Wires between poles as real entities with length-based power loss |
+| Voltage tiers | 4-tier system (0–3) requiring transformers to step up/down |
+| Transmission loss | % loss per 100 tiles, dependent on conductor material and voltage tier |
+| HVDC converter stations | AC→DC conversion for ultra-long-distance endgame transmission |
+| Grid diagnostics | Real-time display of load, capacity, loss, fault propagation |
+| Fault propagation | Cascading brownouts when generators trip without stabilization |
+
+This extension would create a parallel power architecture alongside vanilla poles — players could opt in entirely or mix both systems. It would be its own standalone extension pack (not bundled with core).
+
+This document defines power **production** through generator phases and fuel-density progression. In the core mod, all generators deliver vanilla Factorio pole-grid power (no custom transmission). A **full replacement of Factorio's power system** (Approach C below) is deferred as a future extension mod.
+
+**What it covers:** Four phases of power generation (combustion → fission → fusion → simulation), fuel-density spectrum, generator infrastructure requirements, and design intent for vanilla-compatible generators.
+
+**What it does not cover in the core mod:** Voltage tiers, transmission loss modeling, conductors, transformers, or grid diagnostics — these are deferred to a potential `power-transmission-override` extension mod. See [Approach C: Full Replacement](#approach-c-full-replacement-deferred-to-extension-mod) below.
+
+**What it does not cover anyway:** Specific recipe ratios or exact MW/kWh values (to be defined during tuning); detailed fuel-cycling for fission/fusion (covered in [Intermediate Products](intermediate-products.md)); machine power consumption numbers; electrical engineering formulas.
 
 ## Core Design Principles for Power Production
 
@@ -248,7 +278,9 @@ Power should be a factory-design decision, not a global infinite bus. Local gene
 
 Power and floor space are secondary optimization axes in the overall design. They should create meaningful tradeoffs without becoming opaque punishment or maintenance busywork.
 
-## Candidate Grid Model
+## Candidate Grid Model — DEFERRED TO EXTENSION MOD
+
+> All subsections below are **deferred** to the `power-transmission-override` extension mod discussed in [Approach C](#approach-c-full-replacement-deferred-to-extension-mod). They remain here as design reference only. **No materials, recipes, or infrastructure items for these concepts should be planned or added to the core mod.** When (and if) this extension is developed, these notes can be revisited.
 
 ### Voltage Tier Catalog
 
@@ -259,11 +291,7 @@ Power and floor space are secondary optimization axes in the overall design. The
 | 2 | High-voltage transmission | 250 kW–2.5 MW | Long (~500 tiles) | Large fission reactors output feed, remote generator aggregation |
 | 3 | Ultra-high-voltage DC (HVDC) | 2.5–25 MW | Very long (1000+ tiles) / unlimited with repeater stations | Endgame generators (fusion, Hawking Engine), planetary-scale grid backbone |
 
-Exact distances and power ceilings are tuned values — the tiers convey a meaningful engineering analogy: higher voltage means fewer losses over distance, but requires expensive transformers to convert up/down.
-
 ### Conductor Capabilities by Tier
-
-Candidate conductor materials mapped to which voltage tiers they are valid for:
 
 | Conductor | Valid Voltage Tiers | Max Capacity per Segment | Transmission Loss Factor | Design Role |
 | --- | --- | --- | --- | --- |
@@ -273,11 +301,7 @@ Candidate conductor materials mapped to which voltage tiers they are valid for:
 | Aluminum-steel composite cable | Tier 2 | ~500 kW | 1.5% per 100 tiles | Mid-game long-haul; cheaper than pure metal conductor for high-voltage segments |
 | Gold alloy wire | Tier 3 | ~2 MW | 0.5% per 100 tiles | Endgame ultra-low-loss specialist conductor; extremely expensive, only viable for critical backbone segments |
 
-These tiers create meaningful infrastructure decisions: a player routing power from a remote fission reactor through copper cable suffers ~7% loss across tiers (step-up → transmit → step-down), while the same route with aluminum composite drops to ~4%. Gold at Tier 3 cuts that to ~1.5%, but costs orders of magnitude more per segment. The tradeoff — infrastructure cost vs. sustained power delivery — makes grid layout a genuine engineering problem.
-
 ### Transformer Progression by Tier
-
-Transformers enable voltage conversion between tiers. Each tier adds capacity and control sophistication:
 
 | Transformer Tier | Material / Components | Capabilities |
 |-----------------|----------------------|---------------|
@@ -287,40 +311,33 @@ Transformers enable voltage conversion between tiers. Each tier adds capacity an
 
 ### Generator-to-Voltage Mapping
 
-Every generator has minimum voltage tier requirements for its output — this is a hard capability constraint, not just flavor:
+Every generator has minimum voltage tier requirements for its output:
 
 | Phase | Generator Type | Min Voltage Tier | Notes |
 |-------|---------------|------------------|-------|
 | 1 | Enhanced Steam Engine (all tiers) | Tier 0 | Direct power to nearby machines only; must step up via transformer for long-distance |
 | 1 | Wind Turbine (Enhanced) | Tier 0 | Output varies by season/weather; same range limitations as steam |
-| 1 | Solar Panel Array (MTier 1-3) | Tier 0 | No built-in storage; output depends on time/day cycle. Higher tiers = more panels per unit |
-| 1 | Oil Gasifier / Producer-Gas Reactor | Tier 0 | Early diversification when oil is available; bridges solid-fuel to liquid-fuel power |
+| 1 | Solar Panel Array (MTier 1-3) | Tier 0 | No built-in storage; output depends on time/day cycle |
+| 1 | Oil Gasifier / Producer-Gas Reactor | Tier 0 | Early diversification when oil is available |
 | 1 | Diesel Burner / Liquid-Fuel Engine | Tier 0 | First reliable high-output continuous power before fission |
-| 1 | Biomass Digester / Biogas Reactor | Tier 0 | Alternative renewable; location-dependent for feedstock supply |
-| 2 | Geothermal Tap / Heat Exchanger Station | Tier 1 required | Location-dependent (volcanic zones only); high steady output requires transmission connection |
+| 2 | Geothermal Tap / Heat Exchanger Station | Tier 1 required | Location-dependent (volcanic zones only) |
 | 2 | Thermal Fission Reactor (MTier 1-4) | Tier 1 min, Tier 2 recommended | Output so large that Tier 0 grid cannot handle it at MTier 3+; step-up transformer mandatory |
-| 2 | Hydroelectric Dam Generator | Tier 1 required | Location-dependent (near rivers/large water bodies); high steady output |
-| 2 | Concentrated Solar Power Tower + Storage | Tier 0 or Tier 1 | Depends on storage medium: direct PV can go to Tier 0, thermal→steam cycle benefits from Tier 1 |
-| 3 | Fusion Tokamak Reactor | Tier 2 min (Tier 3 optimal) | Massive output dwarfs all previous generators; requires aluminum-steel composite or gold conductor for delivery |
-| 3 | Advanced Wind Array / Offshore Wind Farm | Tier 1 or 2 depending on array size | Individual turbines produce at Tier 0; aggregated farm output steps up to Tier 2 via central substation |
-| 3 | Tidal/Wave Generator | Tier 1 required | Location-dependent (coastal biome only); steady but location-locked output |
-| Endgame | Hawking Radiation Engine | Tier 3 mandatory | Ultimate power source; requires ultra-high-voltage DC infrastructure for grid integration |
+| 3 | Fusion Tokamak Reactor | Tier 2 min (Tier 3 optimal) | Massive output dwarfs all previous generators |
+| Endgame | Hawking Radiation Engine | Tier 3 mandatory | Requires ultra-high-voltage DC infrastructure |
 
 ### Transmission Infrastructure Catalog
 
-All transmission/grid machines are defined in detail in [Infrastructure](infrastructure.md), Section 11 "Power Generation + Transmission". This section maps them to the voltage tier model and notes critical grid integration constraints.
-
-| Machine (infra.md) | Voltage Tier(s) | Power Role | Grid Integration Notes |
+| Machine | Voltage Tier(s) | Power Role | Grid Integration Notes |
 |--------------------|-----------------|------------|------------------------|
-| Wooden Distribution Pole + Line (Phase 1) | Tier 0 only | Short-range distribution from early generators | ~50 tile max reach; replaces vanilla pole. Only for generator-to-nearby-machine connections. Cannot cross voltage tiers. Build: treated wood + basic copper wire. |
-| Steel Transmission Tower + High-Voltage Line (MTier 1–3) | Tiers 1–2 | Long-distance bulk power transmission | MTier 1: basic steel tower, copper conductors (~25 kW/tile). MTier 2: reinforced with composite insulators (~100 kW/tile). MTier 3: ultra-high-tension towers supporting gold-alloy endgame conductor. **Critical constraint:** must connect to transformers for tier crossing — cannot bridge voltage tiers directly. |
-| Step-Down Transformer / Substation (MTier 1–3) | Crosses any tier boundary | Converts high-voltage → industrial-use voltage for factory machines | See "Transformer Progression by Tier" above. MTier 1 = adjacent-tier only; MTier 2 = one-gap bridging; MTier 3 = all-tier conversion with active load balancing. Placement is a factory layout decision: step-up near generator, step-down at load cluster. Every conversion adds cost and potential failure point (cascade risk without surge protection). |
-| Underground Power Cable Trench System (Phase 3+) | Tiers 1–2 | Bury power lines to free surface space; reduce exposure loss | Higher construction cost than overhead towers but no line-of-sight requirement for routing. Uses same conductor materials (copper/aluminum/composite in concrete conduit). Recommended for dense factory zones where overhead towers would block expansion or visual clarity. |
-| HVDC Converter Station (Phase 4+) | Tier 3 | AC→DC conversion for ultra-long-distance transmission with minimal losses | Endgame grid optimization: connects remote generators (offshore wind, geothermal taps) to main factory networks. Loss is ~0.5% per 100 tiles vs ~1.5% AC equivalent at same distance. Requires semiconductor-grade control systems and gold-alloy conductors. **Required infrastructure** for fusion/Hawking Engine grid integration — these generators cannot feed Tier 2 AC grids. |
+| Wooden Distribution Pole + Line (Phase 1) | Tier 0 only | Short-range distribution from early generators | ~50 tile max reach; replaces vanilla pole. Cannot cross voltage tiers. Build: treated wood + basic copper wire. |
+| Steel Transmission Tower + High-Voltage Line (MTier 1–3) | Tiers 1–2 | Long-distance bulk power transmission | MTier 1: basic steel tower, copper conductors (~25 kW/tile). MTier 2: reinforced with composite insulators (~100 kW/tile). MTier 3: ultra-high-tension towers supporting gold-alloy endgame conductor. |
+| Step-Down Transformer / Substation (MTier 1–3) | Crosses any tier boundary | Converts high-voltage → industrial-use voltage for factory machines | MTier 1 = adjacent-tier only; MTier 2 = one-gap bridging; MTier 3 = all-tier conversion with active load balancing. |
+| Underground Power Cable Trench System (Phase 3+) | Tiers 1–2 | Bury power lines to free surface space; reduce exposure loss | Uses same conductor materials (copper/aluminum/composite in concrete conduit). Recommended for dense factory zones where overhead towers would block expansion or visual clarity. |
+| HVDC Converter Station (Phase 4+) | Tier 3 | AC→DC conversion for ultra-long-distance transmission with minimal losses | Required infrastructure for fusion/Hawking Engine grid integration — these generators cannot feed Tier 2 AC grids. |
 
 ### Transmission Losses and Factory Layout Rules
 
-Transmission losses depend on line length, conductor properties, voltage tier, and load. Pre-tuning rule of thumb:
+Transmission losses depend on line length, conductor properties, voltage tier, and load:
 
 | Tier | Loss per 100 tiles (standard) | Loss per 100 tiles (optimized) |
 |------|-------------------------------|--------------------------------|
@@ -331,11 +348,9 @@ Transmission losses depend on line length, conductor properties, voltage tier, a
 
 **Layout implications for factory planning:**
 - Place high-output generators (fission at MTier 3+, fusion) near their primary load clusters to avoid expensive step-up/step-down sequences
-- Use Tier 2–3 transmission only beyond ~200 tile distance — the infrastructure cost doesn't pay off for short runs despite lower loss percentage
-- HVDC Converter Station becomes mandatory when connecting remote power sources >1 km from main grid — AC losses compound too rapidly at Tier 2+ power levels (hundreds of kW to MW range)
-- Transformer placement creates strategic choke points: players who cluster transformers at factory edges free up interior space but risk cascading failures
-
-**Grid fault propagation:** When a generator trips offline, the sudden load shift propagates through connected lines. Without frequency regulators and surge protectors (grid stabilization devices), this causes cascading brownouts that can shut down sensitive process equipment (electrochemical cells require stable power, cleanrooms trip on voltage drops). Phase 3+ grids must include stabilization at every major node — this is a non-negotiable infrastructure requirement, not optional optimization.
+- Use Tier 2–3 transmission only beyond ~200 tile distance
+- HVDC Converter Station becomes mandatory when connecting remote power sources >1 km from main grid
+- Transformer placement creates strategic choke points: clustering transformers at factory edges frees interior space but risks cascading failures
 
 ## Power Storage and Stabilization
 

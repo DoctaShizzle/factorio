@@ -199,16 +199,22 @@ Related documents: [Minerals and Refining](minerals-and-refining.md), [Chemical 
 |-------------|-----------|------------|--------------|
 | Hawking Radiation Engine | Endgame | Simulated Hawking radiation from confined event horizon → near-infinite energy output | Ultimate power source. Requires all Phase 4 infrastructure to build; connected to Core simulation network for radiation tuning |
 
-### Power Transmission & Grid Infrastructure (Multi-Tier)
+### Power Transmission & Grid Infrastructure — DEFERRED TO EXTENSION MOD
+
+> **All items below are deferred** to the `power-transmission-override` extension mod. They remain here as design reference only.
+> **No transmission towers, transformers, conductors, HVDC stations, or grid-stabilization devices are in scope for the core mod.**
+
 | Machine Name | Tier/Phase | Operations | Design Notes |
 |-------------|-----------|------------|--------------|
-| Wooden Distribution Pole + Line | Phase 1 | Short-distance power distribution from generators | Early game, low capacity, limited range per pole segment |
-| Steel Transmission Tower + High-Voltage Line | MTier 1–3 (Phases 2–4) | Long-distance bulk power transmission at high voltage | Basic steel tower → reinforced with composite insulators → ultra-high-tension at highest tiers. Conductors upgrade: tin-plated copper → pure copper → aluminum/steel composites → gold (endgame, minimal loss) |
-| Step-Down Transformer / Substation | MTier 1–3 (Phases 2–3) | Convert high-voltage transmission to industrial-use voltage for factory machines | Basic iron-core → advanced copper-wound with tap changers → digital monitoring + load balancing at highest tiers |
-| Underground Power Cable Trench System | Phase 3+ | Bury power lines to free surface space; reduce exposure loss | Endgame grid infrastructure; higher construction cost but no line-of-sight requirement for routing |
-| HVDC Converter Station | Phase 4+ | Convert AC power to high-voltage DC for ultra-long-distance transmission with minimal losses | Endgame grid optimization: connects remote generators (offshore wind, geothermal) to main factory networks |
+| Steel Transmission Tower + High-Voltage Line | MTier 1–3 (Phases 2–4) | Long-distance bulk power transmission at high voltage | Basic steel tower → reinforced with composite insulators → ultra-high-tension at highest tiers. Conductors: tin-plated copper → pure copper → aluminum/steel composites → gold (endgame, minimal loss) |
+| Step-Down Transformer / Substation | MTier 1–3 (Phases 2–3) | Convert high-voltage transmission to industrial-use voltage for factory machines | Iron-core → copper-wound with tap changers → digital monitoring + load balancer at highest tiers |
+| Underground Power Cable Trench System | Phase 3+ | Bury power lines to free surface space; reduce exposure loss | Uses same conductor materials (copper/aluminum/composite in concrete conduit). No line-of-sight requirement for routing |
+| HVDC Converter Station | Phase 4+ | Convert AC power to high-voltage DC for ultra-long-distance transmission with minimal losses | Required for fusion/Hawking Engine grid integration — these generators cannot feed Tier 2 AC grids |
 
-### Energy Storage Systems (Multi-Tier)
+### Energy Storage Systems (Core Mod)
+
+> These items **are in scope** for the core mod because they are accumulator-style devices that connect to vanilla pole grids. They do not require any custom transmission infrastructure.
+
 | Machine Name | Tier/Phase | Operations | Design Notes |
 |-------------|-----------|------------|--------------|
 | Capacitor Bank (accumulation) | Phase 1 | Buffer short-term power fluctuations; provides burst power for machine startups | Upgrade path uses battery + circuit components per tier. Same function as vanilla accumulator but with multi-tier build. Tier = storage capacity + discharge rate |
@@ -216,22 +222,25 @@ Related documents: [Minerals and Refining](minerals-and-refining.md), [Chemical 
 | Dead-Battery Capacitor / Fuse Link | Phase 2 | Safety device that intentionally depletes to shut down a fission reactor core before meltdown | **Not reusable** — must be replaced after activation. Critical safety mechanism for fission reactors: provides the last-resort power cutoff when grid fails and active cooling is at risk. No upgrade path; single-tier safety item |
 | Flywheel Energy Store | Phase 3+ | Mechanical kinetic energy storage with high round-trip efficiency | Alternative to batteries — no chemical degradation over time. Requires precision manufacturing (semiconductor components at MTier 2+, servo motors from Automation §5). Tier = rotational mass + bearing quality |
 
-### Grid Stabilization Infrastructure
+### Grid Stabilization Infrastructure — DEFERRED TO EXTENSION MOD
+
+> All items below are **deferred** to the `power-transmission-override` extension mod.
+
 | Machine Name | Tier/Phase | Operations | Design Notes |
 |-------------|-----------|------------|--------------|
-| Reactive Power Compensator | Phase 2+ | Maintain voltage stability on AC lines; prevents brownouts when large loads start up | Required for high-capacity industrial clusters (electrochemical cells, EAF). Tier = compensation capacity + control precision. Prevents cascading failures from generator trip events |
-| Surge Protector / Lightning Arrester | Phase 1+ | Divert power spikes to ground before they damage grid or equipment | Essential for fission reactor safety — must be installed at every step-up/down transformer in the reactor's feed path. Tier = spike capacity handled, response time |
-| Frequency Regulator | Phase 3+ | Maintain stable AC frequency when load/generation balance shifts rapidly | Required when connecting variable renewables (wind, solar) to main grid. Prevents frequency drift that damages sensitive equipment (electrochemical cells require stable power, cleanrooms trip on voltage drops). Phase 3+ grids must include stabilization at every major node — non-negotiable infrastructure requirement |
+| Reactive Power Compensator | Phase 2+ | Maintain voltage stability on AC lines; prevents brownouts when large loads start up | Required for high-capacity industrial clusters (electrochemical cells, EAF) |
+| Surge Protector / Lightning Arrester | Phase 1+ | Divert power spikes to ground before they damage grid or equipment | Essential for fission reactor safety at every step-up/down transformer in the reactor's feed path |
+| Frequency Regulator | Phase 3+ | Maintain stable AC frequency when load/generation balance shifts rapidly | Required when connecting variable renewables (wind, solar) to main grid |
 
-### Power Generation + Transmission Infrastructure Summary
+### Power Generation + Transmission Infrastructure Summary — CORE MOD ONLY
+
+> The items below are **in scope for the core mod**. All transmission and stabilization infrastructure is deferred.
+
 | Infrastructure Type | Total Items | Tiered? | Key Capability Tiers |
 |---------------------|-------------|---------|----------------------|
-| Generators (Phases 1-4 + Endgame) | 14 types | Yes (varies by type) | Steam engine MTier 1-3; fission reactor MTier 1-4; fusion Tokamak Phase 4; Hawking Engine endgame |
-| Transmission Towers + Lines | 3 variants (wood pole, steel tower, underground trench) | Steel towers MTier 1-3 | Conductor upgrades: tin-plated copper → copper → aluminum-composite → gold alloy per tier |
-| Transformers / Substations | 1 type, MTier 1-3 | Yes | Iron-core → copper-wound + tap changer → digital monitoring + load balancer |
+| Generators (Phases 1-4 + Endgame) | ~14 types | Yes (varies by type) | Steam engine MTier 1-3; fission reactor MTier 1-4; fusion Tokamak Phase 4 |
 | Energy Storage Systems | 4 types (capacitor, battery, dead-battery fuse, flywheel) | 3/4 tiered | Capacitor bank MTier; battery storage MTier; flywheel MTier 2+ |
-| Grid Stabilization Devices | 3 types (compensator, surge protector, frequency regulator) | All tiered or Phase-gated | Phase progression determines availability; stabilizers critical for Phase 3+ grid integrity |
-| HVDC Converter Station | 1 type (Phase 4+) | No tiering yet (single endgame item) | Required for fusion/Hawking Engine integration to Tier 3 backbone |
+> **Deferred to extension mod:** Transmission towers + lines (3 variants), transformers / substations (1 type, MTier 1-3), grid stabilization devices (3 types), HVDC Converter Station (Phase 4+) |
 
 ## 12. Military Infrastructure
 
