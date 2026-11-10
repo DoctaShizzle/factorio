@@ -183,12 +183,13 @@ Phase A is complete. The remaining phases cascade downward from those decisions.
 
 ```
 ✅ Phase A: Complete Facility Inventory + Endgame Anchors → DECIDED
+✅ Phase A2: Endgame Assembly Chains (Core + Hawking Engine + Satellites) ← NEW
     ↓
-Phase B: Work Down Through Domain Packs + Infrastructure Needs ← bridges, tiers, convergence item composition
+Phase B: Infrastructure Build Recipes from Core anchors (current Phase B, renumbered 10-14)
     ↓
 Phase C: Machine List ~70 types with build ingredients
     ↓
-Phase D: Fill the Base ← refined materials selection, reagents, intermediates
+Phase D': Final refined material selection (~35 from ~50) + reagent inventory + intermediate catalog
     ↓
 Phase E: Recipe Tree ← connects all materials to machines
     ↓
@@ -231,26 +232,84 @@ The full inventory has moved to [infrastructure.md](infrastructure.md). It conta
 
 All construction materials listed in infrastructure.md are tentative — they trace to our catalog but exact recipes come in Phase C when we have the refined materials and intermediates selected. **Every category forces specific material requirements** that determine which candidates from ~50 refined materials are actually mandatory.
 
-### Phase B — Next: Domain Packs + Infrastructure Needs
+### Phase A2 — Endgame Assembly Chains (NEW: Top-Down Anchor)
 
-| # | Decision | What it determines |
-|---|---------|---------------------|
-| 4 | The 6 bridge materials → specific Phase 2 intermediates needed to produce each one | Refined material selection, reagent chemicals |
-| 5 | Complete T1→T3c recipe chains for all domain packs | All Phase 2 intermediates, convergence item composition |
-| 6 | Convergence item composition (one pack from each of 6 domains) | End products, intermediate synthesis routes |
-| 7 | Power infrastructure build recipes | Refinement candidates, intermediate products, MTier 3-4 alloys |
-| 8 | Military infrastructure build recipes | Refinement candidates (tungsten), chemical reagents (HNO₃), MTier 3-5 alloys |
-| 9 | Logistics/Construction infrastructure build recipes | Advanced electronics, semiconductor precursors |
+This phase creates **concrete build recipes for every endgame item**. Working top-down from the victory condition forces every intermediate product below to earn its existence — no dead-end materials.
 
-> All 14 generator types, 6 grid infrastructure types, 8+5 military buildings, and 10+ logistics buildings are cataloged in [infrastructure.md](infrastructure.md). Phase B work is mapping **which specific materials** from each category feed into the Phase 2 bridge products and domain pack chains (decisions 4–6), then using those to decide which of the ~50 refined material candidates are actually mandatory.
+#### The Planetary Simulation Core — Assembly Bill of Materials
 
-### Phase D — Fill the Base: Refined Materials & Chemicals
+The Core has two stages: initial activation (T1) and upgrades (L2, L3). T1 is the primary assembly chain.
+
+| Core Sub-Assembly | Build Recipe Inputs | Phase Required | Bridges to |
+|---|---|---|---|
+| **Thermal Frame Assembly** | Heat exchanger coils × 40, cryogenic insulation panels × 60, thermal interface material stacks × 30, refrigeration cascade components (liquid N₂/Ar circuit parts) × 20, corrosion-resistant structural steel frames × 50 | T1 construction | Nb₃Sn wire (cryogenic circuits), HfO₂ dielectric (insulation panels), electronic-grade polysilicon (thermal sensors) |
+| **Computation Cluster** | Packaged ICs × 100, ultra-pure copper bonding wire spools × 15, advanced thermal interface material × 25, electromagnetic-shielded memory enclosures × 40 | T1 construction | Polysilicon (IC substrate), Nb₃Sn wire (shielding) |
+| **Integration Bus** | Superconducting interconnect cable lengths × 80, photolithography-processed glass waveguide panels × 30, mu-metal/electromagnetic shielding sheets × 50, fiber routing hardware sets × 20 | T1 construction | Nb₃Sn wire (interconnects), HfO₂ dielectric (waveguide coating) |
+| **Calibration Reference Frame** | Unified Metrology Reference Array × 1, precision alignment mechanism parts × 15, vibration isolation system components × 10, environmental control sub-system × 1 | T1 construction | Bridge products for metrology array |
+| **Unified Metrology Reference Array** *(convergence assembly)* | Nb₃Sn wire bundle × 8, electronic-grade polysilicon wafer substrates × 12, D₂O enrichment chamber parts × 6, rhenium-catalyst powder beds × 4, cryogenic Ar/N₂ mixture reservoirs × 3, enriched fuel stock cells × 2 | T1 construction (gates Core activation) | All six bridges contribute |
+
+#### Hawking Radiation Engine — 5 Sub-Components (CONCRETE LIST)
+
+| Component | Build Recipe Inputs | Phase Required | Why It Exists |
+|---|---|---|---|
+| **Event-Horizon Containment Coil** | Nb₃Sn superconducting cable spools × 60, cryogenic insulation panels × 80, corrosion-resistant structural steel frame × 30 | Phase 3 (Core L2) | Magnetic field to contain/stabilize the event horizon. Primary Nb₃Sn consumer beyond integration bus |
+| **Precision Gravitational Lens Array** | Photolithography glass optics panels × 40, electronic-grade polysilicon wafers × 20, ultra-pure copper alignment frame parts × 15 | Phase 3 (Core L2) | Focuses Hawking radiation extraction. Uses cleanroom optics |
+| **Thermal Gradient Converter** | Thermoelectric semiconductor modules (Bi₂Te₃ from refined bismuth/tellurium), high-purity copper heat spreaders × 30, thermal interface material stacks × 25, HfO₂ dielectric panels × 40 | Phase 3 (Core L2→L3) | Converts temperature differential across event horizon into power. Bi and Te from existing copper/gold anode slimes |
+| **Hawking Radiation Collector Nozzle** | Refractory tungsten alloy plates × 50, molybdenum support structures × 20, rhenium-catalyst treatment coating × 10, graphite backing panels × 30 | Phase 4 (general-physics) | Withstands plasma-facing heat loads. Tungsten traces to scheelite/molybdenite refining chain |
+| **Vacuum Isolation Chamber** | Cryogenic insulation panels × 100, Ti-alloy + steel structural frames × 60, precision sealing ring assemblies × 25, electromagnetic shielding layers × 40, refrigeration cascade components × 15 | Phase 3 (Core L3) | Creates vacuum boundary between extraction point and factory. Largest single material consumer in Hawking Engine |
+
+#### Satellite Facilities — Assembly Recipes
+
+| Satellite Facility | Build Recipe Inputs | Phase Required | Purpose |
+|---|---|---|---|
+| **Compute Campus Node** *(×4+ recommended)* | Packaged ICs × 30, advanced cooling module assemblies × 10, power regulation units × 8, superconducting cable lengths × 20, thermal interface material stacks × 15 | T1 construction (upgrades at L2) | Processor capacity for model runs |
+| **Memory/Archive Module** *(×3+ recommended)* | High-density storage elements × 20, thermal management units × 8, stable power supply modules × 6, cryogenic insulation panels × 15, structural alloy frame parts × 10 | T1 construction | Long-term data preservation |
+| **Regional Observation Facility** *(×3-4 recommended)* | Sensor array components × 12, sample processing equipment × 8, domain lab sub-components × 5, structural frames × 10, power supply modules × 4 | T1 construction (varies) | Feeds raw measurement data into calibration hardware |
+| **Calibration Sub-Network** *(upgrades existing domain labs)* | Precision alignment mechanisms × 3 per lab, vibration isolation components × 3 per lab, environmental control sub-systems × 2 per lab | Post-activation upgrades | Repurposes domain labs as active calibration references |
+
+#### Convergence Item — Concrete Assembly
+
+The convergence item is **not** "6 packs in a crafting grid." It is a physical precision instrument:
+
+| Item | Build Recipe Inputs | Crafting Location | Phase Required |
+|---|---|---|---|
+| **Unified Metrology Reference Array** | Nb₃Sn wire bundle × 8, electronic-grade polysilicon wafers × 12, D₂O enrichment chamber parts × 6, rhenium-catalyst powder beds × 4, cryogenic Ar/N₂ mixture reservoirs × 3, enriched fuel stock cells × 2 | Metrology assembly station (Phase 3 machine) | All 6 domains at T2a |
+
+**Design rationale:** This is the player's first "real" Phase 3 assembly — harder than any Phase 2 craft. Each ingredient traces to a different domain lab's bridge product. The metrology station itself requires Nb₃Sn + electronic-grade polysilicon to build, creating a gate that rewards investment across domains.
+
+**Production flow:** Each bridge material is produced at its respective domain lab facility (Phase 2), then collected and assembled into the Metrology Array. Phase 2 feels like building *capability* (hardware) rather than *administrative proof* (packs).
+
+#### Hawking Engine — Design Decisions
+
+| Decision | Resolution | Rationale |
+|---|---|---|
+| Component naming | Use **engineering terms**, not abstract physics jargon | "Containment Coil" = magnet; "Collector Nozzle" = extraction point |
+| Phase 3 vs 4 split | Containment Coil + Lens Array + Thermal Converter at Core L2. Collector Nozzle + Vacuum Chamber at Core L3/Phase 4 | First 3 are heavy-phase-2-material consumers. Last 2 need phase-3 capabilities |
+| Tungsten requirement | Collector Nozzle is the **only** mandatory tungsten consumer in endgame | Justified — nothing else withstands plasma-facing heat loads |
+| Bismuth/Tellurium for thermal converter | Trace elements from existing copper/gold processing (anode slimes) | No new mineral needed. Situational recoverable materials |
+| Ti-alloy for vacuum chamber | Only lightweight high-strength material handling vacuum loads | Connects to Kroll process chain, reinforces titanium as endgame structural metal |
+
+### Phase B — End Product Anchors: Infrastructure Build Recipes (Revised Order)
+
+Phase B now follows the top-down cascade from A2. **Core assembly chains determine which bridge materials are mandatory, then infrastructure needs determine which refined materials survive.**
+
+| # | Decision | What it determines | Depends on |
+|---|---------|---------------------|------------|
+| 10 | Core thermal frame build recipe → specific heat exchanger coils, insulation panels, refrigeration parts | Nb₃Sn wire demand, HfO₂ dielectric volume, polysilicon for sensors | Phase A2 assemblies |
+| 11 | Computation cluster build recipe → packaged IC count, copper bonding wire, memory enclosure materials | Semiconductor intermediate demand (ICs dominate) | Phase A2 assemblies |
+| 12 | Integration bus build recipe → superconducting cable length, optical waveguide panels, shielding material type | Nb₃Sn wire as biggest single Phase 2 consumer (thermal frame + integration bus = dominant) | Phase A2 assemblies |
+| 13 | Satellite facility build recipes → compute/memory/observation quantities and component mixes | Packaged ICs per node, cooling modules, thermal interface volume | Phase A2 assemblies |
+| 14 | **Infrastructure build recipes** — power generators, military turrets, logistics buildings | Which refined materials are mandatory (steel grades for generators, tungsten for military, advanced electronics for logistics) | Phase C machine list |
+
+> All 14 generator types, 6 grid infrastructure types, 8+5 military buildings, and 10+ logistics buildings are cataloged in [infrastructure.md](infrastructure.md). Phase B now maps **what specific materials each building type needs** using the assembly chains from A2 as anchors.
+
+### Phase D' — Fill the Base: Refined Materials & Chemicals (Bottom-Up)
 
 | # | Decision | Why last? |
 |---|---------|-----------|
-| 13 | Final refined material selection (~35 from ~50 candidates) | Now we know which are required for Phase 2 bridge, domain labs, machine construction, power/military/logistics infrastructure — cull the rest. |
-| 14 | Reagent/acid inventory (HCl, NH₃, HNO₃, HF, etc.) | Only include reagents that connect to existing chains from Phases A-C decisions, not invent new ones for their own sake. |
-| 15 | Intermediate products catalog (alloys, catalysts, semiconductor precursors) | Ground these in bridge materials already selected plus infrastructure needs (military alloys, power conductor materials, belt upgrade components). |
+| 16 | Final refined material selection (~35 from ~50 candidates) | Now we know which are required for A2 assemblies, infrastructure construction, Phase 2 bridge, and domain labs — cull the rest. Every item in an end product build recipe automatically earns its place. |
+| 17 | Reagent/acid inventory (HCl, NH₃, HNO₃, HF, etc.) | Only include reagents that connect to existing chains from Phases A2-B decisions, not invent new ones for their own sake. |
+| 18 | Intermediate products catalog (alloys, catalysts, semiconductor precursors) | Ground these in bridge materials already selected plus infrastructure needs (military alloys, power conductor materials). No dead-end intermediates allowed. |
 
 ### Phase E — Recipe Tree
 
@@ -304,8 +363,8 @@ These decisions MUST be made during this session and will cascade into all deliv
 
 1. **Which 30-35 refined materials make the mandatory catalog?** (~50 candidates to select from)
 2. **Which ~8-12 intermediates get multiple viable processes?** (creating meaningful tradeoffs)
-3. **What specific items build the Planetary Simulation Core?** (convergence item + Phase 3 infrastructure components)
-4. **What's the final Hawking Radiation Engine component list?** (precision optics, containment vessel, thermal converter, etc.)
+3. **What specific items build the Planetary Simulation Core?** ✅ DECIDED — see Phase A2 table above: Thermal Frame, Computation Cluster, Integration Bus, Calibration Reference + Metrology Array convergence assembly
+4. **What's the final Hawking Radiation Engine component list?** ✅ DECIDED — see Phase A2: Event-Horizon Containment Coil, Gravitational Lens Array, Thermal Gradient Converter, Collector Nozzle, Vacuum Isolation Chamber
 5. **Which vanilla items persist into Prometheus phase as-is vs. get enhanced?** (affects recipe and research design)
 6. **Should nuclear ammo exist in the military chain?** (requires U/Pu fuel chain — already optional for fission)
 7. **Final battery chemistry selection** (design doc says "avoid every formulation" — which specific chemistries?)
