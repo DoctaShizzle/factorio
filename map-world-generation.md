@@ -5,7 +5,7 @@
 *Owner: World generation*
 *Last updated: 2026-11-12*
 
-Related documents: [Mod Overview](mod-overview.md), [Minerals and Refining](minerals-and-refining.md), and [Military System](military-system.md). Decision history is recorded in [ADR-0001](adrs/ADR-0001-geological-biome-layout.md), [ADR-0002](adrs/ADR-0002-geology-led-exploration.md), [ADR-0003](adrs/ADR-0003-single-oil-type.md), [ADR-0004](adrs/ADR-0004-map-edge-pressure.md), and [ADR-0005](adrs/ADR-0005-map-scale-and-discovery-distances.md).
+Related documents: [Mod Overview](mod-overview.md), [Minerals and Refining](minerals-and-refining.md), and [Military System](military-system.md). Decision history is recorded in [ADR-0001](adrs/ADR-0001-geological-biome-layout.md), [ADR-0002](adrs/ADR-0002-geology-led-exploration.md), [ADR-0003](adrs/ADR-0003-single-oil-type.md), [ADR-0004](adrs/ADR-0004-map-edge-pressure.md), [ADR-0005](adrs/ADR-0005-map-scale-and-discovery-distances.md), [ADR-0021](adrs/ADR-0021-phase-2-material-and-solar-boundaries.md), [ADR-0029](adrs/ADR-0029-phase-2-semiconductor-mineral-feed-families.md) for the selected semiconductor feed families, and [ADR-0030](adrs/ADR-0030-early-access-to-semiconductor-feed-deposits.md) for their access timing.
 
 ## Summary
 
@@ -51,17 +51,19 @@ Deposits appear in clusters, with size and spacing intended to support dedicated
 | Cluster scale | Source example | Intended player experience |
 |---|---|---|
 | Local | Iron within about 500 m of the starting area | Supports Phase 1 startup |
-| Reachable | Oil and salt within about 2 km | Supports the Phase 1/2 transition without heavy exploration |
+| Reachable | Oil and salt/brine within about 2 km | Supports the Phase 1/2 transition; salt/brine is available by early Phase 2 without heavy exploration |
 | Regional | Polymineral mountain range about 3–8 km away | Justifies dedicated rail or freight logistics |
-| Rare | Niobium and tantalum at 15 km or farther | Rewards advanced prospecting and logistics |
+| Rare | Larger niobium/tantalum deposits at 15 km or farther | Rewards advanced prospecting and logistics; limited zircon/columbite-tantalite access is available earlier under ADR-0030 |
 
 Resource introduction is progressive:
 
 | Phase | Current intent |
 |---|---|
-| Phase 1 (conventional) | Surface and shallow deposits provide starter resources. The source design names iron, coal, copper, stone, aluminum, and oil as early needs; the exact starting-area resource set needs alignment with the mineral catalog. |
-| Phase 2 (domain science) | Deeper and polymineral deposits provide rare earth elements and industrial minerals such as niobium, tantalum, and phosphorite. Exploration and logistics expand the available resource base. |
+| Phase 1 (conventional) | Surface and shallow deposits provide starter resources. The source design names iron, coal, copper, stone, and oil as early needs; aluminum is not a Phase 1 material. The exact starting-area resource set needs alignment with the mineral catalog. |
+| Phase 2 (domain science) | Early Phase 2 provides reachable salt/brine for simple extraction and evaporation; chlor-alkali remains a Phase 2 process. Aluminum enters no earlier than Phase 2. Limited zircon and columbite-tantalite supply is accessible by early/mid Phase 2 under ADR-0030; richer rare-earth and industrial-mineral deposits, including niobium/tantalum, may remain deeper and regional. Exploration and logistics expand the available resource base. |
 | Phase 3 (simulation-gated) | Simulation models can predict likely locations of high-value deposits from regional geological data; players still prospect and travel to confirm and exploit them. |
+
+The standard late-Phase-2 CPU path depends on quartz, zircon, columbite-tantalite, and copper-bearing deposits under [ADR-0029](adrs/ADR-0029-phase-2-semiconductor-mineral-feed-families.md). Limited zircon and columbite-tantalite supplies must be reachable by early/mid Phase 2 under [ADR-0030](adrs/ADR-0030-early-access-to-semiconductor-feed-deposits.md), while richer deposits may remain regional or rare. Exact quantities, biome placement, distances, cluster sizes, access to the other source families, and prospecting requirements remain open.
 
 The design intent is that geological need, rather than exhaustion alone, motivates exploration: the starting region provides a foundation, while later capabilities require resources associated with other regions. Deposit exhaustion remains a possible source of pressure, not a substitute for this progression.
 

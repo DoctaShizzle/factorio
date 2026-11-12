@@ -5,7 +5,7 @@
 *Last updated: 2026-11-12*
 
 Related documents: [Mod Overview](mod-overview.md), [Intermediate Products](intermediate-products.md), [Infrastructure](infrastructure.md), [Power System](power-system.md), and [Research and Progression](research-progression.md) for simulation-gated research mechanics.
-Related ADRs: [ADR-0009](adrs/ADR-0009-endgame-assembly-proposals.md), [ADR-0011](adrs/ADR-0011-hawking-radiation-endgame-generator.md), and [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md).
+Related ADRs: [ADR-0009](adrs/ADR-0009-endgame-assembly-proposals.md), [ADR-0011](adrs/ADR-0011-hawking-radiation-endgame-generator.md), [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md), [ADR-0020](adrs/ADR-0020-seven-distinct-domain-pack-tiers.md), [ADR-0022](adrs/ADR-0022-phase-2-bridge-mappings-and-core-dependencies.md), [ADR-0025](adrs/ADR-0025-phase-2-cpu-supply-and-superconducting-core-compute.md), [ADR-0026](adrs/ADR-0026-phase-2-contemporary-semiconductor-capability.md), [ADR-0027](adrs/ADR-0027-phase-2-contemporary-chipmaking-material-stack.md), [ADR-0028](adrs/ADR-0028-phase-2-core-cpu-material-dependencies.md), and [ADR-0029](adrs/ADR-0029-phase-2-semiconductor-mineral-feed-families.md).
 
 ## Summary
 
@@ -44,13 +44,15 @@ The Core is proposed as a **modular orchestration hub** — not a megastructure 
 
 **Candidate Core Structure Components:**
 
+Conventional CPU-grade packaged processors are available by late Phase 2 and supply the initial Computation Cluster under [ADR-0025](adrs/ADR-0025-phase-2-cpu-supply-and-superconducting-core-compute.md). The standard CPU path for initial Core supply requires the selected Phase 2 material stack and mineral feed families under [ADR-0028](adrs/ADR-0028-phase-2-core-cpu-material-dependencies.md) and [ADR-0029](adrs/ADR-0029-phase-2-semiconductor-mineral-feed-families.md); detailed production routes remain open. The Josephson/SFQ superconducting compute array is a later post-activation upgrade; its exact Core level and production path remain open. The first-Core Calibration Reference Frame uses a Phase 2-compatible non-semiconductor precision alignment mechanism under [ADR-0025](adrs/ADR-0025-phase-2-cpu-supply-and-superconducting-core-compute.md).
+
 | Component | Required Inputs | Physical Meaning |
 |-----------|----------------|------------------|
 | **Thermal Frame Assembly** | Heat exchanger coils, cryogenic insulation panels, thermal interface materials, refrigeration cascade components (liquid N₂/Ar circuits), corrosion-resistant structural steel framework | Mandatory first Core assembly — cascading thermal loop infrastructure that removes computation heat and stabilizes measurement temperatures across all subsystems. Without this, no precision operation is possible. |
-| **Computation Cluster** | Packaged ICs, ultra-pure copper bonding wire, advanced thermal interface materials, shielded memory enclosures | Physical computational center: precision computation modules with dedicated cooling channels, memory arrays in electromagnetic-shielded enclosures, synchronization hardware. Each module is individually servicable — not an abstract array. |
+| **Computation Cluster** | Conventional CPU-grade packaged processors, ultra-pure copper bonding wire, advanced thermal interface materials, shielded memory enclosures | Initial physical computational center: silicon processor modules with dedicated cooling channels, memory arrays in electromagnetic-shielded enclosures, and synchronization hardware. A later Josephson/SFQ array may upgrade its compute capability. |
 | **Integration Bus** | Superconducting interconnect cable (Nb₃Sn/NbTi), photolithography-processed glass optical waveguides, EM shielding material (mu-metal/permalloy alloy), fiber routing hardware with precision mechanical mounts | Physical interconnect infrastructure — cables, waveguides, and isolation enclosures connecting satellite nodes to the Core. Upgradeable across tiers: early cores have basic connections; higher tiers require faster/more reliable Phase 2 materials. |
-| **Calibration Reference Frame** | Unified Metrology Reference Array + precision alignment mechanism (semiconductor-grade positioning stages), vibration isolation system, environmental control components tied to thermal infrastructure | Where the convergence array is mounted and *actively functions* — not just a piece that "unlocks" something. Active temperature/vibration control makes it genuine calibration hardware. |
-| **Unified Metrology Reference Array** | Nb₃Sn wire + electronic-grade polysilicon; D₂O + enriched fuel stock; rhenium-catalyst powder + graphite support; cryogenic Ar/N₂ mixture → single precision-instrument enclosure mounted in Calibration Reference Frame | Active calibration hardware: coherent instrument integrating six physics measurement zones into one physical device. Each zone is genuine scientific hardware — not administrative proof but real instrumentation that produces measurable reference data while the Core operates. Cross-domain calibration between zones enables multi-physics validation. The "convergence" is the physical co-location of these six zones, allowing each to calibrate the others in real time: the neutron standard calibrates the superconducting sensor; the cryogenic bath validates thermal models. |
+| **Calibration Reference Frame** | Unified Metrology Reference Array + Phase 2-compatible non-semiconductor precision alignment mechanism, vibration isolation system, environmental control components tied to thermal infrastructure | Where the convergence array is mounted and *actively functions* — not just a piece that "unlocks" something. Active temperature/vibration control makes it genuine calibration hardware. |
+| **Unified Metrology Reference Array** | Nb₃Sn wire + electronic-grade polysilicon; D₂O + neutron-reference materials (specific inputs open); rhenium-catalyst powder + graphite support; cryogenic Ar/N₂ mixture → single precision-instrument enclosure mounted in Calibration Reference Frame | Active calibration hardware: coherent instrument integrating six physics measurement zones into one physical device. Each zone is genuine scientific hardware — not administrative proof but real instrumentation that produces measurable reference data while the Core operates. Cross-domain calibration between zones enables multi-physics validation. The "convergence" is the physical co-location of these six zones, allowing each to calibrate the others in real time: the neutron standard calibrates the superconducting sensor; the cryogenic bath validates thermal models. Enriched fission fuel is not a first-Core prerequisite under ADR-0022. |
 
 **Physical description:** *A precision metrology instrument that integrates six distinct physics measurement domains into one coherent device mounted inside a vibration-isolated, thermally-stabilized calibration frame. Each zone operates as independent instrumentation, scientific hardware from each practitioner's field — co-located to enable cross-domain calibration while the simulation network runs.*
 
@@ -69,11 +71,13 @@ The following Core tier progression is a candidate:
 
 | Tier | What Changes | Upgrade Requirements |
 |------|-------------|---------------------|
-| **Activation (T1)** | Basic coordination of 6 domain inputs | Thermal Frame + Computation Cluster + Calibration Reference Frame (with Unified Metrology Array mounted) |
+| **Activation (T1)** | Basic coordination of 6 domain inputs | Thermal Frame + conventional CPU-based Computation Cluster + Calibration Reference Frame (with Unified Metrology Array mounted) |
 | **Level 2** | Higher-fidelity models, accelerated discovery | Quantum-state enhancement module + memory expansion + Integration Bus upgrade for faster satellite communication |
 | **Level 3 / Final Milestone** | General-physics discovery unlock | Multi-domain synthesis components — fully integrated across all facilities; Calibration Reference can model phenomena beyond known physics |
 
 The Core and its peripheral facilities may be built and upgraded in stages. The draft favors an overlapping, gradual handoff across Core Levels 1–3 rather than an abrupt switch, with domain labs changing from research-pack production to Model Calibration sub-facilities ("simulation trainers") that improve fidelity and efficiency. These roles remain proposals. Each stage could require complex products from several parts of the factory while keeping most compute and memory physically distributed.
+
+The Josephson/SFQ compute direction is a post-activation upgrade, not part of the first-Core gate. Its exact Core level, materials, cryogenic requirements, and research unlock remain open.
 
 ## Candidate Model Inputs
 
@@ -90,9 +94,9 @@ The network is proposed to be fed evidence that the factory has built the capabi
 
 **Phase 2 (Bridge):** Domain packs are fed into the conventional research building *alongside* standard science packs, augmenting the existing tech tree. This is the Space Exploration model — domain packs supplement but don't replace the standard research infrastructure. They do **not** go to a simulation Core at this stage because the Core does not yet exist. The player is still researching technologies through the conventional research building; domain packs simply add *additional capability gates* that require cross-domain knowledge before certain technologies can be unlocked.
 
-**Phase 3 (simulation-gated, candidate):** After the six currently listed domain research facilities are operational, the proposed loop transitions to the Planetary Simulation Core: domain datasets → simulation models → findings unlock technologies. The earlier five-facility sentence is stale source wording; the current roster has six facilities.
+**Phase 3 (simulation-gated, candidate):** After the six domain research facilities are operational, the proposed loop transitions to the Planetary Simulation Core: domain datasets → simulation models → findings unlock technologies.
 
-These are six separate research facilities, each requiring a distinct Phase 2 bridge product as industrial prerequisite. The player must demonstrate knowledge across all six domains before advancing any simulation fidelity tier.
+These are six separate research facilities, each with a selected Phase 2 bridge product as its industrial prerequisite under [ADR-0022](adrs/ADR-0022-phase-2-bridge-mappings-and-core-dependencies.md). Additional construction and operating inputs remain open; the selected bridge products alone do not define complete facility bills of materials. The player must demonstrate knowledge across all six domains before advancing any simulation fidelity tier.
 
 ## Simulation Scope Candidates
 
@@ -127,7 +131,7 @@ Specific material recipes belong in the [Intermediate Products](intermediate-pro
 - **A visible anchor, distributed capability:** the Core is recognizable, but peripheral facilities provide most memory, compute, and evidence.
 - **Simulation, not AI housing:** model thinking entities as part of the simulated world rather than framing the Core as a home for an AI character.
 - **Evidence-backed inputs:** model datasets represent surveyed or operated systems and should have understandable sources.
-- **Capability milestones:** unlock cleanrooms, wafer fabrication, advanced packaging, and simulation infrastructure rather than a sequence of generic numerical upgrades.
+- **Capability milestones:** establish conventional CPU production and full contemporary cleanroom/chipmaking before first-Core activation under [ADR-0026](adrs/ADR-0026-phase-2-contemporary-semiconductor-capability.md), then use the Core to unlock primarily beyond-current-day semiconductor and superconducting-compute capabilities rather than a sequence of generic numerical upgrades.
 - **Simulation has progression value:** reserve meaningful late-game research for model results so building the network is necessary to advance, not just decorative endgame production.
 - **Cross-chain demand:** the endgame should pull distinct materials from mining/refining, chemistry, metallurgy, and power systems.
 - **Meaningful placement:** regional facilities should create logistics, cooling, power, and land-use decisions.
@@ -139,6 +143,8 @@ Specific material recipes belong in the [Intermediate Products](intermediate-pro
 ### Facility Infrastructure
 
 - What gates and roles should apply to Core Levels 2–3? See [Research and Progression](research-progression.md).
+- Which post-activation Core level should introduce Josephson/SFQ compute?
+- **Deferred to Phases 4, 6, and 7 — first-Core alignment assembly:** The Phase 2-compatible, non-semiconductor constraint is set, but the exact mechanism, materials, and source are not. Define its constructable role in Phase 4, select its product path in Phase 6, and specify its recipe in Phase 7. This is not a Phase 2 material-trunk blocker, but its eventual construction demand must be assessed before finalizing the Core bill of materials. Do not treat any candidate mechanism or material as selected.
 - Are Core Levels 1–3, their pack totals, and the proposed post-activation role of domain labs part of the final progression?
 - Is there a single final milestone, or a staged set of regional commissioning goals?
 - How much of the compute network must be physically distributed to make the spatial requirement meaningful without becoming arbitrary busywork?

@@ -3,7 +3,7 @@
 *Status: Draft — core distribution and Hawking option accepted; Phase 1/2 generation direction and Phase 3/4 route identities selected; detailed conversion, construction, and progression rules remain open*
 *Last updated: 2026-11-12*
 
-Related documents: [Chemical Products and Processes](chemical-processes.md), [Intermediate Products](intermediate-products.md), [Minerals and Refining](minerals-and-refining.md), [Infrastructure](infrastructure.md), [Endgame Vision](endgame-vision.md). Related ADRs: [ADR-0010](adrs/ADR-0010-core-power-distribution-scope.md), [ADR-0011](adrs/ADR-0011-hawking-radiation-endgame-generator.md), [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md), [ADR-0018](adrs/ADR-0018-phase-3-and-4-power-route-roster-and-conversion.md), and [ADR-0019](adrs/ADR-0019-phase-1-and-2-power-progression.md).
+Related documents: [Chemical Products and Processes](chemical-processes.md), [Intermediate Products](intermediate-products.md), [Minerals and Refining](minerals-and-refining.md), [Infrastructure](infrastructure.md), [Endgame Vision](endgame-vision.md). Related ADRs: [ADR-0010](adrs/ADR-0010-core-power-distribution-scope.md), [ADR-0011](adrs/ADR-0011-hawking-radiation-endgame-generator.md), [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md), [ADR-0018](adrs/ADR-0018-phase-3-and-4-power-route-roster-and-conversion.md), [ADR-0019](adrs/ADR-0019-phase-1-and-2-power-progression.md), [ADR-0021](adrs/ADR-0021-phase-2-material-and-solar-boundaries.md), [ADR-0022](adrs/ADR-0022-phase-2-bridge-mappings-and-core-dependencies.md), and [ADR-0023](adrs/ADR-0023-thorium-startup-seed-and-breeding-model.md).
 
 ## Summary
 
@@ -34,14 +34,12 @@ This document is the current-state reference for generation routes, energy conve
 | Generator type | Fuel source | Design role | Key tradeoff |
 |---|---|---|---|
 | Boiler → steam engine (vanilla-style combustion) | Burner-item fuels, including solid fuels and processed fuel items | Foundational early power path; the boiler burns fuel to make steam and the engine converts steam to electricity | Keep the steam engine untiered. Producer gas, biogas, and liquid fuels must be converted to burner items first; no direct gas- or liquid-fuel generator |
-| Solar photovoltaic (PV) + basic storage | Sunlight; early silicon-based photoelectric materials | Clean, space-intensive supplement with day/night variability | Introduce in Phase 1/2; improve materials and efficiency later. Exact tier gates, storage chemistry, and output remain open |
 
 **Phase 1 design notes:**
 - The core lesson of Phase 1: **fuel density matters.** Processed burner items can carry more energy per item than raw coal, teaching that *how* fuel is refined matters as much as *what* is burned.
 - Pollution pressure from dirty combustion routes (unscrubbed sulfur, unfiltered off-gas) creates the first military-pressure driver — connecting power production to the military system.
 - The boiler consumes burner items and produces steam; the steam engine consumes steam. Producer-gas and liquid-fuel streams remain fuel-processing outputs and must be converted to burner items before this power path. A gasifier or fuel processor is not itself a generator.
-- Pair early solar with basic buffering, then expand storage in Phase 2. Low-output panels should require substantial land, keeping solar useful as a clean option without making it a compact replacement for fission.
-- The early-panel material direction is primitive silicon-based cells with glass and basic conductors; later stages may use electronic-grade polysilicon and multi-junction materials. The first stage is a deliberate game abstraction, not a claim that metallurgical-grade silicon alone is commercial PV material. [Bob's Power](https://mods.factorio.com/mod/bobpower) is a precedent for tiered solar and storage; its direct fluid-burning generator path is not adopted.
+- Photovoltaic generation is not available in Phase 1. Phase 1 power remains combustion; PV and basic storage begin no earlier than Phase 2, once their material progression is available. The first PV-cell route and later efficiency upgrades remain open. [Bob's Power](https://mods.factorio.com/mod/bobpower) is a precedent for tiered solar and storage; its direct fluid-burning generator path is not adopted.
 
 ### Phase 2: Fission (Mid Game)
 
@@ -50,15 +48,17 @@ This document is the current-state reference for generation routes, energy conve
 | Generator type | Fuel source | Design role | Key tradeoff |
 |---|---|---|---|
 | Uranium fission reactor | Enriched uranium-oxide fuel, with plutonium recycling still open | Dense, sustained power through a comparatively direct enrichment and fuel-fabrication chain | High construction and fuel-cycle cost; requires cooling and spent-fuel handling |
-| Thorium breeder reactor (separate option) | Th-232 feed plus a fissile startup seed; breeding and reprocessing can produce U-233 | Distinct, more complex long-horizon fission cycle | Thorium-232 is fertile, not fissile: it cannot sustain the cycle by itself. Breeding, fissile startup fuel, and U-233 recovery add process complexity; it is not a “start once, run forever” source. See the [World Nuclear Association thorium overview](https://world-nuclear.org/information-library/current-and-future-generation/thorium) |
+| Thorium breeder reactor (separate option) | Th-232 feed plus a uranium-derived fissile startup seed; the selected gameplay model breeds and reprocesses U-233 without a continuous uranium-fuel top-up | Distinct, more complex long-horizon fission cycle | Thorium-232 is fertile, not fissile. Startup fuel, breeding, and reprocessing add process complexity; seed quantities, material balance, and waste remain open. See [ADR-0023](adrs/ADR-0023-thorium-startup-seed-and-breeding-model.md) and the [World Nuclear Association thorium overview](https://world-nuclear.org/information-library/current-and-future-generation/thorium) |
+| Solar photovoltaic (PV) + basic storage | Sunlight; Phase 2+ manufactured cell materials | Clean, fuel-free supplement with day/night variability | PV is unavailable before Phase 2; exact cell route, unlock, tiers, storage chemistry, and output remain open |
 
-**Current phase direction:** Introduce fission in Phase 2 as two distinct uranium and thorium-cycle options. Retain the steam-turbine conversion path through Phase 2 to use fission heat-exchanger steam; retire steam-turbine generation after Phase 2. Phase 1 combustion and solar remain usable, but should need more space and support infrastructure to match fission's output.
+**Current phase direction:** Introduce fission in Phase 2 as two distinct uranium and thorium-cycle options. Retain the steam-turbine conversion path through Phase 2 to use fission heat-exchanger steam; retire steam-turbine generation after Phase 2. Phase 1 combustion remains usable. PV begins no earlier than Phase 2 and remains a clean, space-intensive option rather than a Phase 1 bypass.
 
 **Phase 2 design notes:**
 - Fission power density should be **orders of magnitude higher** than combustion, creating massive spatial relief for the factory. However, the *fabrication cost* of a reactor (stainless steel pressure vessel, zirconium cladding, graphite moderator, control rods with hafnium/boron absorbers) is substantial.
 - Cooling is a genuine requirement — not just a number but physical infrastructure (heat exchangers, fluid transport, condensers). This connects to thermal management in endgame facilities.
 - Phase 2 fission converts heat through steam turbines. The exact turbine removal point is after Phase 2, not before fission is introduced.
 - The Infrastructure candidate chain currently places some fuel-fabrication capabilities later than the Phase 2 fission entry. Reconcile that minimum fuel path before treating Phase 2 fission as fully buildable.
+- Neither uranium nor thorium fuel is a first-Core prerequisite; a fission path is required only when selected to supply power. The thorium startup model is selected in ADR-0023, while exact fuel routes and balance remain open.
 - **Meltdown risk** (GTNH-inspired): The reactor requires *continuous active cooling*, even when the factory grid is offline. If power is lost and backup batteries/dead-battery capacitors deplete, the core begins a visible escalation: elevated temperature → increased pressure → fuel rod stress → potential meltdown. Each stage has clear UI feedback (thermal indicators, pressure gauges, warning alarms), giving the player time to react — route emergency power, start passive cooling loops, or initiate safe shutdown.
 - The tension is not "does fission work?" but "can I keep it cool when everything else fails?" This makes thermal redundancy a meaningful engineering decision rather than a punishment loop. A player who invested in grid diversity and load-shedding diagnostics (see Diagnostics section) will have built-in resilience.
 - Fission creates **breathing room from military pressure** if operated cleanly. No combustion pollution means fewer attacks, giving the player a choice: dense power without the military consequence.
@@ -129,7 +129,7 @@ The Phase 4 roster includes three selected route identities; see the table below
 - Simulation would inform construction or operation without replacing material constraints.
 - The generator would be optional and would not be required for victory.
 
-The former comparison and its rationale are preserved in [ADR-0011](adrs/ADR-0011-hawking-radiation-endgame-generator.md). Hawking is accepted as one Phase 4 option; the boundary between advanced fusion and Phase 4, alternative routes, and alignment with [Endgame Vision](endgame-vision.md) remain open.
+Hawking is accepted as one Phase 4 option under [ADR-0011](adrs/ADR-0011-hawking-radiation-endgame-generator.md); the boundary between advanced fusion and Phase 4, route gates, and alignment with [Endgame Vision](endgame-vision.md) remain open.
 
 ## Fuel Density Spectrum (Reference Guide)
 
@@ -207,7 +207,7 @@ The Hawking Engine requires four distinct endgame infrastructure categories from
 | Thermoelectric Conversion Array Module | infra.md §10; Phase 4+, p-type/n-type semiconductor junctions | Operational (power output, not consumption) | Connects directly to engine's Tier 3 HVDC output | Converts Hawking radiation heat to electricity via Seebeck effect; assembled from thermocouple pairs on semiconductor packaging line |
 | Superconducting Magnetic Containment Structure | infra.md §10: Coil Winding Machine + Nb₃Sn/NbTi wire | Construction → Operation | Tier 3 power during winding operations; cryogenic cooling during operation | Maintains singularity within confinement field during construction phase; determines containment stability |
 
-The former Phase A2 component list and build quantities are preserved as unapproved proposals in [ADR-0009](adrs/ADR-0009-endgame-assembly-proposals.md); they are not current recipe requirements.
+The component list is a candidate design, not a current recipe requirement; exact inputs and quantities remain open.
 
 **Operational details:**
 - **Feeding matter to extend life:** Player feeds concentrated matter/fuel into the singularity (mass → energy via E=mc²). Each fuel type has different mass-energy yield connecting back to the [fuel-density spectrum](#fuel-density-spectrum-reference-guide) table.
@@ -219,15 +219,15 @@ The former Phase A2 component list and build quantities are preserved as unappro
 - **Which Phase 3/4 non-steam conversion details remain?** The selected directions are closed supercritical-CO₂ Brayton for high-grade heat, binary organic Rankine for geothermal heat, and TPV for the Hawking-route emitter. Exact source conditions, materials, working fluids, performance, and construction details remain open.
 - **Which diagnostics and stabilization capabilities belong in core?** Basic status for the vanilla grid may belong in core; voltage/loss diagnostics and grid stabilization remain extension candidates.
 - **Which fuel-processing routes produce burner items?** The vanilla boiler/steam-engine path is selected, but the exact item forms and processing paths for producer gas, biogas, and liquid fuels remain open.
-- **What is the minimum Phase 2 fission fuel chain?** Uranium and thorium reactor types are separate directions; uranium enrichment/recycling details, thorium startup fuel and U-233 recovery, and waste handling remain open. Some candidate fuel-fabrication capabilities are currently placed after Phase 2 in Infrastructure.
+- **What is the minimum Phase 2 fission fuel chain?** Uranium and thorium reactor types are separate directions. Uranium enrichment/recycling details, the thorium seed and U-233 production routes, fuel-cycle balance, and waste handling remain open. Some candidate fuel-fabrication capabilities are currently placed after Phase 2 in Infrastructure.
 - **How does fusion connect to the endgame network?** Is fusion itself an endgame milestone, or is it parallel to (or prerequisite for) the Planetary Simulation Core?
-- **What are the solar phase, material, and storage gates?** The Phase 3 PV route and additional CSP-with-storage route are selected; detailed silicon/compound-semiconductor tiers, storage chemistry, site design, and efficiency values remain open.
+- **What are the solar material and storage gates?** PV is available no earlier than Phase 2 under [ADR-0021](adrs/ADR-0021-phase-2-material-and-solar-boundaries.md); the Phase 3 PV scale-up and additional CSP-with-storage route are selected. The first PV-cell route, exact Phase 2 unlock, later silicon/compound-semiconductor tiers, storage chemistry, site design, and efficiency values remain open.
 - **How should geothermal sites work?** The Phase 3 geothermal route and binary ORC direction are selected, but site placement, resource limits, working fluid, and heat-exchanger design remain open.
 - **How much does each generator class contribute to military pressure?** Clean combustion (scrubbed) vs. dirty combustion; fission's thermal pollution; fusion's zero-emission profile — these affect the player's decision calculus.
 - **Is waste handling for fission a meaningful mechanic** (spent fuel storage, reprocessing choice) or just flavor text with an item input?
 - **Which construction and research gates apply to the selected routes?** Route identities are selected, but exact Core dependencies, progression order, and whether each route is optional or required remain open.
 - **Where does advanced fusion end and Phase 4 begin?** Hawking is accepted as one Phase 4 option, but its boundary and the Simulation Core dependency still need alignment with [Endgame Vision](endgame-vision.md).
-- **How should power-route gates use the Core?** Core Level 2/3 and route-specific gates remain open. The first-Core gate and six-bridge count are recorded in [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md); facility mapping remains open.
+- **How should power-route gates use the Core?** Core Level 2/3 and route-specific gates remain open. The first-Core gate is recorded in [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md); the six bridge mappings are selected in [ADR-0022](adrs/ADR-0022-phase-2-bridge-mappings-and-core-dependencies.md).
 
 ## Design Intent
 
@@ -322,7 +322,7 @@ Energy storage and grid-stabilization concepts below remain candidates. [Infrast
 
 | Machine / Entity | Phase | Role | Key Design Notes |
 |-----------------|-------|------|-----------------|
-| Capacitor Bank (accumulation) | Phase 1 | Buffer short-term power fluctuations, including early solar variation | Candidate early buffer; exact capacity and tiering remain open |
+| Capacitor Bank (accumulation) | Phase 1 | Buffer short-term power fluctuations | Candidate early buffer; exact capacity and tiering remain open |
 | Battery Storage Unit | Phase 2+ | Longer-duration energy storage for load leveling, backup power during outages | Battery chemistry and capacity progression remain open |
 | Dead-Battery Capacitor / Fuse Link | Phase 2 | Safety device that intentionally depletes to shut down a fission reactor core before meltdown | Critical safety mechanism for fission reactors — provides the last-resort power cutoff when grid fails. Not reusable; must be replaced after activation |
 | Flywheel Energy Store | Phase 3+ | Mechanical kinetic energy storage with high round-trip efficiency | Alternative to batteries; requires precision manufacturing (semiconductor components at high tiers) but no chemical degradation |

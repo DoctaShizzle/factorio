@@ -1,15 +1,15 @@
 # Chemical Products and Processes Design
 
 *For: Project Prometheus*
-*Status: Candidate design; process registry not approved*
+*Status: Current process-family concepts are in Core scope; process registry entries, routes, and recipes remain provisional*
 *Owner: Chemical products and processes*
 *Last updated: 2026-11-12*
 
-Related documents: [Minerals and Refining](minerals-and-refining.md) for deposits, minerals, and refining; [Intermediate Products](intermediate-products.md) for alloys, components, and manufactured materials.
+Related documents: [Minerals and Refining](minerals-and-refining.md) for deposits, minerals, and refining; [Intermediate Products](intermediate-products.md) for alloys, components, and manufactured materials. Related ADRs: [ADR-0021](adrs/ADR-0021-phase-2-material-and-solar-boundaries.md) for early Phase 2 salt/brine access, [ADR-0023](adrs/ADR-0023-thorium-startup-seed-and-breeding-model.md) for the thorium fuel-cycle model, [ADR-0024](adrs/ADR-0024-include-chemical-process-concepts-in-core-scope.md) for Core process-family scope, [ADR-0027](adrs/ADR-0027-phase-2-contemporary-chipmaking-material-stack.md) for required Phase 2 chipmaking materials, and [ADR-0028](adrs/ADR-0028-phase-2-core-cpu-material-dependencies.md) for the standard CPU path's material dependencies.
 
 ## Summary
 
-This document tracks named industrial reactions, chemical processes, reagents, and intermediate compounds. It covers four core chains (sulfuric acid, chlor-alkali, plastics, cement/lime), later candidates (ammonia/nitric acid, nylon/engineering polymers, titanium/Kroll, nuclear fuel chemistry, fusion fuel handling), a chemical product index organized by family, and a provisional reaction/process registry with equations where meaningful.
+This document tracks named industrial reactions, chemical processes, reagents, and intermediate compounds. All process-family concepts currently documented are in Core scope under [ADR-0024](adrs/ADR-0024-include-chemical-process-concepts-in-core-scope.md). The four initial chains (sulfuric acid, chlor-alkali, plastics, cement/lime) are prioritized for readable first routes; additional concepts include ammonia/nitric acid, nylon/engineering polymers, titanium/Kroll, nuclear fuel chemistry, and fusion fuel handling. The product index and reaction/process registry remain provisional.
 
 **What it covers:** Process families, candidate chains, product index, and reaction registry — all grounded in real industrial chemistry but simplified for gameplay.
 
@@ -27,24 +27,24 @@ Chemistry is an industrial decision layer, not a catalog of reactions for its ow
 
 #### Scope Boundaries
 
-The chemical registry is bounded by the Phase 2 intermediate cap (~50-60 total) and ~30 intermediates that directly feed research. New entries are added only when an existing system has a hole — never for catalog completeness.
+There is no numeric cap or target for chemical products, reactions, or research intermediates. Registry entries are retained only when they support a validated capability, meaningful tradeoff, or traceable downstream use.
 
 | Scope | Bound By |
 |---|---|
-| Total candidates in registry | ~45 reactions; only those with verified end use or meaningful tradeoff promoted to approved design |
+| Core process-family scope | All concepts currently documented, per ADR-0024; this does not approve each species, reaction, or recipe as a required product |
 | Adding new chemical entries | Must solve an existing gap (missing capability, missing tradeoff, missing horizon). Each must have a visible downstream consumer beyond "it exists in the chain" |
 | Semiconductor process chemicals guardrail | Entries like WF₆, SF₆, NF₃ earn their place through storyline/progression necessity (required for cleanroom and simulation infrastructure), not because they are chemically interesting. Review against this standard before promotion |
 | Alternative routes gate | Only products creating meaningful tradeoffs get multiple processes. Many have one clear path with QoL improvements instead |
 
 ## Current Design and Status
 
-The four chains below are the initial chemistry scope, and the remaining products and reactions are candidates. No registry entry is approved solely because it appears here. Promote an entry only when it has a validated use, capability, or meaningful tradeoff and a traceable downstream consumer.
+All process-family concepts currently documented are in Core scope, while registry products, reactions, and recipes remain provisional. No entry is approved solely because it appears here; validate its use, capability, or meaningful tradeoff and traceable downstream consumer before making it a required product or recipe.
 
 The equations are simplified design references, not final Factorio recipes or claims about universal industrial yields. Product scope, route availability, machine assignment, quantities, and research gates remain provisional.
 
-## Core Chemical Chains
+## Initial Chemical Chains
 
-These four chains are the initial chemistry scope. Each needs a readable first route; alternatives are added only when they earn their complexity.
+These four chains are the initial route priorities. Each needs a readable first route; alternatives are added only when they earn their complexity. Other process-family concepts in this document are also Core scope, but their detailed product and recipe requirements remain open.
 
 | Chain | Straightforward route | Later choice / capability | Connects to |
 | --- | --- | --- | --- |
@@ -55,7 +55,9 @@ These four chains are the initial chemistry scope. Each needs a readable first r
 
 These are process families, not final recipes. Exact inputs, yields, and machine counts remain open.
 
-## Later Chemical Candidates
+Under [ADR-0027](adrs/ADR-0027-phase-2-contemporary-chipmaking-material-stack.md) and [ADR-0028](adrs/ADR-0028-phase-2-core-cpu-material-dependencies.md), lithography chemistry is a required Phase 2 input family and a dependency of the standard CPU path for initial Core supply. Specific photoresist compounds, process gases, source routes, grades, and recipes remain open; the decisions do not make every candidate semiconductor gas mandatory.
+
+## Additional Core Process Concepts
 
 | Candidate | Real process idea | Potential gameplay role |
 | --- | --- | --- |
@@ -66,14 +68,14 @@ These are process families, not final recipes. Exact inputs, yields, and machine
 | Fischer-Tropsch synthesis | n(CO+2H2) -> -(CH2)-n + nH2O (Fe or Co catalyst) | Converts synthetic gas from coal gasification into synthetic gasoline/diesel/paraffin; bridges coal mining and fuel production |
 | Cumene process (phenol) | Benzene + propylene -> cumene -> phenol + acetone (acid catalyst) | Gateway to Bakelite/phenolic resins, polycarbonates, pharmaceuticals, nylon precursors |
 | Titanium chemistry | Chlorination to TiCl4 followed by magnesium reduction (Kroll process) | A high-capital, high-purity metal capability; detailed route also appears in the refining design |
-| Nuclear fuel chemistry | Uranium conversion and oxide fuel fabrication; optional thorium-to-U-233 cycle | A later fission capability if nuclear power is part of the mod; see [Intermediate Products](intermediate-products.md) |
+| Nuclear fuel chemistry | Uranium conversion and oxide fuel fabrication; thorium-to-U-233 breeding/reprocessing branch | Phase 2 fission fuel chemistry; exact routes remain open, and the thorium startup-seed model is recorded in [ADR-0023](adrs/ADR-0023-thorium-startup-seed-and-breeding-model.md) |
 | Fusion fuel handling | Deuterium supply and tritium extraction/recycling from a lithium breeder loop | Late-game chemical separation linked to fusion infrastructure |
 
-Before promoting a candidate into the core scope, verify that it connects to existing chains, unlocks a capability, creates a meaningful tradeoff, and has enough educational value to justify its footprint.
+Before promoting a candidate species, reaction, or recipe to a required product route, verify that it connects to existing chains, unlocks a capability, creates a meaningful tradeoff, and has enough educational value to justify its footprint.
 
 ## Chemical Product Index
 
-This is a candidate index of chemical products and intermediates. It is not a commitment to implement every entry.
+The process-family concepts are in Core scope; individual entries in this candidate index are not automatically approved as required products or recipes.
 
 | Family | Candidate products / intermediates |
 | --- | --- |
@@ -117,7 +119,7 @@ The target is meaningful industrial understanding with a bounded set of repeatab
 
 ## Provisional Chemical and Reaction Registry
 
-Everything in this registry is a **candidate for review, not approved design content**. It inventories the chemical species, products, and transformations raised so far, including provisional downstream chains from the material map. Grouped terms such as "sulfates" represent a candidate family, not a commitment to implement every salt. Count named species and products individually when estimating scope; reaction rows may produce several of them at once.
+All current process-family concepts are in Core scope under ADR-0024. Entries in this registry remain **candidates for review, not approved product or recipe requirements**. It inventories the chemical species, products, and transformations raised so far, including provisional downstream chains from the material map. Grouped terms such as "sulfates" represent a candidate family, not a commitment to implement every salt.
 
 The equations below are simplified design references. Balanced equations are given where a single reaction is meaningful; separations, cracking, mineral processing, and polymer production are identified as process steps where a single equation would misrepresent the industrial operation.
 
@@ -180,7 +182,7 @@ Several entries are mixtures or industrial product classes rather than pure comp
 | Acrylonitrile ammoxidation (Sohio process) | CH3CH=CH2 + NH3 + 1.5O2 -> CH2CHCN + 3H2O (Bi-Mo catalyst) | Gateway to MABS plastics, acrylic fiber, and ABS polymer; links propylene to engineering plastics |
 | Phenol-formaldehyde condensation (Bakelite) | Phenol + formaldehyde -> Bakelite resin + water | Early synthetic plastic; electrical insulators, high-temp components |
 | Nylon 6,6 condensation | Adipic acid + hexamethylenediamine -> nylon 6,6 + water | Later polymer route |
-| Epoxy resin production | Bisphenol A + epichlorohydrin -> epoxy resin | Candidate resin chemistry; replaces the earlier oversimplified phenol/formaldehyde note |
+| Epoxy resin production | Bisphenol A + epichlorohydrin -> epoxy resin | Candidate resin chemistry; downstream polymer route remains open |
 | Fluoropolymer production | Tetrafluoroethylene polymerization -> PTFE-like polymer | Candidate cleanroom/chemical-service material; monomer route remains open |
 | Bayer alumina refining | Bauxite digestion in NaOH -> sodium aluminate liquor -> Al(OH)3 precipitation -> calcination to Al2O3 | Dedicated aluminum exception; residue and caustic recovery matter |
 | Hall-Heroult electrolysis | 2Al2O3 + 3C -> 4Al + 3CO2 (simplified net reaction) | Dedicated aluminum metal-production step; sustained power requirement |
@@ -193,11 +195,11 @@ Several entries are mixtures or industrial product classes rather than pure comp
 | Uranium fuel conversion | Uranium concentrate -> uranium oxide fuel intermediates | Candidate fission chemistry; detailed fuel-cycle design stays in the nuclear product branch |
 | Lithium breeder processing | Lithium mineral/brine -> lithium-bearing blanket material -> bred tritium recovery | Fusion-linked candidate; neutron breeding is nuclear physics, not a chemical reaction |
 
-This registry is intentionally broad so the proposal's scale is visible. Promotion to the approved design still requires your review and a documented use path for each product or intermediate.
+This registry is intentionally broad to make the current process concepts visible. Promotion of a product or intermediate to a required design element still needs a documented use path and validation.
 
 ## Open Decisions and Validation
 
-- Decide which later process families and candidate products belong in core scope versus an extension or remain out of scope.
+- The current process-family concepts are in Core scope under ADR-0024. Validate product entries, reactions, routes, and any process concepts added later separately; do not infer recipe approval from scope inclusion.
 - Reconcile the candidate reaction and research-intermediate counts with the shared product taxonomy; the current approximate counts are not targets.
 - Validate chemical coproducts, reagent recovery, and stable sinks against the no-required-voiding principle.
 - Confirm each retained chemistry product has a downstream use and an owning product-tree entry.

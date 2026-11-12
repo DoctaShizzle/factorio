@@ -5,7 +5,7 @@
 *Owner: Minerals and refining*
 *Last updated: 2026-11-12*
 
-Related documents: [Map and World Generation](map-world-generation.md), [Chemical Products and Processes](chemical-processes.md), and [Intermediate Products](intermediate-products.md).
+Related documents: [Map and World Generation](map-world-generation.md), [Chemical Products and Processes](chemical-processes.md), and [Intermediate Products](intermediate-products.md). Related ADRs: [ADR-0021](adrs/ADR-0021-phase-2-material-and-solar-boundaries.md) for material and brine phase boundaries, [ADR-0022](adrs/ADR-0022-phase-2-bridge-mappings-and-core-dependencies.md) for the pre-Core polysilicon precursor, [ADR-0023](adrs/ADR-0023-thorium-startup-seed-and-breeding-model.md) for the selected thorium fuel-cycle model, [ADR-0027](adrs/ADR-0027-phase-2-contemporary-chipmaking-material-stack.md) for required Phase 2 semiconductor material families, [ADR-0028](adrs/ADR-0028-phase-2-core-cpu-material-dependencies.md) for their use on the standard CPU path, [ADR-0029](adrs/ADR-0029-phase-2-semiconductor-mineral-feed-families.md) for selected mineral feed families, and [ADR-0030](adrs/ADR-0030-early-access-to-semiconductor-feed-deposits.md) for limited early/mid-Phase-2 access to zircon and columbite-tantalite.
 
 > **Draft catalog v0.4:** Use real mineral/resource names and real geological deposit classes as identifiers; this draft does not assign invented site names. Recovery associations are candidate gameplay mappings, not claims that every specimen contains each listed element. Exact assays, ratios, and recipe availability remain to be validated.
 
@@ -21,7 +21,7 @@ This document catalogs the mining and refining scope: three tiers of deposits (s
 
 The deposit roster, recovery associations, pure-material inventory, and route exceptions below are candidates, not a final approved product list or chemical formula table. The draft uses real mineral/resource and geological deposit names; recovery roles are gameplay mappings to validate, not universal claims about every specimen. Exact assays, yields, recipe quantities, and recipe availability remain undecided.
 
-The working scope is approximately 36 deposit types across three tiers, with a broader Phase 2 intermediate cap of approximately 50–60 products. These figures are design assumptions for review, not approved catalog targets. Add a deposit or refined material only when it enables a capability, meaningful choice, or progression need; geological existence alone is not sufficient.
+The current draft lists approximately 36 deposit types across three tiers; this is an inventory estimate, not a target or cap. Refined-product scope follows capability, meaningful choice, and progression needs rather than a fixed count; geological existence alone is not sufficient.
 
 Chemical products and manufactured alloys/components are owned by their linked domain documents. This document owns mined feeds, mineral recovery, mineral-derived pure materials, and reusable refining route patterns.
 
@@ -33,7 +33,7 @@ The tiers describe deposit/feed profiles. The same mineral may occur in multiple
 
 #### Scope Boundaries
 
-The mineral catalog is bounded by the Phase 2 intermediate cap (~50-60 total). Every deposit type must earn its place through gameplay value — either enabling a unique capability or creating a meaningful tradeoff. The current roster of ~36 deposit types across 3 tiers stays within cognitive capacity for fluent vanilla players.
+The mineral catalog is bounded by validated gameplay capabilities, not by a Phase 2 intermediate cap. Every deposit type must earn its place through gameplay value — either enabling a unique capability or creating a meaningful tradeoff. The current roster of approximately 36 deposit types across 3 tiers is an unvalidated inventory estimate.
 
 | Scope | Bound By |
 |---|---|
@@ -152,6 +152,8 @@ This is the consolidated candidate list of refined mineral products represented 
 | Precious and catalyst metals | Gold, silver, platinum, palladium, rhodium |
 | Specialty and semiconductor metals | Gallium, germanium, indium, cadmium, tungsten, molybdenum, rhenium, niobium, tantalum, beryllium, zirconium, hafnium |
 | Chemical and battery feedstocks | Lithium carbonate / hydroxide, sodium chloride / sodium compounds, potassium chloride, phosphorus / phosphate, boron compounds, fluorine-bearing feedstocks, bromine compounds |
+
+Under [ADR-0027](adrs/ADR-0027-phase-2-contemporary-chipmaking-material-stack.md) and [ADR-0028](adrs/ADR-0028-phase-2-core-cpu-material-dependencies.md), the standard late-Phase-2 CPU path for initial Core supply requires silicon, hafnium, tantalum, and copper material families. Their feed-family assignments are selected in [ADR-0029](adrs/ADR-0029-phase-2-semiconductor-mineral-feed-families.md): quartz for metallurgical silicon, zircon for hafnium as a secondary product, columbite-tantalite for tantalum as a secondary product, and copper-bearing deposits (malachite, chalcopyrite, and pentlandite) as eligible copper sources. Limited zircon and columbite-tantalite supply must be reachable by early/mid Phase 2 under [ADR-0030](adrs/ADR-0030-early-access-to-semiconductor-feed-deposits.md); exact ore mix, extraction/separation/refining routes, grades, yields, quantities, and phase gates remain open.
 | Rare, radioactive, and trace | Uranium, thorium, cerium, lanthanum, neodymium, yttrium, selenium, tellurium, arsenic |
 | Other recovered compounds | Carbon dioxide, water |
 
@@ -182,14 +184,14 @@ This is the consolidated candidate list of refined mineral products represented 
 
 ### Dedicated Exceptions
 
-- **Aluminum:** Bayer digestion and Hall-Heroult electrolysis; a distinctive chemical-refining and power capability.
+- **Aluminum and alumina:** Bayer digestion and Hall-Heroult electrolysis are Phase 2-or-later capabilities under [ADR-0021](adrs/ADR-0021-phase-2-material-and-solar-boundaries.md). Neither aluminum nor alumina is a Phase 1 material prerequisite; Phase 1 equipment uses basic refractory.
 - **Titanium:** Kroll reduction as a late, capital-intensive capability.
 - **Rare earths and platinum-group metals:** staged concentrate separation and residue recovery, not a generic one-step route.
 - **Semiconductor silicon:** metallurgical silicon, chlorosilane purification, polysilicon, and wafer growth belong to the semiconductor chain, not the common ore route.
 
 #### Exception Candidates to Evaluate
 
-- **Lithium brines:** spodumene can use the chemical-extraction route, while brines may need evaporation/concentration and precipitation. Treat this as a source-specific branch only if brines are included as a meaningful mineable feed.
+- **Lithium from brines:** Salt/brine is reachable by early Phase 2, with basic extraction/evaporation; chlor-alkali remains Phase 2. Lithium recovery from brines, beyond the accepted basic salt/brine access, remains a source-specific route candidate. Spodumene remains a separate chemical-extraction path.
 - **Nb-Ta and Zr-Hf separation:** these chemically similar element pairs may justify dedicated late separation steps after shared concentration. They do not need separate end-to-end ore routes.
 - **Ga, Ge, In, and Re:** keep these as residue/byproduct recovery capabilities within aluminum, zinc, coal, and molybdenum chains, rather than creating a bespoke primary route for each.
 

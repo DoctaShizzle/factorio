@@ -5,7 +5,7 @@
 *Owner: Cross-domain non-building product catalog*
 *Last updated: 2026-11-12*
 
-Related documents: [Minerals and Refining](minerals-and-refining.md) for mined feeds and mineral-derived products; [Chemical Products and Processes](chemical-processes.md) for reactions and chemical feeds; [Infrastructure](infrastructure.md) for candidate placeable equipment families and construction hypotheses. Related ADRs: [ADR-0006](adrs/ADR-0006-capability-based-intermediate-scope.md), [ADR-0007](adrs/ADR-0007-rhenium-reaction-dynamics-bridge.md), [ADR-0008](adrs/ADR-0008-factorio-product-family-coverage.md), [ADR-0016](adrs/ADR-0016-late-game-defense-drones.md), and [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md). Exact product-to-machine assignments remain open.
+Related documents: [Minerals and Refining](minerals-and-refining.md) for mined feeds and mineral-derived products; [Chemical Products and Processes](chemical-processes.md) for reactions and chemical feeds; [Infrastructure](infrastructure.md) for candidate placeable equipment families and construction hypotheses. Related ADRs: [ADR-0006](adrs/ADR-0006-capability-based-intermediate-scope.md), [ADR-0007](adrs/ADR-0007-rhenium-reaction-dynamics-bridge.md), [ADR-0008](adrs/ADR-0008-factorio-product-family-coverage.md), [ADR-0016](adrs/ADR-0016-late-game-defense-drones.md), [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md), [ADR-0021](adrs/ADR-0021-phase-2-material-and-solar-boundaries.md), [ADR-0022](adrs/ADR-0022-phase-2-bridge-mappings-and-core-dependencies.md), [ADR-0023](adrs/ADR-0023-thorium-startup-seed-and-breeding-model.md), [ADR-0024](adrs/ADR-0024-include-chemical-process-concepts-in-core-scope.md), [ADR-0025](adrs/ADR-0025-phase-2-cpu-supply-and-superconducting-core-compute.md), [ADR-0026](adrs/ADR-0026-phase-2-contemporary-semiconductor-capability.md), [ADR-0027](adrs/ADR-0027-phase-2-contemporary-chipmaking-material-stack.md), [ADR-0028](adrs/ADR-0028-phase-2-core-cpu-material-dependencies.md), and [ADR-0029](adrs/ADR-0029-phase-2-semiconductor-mineral-feed-families.md). Exact product-to-machine assignments remain open.
 
 ## Summary
 
@@ -112,20 +112,20 @@ Armor items, wearable or personal equipment, armor utilities, and equipment modu
 
 The following are candidate material products used to construct or operate dedicated research facilities. They are not themselves research ingredients: the facility produces the research pack or data item. The relevant research mechanics and gates remain in [Research and Progression](research-progression.md).
 
-**Current direction:** The bridge set contains six candidate products for the six-domain roster, including the committed rhenium-catalyst selection, as recorded in [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md). Product-to-facility assignments remain candidate mappings; additional supporting materials and exact construction/operation requirements remain open.
+**Current direction:** Six Phase 2 bridge products and their one-to-one facility mappings are selected in [ADR-0022](adrs/ADR-0022-phase-2-bridge-mappings-and-core-dependencies.md). These are bridge selections, not finalized recipes, yields, or technology assignments; additional supporting materials and exact construction/operation requirements remain open.
 
-Each product requires deep Phase 1 capability (high-purity processing, isotopic separation, cryogenics). Every description follows the design guideline from [mod-overview.md](mod-overview.md): a concrete physical property ("what happens") followed by its implication ("why it matters").
+Each product requires an early-Phase-2 production capability; exact recipes, yields, alternate routes, and process machinery remain open. The electronic-grade polysilicon bridge is a precursor, not a complete processor route; conventional CPU-grade packaged processors are a late-Phase-2 capability under ADR-0025. Every description follows the design guideline from [mod-overview.md](mod-overview.md): a concrete physical property ("what happens") followed by its implication ("why it matters").
 
 | Product | Candidate inputs / route | Industrial role & capability unlock | Description hook |
 |---|---|---|---|
-| Electronic-grade polysilicon | Metallurgical silicon → chlorosilane purification → deposition (4–6N purity) | Wafer fabrication gateway; enables Superconductivity Research Lab. | Silicon purified to a level where every impurity matters — one wrong atom in a billion changes how it conducts electricity. At this purity, you can *choose* which state it's in by adding the right trace element. |
+| Electronic-grade polysilicon | Metallurgical silicon → chlorosilane purification → deposition (exact purity target open) | Semiconductor precursor; selected bridge for the Superconductivity Research Lab. | Silicon purified to a level where every impurity matters — one wrong atom in a billion changes how it conducts electricity. At this purity, you can *choose* which state it's in by adding the right trace element. |
 | Nb₃Sn superconducting wire | Niobium + tin/silver alloy → wire drawing + cryogenic treatment | High-field magnet material; enables Plasma Confinement Facility. | When cooled below a threshold, this alloy carries electric current with zero resistance — and generates magnetic fields strong enough to confine plasma at temperatures hotter than the sun's core. It's one of the few materials that can survive both. |
 | Hafnium-oxide (HfO₂) dielectric | Hafnium from zirconium-bearing feed → oxide conversion → high-purity deposition | Cleanroom fabrication gate; enables Nanofabrication Laboratory. | At thicknesses approaching a single molecule, hafnium oxide becomes one of the most effective electrical insulators known — yet it conducts heat well enough to prevent the structure it protects from melting. It solves a problem classical materials couldn't. |
-| Deuterium-enriched water (D₂O) | Brine/water → large-scale electrolysis → isotopic enrichment | Fusion fuel feedstock + neutron moderator; enables Isotope Separation & Calibration Lab. | Water where the hydrogen atoms carry an extra neutron — heavy enough that it behaves differently in nuclear reactions. A single drop can reveal how neutrons interact with matter, information no ordinary element provides. |
-| High-purity cryogenic argon/nitrogen mixture | Air → multi-stage refrigeration cascade → cryogenic distillation | Superconducting cooling infrastructure + low-temperature experiments; enables Quantum States Laboratory. | Gases cooled to within degrees of absolute zero — the point where thermal noise disappears and quantum effects become macroscopically visible. Below certain temperatures, matter stops behaving like particles and starts behaving like waves. |
+| Deuterium-enriched water (D₂O) | Brine/water → large-scale electrolysis → isotopic enrichment | Isotope and calibration research; selected bridge for the Isotope Separation & Calibration Lab. | Water where the hydrogen atoms carry an extra neutron — heavy enough that it behaves differently in nuclear reactions. A single drop can reveal how neutrons interact with matter, information no ordinary element provides. |
+| High-purity cryogenic argon/nitrogen mixture | Air → multi-stage refrigeration cascade → cryogenic distillation | Cryogenic research input; selected bridge for the Quantum States Laboratory. | Gases cooled to within degrees of absolute zero — the point where thermal noise disappears and quantum effects become macroscopically visible. Below certain temperatures, matter stops behaving like particles and starts behaving like waves. |
 | High-performance rhenium-catalyst powder | Molybdenite concentrate → acid attack + solvent extraction from MoS₂ residue → high-purity rhenium powder reduction → catalyst bed preparation with controlled particle size | Reaction Dynamics gate; enables Reaction Dynamics Facility. Product selection is recorded in [ADR-0007](adrs/ADR-0007-rhenium-reaction-dynamics-bridge.md); its detailed route remains provisional. | Description hook not yet drafted. |
 
-**Domain distribution:** Six bridge products are the current direction for the six listed research facilities. Product-to-facility mapping, recipes, and supporting inputs remain open; see [Research and Progression](research-progression.md).
+**Domain distribution:** The six one-to-one bridge mappings are selected in ADR-0022 and summarized in [Research and Progression](research-progression.md). Recipes, additional construction and operating materials, and technology assignments remain open.
 
 ### Research Ingredients and Data Products
 
@@ -142,20 +142,22 @@ Research ingredients are a separate product family from the materials used to co
 | High-k dielectric compounds | Hafnium- or aluminum-based precursors and deposition | Advanced transistor insulation |
 | Copper / tantalum-nitride interconnect stack | Ultra-pure copper and tantalum compounds | Reliable chip wiring and diffusion barrier |
 | Tantalum capacitor powder and capacitors | Refined tantalum and capacitor fabrication | Compact, reliable electronics for control and computing |
-| Packaged integrated circuits | Fabricated dies, packaging materials, electrical contacts | Automation, PLCs, and advanced factory equipment |
+| Packaged integrated circuits | Fabricated dies, packaging materials, electrical contacts | Conventional CPU-grade packages are available by late Phase 2 for factory automation and the initial Core; exact production route remains open |
+
+Electronic-grade polysilicon remains a Phase 2 precursor bridge. Conventional CPU-grade packaged processors are available by late Phase 2 under [ADR-0025](adrs/ADR-0025-phase-2-cpu-supply-and-superconducting-core-compute.md), and full contemporary cleanroom and advanced chipmaking capability belongs in Phase 2 under [ADR-0026](adrs/ADR-0026-phase-2-contemporary-semiconductor-capability.md). The required Phase 2 chipmaking material families are silicon wafers, lithography chemistry, HfO₂ dielectric, Cu/TaN interconnect, and package materials under [ADR-0027](adrs/ADR-0027-phase-2-contemporary-chipmaking-material-stack.md); all five must be used by the standard late-Phase-2 CPU path for initial Core supply under [ADR-0028](adrs/ADR-0028-phase-2-core-cpu-material-dependencies.md). Mineral feed-family assignments for silicon, hafnium, tantalum, and copper are selected under [ADR-0029](adrs/ADR-0029-phase-2-semiconductor-mineral-feed-families.md); detailed extraction/refining routes, grades, quantities, and recipe details remain open. Josephson/SFQ compute is a later Core upgrade, with its materials and production path open. The first-Core alignment mechanism is non-semiconductor; its exact product form and source remain open.
 
 Tantalum's circuit role should be distinct from its mineral recovery: concentrate it from niobium-tantalum feeds, refine it, then use it for capacitor products and selected chip components.
 
 ### Nuclear Materials and Assemblies
 
-There is no single universal reactor bill of materials. These are candidate capabilities for the mod's fission and fusion systems; select a coherent reactor family rather than combining every real-world option.
+There is no single universal reactor bill of materials. The Phase 2 power design has distinct uranium and thorium-cycle options. These remain candidate material capabilities rather than finalized bills of materials; select a coherent reactor family rather than combining every real-world option. The selected thorium gameplay model begins with a uranium-derived fissile startup seed, then breeds and reprocesses U-233 without a continuous uranium top-up; exact routes and balances remain open under [ADR-0023](adrs/ADR-0023-thorium-startup-seed-and-breeding-model.md).
 
 #### Fission
 
 | Product | Candidate inputs / route | Role and design hook |
 | --- | --- | --- |
 | Uranium oxide fuel | Uranium concentrate, conversion, and fuel fabrication | Main fission fuel path; enrichment and recycling are optional progression decisions |
-| Optional thorium fuel cycle | Thorium-bearing monazite, irradiation/breeding, and U-233 fuel fabrication | Alternative long-horizon fuel capability, not a simple direct thorium burn recipe |
+| Thorium breeder fuel | Th-232 feedstock, uranium-derived fissile startup seed, U-233 breeding/reprocessing | Selected gameplay route uses a startup seed and no continuous uranium-fuel top-up; seed quantity, breeding balance, processing, and waste remain open |
 | Zirconium-alloy cladding | Zircon concentrate, Zr/Hf separation, alloying | Low-neutron-absorption fuel-rod cladding; high-purity zirconium is the goal |
 | Hafnium absorber components | Hafnium separated from zirconium-bearing feed | Neutron-absorbing control material; a valuable co-product rather than waste |
 | Boron-carbide absorber parts | Boron compounds and carbon | Alternative neutron absorber for control assemblies |
@@ -182,7 +184,7 @@ The facility network and its buildable components are described in [Endgame Visi
 
 | Product | Candidate inputs / route | Industrial role |
 | --- | --- | --- |
-| **Unified Metrology Reference Array** | Nb₃Sn wire + electronic-grade polysilicon; D₂O + enriched fuel stock; rhenium-catalyst powder + graphite support; cryogenic Ar/N₂ mixture + noble-gas purification | Candidate non-building reference instrument combining six physics measurement zones; required for calibrated Core activation. Its detailed physical concept is in [Endgame Vision](endgame-vision.md); former candidate quantities are preserved, not approved, in [ADR-0009](adrs/ADR-0009-endgame-assembly-proposals.md). |
+| **Unified Metrology Reference Array** | Nb₃Sn wire + electronic-grade polysilicon; D₂O + neutron-reference materials (specific inputs open); rhenium-catalyst powder + graphite support; cryogenic Ar/N₂ mixture + noble-gas purification | Candidate non-building reference instrument combining six physics measurement zones; required for calibrated Core activation. Exact inputs and recipe remain open; enriched fission fuel is not a first-Core prerequisite under ADR-0022. Its detailed physical concept is in [Endgame Vision](endgame-vision.md). |
 
 Other candidate endgame assemblies whose item/entity form is unresolved remain in the Infrastructure inventory until their constructable classification is settled.
 
@@ -223,14 +225,14 @@ This is a recipe-family inventory, not a finalized recipe book. It records the c
 | Patterned wafer | Wafer + photoresist + specialty process gases -> patterned wafer | Circuit fabrication |
 | Copper/tantalum-nitride interconnect | Ultra-pure copper + tantalum compound -> deposited interconnect stack | Chip wiring and diffusion barrier |
 | Tantalum capacitor | Refined tantalum -> capacitor powder/anode + dielectric and packaging | Compact electronics |
-| Packaged integrated circuit | Fabricated die + contacts + package -> packaged IC | PLCs, factory automation, and computation |
+| Packaged integrated circuit | Fabricated die + contacts + package -> packaged IC | Conventional CPU-grade packages by late Phase 2 for factory automation and initial Core computation |
 
 ### Recipe Pathways: Nuclear Materials
 
 | Candidate output | Provisional recipe pathway | Product use |
 | --- | --- | --- |
 | Uranium oxide fuel pellet | Uranium concentrate -> fuel conversion -> UO2 powder -> pressed/sintered pellet | Fission fuel assembly |
-| Thorium-cycle fuel | Thorium-bearing feed -> optional breeding/conversion route -> U-233-bearing fuel | Optional alternative fission cycle |
+| Thorium-cycle fuel | Th-232 feed + uranium-derived fissile startup seed -> breeding and reprocessing -> U-233-bearing fuel | Selected gameplay model starts with a fissile seed; no continuous uranium top-up is assumed, while process route and material balance remain open |
 | Zirconium-alloy cladding | Zircon concentrate -> Zr/Hf separation -> zirconium sponge/alloy -> cladding | Fuel-rod cladding |
 | Hafnium absorber | Hafnium-bearing separation stream -> refined hafnium -> absorber component | Neutron-control assembly |
 | Boron-carbide absorber | Boron compound + carbon -> B4C component | Alternative neutron-control assembly |
@@ -260,7 +262,7 @@ This is a recipe-family inventory, not a finalized recipe book. It records the c
 
 ## Open Decisions and Validation
 
-- Map the six candidate bridge products, including rhenium, to the six domain facilities and confirm their roles, supporting inputs, and research gates; the selected count is recorded in [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md).
+- Validate production routes for the six selected bridge products and identify their additional construction/operating inputs and research gates; the one-to-one mappings are recorded in [ADR-0022](adrs/ADR-0022-phase-2-bridge-mappings-and-core-dependencies.md).
 - Decide which candidate materials, components, batteries, nuclear assemblies, and endgame products have a required downstream use.
 - Select battery, fission, and fusion configurations without treating every real-world option as mandatory.
 - Define whether the optional spider-bot vehicle and power-suit equipment belong in the advanced military extension; do not reintroduce the rejected military drone products.

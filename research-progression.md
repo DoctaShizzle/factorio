@@ -1,11 +1,11 @@
 # Research and Progression — Design Proposal
 
 *For: Factorio Overhaul Mod (Project Prometheus)*  
-*Status: Working design; six domains are the current roster. Core Level 2/3 gates, pack tiers, bridge mappings, technology assignments, and timing remain open.*
+*Status: Working design; six domains are the current roster. Seven distinct domain-pack tiers, the first-Core gate, and the six bridge mappings are selected. Exact pack inputs, routes, supporting materials, higher Core gates, technology assignments, and timing remain open.*
 *Last updated: 2026-11-12*
 
 Related documents: [Mod Overview](mod-overview.md) for cross-domain direction; [Endgame Vision](endgame-vision.md) for the planetary simulation network; [Infrastructure](infrastructure.md) for candidate machine families and placeable facilities.
-Related ADRs: [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md) for first-Core prerequisites and [ADR-0018](adrs/ADR-0018-phase-3-and-4-power-route-roster-and-conversion.md) for Phase 3/4 power routes and converters.
+Related ADRs: [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md) for first-Core prerequisites, [ADR-0020](adrs/ADR-0020-seven-distinct-domain-pack-tiers.md) for the seven-tier structure, [ADR-0021](adrs/ADR-0021-phase-2-material-and-solar-boundaries.md) for the Phase 2 material trunk, [ADR-0022](adrs/ADR-0022-phase-2-bridge-mappings-and-core-dependencies.md) for bridge mappings and Core dependencies, [ADR-0025](adrs/ADR-0025-phase-2-cpu-supply-and-superconducting-core-compute.md) for CPU availability and later superconducting compute, [ADR-0026](adrs/ADR-0026-phase-2-contemporary-semiconductor-capability.md) for Phase 2 contemporary chipmaking capability, [ADR-0027](adrs/ADR-0027-phase-2-contemporary-chipmaking-material-stack.md) for required semiconductor material families, [ADR-0028](adrs/ADR-0028-phase-2-core-cpu-material-dependencies.md) for the standard CPU path's material dependencies, [ADR-0029](adrs/ADR-0029-phase-2-semiconductor-mineral-feed-families.md) for selected mineral feed families, and [ADR-0018](adrs/ADR-0018-phase-3-and-4-power-route-roster-and-conversion.md) for Phase 3/4 power routes and converters.
 
 ## Summary
 
@@ -28,7 +28,7 @@ The phase structure and duration estimates below are proposals, not an accepted 
 | Phase | Research Mechanism | Scope | Player identity |
 |---|---|---|---|
 | **Phase 1: Conventional** | Standard tech tree using science packs | First ~30–40 hours. Establishes baseline industrial capability, teaching mechanics and setting up the factory for transition | Factory builder following recipe chains |
-| **Phase 2: Transitional (Domain Science)** | Hybrid system — conventional science packs continue but new *domain science packs* are introduced as additional gates; each domain has a five-tier pack progression that stretches Phase 2 through deep industrial investment | ~180–200 hours. The borders between phases stay intentionally vague rather than a hard gate at Fission → Fusion. As conventional industry hits the physics wall and simulation help becomes necessary, the player produces progressively deeper domain packs across all six domains — balanced investment is forced by the design | Industrial engineer choosing processes |
+| **Phase 2: Transitional (Domain Science)** | Hybrid system — conventional science packs continue alongside four distinct pre-Core domain-pack tiers per domain: T1, T2a, T2b1, and T2b2 | ~180–200 hours. The borders between phases stay intentionally vague rather than a hard gate at Fission → Fusion. As conventional industry hits the physics wall and simulation help becomes necessary, the player produces progressively deeper domain packs across all six domains — balanced investment is forced by the design | Industrial engineer choosing processes |
 | **Phase 3: Simulation-Gated** | Full research loop — domain datasets → Planetary Simulation Core runs models → findings unlock technologies. Domain pack tiers T3a–T3c produced using Core infrastructure, scaling in requirement to maintain engagement | ~70–100 hours. The simulation network consumes increasingly advanced domain packs to reach higher fidelity states; player expands Phase 2 industrial base to feed the loop. Some conventional technology remains available as an alternative path for capabilities that don't require new physics | Industrial engineer who must *understand* the universe to manipulate it |
 
 ### Why This Shape?
@@ -59,7 +59,7 @@ Phase 2 (Domain Science)
 
 Transition Point: First compute capacity commissioned, first simulation model run
 Phase 3 (Simulation-Gated)
-├── Planetary/Industrial Model gates cleanrooms, advanced materials
+├── Planetary/Industrial Model gates beyond-current-day capabilities and advanced materials
 ├── Domain datasets from real facilities → Core runs models → findings unlock tech
 ├── Information-Based Model gates deep infrastructure and control tools
 ├── General-Physics Model supports late-game power research; Hawking is one accepted route, with its gate still open
@@ -92,46 +92,48 @@ Conventional science packs continue to function but domain science packs are int
 ### Candidate Domain Science Pack Design
 Domain science packs are produced by **dedicated research buildings** (modeled after Space Exploration's domain labs), not by running industrial machinery. These buildings function mechanically identically to existing science pack factories — they process materials over time → output a science pack item — but the semantic layer ("measurements" or "results of experiments") is handled through naming and informatron descriptions, not additional game systems.
 
-**Industrial products are prerequisites.** The current bridge set has six candidate products for the six-domain roster: electronic-grade polysilicon, Nb₃Sn wire, HfO₂ dielectric, D₂O, cryogenic argon/nitrogen, and high-performance rhenium-catalyst powder. The candidate facility associations are recorded in [Intermediate Products](intermediate-products.md). Additional inputs shown below may support construction or operation; their mapping is not a one-to-one recipe commitment. The player produces materials to construct and operate research facilities; the facilities generate domain packs as output. This separation means:
+**Industrial products are prerequisites.** Six Phase 2 bridge products are selected for the six-domain roster, with one-to-one facility mappings recorded in [ADR-0022](adrs/ADR-0022-phase-2-bridge-mappings-and-core-dependencies.md) and [Intermediate Products](intermediate-products.md). Additional construction and operating inputs remain candidates, not accepted recipe requirements. The player produces materials to construct and operate research facilities; the facilities generate domain packs as output. This separation means:
 - **Phase 2 products = materials** (industrial outputs, factory engineering problems). They enable the *capability* to build and operate a research facility.
 - **Research buildings = dedicated science pack generators** (like any other production line). They consume raw inputs over time and produce domain packs as output.
 
 Key design points for each dedicated research facility:
 
-| Facility | Produces | Phase 2 material prerequisite | Scientific field demonstrated |
+| Facility | Produces | Selected Phase 2 bridge product | Scientific field demonstrated |
 |---|---|---|---|
-| Superconductivity Research Lab | Domain data on superconductive states and critical currents | Electronic-grade polysilicon + Nb₃Sn wire | Condensed matter physics — zero-resistance current flow, magnetic confinement |
-| Plasma Confinement Facility | Domain data on ionized gas behavior and field dynamics | Nb₃Sn wire + cryogenic infrastructure | Applied electromagnetism — high-field magnet operation, plasma stability |
+| Superconductivity Research Lab | Domain data on superconductive states and critical currents | Electronic-grade polysilicon | Condensed matter physics — zero-resistance current flow, magnetic confinement |
+| Plasma Confinement Facility | Domain data on ionized gas behavior and field dynamics | Nb₃Sn wire | Applied electromagnetism — high-field magnet operation, plasma stability |
 | Nanofabrication Laboratory | Domain data on materials at atomic-scale dimensions | Hafnium-oxide (HfO₂) dielectric | Materials science — surface science, nanoscale behavior, quantum tunneling |
-| Isotope Separation & Calibration Lab | Domain data on nuclear interactions and decay pathways | Deuterium-enriched water (D₂O) + enriched fuel stock | Particle physics — neutron interaction modeling, weak/strong force phenomena |
-| Reaction Dynamics Facility | Domain data on reaction rates, catalysis, and equilibrium states | High-performance rhenium-catalyst powder (from molybdenite trace recovery) | Chemical kinetics — how reactions move, not just that they occur |
-| Quantum States Laboratory | Domain data on atomic bonding, crystalline structures, and quantum states | High-purity cryogenic mixture + purified noble gases | Quantum mechanics — atomic structure, bond formation, phase transitions at low temperature |
+| Isotope Separation & Calibration Lab | Domain data on nuclear interactions and decay pathways | Deuterium-enriched water (D₂O) | Particle physics — neutron interaction modeling, weak/strong force phenomena |
+| Reaction Dynamics Facility | Domain data on reaction rates, catalysis, and equilibrium states | High-performance rhenium-catalyst powder | Chemical kinetics — how reactions move, not just that they occur |
+| Quantum States Laboratory | Domain data on atomic bonding, crystalline structures, and quantum states | Cryogenic argon/nitrogen mixture | Quantum mechanics — atomic structure, bond formation, phase transitions at low temperature |
+
+These are selected bridge mappings, not complete facility bills of materials. No enriched fission fuel is required for the isotope facility or first-Core gate; other operating inputs remain open.
 
 **Candidate facility-quality mechanic:** A research facility with better materials and operating conditions could produce more domain packs than a makeshift setup. This remains a proposal, not a required mechanic.
 
-#### Candidate Domain Pack Tiers — Distinct Items per Tier (Not Alt Recipes)
+#### Domain Pack Tiers — Seven Distinct Items per Domain
 
-The candidate domain-pack progression has a tier-count conflict: the current prose and progression table describe five and seven tiers, respectively. Item identities, tier count, and upgrade mechanics remain unresolved.
+The accepted structure has seven distinct domain-pack items per domain, not alternate recipes: T1, T2a, T2b1, T2b2, T3a, T3b, and T3c. The first four are pre-Core Phase 2 tiers; the final three follow first-Core activation in Phase 3. Example names below are illustrative. Exact item names, materials, recipes, and later Core-level gates remain open.
 
-**Naming convention per domain:** `[Domain] [Tier Descriptor]` — e.g., *Superconductivity Observation Log*, *Superconductivity Analysis Dossier*, *Superconductivity Condition Survey*, *Superconductivity Cross-Reference Study*, *Superconductivity Simulation Record*. The tier descriptor is consistent across all domains for recognizability without sacrificing domain identity.
+| Tier | Example item name (Superconductivity) | Material-trunk position | What it represents |
+|---|---|---|---|
+| **T1** | `Superconductivity Observation Log` | Early Phase 2 entry: foundational refined materials and basic process inputs; exact pack inputs remain open | Initial observation of the domain phenomenon |
+| **T2a** | `Superconductivity Analysis Dossier` | The first domain-specific bridge product; the six mappings are selected in ADR-0022 | First analysis calibrated against a manufactured material |
+| **T2b1** | `Superconductivity Condition Survey` | Deeper domain-specific refinement or processing capability; exact intermediate remains open | Mapping the primary boundary conditions |
+| **T2b2** | `Superconductivity Cross-Reference Study` | Cross-domain, high-purity Phase 2 materials; all six domains reach this tier before the first Core | Cross-calibration against related domains |
+| **T3a** | `Superconductivity Simulation Record` | Post-Core: initial Core-produced model or infrastructure output re-enters the domain chain; exact item remains open | Simulation extends the measured understanding |
+| **T3b** | `Superconductivity Calibration Report` | Post-Core: higher-fidelity calibration against production or experimental data; Core Level 2 gate remains open | Simulation results are checked against benchmarks |
+| **T3c** | `Superconductivity Synthesis Report` | Post-Core: convergent materials and results spanning multiple domains; Core Level 3 relationship remains open | Full multi-domain synthesis |
 
-| Tier | Item Name Pattern (example: Superconductivity) | Input Source | What It Represents |
-|------|---|---|---|
-| **T1** | `Superconductivity Observation Log` | Phase 1 products + basic bridge materials | "I observe this phenomenon" — raw observational data from the lab |
-| **T2a** | `Superconductivity Analysis Dossier` | T1 output + Phase 2 intermediates (electronic-grade polysilicon, Nb₃Sn wire) | "I've modeled it once" — first theoretical pass with material-specific calibration |
-| **T2b1** | `Superconductivity Condition Survey` | T2a output + one additional refined Phase 2 intermediate | "I understand the primary boundary conditions" — mapping what conditions the phenomenon operates under |
-| **T2b2** | `Superconductivity Cross-Reference Study` | T2b1 output + high-purity Phase 2 intermediates from adjacent domains | "I've cross-calibrated against related domains" — validating results across multiple domains |
-| **T3a** | `Superconductivity Simulation Record` | T2b2 output + basic Core infrastructure module | "The simulation has extended my understanding" — the simulation network produces its own model of this domain |
-| **T3b** | `Superconductivity Calibration Report` | T3a output + high-fidelity infrastructure item (Core-produced) | Simulation results checked against experimental benchmarks |
-| **T3c** | `Superconductivity Synthesis Report` | T3b output + convergence-level materials spanning multiple domains | "Full multi-domain synthesis" — required for Core Level 3 / final milestone |
+Conventional CPU-grade packaged processors are available by late Phase 2 for initial Core computation under [ADR-0025](adrs/ADR-0025-phase-2-cpu-supply-and-superconducting-core-compute.md). Full contemporary cleanroom and advanced semiconductor manufacturing also belongs in Phase 2 under [ADR-0026](adrs/ADR-0026-phase-2-contemporary-semiconductor-capability.md); exact routes, material grades, equipment, and research gates remain open. Josephson/SFQ superconducting compute is a later Core upgrade, not an activation prerequisite. Post-Core semiconductor progression is primarily for capabilities beyond current-day industry.
 
 #### Candidate Core Unlock Requirements (Per Domain)
 
 | Core Stage | Packs Required per Domain | Total Packs (~6 domains) | What It Unlocks |
 |-----------|--------------------------|--------------------------|------------------|
-| Core construction (first activation) | All 6 domains at T2b2 + **Unified Metrology Reference Array (convergence item)** → calibrated reference hardware mounted in Calibration Reference Frame | TBD; estimate requires reassessment for this gate | Thermal Frame + Computation Cluster installed; basic simulation model operational. Access to the Hawking route is a proposal; exact and alternative-route gates remain open. |
+| Core construction (first activation) | All 6 domains at T2b2 + **Unified Metrology Reference Array (convergence item)** → calibrated reference hardware mounted in Calibration Reference Frame | TBD; estimate requires reassessment for this gate | Thermal Frame + conventional CPU-based Computation Cluster + Calibration Reference Frame installed; basic simulation model operational. Josephson/SFQ compute is a later upgrade. Access to the Hawking route is a proposal; exact and alternative-route gates remain open. |
 | **Core Level 2** | Gate TBD; must follow first-Core construction | TBD; no estimate assigned | Quantum-state enhancement module + memory expansion + Integration Bus upgrade for faster satellite communication; higher-fidelity models and accelerated discovery |
-| **Core Level 3 / Final milestone** | All six domains at T3c | ~7,920+ packs over extended production (unvalidated estimate) | Multi-domain synthesis components fully integrated; Calibration Reference could model phenomena beyond known physics; general-physics discovery unlock |
+| **Core Level 3 / Final milestone (candidate)** | Proposed: all six domains at T3c; gate not selected | ~7,920+ packs over extended production (unvalidated estimate) | Multi-domain synthesis components fully integrated; Calibration Reference could model phenomena beyond known physics; general-physics discovery unlock |
 
 > The Core itself is a hybrid technology — requires both conventional science packs (real materials to build) and domain datasets (operational evidence the network functions). **Unified Metrology Reference Array** bridges both by integrating six genuine scientific instruments measuring real physical quantities.
 
@@ -141,7 +143,7 @@ Each Core level adds *new* research categories — different technology pools, n
 
 | Core Level | Breakthrough Category | Unlockable Tech Classes | Design Notes |
 |---|---|---|---|
-| **Level 1** (T2b2 minimum) | **Planetary + Industrial Model** — simulation can accurately model physical systems at planetary scale. Breakthrough: *predictive modeling of known physics.* | Cleanroom fabrication protocols, high-purity refining methods, semiconductor process chains, advanced materials science frameworks | First "we now have the data to go further" state. Simulation hasn't discovered new physics — it's proving it can reliably predict existing physics across all six domains. Gateway to Phase 3 research requiring cross-domain validation. |
+| **Level 1** (T2b2 minimum) | **Planetary + Industrial Model** — simulation can accurately model physical systems at planetary scale. Breakthrough: *predictive modeling of known physics.* | Capabilities beyond current-day industrial practice, advanced materials science, and possible Josephson/SFQ compute preparation | First "we now have the data to go further" state. Conventional CPU-grade processors and contemporary cleanroom/chipmaking are available by late Phase 2; Level 1 may unlock speculative capabilities beyond that boundary. |
 | **Level 2** (gate TBD) | **Information-Based Civilization Model** — simulation can model populations of information-formed entities whose behavior *emerges* from structure, not programming. Breakthrough: *understanding how structured data produces perception and decision-making.* | Deep simulation infrastructure designs, advanced factory control frameworks (PLC expansion), emergent-system modeling tools, behavioral dataset collection methods | The "new physics" here is that the simulation itself has proven it can model entities that perceive, decide, and act — not simulated AI but mathematical beings whose behavior emerges from their information structure. Moves player from "modeling physics" to "modeling intelligence." |
 | **Level 3** (T3c final milestone) | **General-Physics Model** — simulation has achieved sufficient fidelity that it can predict phenomena *beyond* known physics. Breakthrough: *access to cutting-edge theoretical knowledge the player's civilization cannot independently discover.* New physics frontiers unlocked. | Additional Phase 4 power-generation specifics (scope and gates still open), advanced quantum mechanics applications, exotic matter manipulation frameworks, general-physics research protocols | The **final milestone**. Simulation has validated itself against every known physics domain (Core L1), proven it can model emergent information structures (Core L2), and now reaches beyond — predicting phenomena that conventional science cannot reach. Unlocking "general-physics discovery" isn't a single recipe; it's *access* to research categories previously impossible. |
 
@@ -151,14 +153,14 @@ The **tip of the chain** for research purposes is small — ~30 intermediates ac
 
 | Tier | Intermediates Needed | Examples |
 |------|---------------------|----------|
-| **T1 (6 items)** | Phase 1 products + basic bridge materials (~6–8 distinct intermediates); accessible from early Phase 2 | Refined metals (iron, copper, aluminum), basic acids, simple solvents |
+| **T1 (6 items)** | Phase 1 products + foundational Phase 2 materials (~6–8 distinct intermediates); accessible from early Phase 2 | Refined metals (iron, copper, aluminum), basic acids, simple solvents |
 | **T2a (6 items)** | T1 output + Phase 2 intermediates (~10–15 distinct intermediates) | Electronic-grade polysilicon, Nb₃Sn wire, HfO₂ dielectric, D₂O, cryogenic mixtures, noble-gas purification |
 | **T2b1 (6 items)** | T2a output + one additional refined Phase 2 intermediate per domain (~8–10 distinct intermediates) | Domain-specific intermediate; specific material remains pending |
 | **T2b2 (6 items)** | T2b1 output + high-purity cross-domain intermediate (~6–8 distinct intermediates); requires materials from *adjacent* domains | High-purity cross-domain intermediate |
 | **T3a (6 items)** | T2b2 output + Core-produced infrastructure module (~3–5 distinct modules across all domains) | Modules from facilities built using Phase 2 products; activated after first Core construction |
 | **T3b → T3c** | Prior-tier outputs plus convergence-level multi-domain materials | Additional high-purity inputs from adjacent domains |
 
-Total estimated intermediates across all tiers: ~50–60 distinct items (including Phase 2 bridge materials). This is comparable to other overhaul mods' effective decision space — GTNH acknowledges the *effective* choice surface per player is ~40–50 categories, even if the theoretical roster is larger. The key constraint is **human cognitive capacity**: a player can only hold so many simultaneous processing decisions without fatigue. These 6 domains × 7 tiers with progressive revelation keep any given moment within that bound.
+The estimated ~50–60 intermediates across all tiers (including Phase 2 bridge materials) is an unvalidated planning hypothesis, not a cap or catalog target; intermediate scope follows [ADR-0006](adrs/ADR-0006-capability-based-intermediate-scope.md). Progressive revelation is intended to keep the simultaneous processing choices manageable.
 
 ### Why Domain Packs at This Phase?
 The transition zone is where the player has mastered conventional industry but hits the physics wall: they know *how* to run fission reactors but can't independently discover how to confine fusion plasma, synthesize cleanroom materials, or model advanced molecular processes. They need **domain-level understanding** — enough expertise in a field that simulation can build on it.
@@ -172,9 +174,9 @@ Whether domain packs are also physical inputs to the Array, and what gate applie
 
 **Duration estimate:** Phase 2 stretches ~180–200 hours within the 300+ hour ambition. The majority of this time comes from deep mineral → refinement → chemical chains needed for Phase 2 bridge materials, not from item count. Each domain pack tier traces back through multiple minerals and processing stages, generating hours through *depth per category*, not breadth all at once.
 
-#### Candidate Six-Domain Equal-Depth Requirement
+#### Six-Domain T2b2 Requirement
 
-The proposal is for all six domains to reach approximately equal depth. Balance could come from intermediate count or logistics complexity, according to each domain's needs; the requirement and its implementation remain open.
+The first-Core gate requires all six domains at T2b2 plus the Unified Metrology Reference Array under [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md). Pack output rates, logistics, and any additional balancing mechanics remain open.
 
 #### Candidate Phase 2 Freeze Gate
 
@@ -195,8 +197,8 @@ The draft, citing Bob's/Angel's as inspiration, proposes material-based machine 
 | **MTier 1** | Early-game metals + basic electronics | Basic recipes only (smelting, simple assembly) | Available from start — all Phase 1 players build these |
 | **MTier 2** | Intermediate metals + improved electronics | Unlocks intermediate processing steps requiring higher precision or temperature control | Requires Phase 2 bridge materials (steel → processed intermediates). Unlocks during Wave 1–2 of Phase 2 |
 | **MTier 3** | Advanced/corrosion-resistant alloys + advanced PCB | Unlocks chemical handling at scale, electrochemistry, high-temperature processes | Requires stainless steel processing + electronics chain. Available by Wave 2–3 of Phase 2; required to build the six domain labs |
-| **MTier 4** | High-performance alloys (titanium, etc.) + semiconductor-grade components | Deep chemistry, nuclear fuel fabrication, wafer production — capabilities between MTier 3 and cleanroom grade | Requires deeper Phase 2 processing. Available by Wave 3–4 of Phase 2 |
-| **MTier 5** | Ultra-pure/specialty alloys + semiconductor-grade components | Cleanroom-grade fabrication; Phase 3 Core infrastructure modules only | Requires materials from the deepest Phase 2/Phase 3 intermediate chains. Unlocks during Wave 4–5 or later |
+| **MTier 4** | High-performance alloys (titanium, etc.) + semiconductor-grade components | Deep chemistry, nuclear fuel fabrication, high-purity precursor processing, and contemporary advanced semiconductor fabrication | Requires deeper Phase 2 processing. Available by Wave 3–4 of Phase 2 |
+| **MTier 5** | Ultra-pure/specialty alloys + semiconductor-grade components | Speculative semiconductor/computing capabilities beyond contemporary industry and Phase 3 Core infrastructure modules | Requires materials from the deepest Phase 2/Phase 3 intermediate chains. Unlocks after first-Core activation |
 
 The table describes a possible capability ladder, not specific build recipes or approved requirements. Its proposed material and machine gates must be reconciled with the intermediate-product tree and Infrastructure.
 
@@ -224,7 +226,7 @@ Candidate mapping based on the current Endgame Vision stages:
 
 | Stage | Gate | Examples of technologies unlocked |
 |---|---|---|
-| **Planetary + Industrial Model** (first Phase 3 stage) | Planetary survey data + industrial process data from real production chains | Cleanroom fabrication, high-purity refining, basic semiconductor processes, advanced materials science |
+| **Planetary + Industrial Model** (first Phase 3 stage) | Planetary survey data + industrial process data from real production chains | Capabilities beyond current-day industrial practice and advanced materials science; contemporary cleanroom and chipmaking are available by late Phase 2 |
 | **Information-Based Civilization Model** | Planetary/industrial model results + behavioral datasets | Deep simulation infrastructure, advanced factory control tools |
 | **General-Physics Model** (final extension) | Advanced physics experiments + extreme-energy facility data | Quantum mechanics applications, new physics frontiers |
 
@@ -237,7 +239,7 @@ The Phase 3/4 power-route identities and non-steam converter families are record
 **Unvalidated planning estimate: ~60% simulation-gated, ~30% conventional-pack-only, ~10% hybrid.** The exact breakdown depends on the final technology roster; these percentages are not targets.
 
 - **Some technologies remain conventional:** Things that real-world industry already solved (advanced combustion variants, alternative fuel production methods, standard metallurgy improvements) can be researched without simulation. This keeps a portion of late-game accessible and gives players who want to avoid the endgame network a path.
-- **Most "capability unlock" gates are simulation-gated:** New machine families (cleanrooms, wafer fabrication), new process capabilities (deep electrolysis, high-pressure synthesis), and some Phase 4 power capabilities are proposed to require simulation findings. The Hawking route's current basic-Core gate and the gates for alternatives remain unresolved.
+- **Most "capability unlock" gates are simulation-gated:** Contemporary cleanroom and wafer/chip fabrication are Phase 2 capabilities under [ADR-0026](adrs/ADR-0026-phase-2-contemporary-semiconductor-capability.md); simulation gating applies to proposed capabilities beyond current-day semiconductor practice. New process capabilities (deep electrolysis, high-pressure synthesis) and some Phase 4 power capabilities may still require simulation findings. The Hawking route's current basic-Core gate and the gates for alternatives remain unresolved.
 - **Candidate Core gate:** The Planetary Simulation Core could require both conventional science packs (for its construction materials) and domain datasets (as evidence that the network functions).
 
 ### Unvalidated Playtime Estimate: Simulation Construction Phase
@@ -348,14 +350,14 @@ The items below remain open as the material pipeline and technology roster are d
 
 ### Internal Consistency Issues to Resolve
 
-- The pack ladder prose says five tiers, while the named progression lists seven (T1 through T3c).
 - This document's five-tier machine example must be reconciled with the candidate machine-family and tier counts in [Infrastructure](infrastructure.md).
 
 | Item | Status | Blocks |
 |------|--------|--------|
 | **Exact technology roster** | Open — which techs gate on conventional vs domain packs vs simulation findings? | Finalizing domain pack recipes, simulating time budget accuracy |
-| **First-Core prerequisites and bridge mapping** | Selected in [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md); Core Level 2 gate, Array recipe, detailed bridge mapping, and pack-count estimates remain open | Core Level 2 progression, facility requirements, and power-route gates |
-| **Pack tier count and facility count** | Open — five-tier prose conflicts with seven named tiers; confirm six facilities align with the finalized pack catalog | Pack catalog and endgame facility requirements |
+| **First-Core prerequisites and bridge mapping** | Gate and six mappings selected in [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md) and [ADR-0022](adrs/ADR-0022-phase-2-bridge-mappings-and-core-dependencies.md); Array materials, bridge routes, pack-count estimates, and Core Level 2 gate remain open | Core Level 2 progression, facility requirements, and power-route gates |
+| **Pack tier content and facility inputs** | Seven distinct tiers per domain and six facilities selected in [ADR-0020](adrs/ADR-0020-seven-distinct-domain-pack-tiers.md); exact item names, recipes, support materials, and later Core gates remain open | Pack catalog and endgame facility requirements |
+| **Phase 2 compute and Core materials** | Conventional CPU-grade packaged processors are selected for late Phase 2 and initial Core computation; full contemporary cleanroom and advanced chipmaking also belong in Phase 2. The required material families are silicon wafers, lithography chemistry, HfO₂ dielectric, Cu/TaN interconnect, and package materials under [ADR-0027](adrs/ADR-0027-phase-2-contemporary-chipmaking-material-stack.md); all five are required by the standard CPU path for initial Core supply under [ADR-0028](adrs/ADR-0028-phase-2-core-cpu-material-dependencies.md). Mineral feed families for silicon, hafnium, tantalum, and copper are selected under [ADR-0029](adrs/ADR-0029-phase-2-semiconductor-mineral-feed-families.md); detailed routes, material grades, equipment, and research gates remain open under [ADR-0025](adrs/ADR-0025-phase-2-cpu-supply-and-superconducting-core-compute.md) and [ADR-0026](adrs/ADR-0026-phase-2-contemporary-semiconductor-capability.md). The first-Core alignment mechanism is non-semiconductor and Phase 2-compatible; its exact hardware and source are deferred to Phase 4/6/7 Core-facility, product, and recipe work (see [Endgame Vision](endgame-vision.md) and [Plan](plan.md)). Josephson/SFQ compute is a later upgrade with its material route and gate open. | Core construction materials, Phase 2 semiconductor capability, and later Core progression |
 | **Machine-tier model** | Open — the five-tier example is not aligned with Infrastructure's candidate family progression | Machine recipe eligibility and research gates |
 | **Final victory condition specifics** | Open — is completing the planetary digital twin itself the win, or does it unlock further gameplay? | Endgame Vision alignment, Core L3 milestone definition |
 | **Technology classification matrix (WIP)** | See table below — placeholder categories until mineral/chemical roster approved | All domain documents' tech tree planning |
