@@ -15,7 +15,7 @@ This document catalogs the mining and refining scope: three tiers of deposits (s
 
 **What it covers:** Deposit tiers, mineral catalog, recovery assignments, pure-material roster, refining process templates, dedicated exceptions (Al, Ti, REEs, PGM), balanceability checks, and reference inspirations from GTNH / Bob's / Angel's.
 
-**What it does not cover:** Chemical reactions and reagents (see [Chemical Products and Processes](chemical-processes.md)), manufactured alloys and components downstream of refining (see [Intermediate Products](intermediate-products.md)), or machine equipment families. The referenced `machine-systems.md` is not present in the current repository inventory; its intended ownership is tracked in the [Documentation Map](documentation-map.md).
+**What it does not cover:** Chemical reactions and reagents (see [Chemical Products and Processes](chemical-processes.md)), manufactured alloys and components downstream of refining (see [Intermediate Products](intermediate-products.md)), or machine equipment families. Candidate placeable processing equipment is cataloged in [Infrastructure](infrastructure.md); route-specific machine assignments remain open.
 
 ## Current Design and Boundaries
 

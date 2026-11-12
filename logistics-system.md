@@ -3,7 +3,7 @@
 *Status: Draft — candidate logistics concepts; acceptance and behavior remain under review*
 *Last updated: 2026-11-12*
 
-Related documents: [Mod Overview](mod-overview.md), [Power System](power-system.md). The source draft also referenced the missing `machine-systems.md`; see [Documentation Map](documentation-map.md) for reconciliation.
+Related documents: [Mod Overview](mod-overview.md), [Power System](power-system.md), and [Infrastructure](infrastructure.md) for candidate placeable logistics and transport entities. Logistics behavior and progression remain owned here.
 
 ## Summary
 

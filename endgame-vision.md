@@ -1,27 +1,16 @@
-# Endgame Vision - Distributed Planetary Computing
+# Endgame Vision — Distributed Planetary Computing
 
-*Updated to reflect locked Phase 1 design (six domains, tiered domain packs, progressive Core activation).*
+*For: Project Prometheus Factorio Overhaul*  
+*Status: Draft — the planetary simulation network is the endgame direction; facilities, simulation stages, Core gates, and the final milestone remain proposals.*  
+*Last updated: 2026-11-12*
 
-## Status
+Related documents: [Mod Overview](mod-overview.md), [Intermediate Products](intermediate-products.md), [Infrastructure](infrastructure.md), [Power System](power-system.md), and [Research and Progression](research-progression.md) for simulation-gated research mechanics.
 
-**Phase 1: Design locked.** See [research-progression.md](research-progression.md) for complete progression details.
-
-### Key Dependencies from Locked Design
-- **Six domain packs per tier:** Superconductivity, Plasma Confinement, Nanofabrication, Isotope Separation (Particle Physics), Reaction Dynamics, Quantum States — each with T1→T2a→T2b1→T2b2→T3a→T3b→T3c tiers
-- **Core construction unlocked by:** All six domains at T2a minimum + convergence item → Phase 4 power access + basic simulation model
-- **Core Level 2 requires:** All six domains at T2b2 — ~1,320 packs total
-- **Core Level 3 / Final milestone requires:** All six domains at T3c — ~7,920+ packs spread over extended production
-- **Domain labs role after Core activation:** Shift from "research fuel" to "simulation trainers" — Model Calibration sub-facilities that improve fidelity and efficiency
-- **Handoff style:** Overlapping (Core Level 1→2→3 gradual activation), not abrupt
-
-*For: Factorio Overhaul Mod*  
-*Status: Vision / requirements phase*
-
-Related documents: [Mod Overview](mod-overview.md), [Intermediate Products](intermediate-products.md), [Power System](power-system.md), and [Research and Progression](research-progression.md) for simulation-gated research mechanics.
+> **Migration note:** The source draft used “Phase 1: Design locked” and “locked design” wording. No linked ADR records the detailed facility or gate decisions, and the Core gate conflicts with [Research and Progression](research-progression.md). The six-domain roster remains the current recorded baseline; the exact prerequisite count and mechanics below remain open or candidate.
 
 ## Summary
 
-This document defines the endgame as building a planetary digital twin by constructing a distributed computational civilization. The Planetary Simulation Core coordinates model runs across specialized facilities spread over the map, while wafer and processor fabrication serve as prerequisite chains rather than endgame facilities themselves.
+This document describes the proposed endgame direction: building a planetary digital twin through a distributed computational civilization. A Planetary Simulation Core could coordinate model runs across specialized facilities, while wafer and processor fabrication would serve as prerequisite chains rather than endgame facilities themselves.
 
 **What it covers:** The core hook ("planetary digital twin of thinking entities"), recognizable structure (Core + memory archives + regional compute campuses + research/observation facilities), candidate simulation research loop (datasets → Core schedules runs → model results unlock research), and open design decisions about dataset families, simulation-research gate ratios, and the final victory condition.
 
@@ -29,13 +18,13 @@ This document defines the endgame as building a planetary digital twin by constr
 
 ## North Star
 
-The endgame hook is: **Build a planetary digital twin by constructing a computational civilization.** The simulation should model the planet's physical systems and populations of information-based entities — beings composed of structured data, not artificial intelligence. These entities perceive their environment, make decisions, and interact with modeled systems in ways that emerge from their structure and dynamics rather than programmed behavior. These entities are the subject of the simulation; the premise is not an AI character housed inside a building.
+The current north star is: **build a planetary digital twin through a computational civilization.** The simulation is intended to model physical systems and populations of information-based entities — beings composed of structured data, not artificial intelligence. These entities would perceive their environment, make decisions, and interact with modeled systems through emergent structure and dynamics; the premise is not an AI character housed inside a building.
 
 The planetary digital twin is the clear, concrete promise. Modeling broader physical laws or a virtual cosmos can be a final extension of that work, but should not replace the planetary-scale hook or imply literal simulation of every particle in the universe.
 
-The required computational capacity is distributed across specialized facilities spread over the map, each dependent on the industrial ecosystem built earlier. The player should feel that this network is the culmination of mining, refining, metallurgy, chemistry, power, electronics, logistics, and factory control.
+The proposed computational capacity is distributed across specialized facilities spread over the map, each dependent on the industrial ecosystem built earlier. The intent is for this network to culminate mining, refining, metallurgy, chemistry, power, electronics, logistics, and factory control.
 
-## Production Prerequisites and Facility Network
+## Candidate Production Prerequisites and Facility Network
 
 ```text
 Semiconductor and specialty-material supply chains
@@ -50,11 +39,11 @@ Wafer and processor fabrication are means to build the computational civilizatio
 
 ## Recognizable Structure and Peripheral Network
 
-### The Planetary Simulation Core
+### Candidate Planetary Simulation Core
 
-The Core is a **modular orchestration hub** — not a megastructure, not an AI persona. It sits at the center of a distributed network, receives domain datasets from six facility types, coordinates model runs across compute campuses, and outputs research findings that unlock Phase 3 technologies.
+The Core is proposed as a **modular orchestration hub** — not a megastructure or AI persona. It would sit at the center of a distributed network, receive domain datasets from six facility types, coordinate model runs across compute campuses, and output findings that unlock Phase 3 technologies.
 
-**Core Structure Components:**
+**Candidate Core Structure Components:**
 
 | Component | Required Inputs | Physical Meaning |
 |-----------|----------------|------------------|
@@ -68,7 +57,7 @@ The Core is a **modular orchestration hub** — not a megastructure, not an AI p
 
 Former Phase A2 assembly quantities, satellite recipes, and timing hypotheses are preserved as unapproved candidate history in [ADR-0009](adrs/ADR-0009-endgame-assembly-proposals.md); they are not current recipe requirements.
 
-### Satellite Buildings
+### Candidate Satellite Buildings
 
 The Core has four satellite facility types, each adding capacity or data streams:
 
@@ -79,7 +68,7 @@ The Core has four satellite facility types, each adding capacity or data streams
 | **Regional Observation Facility** | Analyzes samples/operating data → submits domain datasets | Feeds raw measurement data into the Calibration Reference Frame hardware |
 | **Calibration Sub-Network** | Improves model fidelity and efficiency via domain-lab feedback loops | Uses all six domain labs as active measurement calibration reference points (labs don't just "produce packs" — they calibrate Core measurement fidelity) |
 
-The Core's tier progression:
+The following Core tier progression is a candidate:
 
 | Tier | What Changes | Upgrade Requirements |
 |------|-------------|---------------------|
@@ -87,11 +76,11 @@ The Core's tier progression:
 | **Level 2** | Higher-fidelity models, accelerated discovery | Quantum-state enhancement module + memory expansion + Integration Bus upgrade for faster satellite communication |
 | **Level 3 / Final Milestone** | General-physics discovery unlock | Multi-domain synthesis components — fully integrated across all facilities; Calibration Reference can model phenomena beyond known physics |
 
-The Core and its peripheral facilities may be built and upgraded in stages. Each stage can require complex products from several parts of the factory, in the spirit of a major project such as Satisfactory's Space Elevator, while keeping most compute and memory physically distributed.
+The Core and its peripheral facilities may be built and upgraded in stages. The draft favors an overlapping, gradual handoff across Core Levels 1–3 rather than an abrupt switch, with domain labs changing from research-pack production to Model Calibration sub-facilities ("simulation trainers") that improve fidelity and efficiency. These roles remain proposals. Each stage could require complex products from several parts of the factory while keeping most compute and memory physically distributed.
 
 ## Candidate Model Inputs
 
-The network is fed evidence that the factory has built the capabilities it is modeling. Domain science packs from five dedicated research buildings represent cross-domain knowledge demonstration — breadth across physics disciplines, not depth in one:
+The network is proposed to be fed evidence that the factory has built the capabilities it is modeling. Domain science packs from the six currently listed research facilities represent cross-domain knowledge demonstration — breadth across physics disciplines, not depth in one. The source draft also says five facilities in places; see [Research and Progression](research-progression.md) for the tracked inconsistency.
 
 - **Plasma Physics Readings** (Superconductivity Research Lab) — requires electronic-grade polysilicon + Nb₃Sn wire as facility materials
 - **Magnetic Confinement Data** (Plasma Confinement Facility) — requires Nb₃Sn wire + cryogenic infrastructure
@@ -104,7 +93,7 @@ The network is fed evidence that the factory has built the capabilities it is mo
 
 **Phase 2 (Bridge):** Domain packs are fed into the conventional research building *alongside* standard science packs, augmenting the existing tech tree. This is the Space Exploration model — domain packs supplement but don't replace the standard research infrastructure. They do **not** go to a simulation Core at this stage because the Core does not yet exist. The player is still researching technologies through the conventional research building; domain packs simply add *additional capability gates* that require cross-domain knowledge before certain technologies can be unlocked.
 
-**Phase 3 (Simulation-gated):** Only after all five domain research facilities are operational and domain pack production begins do we transition to the Planetary Simulation Core. Phase 3 introduces the core loop: domain datasets → simulation models → findings unlock new technologies.
+**Phase 3 (simulation-gated, candidate):** After the six currently listed domain research facilities are operational, the proposed loop transitions to the Planetary Simulation Core: domain datasets → simulation models → findings unlock technologies. One source sentence said five facilities; the count is inconsistent and tracked in [Research and Progression](research-progression.md).
 
 These are six separate research facilities, each requiring a distinct Phase 2 bridge product as industrial prerequisite. The player must demonstrate knowledge across all six domains before advancing any simulation fidelity tier.
 
@@ -121,7 +110,7 @@ The network's modeling capability evolves through stages as more domains are und
 
 These are scope candidates for what the simulation network grows to model. The exact sequence, dependency between stages, and which infrastructure changes occur at each transition remain open — they should be designed alongside the research-progression document so that physical infrastructure milestones align with research gates.
 
-## What the Network Needs
+## Candidate Network Requirements
 
 | Capability | Candidate facilities / dependencies |
 | --- | --- |
@@ -135,7 +124,7 @@ Semiconductor-grade silicon, wafers, processors, packaging, and specialty materi
 
 Specific material recipes belong in the [Intermediate Products](intermediate-products.md) map; chemical syntheses and purification reactions belong in [Chemical Products and Processes](chemical-processes.md).
 
-## Design Principles
+## Candidate Design Principles
 
 - **Distributed, not monolithic:** the final achievement spans multiple facilities and locations.
 - **A visible anchor, distributed capability:** the Core is recognizable, but peripheral facilities provide most memory, compute, and evidence.
@@ -152,7 +141,10 @@ Specific material recipes belong in the [Intermediate Products](intermediate-pro
 
 ### Facility Infrastructure
 
+- Which first-Core gate is intended: all six domains at T2a, or all six at T2b2 before any Core-related construction? See the conflicting proposals in [Research and Progression](research-progression.md).
+- Are Core Levels 1–3, their pack totals, and the proposed post-activation role of domain labs part of the final progression?
 - Is there a single final milestone, or a staged set of regional commissioning goals?
 - How much of the compute network must be physically distributed to make the spatial requirement meaningful without becoming arbitrary busywork?
 - What are the power, cooling, and network constraints, and which are core versus optional optimization?
 - What is the endgame's intended playtime contribution within the broader 300+ hour overhaul ambition?
+- Does completing the planetary digital twin end the game, or unlock further gameplay?

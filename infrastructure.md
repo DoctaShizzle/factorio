@@ -11,14 +11,14 @@ Related documents: [Minerals and Refining](minerals-and-refining.md), [Chemical 
 >
 > **Boundary**: Non-building products (vehicles, fuels, weapons/ammo, armor/equipment, modules, and research ingredients) belong in [Intermediate Products](intermediate-products.md). The ammo table in section 12 is a cross-domain candidate reference only and is excluded from infrastructure counts.
 >
-> **Legacy-plan note**: Current stage references follow [plan.md](plan.md). The absent `session-plan.md` is not assumed to be recovered or equivalent; see the [Documentation Map](documentation-map.md).
+> **Document ownership**: The former Machine Systems design was subsumed into this catalog. Candidate placeable machine families and progression are cataloged here; exact route-to-machine assignments remain deferred until process routes and product coverage are ready. The current work roadmap is [plan.md](plan.md); no separate `session-plan.md` source is present.
 
 ---
 
 ## Equipment Principles
 
 - A machine family should support multiple related processes where practical.
-- Every machine type built multiple times by the player must have multi-tier progression with different build ingredients per tier (Bob's/Angels approach).
+- A prior proposal called for multiple build-material tiers on every frequently built machine type; this catalog also lists single-tier exceptions. Whether to tier a family remains capability-driven and unresolved.
 - Tier progression must change capability — not just speed. Higher tiers can handle more materials, higher pressures/temperatures, automate sub-tasks, or improve precision.
 - Introduce specialized equipment when it changes the player's capability, input/output behavior, or meaningful constraints, not just to add a machine tier.
 - Keep recipe eligibility, inputs, outputs, coproducts, catalysts, and required technology visible in the handbook and machine UI.
@@ -536,6 +536,16 @@ This table summarizes candidate family coverage and tiering. Counts remain provi
 ## Design Gate
 
 A machine or variant should be approved only when its operation, input/output contract, progression role, and downstream product use are clear. A new machine family should correspond to a real process capability or a strong gameplay distinction, not simply a desire to give every reaction its own building. Tier progression for any machine type must pass this gate at each level — not all tiers need to be unique builds; some can be simple throughput upgrades if the capability change is meaningful.
+
+## Open Design Decisions
+
+- Which operations reuse vanilla machines, and which require new or modified families?
+- Should chemical reactors be one configurable family or a small number of process-specific families?
+- Which routes need multiblock or high-throughput equipment, and which should scale with ordinary machines?
+- Which routes require catalyst slots, pressure or temperature constraints, or maintenance? Route-specific requirements belong with the mineral and chemical process owners.
+- What is the smallest useful PLC and sensor/actuator set, and which controls remain optional? Basic process balance must not depend on custom code.
+- What must the handbook and machine UI expose for recipe eligibility, inputs, outputs, coproducts, catalysts, and research requirements? What baseline diagnostics cover status, throughput, power draw, and blocked outputs?
+- The archived route-to-machine matrix was empty. Populate exact assignments only after the relevant product and process routes are approved.
 
 ---
 

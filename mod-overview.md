@@ -2,6 +2,11 @@
 
 *Industrial Ecosystems and Process Engineering — Project Prometheus*
 
+*Status: Working design overview; detailed systems and unapproved proposals remain with their domain owners.*  
+*Last updated: 2026-11-12*
+
+This document records cross-domain intent and the active design queue. The phase order is maintained in [plan.md](plan.md); accepted decisions and historical rationale are linked to their owning design documents and ADRs.
+
 ## The Story That Unfolds
 
 You start with a pickaxe, raw ore, and the knowledge that something bigger awaits. You build factories. Then you refine them. Then you push past what your own industrial civilization can discover on its own.
@@ -70,7 +75,7 @@ The ambition is a long overhaul playthrough, potentially 300+ hours, with comple
 | Mineral catalog | Candidate deposits, mineral feeds, recoverable materials, and common route patterns | [Minerals and Refining](minerals-and-refining.md) |
 | Chemistry | Named industrial reactions, coproducts, alternative pathways, catalysts, and chemical intermediates | [Chemical Products and Processes](chemical-processes.md) |
 | Non-building product catalog | Construction materials and components, fuels, vehicles, weapons and ammunition, personal equipment and modules, research ingredients, and endgame products; includes a Factorio-family completeness checklist | [Intermediate Products](intermediate-products.md); see [Infrastructure](infrastructure.md) for placeable entities |
-| Power | Generator phases, fuel density, grid tiers, transmission losses, conductor choices, diagnostics, and waste handling | [Power System](power-system.md) |
+| Power | Generation candidates and power-related scope; the core retains the vanilla grid with compatible tiered poles, while custom voltage/loss systems remain extension candidates | [Power System](power-system.md) |
 | Endgame | Distributed computational civilization; simulation milestones from planetary model → industrial model → information-based beings → general-physics discovery | [Endgame Vision](endgame-vision.md), [Research and Progression](research-progression.md) |
 | Infrastructure | Infrastructure mapped to industrial operations, progression, logistics and military | [Infrastructure](infrastructure.md) |
 | Military | Pollution pressure, ammo/weapon chains, defense infrastructure, process tradeoffs | [Military System](military-system.md) |
@@ -87,7 +92,7 @@ Chemical chains should connect resource processing to metallurgy, construction, 
 
 ### Endgame Hook
 
-**Build a planetary digital twin by constructing a computational civilization that models an entire simulated world.** The simulation starts with basic physical systems and grows to model populations of information-formed entities — beings composed of structured data, not artificial intelligence. Completing the planetary-scale network unlocks general-physics discovery, extending the player beyond known physics.
+**Current direction:** build a planetary digital twin through a distributed computational civilization that models an entire world, including populations of information-formed entities — beings composed of structured data, not artificial intelligence. General-physics discovery is a candidate endgame outcome; whether it is the win condition or opens further gameplay remains unresolved.
 
 The Planetary Simulation Core anchors a distributed network of memory archives, compute campuses, and research/observation facilities — not an AI housed in a building, but a real computational infrastructure dependent on the full industrial ecosystem built earlier.
 
@@ -103,7 +108,7 @@ Fluid transport may distinguish pipe diameter, material compatibility, temperatu
 
 The handbook should reveal the industrial journey early, explain why processes differ, and separate real-world facts from gameplay simplifications. Informatron is a candidate information layer serving as a general reference for background info and lore across all mod systems — mining, chemistry, metallurgy, power, endgame physics — giving players context that enriches the experience without dictating choices.
 
-Research progression follows three phases: conventional science packs (~40–50% of game) → transitional domain packs + conventional (the bridge where conventional industry hits the physics wall) → simulation-gated research (final third, ~100 hours). Conventional packs persist as an alternative path for capabilities that don't require new physics. Fixed capability progression is preferred over random challenge objectives; quest/progression integration remains to be researched.
+The current research proposal uses three phases: conventional science → a conventional/domain-pack bridge → simulation-gated research. The duration estimates (~40–50% for conventional research and ~100 hours for the endgame) are unvalidated; pack tiers, gates, technology assignments, and final timing remain open. Conventional packs may persist for capabilities that do not require new physics. Fixed capability progression is preferred over random challenge objectives; quest/progression integration remains to be researched.
 
 The Hawking Radiation Engine is an accepted Phase 4 power option, not the sole route. The current [research-progression proposal](research-progression.md) gates it on building a basic Planetary Simulation Core, before full completion; the exact gate remains open. At least one alternative Phase 3/4 power route and its gate still need design, as recorded in [ADR-0011](adrs/ADR-0011-hawking-radiation-endgame-generator.md).
 
@@ -119,23 +124,22 @@ Avoid mandatory upgrades without a new capability, arbitrary complexity, a singl
 
 ## Open Design Questions (Active Work Queue)
 
-Items below are the current prioritized design work that needs resolution. Each is a gap that blocks further domain-level detail work until addressed. **This is a task tracker — resolved items should be removed here, not kept as historical notes.** When a question is answered, record the resolution in the appropriate domain document and delete the entry from this list.
+Items below are cross-domain open questions, not an approval list. Phase order and gates live in [plan.md](plan.md); not every question blocks every domain detail. Record resolutions in the owning design document and, when significant, a linked ADR; remove resolved items from this active queue.
 
 ### Exhaustive Product Catalog— *Priority 1*
-**You've stated this explicitly as your design work; the gap is that the catalog itself isn't yet written.** This is not optional before deep-diving domain documents — it's the skeleton everything else hangs on. Without a complete material pipeline, every process document is building on assumptions.
+The full catalog has not yet been enumerated. The agreed work order is to verify the gap analysis and align infrastructure before building complete coverage and then enumerating products, recipes, and research; see [plan.md](plan.md).
 
 Sub-gaps to fill in order:
-- **Minerals & deposits (mineral-catalog.md?):** Complete list of ore/deposit types with their class (surface/underground/polymineral), location strategy, and what each deposit produces. This connects directly to the Map & World Generation gap.
+- **Minerals & deposits:** Complete list of ore/deposit types with their class (surface/underground/polymineral), location strategy, and outputs belongs in [Minerals and Refining](minerals-and-refining.md), coordinated with [Map and World Generation](map-world-generation.md). `mineral-catalog.md` was only a placeholder filename, not a separate source.
 - **Refined outputs (pure raw materials):** What comes out of your processing stages — ingots, concentrates, refined chemicals, etc. Each needs a clear input-from and output-to so it's not just "it exists in the chain."
 - **Intermediate products:** Materials that are inputs to other recipes but have no direct machine use — alloys, acids, reagents, semiconductor precursors, battery chemistries, nuclear assemblies, etc. This is where your chemical-processes.md connects to intermediate-products.md.
 - **End products (Phase 3/4 components):** Items that feed the simulation network or represent final capabilities — not "everything in the mod" but things that matter for progression momentum and endgame construction.
 
-**Performance constraint for chemistry domain:** Batch similar chemical processes where possible; avoid creating a unique fluid recipe per minor variation. Oil processing chains with petroleum create the heaviest per-tick overhead due to continuous recipe recalculations. Group chemically similar fluids into shared intermediates rather than individual recipes for every variant. Example: instead of "diluted acid A," "diluted acid B," and "diluted acid C" — use a generic "diluted acid" that differentiates only through recipe inputs/outputs, not distinct fluid types.
+**Candidate chemistry guardrail:** Batch similar chemical processes where possible and avoid creating a unique fluid for every minor variation; group chemically similar fluids where this preserves meaningful process choices. The source draft's performance claims about particular fluid chains are unbenchmarked and are not treated as verified engine constraints; see [Technical Architecture](technical-architecture.md).
 
 Open decisions:
-- **Where does this catalog live?** As a single document, distributed across domain docs with cross-references, or a master list file with domain-specific deep dives?
-- **Does every intermediate product need multiple routes?** No. Only products that create meaningful tradeoffs get multiple processes. Many can have one good route. Use the Material Scope Boundaries criteria to gate this.
-- **What's the catalog format?** A table by pipeline stage (mineral → refined → intermediate → end)? By domain? Something else that makes it useful during design work?
+- **Coverage source:** [plan.md](plan.md) assigns the canonical product-coverage ledger to Phase 4; detailed process and domain design remains in the owning documents. Its exact schema is still open.
+- **Alternative routes:** The current plan calls for multiple routes only where they create meaningful tradeoffs; a single good route is acceptable otherwise.
 
 ### Victory Condition & Game End State — *Priority 2*
 What "completing" the planetary digital twin *looks like* and what it *unlocks* is still open. The leading candidate: **general-physics discovery** — pushing beyond known physics after demonstrating mastery of every industrial domain. But the specifics need defining.
@@ -166,8 +170,9 @@ Each domain document tracks its own open decisions at the bottom of that doc —
 | [Minerals and Refining](minerals-and-refining.md) | Final mineral roster, real deposit classes, assays, material recovery assignments; process template consistency across routes |
 | [Chemical Products and Processes](chemical-processes.md) | Approved chemical inventory and reaction routes; catalyst requirements for key reactions |
 | [Intermediate Products](intermediate-products.md) | Specific battery chemistry selection (not every formulation), coherent fission reactor family choice |
-| [Power System](power-system.md) — Production | Exact combustion generators for Phase 1, U-235 vs Pu-239 fission paths, fusion-endgame connection, renewable generation explicit presence, military pressure contribution per generator class |
-| [Power System](power-system.md) — Transmission | Voltage tiers and exact values, conductor stats/loss formulas, loss modeling approach, diagnostics UI specifics, onboarding structure |
+| [Power System](power-system.md) — Production | Exact combustion generators, U-235 vs Pu-239 fission paths, fusion/endgame connection, renewable generation, and military-pressure contribution per generator class; Hawking is one accepted Phase 4 option and at least one alternative route is required |
+| [Power System](power-system.md) — Distribution | Compatible tiered-pole levels and stats; custom voltage, conductor-loss, and grid-stabilization mechanics remain optional extension candidates, not core requirements |
 | [Endgame Vision](endgame-vision.md) | Simulation fidelity tiers (basic → accurate → predictive model), final milestone structure (single vs. staged), compute distribution requirements, power/cooling/network constraints for Core |
-| [Research and Progression](research-progression.md) | ✅ Six domains locked (Superconductivity, Plasma Confinement, Nanofabrication, Isotope Separation/Particle Physics, Reaction Dynamics, Quantum States). Domain pack tier structure T1→T2a→T2b1→T2b2→T3a→T3b→T3c. Progressive revelation schedule (5 waves). Core requirements per stage. Technology roster pending mineral/chemical stabilization — see [Open Items](research-progression.md#open-items-all-phase-independent) |
-| [Technical Architecture](technical-architecture.md) | Modpack deployment model (SE pattern: core sub-mods + opt-in extension packs), scope targets, dependency strategy, performance constraints and red lines |
+| [Research and Progression](research-progression.md) | Six named domains are the current recorded roster; pack tiers, Core gates, prerequisite counts, and the five-wave schedule remain proposals or unresolved conflicts. Technology roster remains open pending product and process stabilization. |
+| [Infrastructure](infrastructure.md) | Machine-family tier coverage, vanilla-versus-new entity dispositions, and exact construction assignments remain provisional; former Machine Systems content is subsumed here |
+| [Technical Architecture](technical-architecture.md) | Candidate packaging and extension model, unvalidated scope estimates, dependencies, and performance hypotheses; none are hard limits until verified |

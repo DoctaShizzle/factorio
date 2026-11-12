@@ -13,7 +13,7 @@ This document tracks named industrial reactions, chemical processes, reagents, a
 
 **What it covers:** Process families, candidate chains, product index, and reaction registry — all grounded in real industrial chemistry but simplified for gameplay.
 
-**What it does not cover:** Solid alloys and components downstream of chemistry (see [Intermediate Products](intermediate-products.md)), or equipment families that execute these processes. The referenced `machine-systems.md` is not present in the current repository inventory; its intended ownership is tracked in the [Documentation Map](documentation-map.md).
+**What it does not cover:** Solid alloys and components downstream of chemistry (see [Intermediate Products](intermediate-products.md)), or equipment families that execute these processes. Candidate placeable equipment families are owned by [Infrastructure](infrastructure.md); exact route-to-machine assignments remain open.
 
 ## Purpose and Boundaries
 
@@ -201,5 +201,5 @@ This registry is intentionally broad so the proposal's scale is visible. Promoti
 - Reconcile the candidate reaction and research-intermediate counts with the shared product taxonomy; the current approximate counts are not targets.
 - Validate chemical coproducts, reagent recovery, and stable sinks against the no-required-voiding principle.
 - Confirm each retained chemistry product has a downstream use and an owning product-tree entry.
-- Assign process equipment after the missing machine-system reference is reconciled.
+- Assign process equipment to candidate families in [Infrastructure](infrastructure.md) after the relevant routes are approved.
 - Validate educational claims and reaction simplifications against trustworthy references before promoting them to player-facing content.

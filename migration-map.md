@@ -1,6 +1,6 @@
 # Phase 1 Migration Map
 
-*Status: Pilot accepted; Phase 1 migration in progress*
+*Status: Phase 1 migration complete*
 *Last updated: 2026-11-12*
 
 This map records where source content from Phase 1 design documents was retained or moved. The world-generation pilot mapping is the validated migration pattern; later batches record their current-design destinations, ADRs, and unresolved provenance or conflicts. Unresolved conflicts remain visible rather than being harmonized by assumption.
@@ -20,8 +20,9 @@ This map records where source content from Phase 1 design documents was retained
 | Light/heavy crude proposal and rejection | Current design, Oil and Water; [ADR-0003](adrs/ADR-0003-single-oil-type.md) |
 | Map-edge behavior and its conflict between increasing density and sparse patrols | Current design, Expansion and Military Pressure; conflict and decision in [ADR-0004](adrs/ADR-0004-map-edge-pressure.md) |
 | Links to military pressure, material boundaries, and product-catalog work | Current design, Requirements and Dependencies; obsolete gap labels are not treated as current ownership. |
-| Missing `mineral-catalog.md` reference | Replaced in current-state design by the existing [Minerals and Refining](minerals-and-refining.md) owner. The missing filename remains recorded as a repository reconciliation item in [Documentation Map](documentation-map.md). |
-| Reference to machine-system ownership | Current design names only existing domain owners; the missing `machine-systems.md` file remains recorded in [Documentation Map](documentation-map.md) for reconciliation. |
+| `mineral-catalog.md` placeholder | No file or historical source was found. Deposit and refining ownership is [Minerals and Refining](minerals-and-refining.md); the placeholder reference is removed. |
+| Former Machine Systems content | The user confirmed that Machine Systems was subsumed in [Infrastructure](infrastructure.md). The archived route-to-machine matrix was empty; exact assignments remain deferred to product/process coverage work. |
+| `session-plan.md` reference | No file or historical source was found. [Plan](plan.md) is the current work roadmap; no separate design content was available to migrate. |
 
 ## Provenance and Preservation Notes
 
@@ -37,7 +38,7 @@ This map records where source content from Phase 1 design documents was retained
 |---|---|
 | [Minerals and Refining](minerals-and-refining.md) | Deposit tiers, all deposit and recovery tables, the pure-material inventory, route templates, refining exceptions, balanceability checks, and reference inspirations remain in the owner document. Candidate status and unresolved scope were made explicit. Its current draft had no dated decision log to extract; catalog revisions remain source history, not invented ADRs. |
 | [Chemical Products and Processes](chemical-processes.md) | Core chain table, later candidates, chemical index, process/equipment guidance, educational principles, and the full provisional chemical/reaction registry remain in the owner document. The registry remains explicitly unapproved; no dated decision log was present in the current draft. |
-| [Intermediate Products](intermediate-products.md) | The document now defines the cross-domain non-building product scope and a Factorio-style family checklist. The committed rhenium selection remains linked to [ADR-0007](adrs/ADR-0007-rhenium-reaction-dynamics-bridge.md); capability-based catalog size remains in [ADR-0006](adrs/ADR-0006-capability-based-intermediate-scope.md); category-level coverage is recorded in [ADR-0008](adrs/ADR-0008-factorio-product-family-coverage.md). Candidate endgame facility pathways moved to the Infrastructure inventory; former Phase A2 quantities and assembly proposals remain unapproved in [ADR-0009](adrs/ADR-0009-endgame-assembly-proposals.md). The five-versus-six research-prerequisite count remains open. Missing machine-system references are recorded, not redirected. |
+| [Intermediate Products](intermediate-products.md) | The document now defines the cross-domain non-building product scope and a Factorio-style family checklist. The committed rhenium selection remains linked to [ADR-0007](adrs/ADR-0007-rhenium-reaction-dynamics-bridge.md); capability-based catalog size remains in [ADR-0006](adrs/ADR-0006-capability-based-intermediate-scope.md); category-level coverage is recorded in [ADR-0008](adrs/ADR-0008-factorio-product-family-coverage.md). Candidate endgame facility pathways moved to the Infrastructure inventory; former Phase A2 quantities and assembly proposals remain unapproved in [ADR-0009](adrs/ADR-0009-endgame-assembly-proposals.md). The five-versus-six research-prerequisite count remains open. Candidate machine families are owned by Infrastructure; exact route mappings remain deferred. |
 
 ## Infrastructure and Systems Batch
 
@@ -45,12 +46,21 @@ This map records where source content from Phase 1 design documents was retained
 |---|---|
 | [Infrastructure](infrastructure.md) | The candidate constructable inventory, Factorio-style infrastructure-family checklist, construction-demand hypotheses, and provisional counts remain in the owner document. Core distribution now follows accepted [ADR-0010](adrs/ADR-0010-core-power-distribution-scope.md): vanilla grid plus compatible tiered poles; exact pole details remain open. The electrical turret direction remains proposed in [ADR-0012](adrs/ADR-0012-bound-core-military-scope.md). The fission/fusion phase mismatch with Power System is explicitly recorded. |
 | [Power System](power-system.md) | Accepted [ADR-0010](adrs/ADR-0010-core-power-distribution-scope.md) retains the vanilla grid and adds tiered poles. [ADR-0011](adrs/ADR-0011-hawking-radiation-endgame-generator.md) accepts Hawking as one Phase 4 option and requires at least one alternative Phase 3/4 route. Custom voltage, transmission-loss, and grid-infrastructure details remain optional extension candidates; the fusion/Phase 4 boundary, fission/fusion phase mismatch, and diagnostics/stabilization scope remain open. |
-| [Logistics System](logistics-system.md) | The transport, bot, and information-logistics vision remains candidate design; no dated decision log was present. Powered rails remain unapproved and their voltage/loss mechanics are extension-only candidates, separate from the accepted core grid direction. The source's missing `machine-systems.md` reference remains recorded in [Documentation Map](documentation-map.md), not silently redirected. |
+| [Logistics System](logistics-system.md) | The transport, bot, and information-logistics vision remains candidate design; no dated decision log was present. Powered rails remain unapproved and their voltage/loss mechanics are extension-only candidates, separate from the accepted core grid direction. Candidate placeable logistics entities are owned by Infrastructure; detailed logistics behavior remains here. |
 | [Military System](military-system.md) | Comparative research and decision rationales are preserved in [ADR-0012](adrs/ADR-0012-bound-core-military-scope.md) through [ADR-0016](adrs/ADR-0016-late-game-defense-drones.md). ADR-0012 remains proposed; ADR-0014 and ADR-0015 are accepted principles; ADR-0016 rejects military drones. Current candidate ammo, turret, power-load, and extension details remain in the owner document; rejected drone roles and supply paths remain in ADR-0016. Ammo type/tier/recipe counts and the vanilla-enemy/armored-variant conflict remain open. |
+
+## Progression and Cross-Domain Batch
+
+| Source document | Content retained or moved |
+|---|---|
+| [Research and Progression](research-progression.md) | The six-domain roster remains the current recorded baseline. Tier counts, first-Core gates, prerequisite counts, technology assignments, and playtime figures are labeled as proposals or open conflicts. Hawking as one accepted Phase 4 option and the need for an alternative route link to [ADR-0011](adrs/ADR-0011-hawking-radiation-endgame-generator.md). No dated research decision log was present. |
+| [Endgame Vision](endgame-vision.md) | The planetary-simulation direction and all candidate facility, model, and Core details are retained. Earlier “design locked” wording is clarified as unlinked source language; the Core gate conflict points to Research and Progression. Former Phase A2 quantities remain in [ADR-0009](adrs/ADR-0009-endgame-assembly-proposals.md). |
+| [Mod Overview](mod-overview.md) | Cross-domain intent, the working queue, and domain ownership links are retained and aligned with the living [plan](plan.md). Timing and chemistry-performance figures are identified as estimates or hypotheses. |
+| [Technical Architecture](technical-architecture.md) | The deployment, dependency, count, and performance proposals are retained but marked unverified; they are not hard limits. Core power distribution follows accepted [ADR-0010](adrs/ADR-0010-core-power-distribution-scope.md). No dated architecture decision log was present. |
 
 ## Review Gate
 
-The user accepted the world-generation pilot as the migration pattern on 2026-11-12. The following inventory bounds the remaining Phase 1 work; move each document to **Migrated** only after its content has a traceable destination and its cross-references are checked. Proposed ADRs may remain unresolved, provided their status and source provenance are explicit.
+The user accepted the world-generation pilot as the migration pattern on 2026-11-12. Every manifest document now has a traceable current-state destination or an explicit missing-source disposition; open proposals and conflicts remain labeled and linked to their owners. Proposed ADRs may remain unresolved when their status and provenance are explicit.
 
 | Batch | Document | Phase 1 status |
 |---|---|---|
@@ -60,12 +70,12 @@ The user accepted the world-generation pilot as the migration pattern on 2026-11
 | Product-tree inputs | [intermediate-products.md](intermediate-products.md) | Migrated; broad non-building scope and category checklist added; candidate facility pathways moved to Infrastructure; ADR-0006 through ADR-0009 linked; prerequisite-count conflict preserved |
 | Constructables | [infrastructure.md](infrastructure.md) | Migrated; candidate inventory retained, tiered poles accepted, exact scope and counts open |
 | Systems | [power-system.md](power-system.md) | Migrated; core distribution and Hawking option accepted, alternative route and Phase 4 boundary open |
-| Systems | [logistics-system.md](logistics-system.md) | Migrated; powered rails and extension voltage/loss model remain open, missing reference flagged |
+| Systems | [logistics-system.md](logistics-system.md) | Migrated; powered rails and extension voltage/loss model remain open; placeable families owned by Infrastructure |
 | Systems | [military-system.md](military-system.md) | Migrated; ADR-0012 proposed, ADR-0014/0015 accepted principles, ADR-0016 rejected; ammo-count and enemy-variant conflicts open |
-| Progression | [research-progression.md](research-progression.md) | Not started |
-| Progression | [endgame-vision.md](endgame-vision.md) | Not started |
-| Cross-domain | [mod-overview.md](mod-overview.md) | Not started |
-| Technical architecture | [technical-architecture.md](technical-architecture.md) | Not started |
-| Navigation summary | [README.md](README.md) | Reconcile links and summary after design migrations |
+| Progression | [research-progression.md](research-progression.md) | Migrated; proposal status and conflicting gates, counts, and estimates are explicit |
+| Progression | [endgame-vision.md](endgame-vision.md) | Migrated; planetary simulation direction retained, detailed facilities and gates remain proposals |
+| Cross-domain | [mod-overview.md](mod-overview.md) | Migrated; work queue and design direction aligned with the living plan and current owners |
+| Technical architecture | [technical-architecture.md](technical-architecture.md) | Migrated; deployment, dependency, count, and performance claims labeled as unverified proposals |
+| Navigation summary | [README.md](README.md) | Reconciled with current owners, accepted decisions, and Phase 1 status |
 
 The gap-analysis and market-research reports remain evidence documents and are not part of the design/ADR split. [Plan](plan.md), [documentation conventions](documentation-conventions.md), [documentation map](documentation-map.md), [product taxonomy](product-taxonomy.md), and templates are process/reference artifacts rather than domain design documents.

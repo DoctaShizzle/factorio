@@ -31,26 +31,26 @@ The arc: *"Starting from dirt and ore, layering process after process, until bui
 | Minerals & refining | Deposit classes, process templates, mineral recovery | [Minerals and Refining](minerals-and-refining.md) |
 | Chemistry | Industrial reactions, coproducts, catalysts | [Chemical Products and Processes](chemical-processes.md) |
 | Non-building products | Construction materials, components, fuels, vehicles, weapons and ammunition, personal equipment and modules, research ingredients, and endgame products | [Intermediate Products](intermediate-products.md) |
-| Power | Candidate generation progression with multiple late-game routes; Hawking is one accepted Phase 4 option, and the vanilla grid gains tiered poles | [Power System](power-system.md) |
+| Infrastructure | Candidate placeable buildings, machine families, construction demands, and infrastructure categories | [Infrastructure](infrastructure.md) |
+| Power | Vanilla grid retained with compatible tiered poles; Hawking is one accepted Phase 4 option and at least one alternative late-game route is required | [Power System](power-system.md) |
 | Endgame | Planetary simulation network, general-physics discovery | [Endgame Vision](endgame-vision.md) |
-| Machines | Reusable equipment families across industrial stages | [Machine Systems](machine-systems.md) |
 | Military | Pollution pressure, ammo chains, defense infrastructure | [Military System](military-system.md) |
 | Logistics | Belts, trains, demand-based dispatch, information flow | [Logistics System](logistics-system.md) |
 | Research | Three-phase progression (conventional → domain packs → simulation-gated) | [Research and Progression](research-progression.md) |
 
-## Key Design Decisions (Current State)
+## Current Design Direction and Accepted Decisions
 
-- **Title:** *Project Prometheus* (recommended; see [mod-overview.md](mod-overview.md) for candidates)
-- **Progression shape:** Conventional science (~40–50% game) → domain packs + conventional bridge → simulation-gated research (final ~100 hours)
-- **Endgame goal:** Build a planetary simulation network that models information-formed entities (structured-data beings, not AI) and unlocks general-physics discovery
+- **Title:** *Project Prometheus* is the recommended working title; see [mod-overview.md](mod-overview.md) for alternatives.
+- **Progression shape:** A conventional → domain-pack bridge → simulation-gated arc is the current proposal; pack tiers, gates, and timing are unresolved.
+- **Endgame direction:** Build a distributed planetary simulation network that models information-formed entities (structured-data beings, not AI); final victory and unlock conditions remain open.
 - **Phase 4 power:** Hawking Radiation Engine is one accepted option. Its gate remains open, and at least one alternative Phase 3/4 route must be developed.
-- **Research items:** Science-pack-style buildings producing "readings and results" — same mechanic as vanilla science packs, re-themed
+- **Research items:** Science-pack-style production of readings and results is a proposal; exact facilities and mechanics remain open.
 
 ## How to Dive In
 
 1. Read **[mod-overview.md](mod-overview.md)** for the full design philosophy, system map, inspirations, guardrails, and open decisions (with links to each domain doc)
 2. Pick a domain that interests you — each linked document tracks its own open decisions separately
-3. Use the [Domain-Specific Decisions](mod-overview.md#domain-specific-decisions-link-out) section at the bottom of mod-overview.md to navigate to which docs need work
+3. Use [Open Items by Domain](mod-overview.md#open-items-by-domain) to find unresolved work owned by each design document.
 
 ## Inspirations
 
@@ -66,4 +66,4 @@ Avoid: mandatory upgrades without new capability, arbitrary complexity, a single
 
 ## Status
 
-Broad design proposal. System details live in linked documents. See [mod-overview.md](mod-overview.md) for the full list of open decisions by domain.
+Phase 1 documentation migration is complete; see [plan.md](plan.md) for the next gate. The project remains a broad design proposal, with system details and open decisions in the linked owner documents.
