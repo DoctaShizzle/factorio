@@ -112,7 +112,7 @@ Armor items, wearable or personal equipment, armor utilities, and equipment modu
 
 The following are candidate material products used to construct or operate dedicated research facilities. They are not themselves research ingredients: the facility produces the research pack or data item. The relevant research mechanics and gates remain in [Research and Progression](research-progression.md).
 
-**Count reconciliation required:** The table currently contains six products, including the committed rhenium-catalyst selection, while the earlier description and Domain distribution below refer to five. Preserve this discrepancy until the domain and product counts are reconciled; do not assume that one count is authoritative.
+**Current direction:** The bridge set contains six candidate products for the six-domain roster, including the committed rhenium-catalyst selection, as recorded in [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md). Product-to-facility assignments remain candidate mappings; additional supporting materials and exact construction/operation requirements remain open.
 
 Each product requires deep Phase 1 capability (high-purity processing, isotopic separation, cryogenics). Every description follows the design guideline from [mod-overview.md](mod-overview.md): a concrete physical property ("what happens") followed by its implication ("why it matters").
 
@@ -125,7 +125,7 @@ Each product requires deep Phase 1 capability (high-purity processing, isotopic 
 | High-purity cryogenic argon/nitrogen mixture | Air → multi-stage refrigeration cascade → cryogenic distillation | Superconducting cooling infrastructure + low-temperature experiments; enables Quantum States Laboratory. | Gases cooled to within degrees of absolute zero — the point where thermal noise disappears and quantum effects become macroscopically visible. Below certain temperatures, matter stops behaving like particles and starts behaving like waves. |
 | High-performance rhenium-catalyst powder | Molybdenite concentrate → acid attack + solvent extraction from MoS₂ residue → high-purity rhenium powder reduction → catalyst bed preparation with controlled particle size | Reaction Dynamics gate; enables Reaction Dynamics Facility. Product selection is recorded in [ADR-0007](adrs/ADR-0007-rhenium-reaction-dynamics-bridge.md); its detailed route remains provisional. | Description hook not yet drafted. |
 
-**Domain distribution count requires reconciliation:** The earlier source statement says five prerequisite products span five physics disciplines and all five are required before advancing a simulation-fidelity tier. That conflicts with this six-row table, which includes the Reaction Dynamics selection. Preserve the breadth-across-domains gate concept while leaving the exact count and mapping open.
+**Domain distribution:** The current direction is six bridge products for the six listed research facilities; the earlier source statement saying five is retained as historical wording, not current scope. Reconcile the candidate product-to-facility mapping with [Research and Progression](research-progression.md); recipes and supporting inputs are not implied by this count.
 
 ### Research Ingredients and Data Products
 
@@ -260,7 +260,7 @@ This is a recipe-family inventory, not a finalized recipe book. It records the c
 
 ## Open Decisions and Validation
 
-- Reconcile the five-versus-six research-facility prerequisite count and confirm each product's domain, facility, progression role, and research gate.
+- Map the six candidate bridge products, including rhenium, to the six domain facilities and confirm their roles, supporting inputs, and research gates; the selected count is recorded in [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md).
 - Decide which candidate materials, components, batteries, nuclear assemblies, and endgame products have a required downstream use.
 - Select battery, fission, and fusion configurations without treating every real-world option as mandatory.
 - Define whether the optional spider-bot vehicle and power-suit equipment belong in the advanced military extension; do not reintroduce the rejected military drone products.

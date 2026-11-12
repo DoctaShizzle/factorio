@@ -118,7 +118,9 @@ The document inventory and its references may change during the documentation cl
 
 ### Phase 2 — Review and Resolve High-Impact Cross-Domain Decisions
 
-**Status: Not started; await the user's instruction. The Power System review also awaits the user's forthcoming detailed prompt.**
+**Status: In progress. Phase 1 is complete; the Phase 2 cross-domain review and Power System review are underway.**
+
+**Current decision checkpoint (2026-11-12):** The user selected all six domains at T2b2 plus the Unified Metrology Reference Array (convergence item) for first Core construction, and six Phase 2 bridge products including the accepted rhenium selection; see [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md). Phase 3/4 power-route identities and non-steam converter families are selected in [ADR-0018](adrs/ADR-0018-phase-3-and-4-power-route-roster-and-conversion.md); the Core Level 2 gate, detailed bridge mapping, and power implementation gates remain open.
 
 **Objective:** Identify and resolve the open decisions that would otherwise materially skew gap assessment, scope, or the later product, recipe, constructable, and research lists.
 
@@ -128,13 +130,13 @@ The document inventory and its references may change during the documentation cl
 - Inventory open decisions, ambiguities, and conflicts across the domain documents and linked ADRs. For each, record its owner, evidence, and impact on products, recipes, constructables, or research.
 - Prioritize decisions by downstream impact and dependency; distinguish decisions required before proceeding from those that can safely remain open.
 - Review required decisions with the user. Record accepted, rejected, or superseded decisions in ADRs and update the owning current-state documents; do not infer approval from a proposal.
-- Review and align [Power System](power-system.md) with its related domain documents and accepted power decisions. Wait for the user's forthcoming detailed prompt before beginning this review or making power-system changes.
-- Reconcile the accepted Hawking Radiation Engine option with the existing requirement for at least one alternative Phase 3/4 power route. Determine which power decisions must be settled before later catalog work and record any explicitly deferred decisions with their constraints.
+- Review and align [Power System](power-system.md) with related domain documents and accepted power decisions, using the user's detailed prompt. Record the selected route identities and converter families; keep unapproved implementation details proposed and do not infer acceptance of recipes, constructables, or gates.
+- Document the selected minimum of three distinct power options in each of Phases 3 and 4, including the additional Phase 3 concentrated-solar route. Resolve or explicitly defer their construction dependencies and research gates before later catalog work.
 - For decisions deferred beyond this phase, state why deferral is safe, what later phase or evidence will resolve them, and which assumptions must not be made meanwhile.
 
 **Outputs:** A prioritized disposition of high-impact open decisions; updated ADRs and owning design documents for decisions made; and explicit constraints, blockers, and safe deferrals for the next phases.
 
-**Exit criteria:** Every open decision with material downstream impact has a recorded decision or an explicit, justified deferral. Decisions needed to assess gaps and establish scope are resolved or bounded. The Power System review is complete and aligned with related documents, following the user's detailed prompt.
+**Exit criteria:** Every open decision with material downstream impact has a recorded decision or an explicit, justified deferral. Decisions needed to assess gaps and establish scope are resolved or bounded. The Power System review is complete and aligned with related documents.
 
 **Checkpoint and gate:** Record the decisions, affected documents, remaining blockers, and constraints for Phase 3. Do not treat unresolved, high-impact choices as settled while reviewing the gap analysis.
 

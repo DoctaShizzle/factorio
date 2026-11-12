@@ -19,7 +19,7 @@ ADRs preserve significant decision history separately from current-state design 
 | [ADR-0004](ADR-0004-map-edge-pressure.md) | Sparse Military Patrols at the Map Edge | Accepted |
 | [ADR-0005](ADR-0005-map-scale-and-discovery-distances.md) | Default Map Scale and Discovery Distances | Accepted with distance validation outstanding |
 | [ADR-0006](ADR-0006-capability-based-intermediate-scope.md) | Scope Intermediate Products by Capability | Accepted |
-| [ADR-0007](ADR-0007-rhenium-reaction-dynamics-bridge.md) | Rhenium Catalyst as a Reaction Dynamics Bridge | Accepted; route and bridge-count validation outstanding |
+| [ADR-0007](ADR-0007-rhenium-reaction-dynamics-bridge.md) | Rhenium Catalyst as a Reaction Dynamics Bridge | Accepted; six-bridge count selected; facility mapping and route validation outstanding |
 | [ADR-0008](ADR-0008-factorio-product-family-coverage.md) | Map Factorio Product Families Before Cataloging | Accepted; item-level coverage and version-specific inventory deferred |
 | [ADR-0009](ADR-0009-endgame-assembly-proposals.md) | Preserve Former Phase A2 Endgame Assembly Proposals | Accepted as a historical record; recipe values remain unapproved |
 | [ADR-0010](ADR-0010-core-power-distribution-scope.md) | Retain the Vanilla Grid with Tiered Power Poles | Accepted; exact tiers and pole properties open |
@@ -29,3 +29,5 @@ ADRs preserve significant decision history separately from current-state design 
 | [ADR-0014](ADR-0014-capability-based-ammunition.md) | Use Capability-Based Ammunition Progression | Accepted principle; types, tiers, and recipe counts open |
 | [ADR-0015](ADR-0015-sustained-power-for-defense.md) | Give Defense Infrastructure a Sustained Power Load | Accepted principle; profiles and values require validation |
 | [ADR-0016](ADR-0016-late-game-defense-drones.md) | Reject Late-Game Military Drones | Rejected; fixed defense, with optional spider-bot/power-suit extension scope open |
+| [ADR-0017](ADR-0017-phase-2-core-and-bridge-prerequisites.md) | Set Phase 2 Core and Bridge Prerequisites | Accepted |
+| [ADR-0018](ADR-0018-phase-3-and-4-power-route-roster-and-conversion.md) | Select Phase 3/4 Power Routes and Non-Steam Conversion | Accepted; implementation details and progression gates open |

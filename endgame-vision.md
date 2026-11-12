@@ -1,12 +1,12 @@
 # Endgame Vision — Distributed Planetary Computing
 
 *For: Project Prometheus Factorio Overhaul*  
-*Status: Draft — the planetary simulation network is the endgame direction; facilities, simulation stages, Core gates, and the final milestone remain proposals.*  
+*Status: Draft — the planetary simulation network is the endgame direction; the first Core construction gate is accepted in [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md), while higher Core stages, facilities, and the final milestone remain proposals.*
 *Last updated: 2026-11-12*
 
 Related documents: [Mod Overview](mod-overview.md), [Intermediate Products](intermediate-products.md), [Infrastructure](infrastructure.md), [Power System](power-system.md), and [Research and Progression](research-progression.md) for simulation-gated research mechanics.
 
-> **Migration note:** The source draft used “Phase 1: Design locked” and “locked design” wording. No linked ADR records the detailed facility or gate decisions, and the Core gate conflicts with [Research and Progression](research-progression.md). The six-domain roster remains the current recorded baseline; the exact prerequisite count and mechanics below remain open or candidate.
+> **Migration note:** The source draft used “Phase 1: Design locked” and “locked design” wording. [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md) records the selected first-Core gate and six-bridge count. Higher Core-level gates, exact bridge-to-facility mapping, and detailed mechanics below remain open or candidate.
 
 ## Summary
 
@@ -80,7 +80,7 @@ The Core and its peripheral facilities may be built and upgraded in stages. The 
 
 ## Candidate Model Inputs
 
-The network is proposed to be fed evidence that the factory has built the capabilities it is modeling. Domain science packs from the six currently listed research facilities represent cross-domain knowledge demonstration — breadth across physics disciplines, not depth in one. The source draft also says five facilities in places; see [Research and Progression](research-progression.md) for the tracked inconsistency.
+The network is proposed to be fed evidence that the factory has built the capabilities it is modeling. Domain science packs from the six currently listed research facilities represent cross-domain knowledge demonstration — breadth across physics disciplines, not depth in one. Older source text says five facilities; the current six-facility roster is retained, with the stale wording noted in [Research and Progression](research-progression.md).
 
 - **Plasma Physics Readings** (Superconductivity Research Lab) — requires electronic-grade polysilicon + Nb₃Sn wire as facility materials
 - **Magnetic Confinement Data** (Plasma Confinement Facility) — requires Nb₃Sn wire + cryogenic infrastructure
@@ -93,7 +93,7 @@ The network is proposed to be fed evidence that the factory has built the capabi
 
 **Phase 2 (Bridge):** Domain packs are fed into the conventional research building *alongside* standard science packs, augmenting the existing tech tree. This is the Space Exploration model — domain packs supplement but don't replace the standard research infrastructure. They do **not** go to a simulation Core at this stage because the Core does not yet exist. The player is still researching technologies through the conventional research building; domain packs simply add *additional capability gates* that require cross-domain knowledge before certain technologies can be unlocked.
 
-**Phase 3 (simulation-gated, candidate):** After the six currently listed domain research facilities are operational, the proposed loop transitions to the Planetary Simulation Core: domain datasets → simulation models → findings unlock technologies. One source sentence said five facilities; the count is inconsistent and tracked in [Research and Progression](research-progression.md).
+**Phase 3 (simulation-gated, candidate):** After the six currently listed domain research facilities are operational, the proposed loop transitions to the Planetary Simulation Core: domain datasets → simulation models → findings unlock technologies. The earlier five-facility sentence is stale source wording; the current roster has six facilities.
 
 These are six separate research facilities, each requiring a distinct Phase 2 bridge product as industrial prerequisite. The player must demonstrate knowledge across all six domains before advancing any simulation fidelity tier.
 
@@ -141,7 +141,8 @@ Specific material recipes belong in the [Intermediate Products](intermediate-pro
 
 ### Facility Infrastructure
 
-- Which first-Core gate is intended: all six domains at T2a, or all six at T2b2 before any Core-related construction? See the conflicting proposals in [Research and Progression](research-progression.md).
+**Selected first-Core gate:** All six domains at T2b2 plus the Unified Metrology Reference Array (convergence item) are required before first Core construction; see [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md).
+- What gates and roles should apply to Core Levels 2–3 after the selected first-Core gate? See [Research and Progression](research-progression.md).
 - Are Core Levels 1–3, their pack totals, and the proposed post-activation role of domain labs part of the final progression?
 - Is there a single final milestone, or a staged set of regional commissioning goals?
 - How much of the compute network must be physically distributed to make the spatial requirement meaningful without becoming arbitrary busywork?
