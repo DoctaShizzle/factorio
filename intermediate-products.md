@@ -1,25 +1,75 @@
-# Intermediate Products - Design Map
+# Intermediate Products and Non-Building Outputs
 
-*For: Factorio Overhaul Mod*
-*Status: Candidate inventory / requirements phase*
+*For: Project Prometheus*
+*Status: Candidate design; product inventory and pathways provisional*
+*Owner: Cross-domain non-building product catalog*
+*Last updated: 2026-11-12*
 
-Related documents: [Minerals and Refining](minerals-and-refining.md) - mined feeds and mineral-derived products; [Chemical Products and Processes](chemical-processes.md) - reactions and chemical feeds; [Machine Systems](machine-systems.md) - candidate equipment families.
+Related documents: [Minerals and Refining](minerals-and-refining.md) for mined feeds and mineral-derived products; [Chemical Products and Processes](chemical-processes.md) for reactions and chemical feeds. The optional spider-bot and power-suit extension direction is recorded in [ADR-0016](adrs/ADR-0016-late-game-defense-drones.md). Equipment-family ownership is not assigned here; the referenced `machine-systems.md` is absent from the current repository inventory, as tracked in the [Documentation Map](documentation-map.md).
 
 ## Summary
 
-This document tracks manufactured materials and components downstream of mineral refining and chemistry: metallurgical alloys, battery and electrochemical products, electronics and semiconductor products, nuclear assemblies, and the endgame computational infrastructure. Each product is listed with candidate inputs, route, industrial role, and design notes.
+This document is the cross-domain catalog of non-building products downstream of pure/refined materials and chemical processes. Its scope includes materials and components used to construct buildings, vehicles and fuels, weapons and ammunition, armor equipment and modules, research ingredients, and endgame components. Placeable buildings are consumers of products, not catalog entries here.
 
-**What it covers:** Candidate inventories by category (structural products, batteries, semiconductors, nuclear, endgame), provisional recipe pathways without fixed quantities, and key tradeoffs such as inert anodes requiring platinum-group metals or lightweight aluminum alloys for endgame infrastructure.
+**What it covers:** Candidate inventories and uses for manufactured materials, components, energy and mobility products, military and personal equipment, research inputs, and endgame components. Detailed product lists, recipes, and progression remain provisional.
 
-**What it does not cover:** Mined mineral feeds and recovery assignments (see [Minerals and Refining](minerals-and-refining.md)), chemical reactions and reagent chains (see [Chemical Products and Processes](chemical-processes.md)), or machine equipment families that execute these processes (see [Machine Systems](machine-systems.md)).
+**What it does not cover:** Mined feeds and pure/refined materials (see [Minerals and Refining](minerals-and-refining.md)), detailed chemical reactions and process routes (see [Chemical Products and Processes](chemical-processes.md)), or placeable buildings and machine entities (see [Infrastructure](infrastructure.md)).
 
-## Scope
+## Product Scope and Ownership
 
-This document tracks manufactured materials and components that sit downstream of mineral refining and chemistry. It does not duplicate ore rosters or specify full chemical recipes. A material belongs here when it is an alloy, functional compound, fabricated component, or assembly that unlocks a meaningful industrial capability.
+“Intermediate products” is the project name for this broad non-building product catalog; it is not a claim that every entry is a recipe intermediate. Assign each product the appropriate primary class and secondary-role tags from [Product Taxonomy](product-taxonomy.md). The catalog includes:
 
-The lists are candidates, not a promise that every product is mandatory. Favor a bounded number of recognizable capability unlocks over many near-identical intermediates.
+- Materials and components consumed when constructing buildings or other constructables; the buildings themselves are excluded.
+- Non-building utility outputs, including vehicles and their fuel.
+- Weapons, ammunition, armor equipment, armor utilities, and equipment modules.
+- Research ingredients and other produced research inputs or results.
+- Energy-storage, electronics, nuclear, and endgame products that have a defined role in the tree.
 
-## Metallurgy and Structural Products
+This document owns the product catalog's identities, roles, and consumer links. Specialized design documents remain authoritative for process behavior and domain mechanics:
+
+| Design area | Owning document |
+|---|---|
+| Mined feeds, recovery, and pure/refined materials | [Minerals and Refining](minerals-and-refining.md) |
+| Chemical reactions, reagents, and detailed chemical routes | [Chemical Products and Processes](chemical-processes.md) |
+| Placeable buildings, machines, and construction-demand hypotheses | [Infrastructure](infrastructure.md) |
+| Military behavior and combat capability; current candidate weapon/ammo chains | [Military System](military-system.md) |
+| Power-generation and fuel-system behavior | [Power System](power-system.md) |
+| Vehicle and transport behavior | [Logistics System](logistics-system.md) |
+| Research mechanics, technology gates, and research progression | [Research and Progression](research-progression.md) |
+| Endgame facility concepts and simulation network behavior | [Endgame Vision](endgame-vision.md) |
+
+Product entries are candidates unless explicitly approved. Favor products that unlock a capability or satisfy a distinct demand over near-duplicates; no fixed product-count target is approved.
+
+## Factorio Product-Family Coverage Checklist
+
+This is a completeness checklist for the production tree, not a commitment to add every vanilla or modded item. Each family must receive a scope disposition during coverage work. The examples describe gameplay families and object forms, not a version-specific inventory of Factorio GUI groups or Lua prototype types.
+
+| Family to verify | Factorio-style examples | Treatment and owner |
+|---|---|---|
+| Extracted feeds and resource fluids | Ores, stone, crude oil, water, and other raw deposits | Upstream inputs; deposits and mineral feeds belong to [Minerals and Refining](minerals-and-refining.md), with placement owned by [Map and World Generation](map-world-generation.md). |
+| Pure and refined materials | Separated metals, purified elements, and refined mineral products | Upstream feedstocks owned by [Minerals and Refining](minerals-and-refining.md); downstream product uses are cross-referenced here. |
+| Chemical fluids, gases, and reagents | Acids, solvents, process gases, catalysts, and chemical coproducts | Chemical routes belong to [Chemical Products and Processes](chemical-processes.md); catalog identities and downstream uses are cross-referenced here. |
+| Manufactured materials and components | Alloys, plates, structural parts, ceramics, glass, electronics, circuits, semiconductors, and mechanical components | Non-building products belong in this catalog; candidate coverage is partial. |
+| Placeable production and utility infrastructure | Machines, power facilities, storage, transport buildings, labs, turrets, and other placeable entities | Excluded as product entries here; constructables and construction-demand hypotheses belong to [Infrastructure](infrastructure.md). Materials used to build them remain in scope here. |
+| Logistics and automation products | Belts, inserters, pipes, chests, rails, rolling stock, robots, roboports, and circuit-network components | Separate placeable entities from non-building items; entity inventories belong to [Infrastructure](infrastructure.md), system behavior to [Logistics System](logistics-system.md), and manufactured non-building products to this catalog. |
+| Vehicles and vehicle equipment | Cars, tanks, locomotives, wagons, spider vehicles, vehicle modules, and their service parts | Non-building vehicle items and products belong in this catalog; transport and combat behavior belongs to [Logistics System](logistics-system.md) and [Military System](military-system.md). |
+| Fuels and energy carriers | Solid, liquid, gas, nuclear, and vehicle fuels; batteries and other stored-energy items | Non-building fuel and storage products belong here; generation equipment and power-system behavior belong to [Power System](power-system.md). Electricity itself is a system flow, not an inventory product. |
+| Weapons and combat consumables | Guns, ammunition, rockets, explosives, grenades, capsules, and combat robots | Non-building products belong here; turrets, mines, and other placeable defenses belong to [Infrastructure](infrastructure.md), with combat progression in [Military System](military-system.md). |
+| Armor and personal equipment | Armor, equipment-grid items, shields, batteries, exoskeletons, night vision, and personal roboports | Non-building products belong in this catalog; the candidate inventory still needs coverage work. |
+| Upgrade modules and process consumables | Factory speed/productivity/efficiency/quality modules, equipment modules, catalysts, filters, and repair packs | Include distinct manufactured items when they have a defined role; machine behavior and constructables remain with their domain owners. |
+| Research ingredients and data | Science packs, domain packs, samples, datasets, and produced findings | Research items belong in this catalog; production/consumption mechanics and technology gates belong to [Research and Progression](research-progression.md) and [Endgame Vision](endgame-vision.md). |
+| Endgame computation assemblies and facilities | Compute racks, memory/archive modules, observation systems, Core assemblies, and calibration hardware | Non-building component products belong here; placeable facilities belong to [Infrastructure](infrastructure.md) and [Endgame Vision](endgame-vision.md). Ambiguous assembly outputs remain there until classified. |
+| Launch and space products | Rocket parts and fuel, satellites, cargo, and space-platform components | Non-building products belong here when in scope; launch structures and placeable facilities belong to [Infrastructure](infrastructure.md) and [Endgame Vision](endgame-vision.md). |
+| Biological and agricultural products | Cultivated resources, biological intermediates, nutrients, and spoilable outputs | Not yet established in the current design; explicitly decide scope before cataloging. |
+| Terrain and tile products | Landfill, concrete, paths, and other placeable terrain items | Review for production/progression relevance; terrain behavior belongs to [Map and World Generation](map-world-generation.md), and placeable construction inventory to [Infrastructure](infrastructure.md). |
+| Tools, containers, and interface items | Repair/construction tools, barrels, blueprints, planners, and remotes | Check against the selected vanilla-content scope; include only when they participate in the production or progression tree. |
+| Byproducts, waste, and recycling streams | Slag, spent fuel, sludge, recovered materials, and other coproducts | Track each materialized item or fluid and its use or handling here; detailed route ownership remains with the relevant mineral, chemical, or power document. |
+
+During the coverage phase, cross-check these families against the selected Factorio version and apply the scope labels in [Product Taxonomy](product-taxonomy.md): core, vanilla retained, vanilla modified, vanilla replaced, extension, or out of scope. Category presence alone does not justify adding a product. This checklist approach is recorded in [ADR-0008](adrs/ADR-0008-factorio-product-family-coverage.md).
+
+## Product Families and Candidate Inventory
+
+### Construction and Structural Materials
 
 | Product | Candidate inputs / route | Industrial role |
 | --- | --- | --- |
@@ -35,22 +85,11 @@ The lists are candidates, not a promise that every product is mandatory. Favor a
 
 Chromium and niobium have confirmed roles in steelmaking. The gameplay distinction can be capability-based: stainless steel unlocks corrosive service, while niobium microalloyed steel enables high-strength structural parts.
 
-## Phase 2 Bridge Products (Cross-Domain Capability Materials)
+### Mobility, Fuels, and Energy Storage
 
-These five materials are the primary bridge between Phase 1 conventional industry and Phase 3 simulation-gated research. Each is a *material* — not a research item itself — that serves as the industrial prerequisite for building one of five dedicated domain science facilities. The facility (not the material) produces the domain science pack.
+Vehicles and their fuel products are in scope as non-building outputs. The candidate vehicle roster, fuel items, and their source/consumer links still need to be established; fuel-process detail belongs to chemistry or power design, while transport behavior belongs to logistics. The user identified a spider-bot vehicle as an optional advanced military extension direction; it is not yet a finalized catalog entry. See [ADR-0016](adrs/ADR-0016-late-game-defense-drones.md).
 
-Each product requires deep Phase 1 capability (high-purity processing, isotopic separation, cryogenics). Every description follows the design guideline from [mod-overview.md](mod-overview.md): a concrete physical property ("what happens") followed by its implication ("why it matters").
-
-| Product | Candidate inputs / route | Industrial role & capability unlock | Description hook |
-|---|---|---|---|
-| Electronic-grade polysilicon | Metallurgical silicon → chlorosilane purification → deposition (4–6N purity) | Wafer fabrication gateway; enables Superconductivity Research Lab. Silicon purified to a level where every impurity matters — one wrong atom in a billion changes how it conducts electricity. At this purity, you can *choose* which state it's in by adding the right trace element. |
-| Nb₃Sn superconducting wire | Niobium + tin/silver alloy → wire drawing + cryogenic treatment | High-field magnet material; enables Plasma Confinement Facility. When cooled below a threshold, this alloy carries electric current with zero resistance — and generates magnetic fields strong enough to confine plasma at temperatures hotter than the sun's core. It's one of the few materials that can survive both. |
-| Hafnium-oxide (HfO₂) dielectric | Hafnium from zirconium-bearing feed → oxide conversion → high-purity deposition | Cleanroom fabrication gate; enables Nanofabrication Laboratory. At thicknesses approaching a single molecule, hafnium oxide becomes one of the most effective electrical insulators known — yet it conducts heat well enough to prevent the structure it protects from melting. It solves a problem classical materials couldn't. |
-| Deuterium-enriched water (D₂O) | Brine/water → large-scale electrolysis → isotopic enrichment | Fusion fuel feedstock + neutron moderator; enables Isotope Separation & Calibration Lab. Water where the hydrogen atoms carry an extra neutron — heavy enough that it behaves differently in nuclear reactions. A single drop can reveal how neutrons interact with matter, information no ordinary element provides. |
-| High-purity cryogenic argon/nitrogen mixture | Air → multi-stage refrigeration cascade → cryogenic distillation | Superconducting cooling infrastructure + low-temperature experiments; enables Quantum States Laboratory. Gases cooled to within degrees of absolute zero — the point where thermal noise disappears and quantum effects become macroscopically visible. Below certain temperatures, matter stops behaving like particles and starts behaving like waves. |
-| High-performance rhenium-catalyst powder | Molybdenite concentrate → acid attack + solvent extraction from MoS₂ residue → high-purity rhenium powder reduction → catalyst bed preparation with controlled particle size | Reaction Dynamics gate; enables Reaction Dynamics Facility (see Phase 2 bridge products table below). **Decision A1 — committed:** Rhenium is one of the highest-melting metals known (3186°C) and can catalyze reactions at pressures that would destroy most materials. It represents the capability gap this domain addresses: understanding how reactions move, not just whether they occur. |
-
-**Domain distribution:** These five products span five distinct physics disciplines (solid-state/quantum, superconductivity, surface science/nanotech, nuclear/isotope physics, cryogenic/statistical thermo). All five are required before advancing any simulation fidelity tier — the gate is breadth across domains, not depth in one.
+#### Battery Products
 
 | Product | Candidate inputs | Industrial role |
 | --- | --- | --- |
@@ -61,7 +100,38 @@ Each product requires deep Phase 1 capability (high-purity processing, isotopic 
 
 Battery chemistry choices may trade material intensity, energy storage, lifetime, and manufacturing complexity. Specific cell chemistries remain open; avoid adding every real battery formulation.
 
-## Electronics and Semiconductor Products
+### Military Products: Weapons and Ammunition
+
+Weapons, ammunition, and other non-building military products are in scope here. Their gameplay role and capability progression remain in [Military System](military-system.md), which currently contains the candidate weapon/ammo chains. Consolidate product identities and uses into this catalog during the catalog phase rather than duplicating that list now. Turrets and other placeable defense infrastructure remain in [Infrastructure](infrastructure.md).
+
+### Personal Equipment: Armor, Utilities, and Modules
+
+Armor items, wearable or personal equipment, armor utilities, and equipment modules are in scope as non-building product outputs. Their candidate inventory has not yet been established in this document; identify the needed families during coverage work before enumerating products and recipes. The user also identified power-suit equipment additions as an optional advanced military extension direction; exact product families and scope remain open (see [ADR-0016](adrs/ADR-0016-late-game-defense-drones.md)).
+
+### Research-Facility Prerequisite Materials
+
+The following are candidate material products used to construct or operate dedicated research facilities. They are not themselves research ingredients: the facility produces the research pack or data item. The relevant research mechanics and gates remain in [Research and Progression](research-progression.md).
+
+**Count reconciliation required:** The table currently contains six products, including the committed rhenium-catalyst selection, while the earlier description and Domain distribution below refer to five. Preserve this discrepancy until the domain and product counts are reconciled; do not assume that one count is authoritative.
+
+Each product requires deep Phase 1 capability (high-purity processing, isotopic separation, cryogenics). Every description follows the design guideline from [mod-overview.md](mod-overview.md): a concrete physical property ("what happens") followed by its implication ("why it matters").
+
+| Product | Candidate inputs / route | Industrial role & capability unlock | Description hook |
+|---|---|---|---|
+| Electronic-grade polysilicon | Metallurgical silicon → chlorosilane purification → deposition (4–6N purity) | Wafer fabrication gateway; enables Superconductivity Research Lab. Silicon purified to a level where every impurity matters — one wrong atom in a billion changes how it conducts electricity. At this purity, you can *choose* which state it's in by adding the right trace element. |
+| Nb₃Sn superconducting wire | Niobium + tin/silver alloy → wire drawing + cryogenic treatment | High-field magnet material; enables Plasma Confinement Facility. When cooled below a threshold, this alloy carries electric current with zero resistance — and generates magnetic fields strong enough to confine plasma at temperatures hotter than the sun's core. It's one of the few materials that can survive both. |
+| Hafnium-oxide (HfO₂) dielectric | Hafnium from zirconium-bearing feed → oxide conversion → high-purity deposition | Cleanroom fabrication gate; enables Nanofabrication Laboratory. At thicknesses approaching a single molecule, hafnium oxide becomes one of the most effective electrical insulators known — yet it conducts heat well enough to prevent the structure it protects from melting. It solves a problem classical materials couldn't. |
+| Deuterium-enriched water (D₂O) | Brine/water → large-scale electrolysis → isotopic enrichment | Fusion fuel feedstock + neutron moderator; enables Isotope Separation & Calibration Lab. Water where the hydrogen atoms carry an extra neutron — heavy enough that it behaves differently in nuclear reactions. A single drop can reveal how neutrons interact with matter, information no ordinary element provides. |
+| High-purity cryogenic argon/nitrogen mixture | Air → multi-stage refrigeration cascade → cryogenic distillation | Superconducting cooling infrastructure + low-temperature experiments; enables Quantum States Laboratory. Gases cooled to within degrees of absolute zero — the point where thermal noise disappears and quantum effects become macroscopically visible. Below certain temperatures, matter stops behaving like particles and starts behaving like waves. |
+| High-performance rhenium-catalyst powder | Molybdenite concentrate → acid attack + solvent extraction from MoS₂ residue → high-purity rhenium powder reduction → catalyst bed preparation with controlled particle size | Reaction Dynamics gate; enables Reaction Dynamics Facility. The product selection is recorded in [ADR-0007](adrs/ADR-0007-rhenium-reaction-dynamics-bridge.md); its detailed route remains provisional. |
+
+**Domain distribution count requires reconciliation:** The earlier source statement says five prerequisite products span five physics disciplines and all five are required before advancing a simulation-fidelity tier. That conflicts with this six-row table, which includes the Reaction Dynamics selection. Preserve the breadth-across-domains gate concept while leaving the exact count and mapping open.
+
+### Research Ingredients and Data Products
+
+Research ingredients are a separate product family from the materials used to construct research facilities. Conventional science packs, domain science packs, simulation datasets, and produced findings/results belong in the non-building product catalog when represented as items. Their production and consumption mechanics, tiering, and technology gates remain in [Research and Progression](research-progression.md) and [Endgame Vision](endgame-vision.md). The complete item roster is deferred to the catalog and research phases.
+
+### Electronics and Semiconductor Products
 
 | Product | Candidate inputs / route | Industrial role |
 | --- | --- | --- |
@@ -76,11 +146,11 @@ Battery chemistry choices may trade material intensity, energy storage, lifetime
 
 Tantalum's circuit role should be distinct from its mineral recovery: concentrate it from niobium-tantalum feeds, refine it, then use it for capacitor products and selected chip components.
 
-## Nuclear Materials and Assemblies
+### Nuclear Materials and Assemblies
 
 There is no single universal reactor bill of materials. These are candidate capabilities for the mod's fission and fusion systems; select a coherent reactor family rather than combining every real-world option.
 
-### Fission
+#### Fission
 
 | Product | Candidate inputs / route | Role and design hook |
 | --- | --- | --- |
@@ -94,7 +164,7 @@ There is no single universal reactor bill of materials. These are candidate capa
 
 The educational process choice is unusually clean: zircon and hafnium commonly occur together, yet nuclear cladding favors zirconium with hafnium minimized, while hafnium is useful as a neutron absorber.
 
-### Fusion
+#### Fusion
 
 | Product | Candidate inputs / route | Role and design hook |
 | --- | --- | --- |
@@ -106,37 +176,19 @@ The educational process choice is unusually clean: zircon and hafnium commonly o
 
 Beryllium can serve as a neutron multiplier in some blanket concepts, but it should be an optional, well-motivated branch rather than an assumed universal fusion input. ITER's current blanket plan uses tungsten armor; alternative plasma-facing materials can remain documented variants rather than parallel mandatory chains.
 
-## Distributed Computational Endgame
+### Endgame Component Products
 
-The endgame remains a network of industrial capabilities rather than one megastructure:
+The facility network and its buildable components are described in [Endgame Vision](endgame-vision.md) and [Infrastructure](infrastructure.md). This catalog retains the non-building product inputs and outputs used by that network.
 
-```text
-Electronic-grade silicon -> wafer fabrication -> packaged processors
-                                             -> computing clusters
-Specialty metals and gases -> advanced packaging / interconnects
-Precision optics + cryogenics -> simulation links and high-performance systems
-                                             -> planetary research network
-```
-
-A packaged processor is a component, not the victory condition. The player builds geographically distributed wafer, processor, supercomputer, and research facilities that turn industrial capacity into simulation capacity.
-
-### Simulation Network Components
-
-| Product | Required Bridge / Intermediate Inputs | Industrial Role |
+| Product | Candidate inputs / route | Industrial role |
 | --- | --- | --- |
-| **Unified Metrology Reference Array** | Nb₃Sn wire + electronic-grade polysilicon; D₂O + enriched fuel stock; rhenium-catalyst powder + graphite support; cryogenic Ar/N₂ mixture + noble gas purification → single precision-instrument enclosure | Active calibration hardware: coherent instrument integrating six physics measurement zones into one physical device. Each zone is genuine scientific hardware — not administrative proof but real instrumentation that produces measurable reference data while the Core operates. Cross-domain calibration between zones enables multi-physics validation. |
-| **Thermal Frame Assembly** | Heat exchanger coils, cryogenic insulation panels, thermal interface materials, refrigeration cascade components (liquid nitrogen/argon circuits), corrosion-resistant structural steel framework | Mandatory first Core assembly — cascading thermal loop infrastructure that removes computation heat and stabilizes measurement temperatures across all Core subsystems. Without this, no computation or measurement is possible at required precision. |
-| **Computation Cluster** | Packaged ICs, ultra-pure copper bonding wire, advanced thermal interface materials, shielded memory enclosures | Physical computational center: precision computation modules with dedicated cooling channels, memory arrays in electromagnetic-shielded enclosures, and synchronization hardware. Each module is individually servicable — not an abstract array. |
-| **Integration Bus** | Superconducting interconnect cable (Nb₃Sn/NbTi from Phase 2 bridge wire supply chain), photolithography-processed glass elements for optical waveguides, electromagnetic shielding material (mu-metal/permalloy alloy), fiber routing hardware with precision mechanical mounts | Physical interconnect infrastructure — superconducting cables, optical waveguides, and EM isolation enclosures that connect satellite nodes to the Core. Upgradeable across tiers: early cores have basic connections; higher tiers require faster/more reliable Phase 2 materials. |
-| **Calibration Reference Frame** | Unified Metrology Reference Array + precision alignment mechanism (semiconductor-grade positioning stages), vibration isolation system (damping materials, specialty alloy spring mounts), environmental control components (temperature regulation tied to cryogenic/thermal infrastructure) | Where the convergence array is mounted and *actively functions* — not just a piece that "unlocks" something. Active temperature/vibration control makes it genuine calibration hardware. |
-| **Compute Campus Node** | Packaged processors + advanced cooling modules + power regulation units | Additional computation modules connected to Core via integration bus (model execution nodes) |
-| **Memory/Archive Module** | High-density storage elements + stable power supply + thermal management | Long-term data preservation with dedicated thermal infrastructure |
-| **Regional Observation Facility** | Sensor arrays (geological + atmospheric) + sample processing equipment + domain lab components | Feeds raw measurement data into the calibration reference hardware |
-| **Calibration Sub-Network** | All six domain labs as active measurement calibration reference points | Labs don't just "produce packs" — they actively calibrate the Core's measurement fidelity |
+| **Unified Metrology Reference Array** | Nb₃Sn wire + electronic-grade polysilicon; D₂O + enriched fuel stock; rhenium-catalyst powder + graphite support; cryogenic Ar/N₂ mixture + noble-gas purification | Candidate non-building reference instrument combining six physics measurement zones; required for calibrated Core activation. Its detailed physical concept is in [Endgame Vision](endgame-vision.md); former candidate quantities are preserved, not approved, in [ADR-0009](adrs/ADR-0009-endgame-assembly-proposals.md). |
+
+Other candidate endgame assemblies whose item/entity form is unresolved remain in the Infrastructure inventory until their constructable classification is settled.
 
 ## Provisional Recipe Pathways
 
-This is a recipe-family inventory, not a finalized recipe book. It records the candidate transformation and output use, but not numeric quantities, crafting times, machine counts, or unlock requirements. Chemical inputs and reactions are specified in [Chemical Products and Processes](chemical-processes.md); candidate equipment is mapped in [Machine Systems](machine-systems.md). All entries remain candidates until approved.
+This is a recipe-family inventory, not a finalized recipe book. It records the candidate transformation and output use, but not numeric quantities, crafting times, machine counts, or unlock requirements. Chemical inputs and reactions are specified in [Chemical Products and Processes](chemical-processes.md); equipment ownership is unresolved because the referenced `machine-systems.md` is absent. Endgame facility assembly pathways belong to [Infrastructure](infrastructure.md), not this non-building product catalog. All entries remain candidates until approved.
 
 ### Recipe Pathways: Metallurgy
 
@@ -187,22 +239,14 @@ This is a recipe-family inventory, not a finalized recipe book. It records the c
 | Tungsten armor tile | Refined tungsten -> formed/finished plasma-facing tile | Fusion chamber protection |
 | Nb3Sn or NbTi conductor | Niobium + tin or titanium -> superconducting alloy -> wire/cable | High-field fusion magnets |
 
-### Distributed Computing Endgame
-
-| Candidate output | Provisional recipe pathway | Product use |
-| --- | --- | --- |
-| Processor cluster | Packaged ICs + boards + cooling and power components -> compute rack | Regional computation |
-| Supercomputer facility | Compute racks + high-capacity power/cooling + network equipment -> facility | Large-scale simulation |
-| Simulation cluster node | Supercomputer facility + synchronization and precision links -> network node | Distributed simulation |
-| Planetary research center | Regional cluster nodes + precision optics + research infrastructure -> center | Endgame objective network |
-
 ## Design Checks
 
 - Every listed product should unlock a capability, satisfy a distinct industrial demand, or connect two existing systems.
-- Keep chemical transformations and intermediate fluids in the chemistry document; keep alloys, compounds-in-use, components, and assemblies here.
+- Keep chemical transformations and intermediate fluids in the chemistry document; keep non-building alloys, compounds-in-use, components, and assemblies here. Placeable entities and their construction pathways belong in the infrastructure document.
 - Nuclear product routes must be optional where they represent particular reactor designs; do not imply that all fission or fusion systems require the same materials.
 - Show real material use in the handbook, while labeling gameplay ratios, simplified fuel cycles, and fictional applications as design abstractions.
-- Build the downstream list incrementally against actual recipe needs; do not restore the superseded 65-83 item target.
+- Check every family in the Factorio product-family checklist against the selected game version and vanilla-content scope before passing the coverage gate.
+- Build the downstream list incrementally against actual recipe needs; do not restore the superseded 65–83 item target. The scope decision is recorded in [ADR-0006](adrs/ADR-0006-capability-based-intermediate-scope.md).
 
 ## Reference Sources
 
@@ -213,3 +257,13 @@ This is a recipe-family inventory, not a finalized recipe book. It records the c
 - [US Nuclear Regulatory Commission: Fuel Cycle](https://www.nrc.gov/materials/new-fuels)
 - [ITER Blanket](https://www.iter.org/machine/blanket)
 - [ITER Superconducting Magnets](https://www.iter.org/machine/magnets)
+
+## Open Decisions and Validation
+
+- Reconcile the five-versus-six research-facility prerequisite count and confirm each product's domain, facility, progression role, and research gate.
+- Decide which candidate materials, components, batteries, nuclear assemblies, and endgame products have a required downstream use.
+- Select battery, fission, and fusion configurations without treating every real-world option as mandatory.
+- Define whether the optional spider-bot vehicle and power-suit equipment belong in the advanced military extension; do not reintroduce the rejected military drone products.
+- Validate that proposed products connect to approved mineral and chemical inputs before finalizing recipes.
+- Reconcile equipment-family ownership and product-to-machine mapping.
+- Confirm the product roster from capability needs rather than adopting a numeric target.

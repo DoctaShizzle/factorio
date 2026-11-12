@@ -1,47 +1,21 @@
-# Power System - Design Proposal
+# Power System Design
 
-*For: Factorio Overhaul Mod*  
-*Status: Concept / requirements phase*
+*Status: Draft — core distribution and Hawking option accepted; generation alternatives and technical details remain open*
+*Last updated: 2026-11-12*
 
-Related documents: [Chemical Products and Processes](chemical-processes.md) for fuels and reagents; [Intermediate Products](intermediate-products.md) for nuclear materials, batteries, and endgame infrastructure; [Minerals and Refining](minerals-and-refining.md) for fuel-resource links; [Endgame Vision](endgame-vision.md) for late-game research network.
+Related documents: [Chemical Products and Processes](chemical-processes.md), [Intermediate Products](intermediate-products.md), [Minerals and Refining](minerals-and-refining.md), [Infrastructure](infrastructure.md), [Endgame Vision](endgame-vision.md). Related decisions: [ADR-0010](adrs/ADR-0010-core-power-distribution-scope.md), [ADR-0011](adrs/ADR-0011-hawking-radiation-endgame-generator.md), and [ADR-0009](adrs/ADR-0009-endgame-assembly-proposals.md).
 
-## Design Decisions
+## Summary
 
-| Decision | Resolution | Date |
-|----------|-----------|------|
-| **Core mod power delivery** | All generators feed vanilla Factorio pole grid. No voltage tiers, no transmission loss, no custom conductors. Generators produce different power outputs to create tradeoffs through placement pressure (proximity to loads). | 2026-11-07 |
-| **Full power-system replacement (Approach C)** | Deferred as a future extension mod `power-transmission-override`. Would add voltage tiers, loss-bearing transmission lines, transformers, HVDC converter stations, grid diagnostics, and fault propagation. This is an opt-in complexity layer — not required for the core experience. | 2026-11-07 |
+This draft describes candidate power-generation progression, fuel-density comparisons, generator infrastructure needs, and optional transmission concepts. The vanilla-grid-plus-tiered-poles direction and the Hawking Radiation Engine as one Phase 4 option are accepted; recipes, generator values, other Phase 3/4 routes, and detailed power behavior remain open.
 
-### Why Vanilla for Core?
+## Purpose and Boundaries
 
-Research into existing Factorio mods (Space Exploration, Bob's Mods, Pyanodons) confirms that all major overhaul mods use vanilla power poles. The closest comparisons:
-
-- **Space Exploration** — adds fusion reactors and dozens of generator types but uses vanilla pole projection 100%. The SpEx author explicitly chose this to maintain mod compatibility and avoid rewriting Factorio's core power architecture.
-- **Advanced Power Poles** — the most invasive dedicated power mod; it only adds larger poles with more range/capacity, not a new transmission system.
-- **Bob's/Pyanodons** — deep chemistry/industry overhauls that still use vanilla poles entirely.
-
-Replacing Factorio's pole-projection system would require rewriting one of the game's most fundamental C++ subsystems via Lua. This is: incompatible with other power mods; fragile across Factorio updates; and a massive additional engineering burden on top of ~80 new machines, 1200 items, and 4000 recipes already planned.
-
-### What Approach C Would Add (Deferred Extension)
-
-| Mechanic | Description |
-|----------|-------------|
-| Discrete transmission lines | Wires between poles as real entities with length-based power loss |
-| Voltage tiers | 4-tier system (0–3) requiring transformers to step up/down |
-| Transmission loss | % loss per 100 tiles, dependent on conductor material and voltage tier |
-| HVDC converter stations | AC→DC conversion for ultra-long-distance endgame transmission |
-| Grid diagnostics | Real-time display of load, capacity, loss, fault propagation |
-| Fault propagation | Cascading brownouts when generators trip without stabilization |
-
-This extension would create a parallel power architecture alongside vanilla poles — players could opt in entirely or mix both systems. It would be its own standalone extension pack (not bundled with core).
-
-This document defines power **production** through generator phases and fuel-density progression. In the core mod, all generators deliver vanilla Factorio pole-grid power (no custom transmission). A **full replacement of Factorio's power system** (Approach C below) is deferred as a future extension mod.
-
-**What it covers:** Four phases of power generation (combustion → fission → fusion → simulation), fuel-density spectrum, generator infrastructure requirements, and design intent for vanilla-compatible generators.
-
-**What it does not cover in the core mod:** Voltage tiers, transmission loss modeling, conductors, transformers, or grid diagnostics — these are deferred to a potential `power-transmission-override` extension mod. See [Approach C: Full Replacement](#approach-c-full-replacement-deferred-to-extension-mod) below.
-
-**What it does not cover anyway:** Specific recipe ratios or exact MW/kWh values (to be defined during tuning); detailed fuel-cycling for fission/fusion (covered in [Intermediate Products](intermediate-products.md)); machine power consumption numbers; electrical engineering formulas.
+- **Core distribution (accepted):** Retain Factorio's vanilla pole grid and add compatible tiered power poles; exact pole tiers and statistics belong in [Infrastructure](infrastructure.md) and remain open.
+- **Extension candidate:** A custom transmission system is outside core scope and remains an optional `power-transmission-override` proposal.
+- **Phase 4 option (accepted):** Include the Hawking Radiation Engine, but do not make it the sole late-game power path. Develop at least one viable alternative across Phases 3 and 4; see [ADR-0011](adrs/ADR-0011-hawking-radiation-endgame-generator.md).
+- **In scope:** Candidate generator phases, fuel-density spectrum, infrastructure needs, power storage, and design questions.
+- **Not specified:** Recipe ratios, exact MW/kWh values, machine consumption values, detailed fuel cycling, and electrical engineering formulas.
 
 ## Core Design Principles for Power Production
 
@@ -98,66 +72,41 @@ This document defines power **production** through generator phases and fuel-den
 - The fusion chain touches more parts of the mod than any other single capability: mining (tungsten, niobium/tantalum, lithium), chemistry (deuterium concentration, lithium processing), metallurgy (superconducting alloys, plasma-facing tungsten), and semiconductor electronics (magnet control systems).
 - Fusion should be **the ultimate spatial relief** — a small footprint delivering enormous power. However, building the first fusion reactor should feel like a major project rivaling the endgame Core in scope.
 
-### Phase 4: Near-Realistic Sci-Fi Endgame Power Generation (Endgame / Optional)
+### Phase 4: Near-Realistic Sci-Fi Endgame Power Generation
 
-*Connected to the Planetary Simulation Core; requires active computational partnership, not just research unlocks.*
+*Source proposal: connect late-game generation to an active Planetary Simulation Core; this dependency and its gate remain unresolved.*
 
-Both concepts below represent physics-grounded energy generation that goes beyond conventional fusion. Neither is required for victory. Each connects meaningfully to the simulation network — not as a simple research gate, but as an operational requirement during construction and/or operation.
+The Hawking Radiation Engine is an accepted Phase 4 option, not the exclusive route. The former Subspace Capacitor and its rationale are retained in [ADR-0011](adrs/ADR-0011-hawking-radiation-endgame-generator.md) as historical material that may inform future alternatives; it is not currently selected. At least one viable Phase 3/4 alternative must be explored before power progression is locked. The engine's detailed mechanics, research gate, relationship to the Core, and whether it is optional or required for progression remain open.
 
 | Generator concept | Principle | Design role | Key tradeoff |
 |---|---|---|---|
-| Hawking Radiation Engine (Option B) | Contained micro-black hole emitting Hawking radiation; harvested via thermal-to-electric conversion | Endgame energy engine with finite operational lifetime extendable by feeding matter. Physics-grounded: Hawking radiation is a derived result from QFT in curved spacetime; analog Hawking radiation has been demonstrated in laboratory settings using sonic horizons | Construction requires enormous one-time power draw to *create* the singularity (optical concentrators collapse radiation until field collapse); operational lifetime finite but extendable by feeding matter (mass → energy via E=mc²); smaller = more efficient but evaporates faster; requires precision optics, extreme-voltage infrastructure, superconducting containment |
-| ZPM-style Subspace Capacitor (Option A) | Player-built device that creates an artificial pocket of subspace-time and extracts zero-point energy until the pocket reaches maximum entropy (equilibration with our universe's vacuum state); then collapses into a dead crystal shell — not infinite but lasting thousands of years at moderate draw | Stargate-inspired capstone generator representing reverse-engineered Ancient physics. Finite, player-constructed, no map-placed power sources found | Construction requires the Planetary Simulation Core to compute precise spacetime boundary conditions for *this planet's* specific properties (rotation, magnetic field, composition); fabrication demands ultra-pure silicon wafers, tantalum alloy containment lattice, precision crystal resonators, quantum computation module; no fuel supply chain but massive construction project; each capacitor is finite and must be replaced when depleted |
+| Hawking Radiation Engine | Contained micro-black hole emitting Hawking radiation; harvested via thermal-to-electric conversion | Accepted as one Phase 4 option. A finite lifetime extended by feeding matter is a candidate operating model; a Planetary Simulation Core role in construction and operation remains a source proposal | Candidate model: large one-time construction power demand and finite-but-extendable lifetime. Precision optics, containment, and superconducting supply chains remain unvalidated |
 
-**Option B: Hawking Radiation Engine — design notes:**
+The accepted decision establishes the engine as one power option only; the following mechanics and operating details remain source proposals.
+
+**Hawking Radiation Engine — provisional implementation concept:**
 - **Construction phase (massive power investment):** Player builds an optical concentrator array (precision glass/mirror elements from optics chain) that collapses a concentrated radiation field into a micro-singularity. This requires enormous input power to achieve the threshold for radiation-pressure collapse. Ironic cycle: you need more power to build it than it produces initially — but once stable, output exceeds construction draw.
 - **Operational phase (finite but extendable):** The contained micro-black hole emits Hawking radiation at a predictable spectrum (computed by the Planetary Simulation Core). Thermal-to-electric converters harvest this as power. The black hole's mass decreases over time as it radiates — its operational lifetime is finite, inversely proportional to initial mass.
 - **Feeding matter to extend life:** Player can feed concentrated matter/fuel into the singularity (mass → energy via E=mc²). This extends operational life but costs resources: you trade material inputs for power output at a predictable rate. Different fuel types have different mass-energy yields, connecting back to the fuel-density spectrum.
 - **Smaller = faster evaporation:** The physics is unforgiving here — smaller initial black hole has higher Hawking temperature (more efficient thermal conversion) but evaporates much faster. Player chooses: compact fast-burning engine vs. massive slow-dying one. This creates a meaningful size-vs-lifetime tradeoff with real engineering consequences.
 - **Simulation's role:** Computes Hawking radiation spectrum for thermal converter optimization, models collapse dynamics during construction to prevent containment breach, predicts remaining lifetime based on feeding schedule.
 
-**Option A: ZPM-style Subspace Capacitor — design notes:**
-- **Construction is the challenge, not fuel supply.** The player constructs a Subspace Capacitor device (not finding pre-made artifacts on the map). Construction is an endgame project rivaling the first fusion reactor in scope:
-  - Cleanroom facility with nanometer-scale precision fabrication
-  - Ultra-pure silicon wafer production (semiconductor chain output)
-  - Tantalum alloy containment lattice (forged under extreme pressure/temperature)
-  - Precision crystal resonators (advanced optics/optical glass chain)
-  - Quantum computation module (simulation chip output from Planetary Simulation Core infrastructure)
-- **The simulation computes the pocket.** The Planetary Simulation Core is used *once during construction* to compute boundary conditions needed to stabilize the pocket against collapse — essentially running a quantum field theory simulation at nanometer scales where no lab instrument can directly measure. The simulation determines precise cavity plate spacings that extract specific frequency ranges from vacuum fluctuations, and calculates harmonic dampening parameters to prevent destabilization.
-- **Research investment matters.** Years of using the simulation network to understand quantum vacuum behavior unlock different cavity designs with different energy extraction rates and stability profiles. Better theoretical understanding → more efficient device. The player's investment in simulation research earlier determines what designs they know how to optimize — not different planet properties, but deeper physical models.
-- **The simulation connection is about modeling complexity:** stabilizing a subspace pocket requires solving QFT equations at scales where perturbative approximations break down. Only a full quantum field simulation can predict which cavity geometries remain stable long enough for practical energy extraction.
-- **Finite but huge.** Each capacitor lasts thousands of years at moderate power draw, less under heavy draw. When depleted (pocket equilibrated with our universe's vacuum state), it becomes a dead inert crystal shell — no refueling, just construct another. This respects the requirement that endgame power be realistically finite when scaling to planetary levels.
-- **Simulation connection:** The Planetary Simulation Core is not optional for building or maintaining these devices. Different planet types yield different pocket properties (energy density, longevity). The more sophisticated your simulation data, the better capacitor you can construct. This connects late-game research investment directly to endgame infrastructure quality.
+The former Subspace Capacitor construction and simulation proposals are retained in [ADR-0011](adrs/ADR-0011-hawking-radiation-endgame-generator.md) as historical alternatives, not as selected requirements.
 
-**Player education — informatron/guidebook entries:**
-- Both Phase 4 options have **dedicated physics pages** in the player's guidebook (informatron or equivalent). These explain the underlying science at increasing levels of depth:
+**Candidate player education — informatron/guidebook entries:**
+- The Phase 4 candidate may have a **dedicated physics page** in the player's guidebook (informatron or equivalent). It would explain the underlying science at increasing levels of depth:
   - **Fission entry:** How nuclear binding energy works, why splitting heavy nuclei releases energy, mass defect → E=mc², chain reactions, why enrichment is necessary
   - **Fusion entry:** How light nuclei fusion overcomes Coulomb barrier, binding energy curve peak near iron-56, why extreme temperature/pressure needed, magnetic confinement principles, the D-T reaction
-  - **Phase 4 entries (both options):** Hawking radiation derivation from QFT in curved spacetime (accessible explanation: event horizons create particle pairs where one escapes); quantum vacuum structure and Casimir cavities (why precisely spaced plates matter for zero-point extraction); why artificial subspace pockets can be stable (and what happens when they're not)
+  - **Phase 4 option:** Hawking radiation as a result of quantum field theory in curved spacetime, with an accessible explanation of particle pairs near an event horizon.
 - The guidebook doesn't assume prior physics knowledge but rewards players who engage with the deeper explanations. Early-game summaries explain *what* happens; advanced entries explain *why* — accessible to any player willing to read.
 
-**Common design principles for both Phase 4 concepts:**
-- Neither requires finding pre-made power sources on the map — everything is player-built from the mod's industrial chain
-- Both connect the Planetary Simulation Core to something tangible, not just "research unlock" flavor
-- The simulation provides computational value (boundary conditions, spectrum prediction, lifetime modeling) rather than replacing material constraints
-- Neither is required for victory; these represent pushing beyond conventional physics after demonstrating mastery of every industrial domain
-**Design rationale: Hawking Engine preferred over Subspace Capacitor**
+**Open design details for Phase 4:**
+- The generator would be player-built rather than found as a pre-made power source.
+- The Planetary Simulation Core would provide operational or construction value beyond a research unlock.
+- Simulation would inform construction or operation without replacing material constraints.
+- The generator would be optional and would not be required for victory.
 
-The original Phase 4 design considered two options — Hawking Radiation Engine (Option B) and ZPM-style Subspace Capacitor (Option A). Below is a design assessment for reference during development discussions. The recommendation is to **keep Option B as the primary/sole Phase 4 generator** and drop Option A.
-
-| Criterion | Option B: Hawking Engine | Option A: Subspace Capacitor |
-|---|---|---|
-| **Ongoing gameplay loop** | Strong — player feeds matter into the singularity, connecting to fuel-density spectrum, logistics, supply chains. Every feed event is a micro-decision about efficiency vs. resource cost | Weak — build once, forget for thousands of years. No ongoing interaction, no tension after construction |
-| **Meaningful tradeoff** | Size-vs-lifetime (smaller = faster evaporation but higher thermal conversion). Different feeding choices yield different strategies. No single right answer | One dimension only: "how big/efficient do I build it?" After construction, nothing happens |
-| **Factorio rhythm fit** | Excellent — one machine, constantly operational with a maintenance loop. Fits construction → supply chain → optimization core loop | Poor — functions as a battery, not a generator. Removes player from gameplay rather than engaging them |
-| **Physics intuition** | High — players can picture a micro-black hole emitting radiation; the concept is accessible and awe-inspiring | Low — quantum Casimir cavity plate spacings are hard to visualize; harder for players to emotionally engage with the "why" |
-| **Differentiation from fusion** | Clear — fusion = near-infinite fuel, one-time build. Hawking Engine = finite lifetime, requires ongoing matter delivery, creates supply chain tension | Weak — too similar to fusion in gameplay shape. Both are "build once, get power forever." Doesn't add distinct value |
-
-**Key insight:** Fusion already fills the slot of "no-fuel-supply-chain endgame power." The Subspace Capacitor does not create a *different kind* of engagement from the Hawking Engine — it creates a *less engaged* version. Factorio players benefit from options that feel different, not variants on "store energy."
-
-**The one case for keeping Option A:** if you want an endgame option for players who truly want infinite power with zero maintenance burden. But that's exactly what fusion provides. Adding a second option with the same gameplay shape doesn't serve the design — it just gives another way to do what fusion already does.
-
-**Verdict:** Keep Hawking Engine. It creates genuine ongoing tension (size choice, feeding logistics, finite lifetime), connects to multiple systems (optics chain, matter delivery, simulation network, fuel-density spectrum), and tells a compelling sci-fi story players can understand. Drop Option A. At what point does "advanced fusion" end and "endgame physics-driven generation" begin? The distinction should be clear: fusion manipulates *existing* fundamental forces (electromagnetic confinement of plasma); Phase 4 creates *new physical structures* in spacetime itself — either an artificial pocket of subspace or a controlled singularity. This is a research-design decision pending deeper alignment with endgame-vision.md.
+The former comparison and its rationale are preserved in [ADR-0011](adrs/ADR-0011-hawking-radiation-endgame-generator.md). Hawking is accepted as one Phase 4 option; the boundary between advanced fusion and Phase 4, alternative routes, and alignment with [Endgame Vision](endgame-vision.md) remain open.
 
 ## Fuel Density Spectrum (Reference Guide)
 
@@ -233,37 +182,34 @@ The Hawking Engine requires four distinct endgame infrastructure categories from
 | Thermoelectric Conversion Array Module | infra.md §10; Phase 4+, p-type/n-type semiconductor junctions | Operational (power output, not consumption) | Connects directly to engine's Tier 3 HVDC output | Converts Hawking radiation heat to electricity via Seebeck effect; assembled from thermocouple pairs on semiconductor packaging line |
 | Superconducting Magnetic Containment Structure | infra.md §10: Coil Winding Machine + Nb₃Sn/NbTi wire | Construction → Operation | Tier 3 power during winding operations; cryogenic cooling during operation | Maintains singularity within confinement field during construction phase; determines containment stability |
 
+The former Phase A2 component list and build quantities are preserved as unapproved proposals in [ADR-0009](adrs/ADR-0009-endgame-assembly-proposals.md); they are not current recipe requirements.
+
 **Operational details:**
 - **Feeding matter to extend life:** Player feeds concentrated matter/fuel into the singularity (mass → energy via E=mc²). Each fuel type has different mass-energy yield connecting back to the [fuel-density spectrum](#fuel-density-spectrum-reference-guide) table.
 - **Size vs. lifetime tradeoff:** Smaller initial black hole has higher Hawking temperature (more efficient thermal conversion via Thermoelectric Array) but evaporates faster. Player chooses: compact fast-burning engine vs. massive slow-dying one.
 - **Simulation's role:** Planetary Simulation Core computes Hawking radiation spectrum for Thermal Converter optimization, models collapse dynamics during construction to prevent containment breach, predicts remaining lifetime based on feeding schedule.
 
-#### Subspace Capacitor — Reference Only (dropped per design rationale)
+#### Subspace Capacitor — Historical Alternative
 
-The Subspace Capacitor is kept as documentation only — see [Design rationale section](#design-rationale-hawking-engine-preferred-over-subspace-capacitor) above for why Option B was chosen over Option A. Its infrastructure requirements are:
-- Cleanroom facility (nanometer-scale precision fabrication, infra.md §9)
-- Ultra-pure silicon wafer production chain (infra.md §9: Czochralski Crystal Grower, CMP Polisher)
-- Tantalum alloy containment lattice (forged under extreme pressure/temperature, infra.md §4)
-- Precision crystal resonators (advanced optics/optical glass chain)
-- Quantum computation module (simulation chip output from Planetary Simulation Core infrastructure)
+The former Subspace Capacitor proposal and its infrastructure requirements are preserved in [ADR-0011](adrs/ADR-0011-hawking-radiation-endgame-generator.md); they are not current power-system requirements.
 
-**Note:** Both concepts require the Planetary Simulation Core as *operational* infrastructure — not just a research unlock, but active computational partner during construction and/or ongoing operation.
+## Proposed Design Directions and Tensions
 
-## Design Tensions to Resolve
-
-| Tension | Options | Recommended approach |
+| Tension | Options | Candidate direction or status |
 |---|---|---|
 | Combustion pollution as military driver | Make all combustion pollute; or let scrubbing/scrubbed-fuel eliminate pollution | Pollution should be a *process choice* — clean fuel or scrubbing removes the pressure, but each option has its own cost (space, complexity, resources) |
 | Fusion: too strong too early? | Gate behind endgame network commissioning; or gate behind fusion-research from simulation model | Fusion should require deep industrial capability (tungsten refining, niobium-titanium alloy, lithium processing, precision control), which naturally gates it to late-game without arbitrary research walls |
 | Fission: is it too convenient? | Add maintenance, waste-accumulation, or meltdown risk; or keep it simple and let fabrication cost be the gate | **Meltdown risk via cooling dependency** — GTNH-inspired. The reactor requires continuous active cooling. If grid power is lost and backup capacitance depletes, the core escalates: elevated temperature → increased pressure → fuel rod stress → potential meltdown. Each stage has clear UI feedback (thermal indicators, pressure gauges, warning alarms) giving time to react. This makes thermal redundancy a meaningful engineering decision rather than punishment — players who invested in grid diversity and load-shedding diagnostics have built-in resilience. |
 | Space pressure from renewables vs. density axis | Do we include solar/wind as explicit generators? Or let the density axis speak for itself | **Option A:** Include a compact "solar array" machine with area-dependent output, built from semiconductor-grade silicon — connecting to the wafer/processor chain but requiring raw cells and glass. **Option B:** Let the *concept* of distributed renewables exist as design flavor (see military-system.md's space pressure section) without building explicit solar/wind generators. |
 | Fusion fuel: infinite power → does it remove all tension? | No — the *construction cost* is enormous, and once built, the generator may still need cooling, maintenance, or grid integration. The tension shifts from "can I afford fuel?" to "where do I put this facility?" | Emphasize placement/logistics over supply. Fusion solves the fuel problem but creates an *infrastructure* challenge: connecting massive power output to the grid, managing heat rejection, and protecting against grid surges |
-| Phase 4 (simulation-driven) scope | Define it concretely with simulation dependency; or leave as placeholder for endgame finalization | **Option B chosen:** Hawking Radiation Engine — optical concentrators collapse radiation into a micro-black hole; Hawking radiation harvested. Finite lifetime extendable by feeding matter (mass → energy). Simulations predict spectrum/lifetime and model collapse dynamics. Option A (Subspace Capacitor) dropped: same gameplay shape as fusion with less engagement. See "Design rationale" section above. |
-| Grid transmission infrastructure: voltage tiers, conductors, transformers | How detailed should grid model be at this stage? | **Fully specified:** 4-tier voltage model (0–3), 5 conductor materials mapped to tiers, transformer MTier 1–3 progression with material upgrades. See Candidate Grid Model section below for complete catalog. |
-| Underground power cable vs overhead towers | Should players have both; or pick one transmission aesthetic? | **Both:** overhead towers for early/mid-game (visual clarity, standard infrastructure), underground trench system for Phase 3+ (space savings, no line-of-sight constraints). Same conductor options in concrete conduit. |
+| Phase 3/4 power-path diversity | Use one linear generator path or provide viable alternatives | Hawking is accepted as one Phase 4 option; at least one alternative route across Phases 3 and 4 is required, but no alternative has been selected. See [ADR-0011](adrs/ADR-0011-hawking-radiation-endgame-generator.md). |
+| Grid transmission infrastructure: voltage tiers, conductors, transformers | How detailed should an optional grid model be? | Extension-only candidate; not approved. A 4-tier model, conductor materials, and transformer progression remain in the reference catalog below. |
+| Underground power cable vs overhead towers | Should an optional transmission extension offer both? | Extension-only candidate; not approved. The source proposes overhead towers and underground trenches; see the extension catalog below. |
 
 ## Open Design Decisions (Power Production)
 
+- **How should generator phase assignments align with Infrastructure?** This document places fission in Phase 2 and fusion in Phase 3, while the candidate infrastructure inventory places fission in Phases 3-4 and fusion in Phase 4+. Preserve both sets of values until the progression is reconciled.
+- **Which diagnostics and stabilization capabilities belong in core?** The source labels power diagnostics as core, while its transmission proposal and Infrastructure place detailed diagnostics and grid-stabilization devices in extension scope.
 - **Which exact combustion generators appear in Phase 1?** Steam engine (universal), gasifier (chemical bridge), liquid-fuel burner? What about compacted-compressed biomass options?
 - **Should fission include both U-235 and Pu-239 paths** with separate fuel chains, or a single enriched-fuel path that optionally includes plutonium recycling?
 - **How does fusion connect to the endgame network?** Is fusion itself an endgame milestone, or is it parallel to (or prerequisite for) the Planetary Simulation Core?
@@ -271,16 +217,18 @@ The Subspace Capacitor is kept as documentation only — see [Design rationale s
 - **Should any renewable generation exist explicitly** (solar panels, wind turbines), or should the "clean but space-hungry" alternative be communicated through gameplay experience and handbook text only?
 - **How much does each generator class contribute to military pressure?** Clean combustion (scrubbed) vs. dirty combustion; fission's thermal pollution; fusion's zero-emission profile — these affect the player's decision calculus.
 - **Is waste handling for fission a meaningful mechanic** (spent fuel storage, reprocessing choice) or just flavor text with an item input?
+- **Which alternative power routes span Phases 3 and 4?** Develop and compare at least one viable route alongside Hawking before locking the progression.
+- **Where does advanced fusion end and Phase 4 begin?** Hawking is accepted as one Phase 4 option, but its boundary and the Simulation Core dependency still need alignment with [Endgame Vision](endgame-vision.md).
 
 ## Design Intent
 
-Power should be a factory-design decision, not a global infinite bus. Local generation, industrial clustering, conductor choice, and transmission infrastructure should matter, while diagnostics make losses and limits understandable.
+Candidate design intent: generator choice, fuel, and proximity to loads should create factory-layout decisions. Custom conductor choices, transmission behavior, and loss diagnostics depend on the unresolved extension scope and must not be assumed for core.
 
 Power and floor space are secondary optimization axes in the overall design. They should create meaningful tradeoffs without becoming opaque punishment or maintenance busywork.
 
 ## Candidate Grid Model — DEFERRED TO EXTENSION MOD
 
-> All subsections below are **deferred** to the `power-transmission-override` extension mod discussed in [Approach C](#approach-c-full-replacement-deferred-to-extension-mod). They remain here as design reference only. **No materials, recipes, or infrastructure items for these concepts should be planned or added to the core mod.** When (and if) this extension is developed, these notes can be revisited.
+> All subsections below are **deferred** to the proposed `power-transmission-override` extension described in [ADR-0010](adrs/ADR-0010-core-power-distribution-scope.md). They remain unapproved design references only. **No materials, recipes, or infrastructure items for these concepts should be planned or added to the core mod.** Revisit them only if the extension is approved.
 
 ### Voltage Tier Catalog
 
@@ -309,9 +257,11 @@ Power and floor space are secondary optimization axes in the overall design. The
 | MTier 2 (Copper-wound + Tap Changer) | Refined copper wire, tap-changing switch, reinforced core | Step-up/step-down across one additional tier gap (0→2 allowed). Limited load balancing — can prioritize outputs under stress | Multi-port with directional flow control; allows asymmetric power routing |
 | MTier 3 (Digital Monitoring + Active Load Balancer) | Semiconductor-grade sensors, programmable controller, gold-contact relays | Unlimited cross-tier conversion (0↔1↔2↔3). Real-time load balancing across all connected segments. Auto-detects and isolates overloads | Intelligent grid node — prevents cascade failures by cutting underloaded branches before they propagate |
 
-### Generator-to-Voltage Mapping
+### Generator-to-Voltage Mapping (Optional Custom-Transmission Extension Candidate)
 
-Every generator has minimum voltage tier requirements for its output:
+> The following voltage tiers and generator requirements are source proposals for an optional custom-transmission extension. They are not core behavior: the accepted core direction retains the vanilla grid and adds compatible tiered poles, without custom voltage levels or transmission losses.
+
+The source's custom-grid proposal assigns minimum voltage-tier requirements to generator output:
 
 | Phase | Generator Type | Min Voltage Tier | Notes |
 |-------|---------------|------------------|-------|
@@ -325,7 +275,9 @@ Every generator has minimum voltage tier requirements for its output:
 | 3 | Fusion Tokamak Reactor | Tier 2 min (Tier 3 optimal) | Massive output dwarfs all previous generators |
 | Endgame | Hawking Radiation Engine | Tier 3 mandatory | Requires ultra-high-voltage DC infrastructure |
 
-### Transmission Infrastructure Catalog
+### Transmission Infrastructure Catalog (Optional Custom-Transmission Extension Candidate)
+
+The inventory below is also extension-only candidate material; it does not replace the accepted core pole family.
 
 | Machine | Voltage Tier(s) | Power Role | Grid Integration Notes |
 |--------------------|-----------------|------------|------------------------|
@@ -333,11 +285,13 @@ Every generator has minimum voltage tier requirements for its output:
 | Steel Transmission Tower + High-Voltage Line (MTier 1–3) | Tiers 1–2 | Long-distance bulk power transmission | MTier 1: basic steel tower, copper conductors (~25 kW/tile). MTier 2: reinforced with composite insulators (~100 kW/tile). MTier 3: ultra-high-tension towers supporting gold-alloy endgame conductor. |
 | Step-Down Transformer / Substation (MTier 1–3) | Crosses any tier boundary | Converts high-voltage → industrial-use voltage for factory machines | MTier 1 = adjacent-tier only; MTier 2 = one-gap bridging; MTier 3 = all-tier conversion with active load balancing. |
 | Underground Power Cable Trench System (Phase 3+) | Tiers 1–2 | Bury power lines to free surface space; reduce exposure loss | Uses same conductor materials (copper/aluminum/composite in concrete conduit). Recommended for dense factory zones where overhead towers would block expansion or visual clarity. |
-| HVDC Converter Station (Phase 4+) | Tier 3 | AC→DC conversion for ultra-long-distance transmission with minimal losses | Required infrastructure for fusion/Hawking Engine grid integration — these generators cannot feed Tier 2 AC grids. |
+| HVDC Converter Station (Phase 4+) | Tier 3 | AC→DC conversion for ultra-long-distance transmission with minimal losses | Optional custom-transmission extension candidate; not a core prerequisite under the accepted vanilla-grid direction. Whether a future custom grid needs it remains open. |
 
-### Transmission Losses and Factory Layout Rules
+### Transmission Losses and Factory Layout Rules (Optional Extension Candidate)
 
-Transmission losses depend on line length, conductor properties, voltage tier, and load:
+> The loss values and layout rules below apply only if a custom-transmission extension is designed and selected. They are not accepted core mechanics or requirements.
+
+The source proposal models transmission loss as a function of line length, conductor properties, voltage tier, and load:
 
 | Tier | Loss per 100 tiles (standard) | Loss per 100 tiles (optimized) |
 |------|-------------------------------|--------------------------------|
@@ -346,15 +300,15 @@ Transmission losses depend on line length, conductor properties, voltage tier, a
 | 1–2 (aluminum wire) | ~2.5% | ~1.5% (aluminum-steel composite) |
 | 3 HVDC (gold alloy) | — | ~0.5% |
 
-**Layout implications for factory planning:**
-- Place high-output generators (fission at MTier 3+, fusion) near their primary load clusters to avoid expensive step-up/step-down sequences
-- Use Tier 2–3 transmission only beyond ~200 tile distance
-- HVDC Converter Station becomes mandatory when connecting remote power sources >1 km from main grid
-- Transformer placement creates strategic choke points: clustering transformers at factory edges frees interior space but risks cascading failures
+**Candidate extension layout implications:**
+- If selected, place high-output generators (fission at MTier 3+, fusion) near their primary load clusters to avoid expensive step-up/step-down sequences
+- Under this model, use Tier 2–3 transmission only beyond ~200 tile distance; the threshold is unvalidated
+- Under this model, an HVDC Converter Station would be required for remote power sources more than 1 km from the main grid; this is not a core requirement
+- Transformer placement could create strategic choke points: clustering transformers at factory edges frees interior space but risks cascading failures
 
 ## Power Storage and Stabilization
 
-The grid needs both energy storage and voltage stabilization to handle variable generation, peak demand, and fault conditions.
+Energy storage and grid-stabilization concepts below remain candidates. [Infrastructure](infrastructure.md) currently classifies reactive-power, surge-protection, and frequency-regulation devices as extension scope; this document does not establish that boundary.
 
 ### Energy Storage Systems
 
@@ -365,7 +319,7 @@ The grid needs both energy storage and voltage stabilization to handle variable 
 | Dead-Battery Capacitor / Fuse Link | Phase 2 | Safety device that intentionally depletes to shut down a fission reactor core before meltdown | Critical safety mechanism for fission reactors — provides the last-resort power cutoff when grid fails. Not reusable; must be replaced after activation |
 | Flywheel Energy Store | Phase 3+ | Mechanical kinetic energy storage with high round-trip efficiency | Alternative to batteries; requires precision manufacturing (semiconductor components at high tiers) but no chemical degradation |
 
-### Grid Stabilization
+### Candidate Grid Stabilization — Scope Open
 
 | Machine / System | Phase | Role | Key Design Notes |
 |-----------------|-------|------|-----------------|
@@ -373,9 +327,9 @@ The grid needs both energy storage and voltage stabilization to handle variable 
 | Surge Protector / Lightning Arrester | Phase 1+ | Divert power spikes to ground before they damage grid or equipment | Prevents cascading failures from generator trip events; essential for fission reactor safety |
 | Frequency Regulator | Phase 3+ | Maintain stable AC frequency when load/generation balance shifts rapidly | Required when connecting variable renewables (wind, solar) to main grid; prevents frequency drift that damages sensitive equipment |
 
-## Diagnostics and Onboarding
+## Diagnostics and Onboarding — Scope Open
 
-Power diagnostics are a core feature, not a later polish task. A pole, transformer, or line overlay should make it easy to inspect:
+The source calls power diagnostics a core feature, but [ADR-0010](adrs/ADR-0010-core-power-distribution-scope.md) records detailed grid diagnostics as part of the optional transmission proposal. Reconcile this conflict before deciding whether diagnostics are core or extension-only. Candidate inspection data includes:
 
 - Voltage tier and current load
 - Connected capacity and remaining headroom

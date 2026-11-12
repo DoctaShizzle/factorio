@@ -32,6 +32,7 @@ The owning domain document in `documentation-map.md` is the source of truth for 
 ## Scope and Phase Discipline
 
 - Follow the gates in `plan.md`; do not begin a later phase while its prerequisites remain unresolved.
+- Treat `plan.md` as the living stream of current design stages. Keep it up to date as work evolves; stages and sequencing may be modified, shifted, or added. Keep the current status, gates, and next actions accurate. The plan remains a roadmap, not a source for detailed domain design or ADR history.
 - Keep counts for products, constructables, entities, machine families, tiers/variants, recipes, and technologies separate.
 - Identify core, vanilla-retained, vanilla-modified, vanilla-replaced, and extension scope explicitly.
 - Prefer precise, bounded edits. Do not expand a documentation change into unrelated design decisions.

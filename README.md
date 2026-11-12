@@ -30,8 +30,8 @@ The arc: *"Starting from dirt and ore, layering process after process, until bui
 |---|---|---|
 | Minerals & refining | Deposit classes, process templates, mineral recovery | [Minerals and Refining](minerals-and-refining.md) |
 | Chemistry | Industrial reactions, coproducts, catalysts | [Chemical Products and Processes](chemical-processes.md) |
-| Intermediate products | Alloys, batteries, semiconductors, nuclear assemblies | [Intermediate Products](intermediate-products.md) |
-| Power | Four-generation progression (combustion → fission → fusion → Hawking engine), grid transmission | [Power System](power-system.md) |
+| Non-building products | Construction materials, components, fuels, vehicles, weapons and ammunition, personal equipment and modules, research ingredients, and endgame products | [Intermediate Products](intermediate-products.md) |
+| Power | Candidate generation progression with multiple late-game routes; Hawking is one accepted Phase 4 option, and the vanilla grid gains tiered poles | [Power System](power-system.md) |
 | Endgame | Planetary simulation network, general-physics discovery | [Endgame Vision](endgame-vision.md) |
 | Machines | Reusable equipment families across industrial stages | [Machine Systems](machine-systems.md) |
 | Military | Pollution pressure, ammo chains, defense infrastructure | [Military System](military-system.md) |
@@ -43,7 +43,7 @@ The arc: *"Starting from dirt and ore, layering process after process, until bui
 - **Title:** *Project Prometheus* (recommended; see [mod-overview.md](mod-overview.md) for candidates)
 - **Progression shape:** Conventional science (~40–50% game) → domain packs + conventional bridge → simulation-gated research (final ~100 hours)
 - **Endgame goal:** Build a planetary simulation network that models information-formed entities (structured-data beings, not AI) and unlocks general-physics discovery
-- **Phase 4 power:** Hawking Radiation Engine — available during simulation construction, gated by basic Core completion (not final milestone)
+- **Phase 4 power:** Hawking Radiation Engine is one accepted option. Its gate remains open, and at least one alternative Phase 3/4 route must be developed.
 - **Research items:** Science-pack-style buildings producing "readings and results" — same mechanic as vanilla science packs, re-themed
 
 ## How to Dive In

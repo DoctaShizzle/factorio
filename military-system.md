@@ -1,17 +1,21 @@
-# Military System - Design Proposal
+# Military System Design
 
-*For: Factorio Overhaul Mod (Project Prometheus)*  
-*Status: Resolved — market research complete*
+*Status: Draft — ammunition and sustained-defense-power principles accepted; military scope, product details, and values remain open*
+*Last updated: 2026-11-12*
 
-Related documents: [Mod Overview](mod-overview.md), [Chemical Products and Processes](chemical-processes.md), [Intermediate Products](intermediate-products.md), [Minerals and Refining](minerals-and-refining.md), [Infrastructure](infrastructure.md).
+Related documents: [Mod Overview](mod-overview.md), [Chemical Products and Processes](chemical-processes.md), [Intermediate Products](intermediate-products.md), [Minerals and Refining](minerals-and-refining.md), [Infrastructure](infrastructure.md), [Power System](power-system.md). Related decisions: [ADR-0012](adrs/ADR-0012-bound-core-military-scope.md), [ADR-0013](adrs/ADR-0013-military-pressure-model.md), [ADR-0014](adrs/ADR-0014-capability-based-ammunition.md), [ADR-0015](adrs/ADR-0015-sustained-power-for-defense.md), [ADR-0016](adrs/ADR-0016-late-game-defense-drones.md).
+
+> **Decision status:** The source marked multiple choices "Resolved" or "Adopted" without approval records. The user has since accepted capability-based ammunition progression and sustained power for defense, rejected military drones in favor of fixed defenses, and requested bounded, layer-based electrical turret additions. These outcomes and the still-open details are recorded in the linked ADRs. Do not treat candidate product counts, families, or values as approved unless explicitly noted.
 
 ## Summary
 
-This document defines the military and expansion-pressure system as drivers of player choice. Military pressure arises from two sources: pollution from industrial processes (generating attacks that require defense infrastructure) and space constraints from process selection (some paths demand far more footprint than others, forcing urgency about expansion). It establishes that these forces give weight to process selection — dirty production costs military consequences; inefficient production costs spatial ones. Ammo and weapon chains connect chemistry and metallurgy back into the industrial ecosystem.
+This draft proposes military and expansion pressure as consequences of industrial choices. Candidate pressure axes are pollution, which can create defensive demand, and process footprint, which can create spatial urgency. Candidate ammo and defense chains connect chemistry, metallurgy, power, and logistics. These directions and their approval state are recorded in the linked ADRs; detailed values remain provisional.
 
-**What it covers:** Design philosophy, dual drivers of military/expansion pressure (pollution and space), enemy taxonomy and scaling model, ammo/weapon intermediate chains with full supply trees, turret progression and new families, pollution-to-military-pressure mechanics, vanilla space platform integration, extension pack boundaries, and resolved open decisions.
+## Purpose and Boundaries
 
-**What it does not cover:** Enemy unit balance numbers, base attack wave mechanics, AI group targeting, or detailed combat formulas — those are implementation details deferred to gameplay testing.
+- **In scope:** Candidate military-pressure behavior, defense progression, ammo and weapon product chains, space-platform integration, and core/extension boundaries.
+- **Out of scope:** Validated enemy balance, attack-wave mechanics, AI group targeting, and detailed combat formulas; these require gameplay design and testing.
+- **Source-of-truth boundaries:** Placeable defense entities belong in [Infrastructure](infrastructure.md); non-building product identities and supply paths belong in [Intermediate Products](intermediate-products.md); power behavior belongs in [Power System](power-system.md).
 
 ## Design Philosophy
 
@@ -28,35 +32,9 @@ Pollution is an economic consequence of industrial processes, not a collection o
 
 **Key principle:** Military pressure should feel like an engineering problem (how do I design my factory to minimize defensive overhead?), not a combat challenge (can I build better turrets?).
 
-### Market Research: How Other Overhaul Mods Handle Military Systems
+### Reference Model and Core Scope — Candidate
 
-A survey of major Factorio overhaul mods reveals fundamentally different philosophies on the military/combat layer:
-
-| Mod | Philosophy | Turret System | Ammo/Weapons | Enemy Types | Pollution Scaling |
-|---|---|---|---|---|---|
-| **Bob's Weapons Pack** ✅ *Reference* | Capability-based progression. Better weapons = different ammo types requiring supply chains. Damage is secondary to capability shift. | Extends vanilla machine turrets with tiered ammo; adds handgun, shotgun, and rocket variants with industrial recipes. No new turret families. | Kinetic → incendiary → explosive → AP → penetration rounds. Each requires distinct chemical/metallurgical chains. Lead/copper/steel for basic; nitric acid + glycerol for HE; tungsten for AP. | Vanilla units only (biter/spitter/worm). Enemy density scales with pollution spread. | Linear: total pollution emitted × time = attack intensity curve. Simple radius-based spread from emitting sources. |
-| **GregTech New Horizons** ✅ *Reference* | Deep industrial integration. Combat is an end-use for late-game materials. Guns are crafted through machining tiers. Armor plates use exotic alloys. | Custom gun system (not vanilla turrets). Handgun → rifle → auto-rifle → heavy weapons. Each tier requires specific machined parts and alloy grades. Ammo follows weapon tiers. | Hundreds of ammo variants tied to GT material processing. Penetration armor also uses steel/alloy plates. High complexity, high depth. | Minecraft mobs only — no native Factorio-style biter ecology. Combat happens in Overworld through exploration. | Not applicable (GTNH doesn't replicate vanilla pollution mechanics). |
-| **Angel's Addons** | Minimal military. Focus is purely on production complexity (more mining depth, more refining stages). Vanilla enemy/biter logic with amplified pollution spread but no new content. | Vanilla only. No weapons or ammo changes. Defense is about perimeter distance and turret count. | Vanilla only. | Vanilla units only. | Amplified vanilla spread — larger pollution clouds due to denser early-game factories. |
-| **Pyanodon's Grand Suite** | Modular expansion. Adds turrets in specific categories (flamethrower, laser-like weapons) connected to late-game chemistry/metallurgy but keeps vanilla turrets primary. | Extends vanilla with 2-3 new turret families at late game. Ammo connects to existing chemical chains. | Selective — only key ammo types get industrial recipes. The rest remain vanilla or craft-grid items. | Vanilla units + biomes-specific variants. Focus on variety of challenge, not density. | Moderate amplification. Pollution matters but is softened by the mod's generally forgiving pace. |
-| **Bob's Military / Combat Mechanics Overhaul** (optional) | Hard mode layers. Enhances vanilla AI with smarter targeting, fortified bases, extended weapon tiers. Requires external combat overhaul dependency. | Extends Bob's Weapons Pack progression further — sniper, anti-materiel rifle levels at very late tiers. | New materials feed into new ammo (railgun projectile via electromagnetic acceleration concept, etc.) | Adds pollution-adapted variants and armored enemy forms at high pollution thresholds. | Multi-zone: near-factory gets waves of regular units; distant areas get elite variants that are harder to fight through. |
-| **The Riftbreaker** ✅ *Mechanical Reference* | Element-based tactical depth. Different ammo types deal different damage elements (Fire, Ice, Plasma, Radiation) each with specific enemy weaknesses. Weapon mods change fire rate/ammo consumption tradeoffs. Drone defense for perimeter security. Energy shield connects to power grid. Modular weapon system where the same base frame accepts interchangeable components that change its stats. Ammo selection is a tactical decision, not just "bigger numbers." | Six damage element families (Fire, Ice, Plasma, Radiation, Corrosive, Cryo) each with unique effectiveness profiles against enemy types. Melee + energy + liquid + projectile categories. Each weapon has mod slots for tradeoff customization. Ammo types map to elements: incendiary ammo = Fire element, cryo rounds = Ice, etc. | Enemy composition shifts based on biome/element exposure — different areas have enemies weak/strong to different elements. Player must carry multiple ammo types for different engagements. No pollution mechanic; defense is about player positioning + turret placement + drone deployment. Combat is mech-centric (player operates a mech suit), not factory-based. | Not applicable — combat is third-person shooter, not tower defense. Enemy weakness to damage types drives ammo selection as tactical gameplay, not engineering challenge. |
-
-**Design Decision:** We adopt **Bob's Weapons Pack as the primary reference model** for three reasons:
-
-1. It extends *vanilla* turrets rather than replacing them, keeping defense accessible and familiar while adding industrial depth.
-2. Its ammo progression creates *capability shifts* (different ammo types = different engagement profiles) rather than just damage numbers.
-3. The weapon-to-material connection is tight but bounded — each new ammo type ties to exactly one new chemical or metallurgical chain, not dozens.
-4. It uses vanilla enemy ecology, which keeps the "enemy" side of the design simple while letting the *industrial* side (ammo/weapon chains) be the complexity driver.
-
-**The Riftbreaker as secondary reference for tactical depth:** While we're not adopting its combat model (third-person shooter vs. tower defense), several of its systems offer useful mechanical inspiration:
-
-- **Damage element taxonomy** → Could inform whether different ammo types have effectiveness modifiers against specific enemy classes (biters vs. spitters vs. worms) rather than just raw damage differences.
-- **Modular weapon tradeoffs** → The idea that the same base can have multiple stat configurations (fire rate vs. ammo consumption, range vs. capacity) is a compelling way to add depth without adding new items.
-- **Energy shield on power grid** → Defense infrastructure connecting to power network creates meaningful load management decisions.
-
-GTNH is an excellent reference for late-game industrial integration but is not a model we're following — it replaces the combat layer entirely. Angel's approach (vanilla only) is our minimum baseline, and Pyanodon's selective depth gives us confidence that a bounded weapon/ammo system is viable.
-
-**Decision:** Enemy design stays vanilla-based with no new enemy types. The military system's complexity comes from the *industrial supply chains behind defense*, not from enemy variety or AI complexity. This keeps combat approachable while keeping industry demanding.
+The source proposes Bob's Weapons Pack as the primary reference, with a vanilla-based enemy roster and industrial supply chains as the main source of military complexity. The user requested a bounded, layer-based turret roster with more power-based options; plasma and railgun turrets are proposals alongside the existing laser turret, not an accepted roster. Their progression and core-versus-extension placement remain open. Riftbreaker is a secondary source of mechanical ideas, not a proposed combat-model replacement. The comparative research and rationale are preserved in [ADR-0012](adrs/ADR-0012-bound-core-military-scope.md).
 
 ### Industrial Choice Example
 
@@ -74,9 +52,9 @@ Different industrial choices push the player toward expansion through different 
 
 Both create urgency for space. A player choosing efficient processes gets breathing room and can prioritize defense first. A player choosing spacious processes gets expansion urgency from space constraints alone.
 
-## Pollution-to-Military Pressure Model — Resolved
+## Candidate Pollution-to-Military Pressure Model
 
-### Core Mechanics (Resolved)
+### Candidate Core Mechanics
 
 Pollution spreads from emitting sources in a radius. The density at any map location determines the military pressure score:
 
@@ -96,9 +74,9 @@ Military pressure translates into two kinds of player-facing effects:
 
 **Guardrail:** Military pressure should never make the player stop building their factory. It should influence *where* and *how* they build, and what defensive infrastructure they invest in. Attacks are a cost of doing business, not a wall that stops progress.
 
-### Pollution Type Differentiation — Resolved: Yes (Mid-Game Depth)
+### Candidate Pollution-Type Differentiation
 
-**Decision:** At high pollution thresholds (>1000 units/s), differentiate attack profiles by pollution type. This gives players *why* to care about process choice, not just *that* dirty processes are bad.
+**Candidate direction — see [ADR-0013](adrs/ADR-0013-military-pressure-model.md):** At a proposed high threshold (>1000 units/s), differentiate attack profiles by pollution type. The threshold and effects are unvalidated.
 
 | Pollution type | Attack profile at high threshold | Player-facing meaning |
 |---|---|---|
@@ -108,9 +86,9 @@ Military pressure translates into two kinds of player-facing effects:
 
 This differentiation stays at the *attack profile* level (which unit types appear and what they do), not at the *enemy variety* level (no new sprites). It rewards players who invested in scrubbers and filtration with different gameplay challenges rather than just "less attacks."
 
-### Damage Element Effectiveness vs Enemy Classes — Adopted from The Riftbreaker
+### Candidate Damage-Effectiveness Matrix
 
-**Decision:** Ammo effectiveness is determined by an enemy weakness/resistance matrix, not raw damage numbers. This makes ammo selection an engineering decision: *which ammo should I produce for the enemy composition in this zone?*
+**Candidate mechanic — see [ADR-0014](adrs/ADR-0014-capability-based-ammunition.md), with the Riftbreaker comparison in [ADR-0012](adrs/ADR-0012-bound-core-military-scope.md):** Ammo effectiveness could use an enemy weakness/resistance matrix rather than raw damage numbers. Adoption remains open.
 
 | Ammo Type | Physical | Fire | Explosive | Kinetic Penetration |
 |---|---|---|---|---|
@@ -125,7 +103,7 @@ This differentiation stays at the *attack profile* level (which unit types appea
 |---|---|---|---|
 | **Biters** (ground melee) | HE Explosive, AP Penetrator | Incendiary (thick carapace blocks flame) | Stock T2b/T3 ammo for biter-heavy zones; T1 only in safe areas |
 | **Spitters** (ranged acid) | Incendiary (acid shell ignites), Kinetic (light body armor) | HE Explosive (splash wastes shots on small targets) | Stock T2a near spitter nests; use dispersed turret placement to avoid acid splash damage |
-| **Worms** (burrowing ambush) | Incendiary (burns when emerging), HE Explosive (ground shockwave) | AP Penetrator (burrowed = evades kinetic energy) | Stock T2a/T2b near expansion frontier; sensor drones essential for early warning |
+| **Worms** (burrowing ambush) | Incendiary (burns when emerging), HE Explosive (ground shockwave) | AP Penetrator (burrowed = evades kinetic energy) | Stock T2a/T2b near expansion frontier; prioritize fixed defenses |
 | **Elite/Armored variants** (high pollution zones) | AP Penetrator only | All other ammo types severely reduced | Must produce T3 ammo or rotate perimeter defense |
 
 **Design principle:** No single ammo is universally optimal. Players must plan production quantities based on enemy composition in each zone, mirroring our core philosophy of "process choice" — which ammo you produce for a zone is a deliberate engineering decision, not just "which does highest DPS."
@@ -163,29 +141,23 @@ This means:
 
 **Open question:** Space pressure is felt through gameplay experience — running out of room naturally — rather than displayed as a metric. This matches how vanilla Factorio and Bob's/Angel's communicate spatial urgency: the map runs out, your factories need to expand, there is no dashboard telling you when to go.
 
-**Decision:** Space pressure is felt through gameplay experience only — running out of room naturally — with **no dashboard display**. This matches vanilla Factorio and Bob's/Angel's design philosophy. The tension comes from the player's own realization that they need to explore, which creates stronger emotional engagement than any metric could. Optional QOL mod integration (Milestones) can give players who want visibility a manual progress tracker, but the game itself never announces "you're running out of space — go explore now."
+**Candidate direction — see [ADR-0013](adrs/ADR-0013-military-pressure-model.md):** Space pressure would be communicated through gameplay rather than an in-game dashboard. Whether this should remain entirely implicit, or use optional external quality-of-life support, remains open.
 
-## Enemy Design — Resolved: Vanilla-Based Only
+## Candidate Enemy Scope
 
-**Decision:** Use vanilla Factorio enemy units exclusively. No new enemy types, no custom biomes with unique fauna, no pollution-adapted mutant variants.
+**Candidate direction — see [ADR-0012](adrs/ADR-0012-bound-core-military-scope.md):** Use vanilla Factorio enemy units without new enemy types or pollution-adapted variants. Acceptance remains unverified.
 
-### Why Not New Enemy Types?
+### Candidate Changes to Vanilla Units
 
-- **Scope explosion:** Every new enemy unit requires sprites/animations/attacks/deaths/loot tables — all time sinks. With 800-1200 items and ~4000 recipes already planned, military content must stay bounded.
-- **Vanilla covers engagement profiles:** Biter (ground melee), spitter (ranged acid), worm (burrowing ambush) provide three distinct tactical challenges mapping to our ammo progression.
-- **Bob's Weapons Pack proves this model works:** Deep military complexity comes from the *industrial supply chains behind defense*, not enemy variety.
+The source proposes that pollution affect vanilla biter, spitter, and worm pressure, including earlier changes in enemy composition, while retaining vanilla sprites and stats. This conflicts with the pollution-type proposal for armored ground variants and other profile changes; reconcile the conflict in [ADR-0013](adrs/ADR-0013-military-pressure-model.md) before treating either behavior as intended.
 
-### Which Vanilla Units Are Affected?
-
-All standard biter/spitter/worm units are affected by pollution pressure. Enemy composition shifts at high pollution thresholds (more spitters and worms appear earlier), but these remain vanilla sprites with vanilla stats — only attack frequency and spawn density change.
-
-## Ammo and Weapon Intermediate Chains — Resolved
+## Candidate Ammo and Weapon Intermediate Chains
 
 This is where military meets industry — weapons and ammo are manufactured products requiring real supply chains, not craft-grid items. They connect back to chemistry and metallurgy.
 
-### Resolved Ammo Categories — Full Supply Trees
+### Capability-Based Ammunition (Accepted Principle; Contents Provisional)
 
-*Aligned with Bob's Weapons Pack progression: 5 tiers matching the mod's industrial phases.*
+*Capability-based progression is accepted. The listed ammo types, supply trees, tier placement, and recipe totals remain candidates.*
 
 | Tier | Ammo Type | Primary Feed Materials | Recipe Input Chain (key intermediates) | Industrial role |
 |---|---|---|---|---|
@@ -195,9 +167,9 @@ This is where military meets industry — weapons and ammo are manufactured prod
 | **T3** | Armor-piercing (AP) bullet | Tungsten core alloy, specialized propellant, copper sabot | Scheelite/Tungstenite → Caustic leach + purification → W powder + pressing/sintering + nitrocellulose/tungstenite + carbonized charcoal/calcined biomass | Engagement with heavily armored enemy variants at high pollution. Requires end-of-phase-2 metallurgy capability (tungsten processing). Capability shift: one shot pierces through multiple targets |
 | **T4** | Penetration rocket (endgame) | Enriched uranium/tungsten payload, solid fuel booster, guidance module | Uraninates → acid leach → purification → conversion + enrichment cascade or thorium monazite → Th-cycle fuel Zr-Cl₄ chlorination → metal reduction → Zr cladding for casing + fission reactor → enriched U/W penetrator core | Endgame strategic capability. For fortress-level enemy encampments only. Ties to full nuclear fuel cycle + semiconductor guidance module from cleanroom fabrication |
 
-**Design Decision:** The ammo chain stays bounded to **5 tiers across ~12 core recipes**. No exotic materials are required for mid-game ammo — every component ties to existing chemistry/metallurgy chains already defined in other documents.
+**Open scope — see [ADR-0014](adrs/ADR-0014-capability-based-ammunition.md):** The source says **5 tiers across ~12 core recipes**, but elsewhere says four tiers and lists T1, T2a, T2b, T3, and T4. The user accepted the capability-based principle, not either conflicting count or every listed type and recipe.
 
-### Weapon Progression Logic — Resolved: Capability Shifts Over Numbers
+### Candidate Weapon Progression Logic — Capability Shifts Over Numbers
 
 Weapon tiers follow Bob's Weapons Pack philosophy:
 
@@ -215,18 +187,20 @@ Weapon tiers follow Bob's Weapons Pack philosophy:
 - Incendiary → HE: One-shot high damage vs. single heavy targets (spitter nests, worm burrows).
 - HE → AP: Pierces through multiple targets in a line.
 
-## Turret Progression — Resolved
+## Candidate Turret Progression
 
-**Decision:** Extend vanilla turrets with tiered ammunition support. No new turret families in the core mod.
+**Proposed direction — see [ADR-0012](adrs/ADR-0012-bound-core-military-scope.md):** Keep the turret roster bounded across progression layers, with greater emphasis on electrical options; do not assume it is vanilla-only. Plasma and railgun turrets are candidates, not an approved roster. Their layer and tier placement, and core-versus-extension scope, remain open.
 
-| Turret Family | Vanilla Equivalent | Tiered Ammo Support | Industrial Gate |
+| Turret Family | Relationship to Vanilla | Candidate Role / Progression | Industrial / Balance Gate |
 |---|---|---|---|
-| Gun turret | Vanilla gun turret | T1 kinetic → T3 AP penetrator | Basic steel + lead/copper processing |
-| Laser turret | Vanilla laser turret | None (self-contained energy weapon) | Semiconductor targeting module (T2) + precision optics chain |
-| Flamethrower turret | Flamethrower (firewall) | T2a incendiary fuel | Petrochemical cracking or oil refining capability |
-| Rocket turret | Vanilla rocket turret | T3 HE shell → T4 penetration rocket | Explosive compound chain / nuclear fuel cycle |
+| Gun turret | Vanilla | T1 kinetic → T3 AP ammunition | Basic steel + lead/copper processing |
+| Laser turret | Existing vanilla electrical family | Electrical baseline; tier-specific output and grid demand need validation | Semiconductor targeting module (T2) + precision optics chain |
+| Plasma turret | New electrical candidate | Artillery-like plasma orb with a relatively large splash radius | Substantial power draw proposed; tier, range, ammunition/consumables, and values TBD |
+| Railgun turret | New electrical candidate | Very-long-range beam/shot damages enemies along its path with small-to-medium splash, potentially to maximum visible or targetable range | Substantial power draw proposed; attack model, tier, ammunition/consumables, and values TBD |
+| Flamethrower turret | Vanilla | T2a incendiary fuel | Petrochemical cracking or oil refining capability |
+| Rocket turret | Vanilla | T3 HE shell → T4 penetration rocket | Explosive compound chain / nuclear fuel cycle |
 
-**Design Decision:** No new vanilla-derived turret families. This matches Bob's Weapons Pack's proven model — extend existing turrets with tiered ammo rather than creating new machine types that would inflate the ~80 machine scope target and complicate balance.
+Both proposed electrical families should require substantial power as a balancing cost. Whether this is sustained draw, firing bursts, stored energy per shot, or a combination remains open; see [ADR-0015](adrs/ADR-0015-sustained-power-for-defense.md). The source's earlier rationale for avoiding new turret families remains historical context, not an approved user decision.
 
 ### Material Sources (Mapped to Infrastructure)
 
@@ -241,7 +215,7 @@ Weapon tiers follow Bob's Weapons Pack philosophy:
 | Tungsten for AP cores | Scheelite/Tungstenite (Tier 2 underground), W in BIF/polymineral | Caustic leach → purification → powder metallurgy pressing | infra.md §5 Reactors, §8 Polymer |
 | Lead-acid propellant oxidizer | Potassium/sodium chlorates from trona/halite brine evaporation | Crystallization/evaporator → decomposition furnace | infra.md §6 Solution Proc. |
 
-**Design Decision:** The ammo chain stays bounded to **~12 core recipes** across the four tiers, matching Bob's Weapons Pack scope. No exotic materials are required for mid-game ammo — every component ties to existing chemistry/metallurgy chains already defined in other documents.
+**Candidate scope — see [ADR-0014](adrs/ADR-0014-capability-based-ammunition.md):** A later source statement says **~12 core recipes across four tiers**, conflicting with the five-tier wording above. The recipe and tier counts remain open.
 
 ## Defense Infrastructure Progression
 
@@ -275,65 +249,62 @@ This gives players two endgame aspirations:
 1. **Project Prometheus:** Build the distributed planetary computing network (the mod's signature endgame)
 2. **Space platform completion:** Achieve the vanilla victory using the mod's industrial ecosystem to produce rocket fuel and parts through new chains
 
-### Sustained Defense Power Load — Adopted from The Riftbreaker
+### Sustained Defense Power Load (Accepted Principle; Values Provisional)
 
-**Decision:** All turrets and defense infrastructure draw sustained power, not just one-time build cost. Defense creates ongoing grid load that directly ties military back to our power-system.md design.
+**Accepted principle — see [ADR-0015](adrs/ADR-0015-sustained-power-for-defense.md):** Defense infrastructure imposes sustained power demand. The values below are source proposals, not validated requirements; the plasma and railgun power profiles are also unresolved.
 
 | Turret Type | Tier 1 Power (kW) | Tier 2 Power (kW) | Tier 3 Power (kW) | Notes |
 |---|---|---|---|---|
 | Gun Turret | 5 kW | 7 kW | 10 kW | Scaling with ammo type complexity; AP-capable turrets draw more for targeting electronics |
 | Laser Turret | N/A | 15 kW | 25 kW | Power-scaled by beam intensity tier |
+| Plasma Turret | TBD | TBD | TBD | Substantial draw proposed; tier placement, peak-versus-sustained profile, and values remain open |
+| Railgun Turret | TBD | TBD | TBD | Substantial draw proposed; tier placement, firing profile, and values remain open |
 | Flamethrower Turret | 8 kW | 12 kW | 18 kW | Pump and mixing mechanisms require continuous power |
 | Rocket Turret | 10 kW | 15 kW | 30 kW | Scaling with missile rack capacity and guidance electronics |
 
 **Engineering tension:** "Can my grid handle this many turrets running?" creates the same kind of design problem we have for factories. Players must plan defense load alongside production load, choose between defensive density and production expansion, or invest in energy storage/power infrastructure upgrades as a military-support decision.
 
-### Late-Game Drone Defense — Adopted from The Riftbreaker
+### Optional Advanced Military Extension: Spider-Bot and Power-Suit Additions
 
-**Decision:** Two drone types (patrol attack + sensor early-warning) connected to our semiconductor/automation supply chain. Integrated into the military infrastructure catalog as late-game defense products.
+The user rejected military drones and specified fixed defenses. An optional, more advanced military extension may consider a spider-bot vehicle and power-suit equipment additions. This direction is distinct from drone defense; exact scope, product families, unlocks, and supply paths remain open. The rejected drone proposal and its supply-chain details are preserved in [ADR-0016](adrs/ADR-0016-late-game-defense-drones.md).
 
-| Drone Type | Tier/Phase | Operations | Supply Chain Requirement | Design Role |
-|---|---|---|---|---|
-| **Patrol Drone (Attack)** | Phase 3+ | Autonomous patrol of designated perimeter zones; auto-targets nearby enemies within range | Semiconductor guidance module + precision power cell (lithium battery from electrochemical chain) + tungsten micro-penetrator ammo | Fills gaps between stationary turret coverage; handles small infiltration waves that would overwhelm fixed positions. Battery life = operational radius × time |
-| **Sensor Drone (Early Warning)** | Phase 3+ | Scans area for burrowing threats and enemy composition analysis; broadcasts warning data to nearby turrets | Semiconductor guidance module + cryogenic sensor array (superconducting materials from Nb₃Sn wire chain) + precision optics | Reveals hidden worm burrows before they emerge; identifies incoming enemy class composition so players can switch turret ammo types proactively. Essential near expansion frontier |
+## Decision Records and Open Items
 
-**Design principle:** Drones are engineered systems, not magical upgrades — each connects to real supply chains from earlier in the mod. Drone defense complements but doesn't replace stationary turrets; it extends coverage where fixed placement is impractical (perimeter gaps, expansion zones).
+The former source table marked these choices resolved. User review has since established the outcomes below; candidate details remain provisional where noted:
 
-## Open Decisions — All Resolved
-
-| Decision | Resolution | Rationale |
+| Topic | Record | Current status |
 |---|---|---|
-| **Attack mechanics detail** ✅ | Radius-based density model consistent with Bob's Weapons Pack. No complex time-decay curves or zone thresholds needed. | Simple, predictable, proven by extensive playtesting in Bob's ecosystem. |
-| **Enemy unit variety** ✅ | Vanilla units only. No new enemy types, no pollution-adapted variants. All biter/spitter/worm types affected by pollution scaling but remain vanilla sprites with vanilla stats. | Scope bounded. Complexity comes from *supply chains behind defense*, not enemy variety. Bob's Weapons Pack model works well. |
-| **Defense turrets** ✅ | Extend existing vanilla turrets with tiered ammo support only. No new turret families in the core mod. Flamethrower uses incendiary fuel, rocket turret uses HE/ap shells, gun turret upgrades from kinetic to AP. | Matches Bob's Weapons Pack. Avoids inflating ~80 machine scope target and simplifies balance. |
-| **Nuclear ammo scope** ✅ | T4 penetration rocket uses enriched uranium/tungsten payload — connects to full nuclear fuel cycle + semiconductor guidance module. Not true "nuclear explosive" ammo; it's a kinetic penetrator with nuclear-grade materials for density/payload purposes. | Ties military to nuclear chain without requiring actual nuclear weapons. Fits the industrial integration philosophy. |
-| **Pollution type differentiation** ✅ | Yes — at high thresholds (>1000 units/s), differentiate attack profiles: general spread (baseline waves), acid emissions (earlier spitters, more structure damage), heavy metal (worms burrow closer, armored ground variants). | Gives players *why* to care about process choice. Stays at attack profile level only — no new sprites or enemy types. |
-| **Defense automation via connected control** ✅ | No native combat automation in core mod. Defense logistics are handled by vanilla logistics/bots + manual turret aiming. Optional extension pack (`logistics-advanced-trains` or `difficulty-advanced`) may add automated targeting integrations as opt-in QOL. | Combat automation is a UX layer, not an industrial system. Keep it out of core scope; defer to extensions if requested. |
+| Core enemy and turret scope; combat automation boundary | [ADR-0012](adrs/ADR-0012-bound-core-military-scope.md) | Proposed; bounded, layer-based electrical direction recorded; roster and scope open |
+| Pollution and space pressure | [ADR-0013](adrs/ADR-0013-military-pressure-model.md) | Proposed; thresholds and feedback need validation |
+| Ammo progression and nuclear-material use | [ADR-0014](adrs/ADR-0014-capability-based-ammunition.md) | Capability-based principle accepted; type, tier, supply-chain, and recipe-count details remain open |
+| Sustained defense power load | [ADR-0015](adrs/ADR-0015-sustained-power-for-defense.md) | Principle accepted; profiles and values need validation |
+| Military drones; advanced player equipment | [ADR-0016](adrs/ADR-0016-late-game-defense-drones.md) | Military drones rejected; optional spider-bot and power-suit extension direction recorded |
 
-## Extension Pack Scope — Clarified
+Other open questions:
+
+- Confirm which military scope and pressure-model proposals belong in core.
+- Decide the electrical turret progression: tier and phase placement, core-versus-extension scope, ammunition or energy model, range and splash behavior, and power draw profile and values.
+- Reconcile the ammo categories, T3a/T3b weapon variants, and five-tier/four-tier statements before catalog enumeration.
+- Reconcile the no-new-enemy-variant proposal with the heavy-metal pollution table's armored ground variants.
+- Validate pollution units and the proposed `>1000 units/s` threshold against the implementation model.
+- Decide whether space pressure is entirely implicit and whether any external quality-of-life integration is in scope.
+- Define the optional advanced military extension scope for spider-bot and power-suit additions.
+- Align sustained defense power demand with the accepted core power model; reconcile the differing laser-turret estimates in this document and [Infrastructure](infrastructure.md).
+
+## Candidate Extension Pack Scope
+
+The following extension concepts are source proposals only; none is approved.
 
 Military content for extension packs follows the core mod's design but adds depth for specific audiences:
 
 | Extension | Military Content Added | Notes |
 |---|---|---|
-| **difficulty-advanced** | Extended weapon tiers (sniper, anti-materiel rifle levels at very late tiers), smarter enemy AI, fortified base types. Requires Combat Mechanics Overhaul dependency. | Adds pressure; not new industrial systems. |
+| **difficulty-advanced** | Extended weapon tiers (sniper, anti-materiel rifle levels at very late tiers), optional spider-bot vehicle and power-suit equipment additions, smarter enemy AI, fortified base types. Requires Combat Mechanics Overhaul dependency. | Candidate additions only; scope and dependency need validation. |
 | **difficulty-extreme** | Pollution multipliers ×3–5×, aggressive biter scaling, pollution-adapted elite variants with armor/acid resistance. Resource scarcity on combat-critical materials (lead, tungsten). | Hardcore players who want military to be the bottleneck. |
 | **endgame-simulation-hard** | More complex debug requirements for information-formed entities in the simulation network; harder fleet management. Combat-adjacent but tied to endgame complexity. | Players who want the endgame to challenge them militarily too. |
 
-## Summary of Design Decisions
+## Current Status and Next Work
 
-Here's a quick reference of everything that was decided:
+This is a candidate design, not a complete military specification. Capability-based ammunition and sustained defense power are accepted principles; the turret roster remains proposed, and military drones are rejected. The detailed ammunition, weapon, power-load, and extension tables remain candidate content, not final catalog entries, build recipes, or balance values. The rejected drone roles and supply chains are preserved in [ADR-0016](adrs/ADR-0016-late-game-defense-drones.md).
 
-| Decision | Resolution |
-|---|---|
-| Reference model | Bob's Weapons Pack (primary), Angel's minimum baseline, GTNH for late-game integration ideas |
-| Enemy types | Vanilla biter/spitter/worm only — no new sprites |
-| Ammo tiers | 5 tiers (T1–T4), ~12 core recipes bounded to existing chains |
-| Turret approach | Extend vanilla turrets with tiered ammo — no new families |
-| Pollution scaling | Radius-based density model, pollution-type differentiation at high thresholds |
-| Defense automation | Core mod: none. Extensions may add QOL integrations as opt-in. |
-| Nuclear ammo | T4 penetrator rocket uses nuclear materials but is kinetic, not explosive |
-
-## Status
-
-**Resolved.** Market research complete. All open design decisions have been answered. This document is ready to be used as the foundation for implementing military content in Phase C of the plan (recipe/infrastructure mapping). The extension pack scope is also defined so implementation work can branch into core vs. opt-in content.
+Next, reconcile military scope with the Phase 3 infrastructure inventory, include or exclude military product families during Phase 4 coverage, and defer final product identities and recipes to Phases 5 and 6 of [the plan](plan.md). Preserve the source's ammo-tier and recipe-count conflict until it is explicitly resolved.

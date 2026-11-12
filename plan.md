@@ -22,6 +22,7 @@ The coverage work includes:
 - Armor equipment, utilities, and modules.
 - Research ingredients and, later, the technologies that consume or unlock them.
 - Endgame and other progression-critical products.
+- Other Factorio-style families, including logistics/control items, maintenance consumables, terrain products, biological/agricultural products, and launch/space outputs, must be explicitly classified as in scope, cross-referenced, vanilla retained/modified/replaced, extension, unresolved, or out of scope.
 
 For counting and traceability, distinguish product types from placeable entities, machine families, tiers/variants, recipes, and technologies. An item may have multiple roles; give it one primary category and record other roles as tags.
 
@@ -105,6 +106,12 @@ The document inventory and its references may change during the documentation cl
 
 **Pilot checkpoint (2026-11-12):** The user accepted the world-generation split as the migration pattern. It consists of a current-state design, five linked ADRs, an updated ADR index, and a [migration map](migration-map.md). Conflicting distance targets and missing cross-reference files are recorded, not silently resolved. Repository-level rules are in [AGENTS.md](AGENTS.md); migrate the remaining design docs in the manifest's bounded batches.
 
+**Product-tree batch and scope update (2026-11-12):** The mineral/refining, chemical-process, and intermediate-product documents retain their candidate inventories and current-state boundaries. The non-building product catalog now includes a Factorio-style family checklist, with category scope recorded in [ADR-0008](adrs/ADR-0008-factorio-product-family-coverage.md). The rhenium selection and capability-based catalog-size decision remain in [ADR-0007](adrs/ADR-0007-rhenium-reaction-dynamics-bridge.md) and [ADR-0006](adrs/ADR-0006-capability-based-intermediate-scope.md). Candidate endgame facility pathways moved to [Infrastructure](infrastructure.md), while former Phase A2 quantities and assembly proposals are preserved as unapproved history in [ADR-0009](adrs/ADR-0009-endgame-assembly-proposals.md). The five-versus-six research-prerequisite count remains open; Phase 1 is still active and Phase 2 must not start before its migration gate is met.
+
+**Infrastructure and systems batch (2026-11-12):** [Infrastructure](infrastructure.md), [Power System](power-system.md), [Logistics System](logistics-system.md), and [Military System](military-system.md) now distinguish candidate design from history. Source-recorded power and military decisions are traceable to proposed [ADR-0010](adrs/ADR-0010-core-power-distribution-scope.md) through [ADR-0016](adrs/ADR-0016-late-game-defense-drones.md); no unverified proposal was promoted to approved design. The powered-rail/core-power dependency, missing machine-system reference, Phase 4 boundary, generator-phase mismatch, diagnostics/stabilization scope conflict, military count conflicts, and vanilla-enemy/armored-variant conflict remain visible. These four manifest entries are migrated, but Phase 1 remains active until the remaining manifest documents and navigation reconciliation pass the gate.
+
+**Power and military decision reconciliation (2026-11-12):** The user accepted [ADR-0010](adrs/ADR-0010-core-power-distribution-scope.md) (retain the vanilla grid and add tiered poles), [ADR-0011](adrs/ADR-0011-hawking-radiation-endgame-generator.md) (Hawking Radiation Engine as one Phase 4 option, with at least one alternative Phase 3/4 route still required), [ADR-0014](adrs/ADR-0014-capability-based-ammunition.md) (capability-based ammo progression), and [ADR-0015](adrs/ADR-0015-sustained-power-for-defense.md) (sustained defense power). The user rejected military drones in [ADR-0016](adrs/ADR-0016-late-game-defense-drones.md), specifying fixed defenses and optional spider-bot/power-suit additions for an advanced military extension. [ADR-0012](adrs/ADR-0012-bound-core-military-scope.md) remains proposed, with a bounded, layer-based focus on power-based turret options. Exact pole tiers, power alternatives and gates, turret roster and loads, ammunition counts, and extension scope remain open. The affected current-state documents and ADR index have been aligned; Phase 1 remains active and Phase 2 must not start before its migration gate is met.
+
 **Checkpoint and gate:** The pilot is accepted; Phase 1 remains active until the manifest documents are migrated or explicitly excluded with rationale. Do not start Phase 2 before that gate is met. If migration reveals information loss or ambiguity, revise the conventions before continuing.
 
 ### Phase 2 — Verify the Gap Analysis
@@ -134,8 +141,11 @@ The document inventory and its references may change during the documentation cl
 
 **Work:**
 - Normalize the infrastructure list: unique placeable entities, machine families, tiers/variants, support equipment, and recipes are separate counts.
+- Use the Factorio-style infrastructure-family checklist in [Infrastructure](infrastructure.md) to verify placeable families and record an explicit scope disposition for each.
 - Include or explicitly exclude vehicles, fuel, weapons, ammunition, armor equipment, utilities, modules, and other non-building outputs.
 - For every in-scope constructable, record its role, phase, tier/capability changes, core/extension status, and expected product families.
+- Include the accepted tiered power-pole family in the constructable inventory; keep its tier count, statistics, materials, and phase gates open until designed.
+- Develop and compare at least one alternative Phase 3/4 power route alongside the accepted Hawking option before power progression is locked; keep concepts and gates open until reviewed.
 - Reconcile overlaps, duplicate categories, inconsistent names, and phase or vanilla-replacement assumptions across domain documents.
 - Treat the construction-material index as demand hypotheses: every material reference must have an intended capability and a traceable supply path, or be recorded as a gap.
 - Keep exact ingredient quantities and final build recipes deferred until the product catalog and recipe phases.
@@ -153,13 +163,14 @@ The document inventory and its references may change during the documentation cl
 **Prerequisites:** Phases 2 and 3 complete; the source documents for affected domains are available in current-state form.
 
 **Work:**
+- Begin with the Factorio-style product-family checklist in [Intermediate Products](intermediate-products.md) and cross-check the infrastructure-family checklist in [Infrastructure](infrastructure.md). Verify relevant families against the selected game version and give each an explicit scope disposition; category presence alone does not require adding products.
 - Work backward from intended outputs and capabilities: infrastructure, vehicles and fuel, military, armor and modules, logistics, power, research, and endgame.
 - Work forward from mineral feeds and vanilla starting resources through refining and chemical/process capabilities.
 - Build a coverage matrix connecting each demand area to required product families, upstream material groups, process capabilities, and source documents.
 - Mark coverage as present, missing, uncertain, optional, or out of scope.
 - Check that confirmed gaps from Phase 2 are represented and that proposed products have a consumer or a justified terminal role.
 
-**Outputs:** A coverage matrix and a list of remaining decisions/blockers, maintained in the agreed canonical ledger.
+**Outputs:** A coverage matrix and a list of remaining decisions/blockers, maintained in the agreed canonical ledger; the product-family and infrastructure-family checklists have dispositions for every category.
 
 **Exit criteria:** Every required player capability and progression endpoint has a path to the product families and source capabilities it needs; every confirmed gap has an owner and disposition.
 

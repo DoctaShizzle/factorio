@@ -59,7 +59,7 @@ Phase 3 (Simulation-Gated)
 ├── Planetary/Industrial Model gates cleanrooms, advanced materials
 ├── Domain datasets from real facilities → Core runs models → findings unlock tech
 ├── Information-Based Model gates deep infrastructure and control tools
-├── General-Physics Model gates Phase 4 (Hawking Radiation Engine)
+├── General-Physics Model supports late-game power research; Hawking is one accepted route, with its gate still open
 └── Player learns: "I am an engineer who must understand the universe to manipulate it"
 
 Final Milestone: Planetary Digital Twin Complete
@@ -126,7 +126,7 @@ Each domain produces its own **five-tier pack progression**. Each tier is a dist
 
 | Core Stage | Packs Required per Domain | Total Packs (~6 domains) | What It Unlocks |
 |-----------|--------------------------|--------------------------|------------------|
-| Core construction (first activation) | All 6 domains at T2a + **Unified Metrology Reference Array** → calibrated reference hardware mounted in Calibration Reference Frame | Thermal Frame + Computation Cluster installed; Phase 4 power access (Hawking engine), basic simulation model operational |
+| Core construction (first activation) | All 6 domains at T2a + **Unified Metrology Reference Array** → calibrated reference hardware mounted in Calibration Reference Frame | Thermal Frame + Computation Cluster installed; basic simulation model operational. The current proposal grants access to the Hawking route here, but its final gate and alternative-route gates remain open. |
 | **Core Level 2** | All six domains at T2b2 — ~1,320 packs total | Quantum-state enhancement module + memory expansion + Integration Bus upgrade for faster satellite communication | Higher-fidelity models, accelerated discovery |
 | **Core Level 3 / Final milestone** | All six domains at T3c — ~7,920+ packs spread over extended production | Multi-domain synthesis components fully integrated; Calibration Reference can model phenomena beyond known physics | General-physics discovery unlock |
 
@@ -142,7 +142,7 @@ Each Core level adds *new* research categories — different technology pools, n
 |---|---|---|---|
 | **Level 1** (T2a minimum) | **Planetary + Industrial Model** — simulation can accurately model physical systems at planetary scale. Breakthrough: *predictive modeling of known physics.* | Cleanroom fabrication protocols, high-purity refining methods, semiconductor process chains, advanced materials science frameworks | First "we now have the data to go further" state. Simulation hasn't discovered new physics — it's proving it can reliably predict existing physics across all six domains. Gateway to Phase 3 research requiring cross-domain validation. |
 | **Level 2** (T2b2 minimum) | **Information-Based Civilization Model** — simulation can model populations of information-formed entities whose behavior *emerges* from structure, not programming. Breakthrough: *understanding how structured data produces perception and decision-making.* | Deep simulation infrastructure designs, advanced factory control frameworks (PLC expansion), emergent-system modeling tools, behavioral dataset collection methods | The "new physics" here is that the simulation itself has proven it can model entities that perceive, decide, and act — not simulated AI but mathematical beings whose behavior emerges from their information structure. Moves player from "modeling physics" to "modeling intelligence." |
-| **Level 3** (T3c final milestone) | **General-Physics Model** — simulation has achieved sufficient fidelity that it can predict phenomena *beyond* known physics. Breakthrough: *access to cutting-edge theoretical knowledge the player's civilization cannot independently discover.* New physics frontiers unlocked. | Phase 4 power generation specifics, advanced quantum mechanics applications, exotic matter manipulation frameworks, general-physics research protocols | The **final milestone**. Simulation has validated itself against every known physics domain (Core L1), proven it can model emergent information structures (Core L2), and now reaches beyond — predicting phenomena that conventional science cannot reach. Unlocking "general-physics discovery" isn't a single recipe; it's *access* to research categories previously impossible. |
+| **Level 3** (T3c final milestone) | **General-Physics Model** — simulation has achieved sufficient fidelity that it can predict phenomena *beyond* known physics. Breakthrough: *access to cutting-edge theoretical knowledge the player's civilization cannot independently discover.* New physics frontiers unlocked. | Additional Phase 4 power-generation specifics (scope and gates still open), advanced quantum mechanics applications, exotic matter manipulation frameworks, general-physics research protocols | The **final milestone**. Simulation has validated itself against every known physics domain (Core L1), proven it can model emergent information structures (Core L2), and now reaches beyond — predicting phenomena that conventional science cannot reach. Unlocking "general-physics discovery" isn't a single recipe; it's *access* to research categories previously impossible. |
 
 #### Domain Pack Recipes: Required Intermediate Products Per Tier
 
@@ -227,22 +227,22 @@ Based on the existing Endgame Vision stages:
 | **Information-Based Civilization Model** | Planetary/industrial model results + behavioral datasets | Deep simulation infrastructure, advanced factory control tools |
 | **General-Physics Model** (final extension) | Advanced physics experiments + extreme-energy facility data | Quantum mechanics applications, new physics frontiers |
 
-### Phase 4 Power and the Planetary Simulation Core
+### Phase 4 Power Options and the Planetary Simulation Core
 
-Phase 4 power production (Hawking Radiation Engine) is **not gated behind completing the simulation network.** Instead:
+The Hawking Radiation Engine is an accepted Phase 4 option, not the only late-game power route. The current proposal for the Hawking route is **not to gate it behind completing the simulation network.** Instead:
 
-> **The player must build a basic Planetary Simulation Core to access Phase 4 power generation.** Phase 4 power grows *alongside* the scope and power requirements of the simulation core until it's ready to simulate an entire civilization.
+> **Current, unfinalized gate proposal:** The player builds a basic Planetary Simulation Core to access the Hawking route. Its exact gate, the gates for other power routes, and how those routes fit the Core's progression remain open.
 
-This means Phase 4 power is available *during* the final third of gameplay, scaling with the Core as it expands. The Hawking Radiation Engine isn't the endgame victory condition — it's a late-game capability enabled by basic simulation infrastructure that provides enormous power during the simulation network construction phase.
+Under that proposal, the Hawking route would be available *during* the final third of gameplay, rather than after Core completion. This gate has not been finalized, and no alternative Phase 3/4 route has been selected.
 
-By having Phase 4 power available *while* building the full simulation, the player gets access to extreme energy density exactly when they need it most: to power an expanding computational civilization. The Core starts small (basic physics model), but its needs grow — and Phase 4 scales alongside it, providing both the incentive to build the first Core and a massive power source for the ambitious infrastructure project ahead.
+The design intent is for late-game power choices to support an expanding computational civilization, but the Hawking route's role, power scale, and relationship to Core growth still require balancing and comparison with at least one alternative.
 
 ### How Many Technologies Gate on Simulation?
 
 **Rough split: ~60% simulation-gated, ~30% conventional pack only, ~10% hybrid.** The exact breakdown depends on the final technology roster. Key design decisions:
 
 - **Some technologies remain conventional:** Things that real-world industry already solved (advanced combustion variants, alternative fuel production methods, standard metallurgy improvements) can be researched without simulation. This keeps a portion of late-game accessible and gives players who want to avoid the endgame network a path.
-- **Most "capability unlock" gates are simulation-gated:** New machine families (cleanrooms, wafer fabrication), new process capabilities (deep electrolysis, high-pressure synthesis), and Phase 4 power generation require simulation findings. These represent genuine knowledge gaps that no factory-scale experimentation can bridge.
+- **Most "capability unlock" gates are simulation-gated:** New machine families (cleanrooms, wafer fabrication), new process capabilities (deep electrolysis, high-pressure synthesis), and some Phase 4 power capabilities are proposed to require simulation findings. The Hawking route's current basic-Core gate and the gates for alternatives remain unresolved.
 - **The Planetary Simulation Core itself is a hybrid technology** — requires both conventional science packs (it needs real materials to build) and domain datasets (the network needs operational evidence to function).
 
 ### Playtime Contribution: Simulation Construction Phase
@@ -255,7 +255,7 @@ The simulation network construction occupies approximately **1/3 of total game t
 | Core Level 2 progression (T2b2 packs) | ~30–40 | Deepening Phase 2 production, cross-domain calibration, higher-fidelity simulation tiers |
 | Core Level 3 / final milestone (T3c packs) | ~15–35 | Expanded industrial base feeding Tier 3 domain pack production, convergence synthesis |
 
-Phase 4 power generation (Hawking Radiation Engine) is available *during* this construction phase — enabled by a basic Planetary Simulation Core. The player uses Phase 4 power to fuel the massive energy demands of expanding the simulation network. As the Core grows from basic physics model → planetary industrial model → information-formed civilization, its power requirements increase, and Phase 4 scales alongside it.
+Under the current, unfinalized proposal, the Hawking route becomes available during this construction phase after a basic Planetary Simulation Core. Its role in powering network expansion, how it scales with the Core, and how alternatives fit this progression remain to be designed.
 
 ### Time Validation Against Design Scope
 
@@ -328,7 +328,7 @@ Each Core level adds *new* research categories to the tree — different technol
 
 | Core Stage | Packs Required per Domain | Total Packs (~6 domains) | What It Unlocks |
 |-----------|--------------------------|--------------------------|------------------|
-| **Core construction (first activation)** | All 6 domains at T2a minimum + convergence item | ~6 × 7 = ~42 packs (plus convergence item) | Phase 4 power access (Hawking engine), basic simulation model |
+| **Core construction (first activation)** | All 6 domains at T2a minimum + convergence item | ~6 × 7 = ~42 packs (plus convergence item) | Basic simulation model; access to the Hawking route is the current proposal, with exact and alternative-route gates open |
 | **Core Level 2** | All 6 domains at T2b2 | ~1,320 packs total | Higher-fidelity models, accelerated discovery |
 | **Core Level 3 / Final milestone** | All 6 domains at T3c | ~7,920+ packs total (spread over extended production) | General-physics discovery unlock |
 

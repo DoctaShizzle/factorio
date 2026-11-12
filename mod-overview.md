@@ -69,7 +69,7 @@ The ambition is a long overhaul playthrough, potentially 300+ hours, with comple
 | --- | --- | --- |
 | Mineral catalog | Candidate deposits, mineral feeds, recoverable materials, and common route patterns | [Minerals and Refining](minerals-and-refining.md) |
 | Chemistry | Named industrial reactions, coproducts, alternative pathways, catalysts, and chemical intermediates | [Chemical Products and Processes](chemical-processes.md) |
-| Manufactured intermediates | Alloys, batteries, semiconductor components, nuclear assemblies, and endgame components | [Intermediate Products](intermediate-products.md) |
+| Non-building product catalog | Construction materials and components, fuels, vehicles, weapons and ammunition, personal equipment and modules, research ingredients, and endgame products; includes a Factorio-family completeness checklist | [Intermediate Products](intermediate-products.md); see [Infrastructure](infrastructure.md) for placeable entities |
 | Power | Generator phases, fuel density, grid tiers, transmission losses, conductor choices, diagnostics, and waste handling | [Power System](power-system.md) |
 | Endgame | Distributed computational civilization; simulation milestones from planetary model → industrial model → information-based beings → general-physics discovery | [Endgame Vision](endgame-vision.md), [Research and Progression](research-progression.md) |
 | Infrastructure | Infrastructure mapped to industrial operations, progression, logistics and military | [Infrastructure](infrastructure.md) |
@@ -105,7 +105,7 @@ The handbook should reveal the industrial journey early, explain why processes d
 
 Research progression follows three phases: conventional science packs (~40–50% of game) → transitional domain packs + conventional (the bridge where conventional industry hits the physics wall) → simulation-gated research (final third, ~100 hours). Conventional packs persist as an alternative path for capabilities that don't require new physics. Fixed capability progression is preferred over random challenge objectives; quest/progression integration remains to be researched.
 
-Phase 4 power generation (Hawking Radiation Engine) is available *during* simulation construction, gated only by building a basic Planetary Simulation Core — not completing it.
+The Hawking Radiation Engine is an accepted Phase 4 power option, not the sole route. The current [research-progression proposal](research-progression.md) gates it on building a basic Planetary Simulation Core, before full completion; the exact gate remains open. At least one alternative Phase 3/4 power route and its gate still need design, as recorded in [ADR-0011](adrs/ADR-0011-hawking-radiation-endgame-generator.md).
 
 ## Inspirations and Guardrails
 

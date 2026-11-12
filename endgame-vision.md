@@ -66,6 +66,8 @@ The Core is a **modular orchestration hub** — not a megastructure, not an AI p
 
 **Physical description:** *A precision metrology instrument that integrates six distinct physics measurement domains into one coherent device mounted inside a vibration-isolated, thermally-stabilized calibration frame. Each zone operates as independent instrumentation, scientific hardware from each practitioner's field — co-located to enable cross-domain calibration while the simulation network runs.*
 
+Former Phase A2 assembly quantities, satellite recipes, and timing hypotheses are preserved as unapproved candidate history in [ADR-0009](adrs/ADR-0009-endgame-assembly-proposals.md); they are not current recipe requirements.
+
 ### Satellite Buildings
 
 The Core has four satellite facility types, each adding capacity or data streams:

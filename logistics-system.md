@@ -1,17 +1,19 @@
-# Logistics System - Design Proposal
+# Logistics System Design
 
-*For: Factorio Overhaul Mod (Project Prometheus)*  
-*Status: Vision / requirements phase*
+*Status: Draft — candidate logistics concepts; acceptance and behavior remain under review*
+*Last updated: 2026-11-12*
 
-Related documents: [Mod Overview](mod-overview.md), [Power System](power-system.md), [Machine Systems](machine-systems.md).
+Related documents: [Mod Overview](mod-overview.md), [Power System](power-system.md). The source draft also referenced the missing `machine-systems.md`; see [Documentation Map](documentation-map.md) for reconciliation.
 
 ## Summary
 
-This document defines logistics as an engineering decision layer spanning physical transport (belts, trains, bots) to information flow (demand signalling, intelligent dispatching). It proposes a progression from primitive conveyors through freight terminals and demand-based rail networks to late-game "information logistics" — where the factory moves from shifting materials to orchestrating decisions.
+This draft proposes logistics as an engineering decision layer spanning physical transport (belts, trains, bots) and information flow (demand signalling, intelligent dispatching). Candidate concepts include a progression from primitive conveyors through freight terminals and demand-based rail networks to late-game "information logistics" — where the factory moves from shifting materials to orchestrating decisions. Proposals below are not approved requirements unless explicitly marked otherwise.
 
-**What it covers:** Design philosophy, transport layers (belt, rail, bot), demand-based dispatch, freight terminals, information logistics, and seven design principles.
+## Purpose and Boundaries
 
-**What it does not cover:** Specific item recipes for belt/machine variants, train timetable/track networking implementation details, or exact bot stat progression numbers.
+- **In scope:** Candidate design philosophy and progression for belts, rail, bots, freight terminals, demand-based dispatch, and information logistics.
+- **Out of scope:** Specific item recipes for belt/machine variants, train timetable/track networking implementation details, and exact bot stat progression numbers.
+- **Source-of-truth boundaries:** Product identities and recipes belong to the relevant product documents; power behavior belongs to [Power System](power-system.md). Missing machine-system ownership remains an open repository reference in [Documentation Map](documentation-map.md).
 
 ## Design Philosophy
 
@@ -60,9 +62,9 @@ Key principle: **better infrastructure should be earned through industrial progr
 
 This preserves engineering choice: early factories *must* accept station bloat; late-game players earn a compact alternative at meaningful material cost.
 
-#### Train Dispatch — Both Modes Are Valuable
+#### Train Dispatch — Candidate Coexistence of Both Modes
 
-Dedicated connections and demand-based dispatch are **not mutually exclusive**. Both serve different use cases across the progression:
+The source proposes that dedicated connections and demand-based dispatch are **not mutually exclusive** and could serve different use cases across the progression. Their coexistence and progression remain unapproved:
 
 **Mode A: Dedicated Connections (earlier unlock)**
 - Explicit source → destination routes (inspired by Satisfactory)
@@ -78,27 +80,29 @@ Dedicated connections and demand-based dispatch are **not mutually exclusive**. 
 
 Both coexist. A player might run dedicated ore haulage lines *and* a demand-dispatched fleet for chemical feedstocks that fluctuate with plant equilibrium.
 
-#### Electrified Trains — First-Class Citizens
+#### Electrified Trains — Candidate Model
 
-Electrified trains should be a first-class logistics option (inspired by Satisfactory's approach), not an afterthought. The core concept: **rails as power conduits.** Powered rail segments carry electrical current that electric locomotives draw from directly while moving.
+The source proposes electrified trains as a first-class logistics option, with **rails as power conduits** that supply moving electric locomotives.
 
-**Voltage tier options for powered rails:**
+> **Core boundary:** [ADR-0010](adrs/ADR-0010-core-power-distribution-scope.md) now accepts the vanilla pole grid with compatible tiered poles. The voltage-tier and transmission-loss assumptions below are not part of that core decision. Powered rails and electrified trains remain unapproved candidates; custom voltage and loss mechanics, if pursued, require a separate extension design.
+
+**Optional extension concepts — voltage tiers for powered rails:**
 
 | Type | Tradeoff | Use case |
 |---|---|---|
 | Low-voltage powered rails | Simpler infrastructure, lower installation cost, but higher power loss over distance | Short-haul freight, nearby mine-to-factory lines |
 | High-voltage powered rails | Requires transformer substations at intervals, higher per-segment cost, but much lower loss over long distances | Long-distance ore haulage, remote deposit extraction |
 
-**Key design implications:**
+**Candidate design implications (not accepted core behavior):**
 - Trains don't carry fuel — they draw power from the rail line, making them emission-free operators
 - A powered rail network is itself a factory infrastructure investment, with losses tied to length and voltage tier (ties into the power system doc)
 - Remote freight terminals need power fed to them via high-voltage rails + local step-down transformers, creating meaningful placement decisions
 - Electric locomotives trade speed/efficiency against their own power draw rating — a heavy-haul locomotive pulls more but needs lower-voltage or denser power infrastructure
 
-**Design decisions:**
+**Source-recorded proposals and unresolved choice:**
 - **Non-electric trains:** Allowed for backwards-compatibility with existing blueprints and mod content. The design preference is to remove them if feasible — electric locomotives are the ideal state, tying logistics directly into the power infrastructure.
-- **Power outages:** Trains pause mid-line (like Satisfactory), not collapse into chaos (unlike LTN where signal loss cascades). A brief outage doesn't destroy a dispatch network's state. However, this is a difficulty question — whether trains resume automatically or need manual re-initiation after power returns remains open.
-- **Powered rail construction:** Stations act as power distribution nodes (inspired by Satisfactory). Trains draw voltage from the station they're coupled to; powered rail segments between stations carry current accordingly. This means each station needs power fed to it, creating meaningful placement and infrastructure decisions.
+- **Power outages:** Candidate behavior is for trains to pause mid-line rather than lose dispatch state. Whether they resume automatically or require manual re-initiation remains open.
+- **Powered rail construction:** Candidate behavior is for stations to act as power-distribution nodes. Its voltage and power-flow assumptions remain open pending alignment with the Power System.
 
 ### Bot Progression
 
@@ -156,7 +160,7 @@ The system becomes:
 
 Information logistics creates a **direct connection** between semiconductors, computation, logistics, and the endgame. Computational infrastructure becomes useful *before* the endgame — the player is not just building bigger factories, but **smarter** ones.
 
-## Seven Design Principles
+## Design Principles
 
 1. **Trains support integrated demand-based logistics.** Both dedicated connections and intelligent dispatch have a place across the progression.
 2. **Freight terminals reduce station bloat at meaningful cost.** Early players pay space overhead; late-game earns compact alternatives.
@@ -218,7 +222,7 @@ Machine capability scales through **building higher-tier variants** from scratch
 ## Open Decisions
 
 - Exact belt tier names and throughput stat curves
-- Train electrification model and its connection to the power system
+- Whether powered rails belong in core or an extension. Any custom voltage/loss mechanics remain outside the accepted core-power direction in [ADR-0010](adrs/ADR-0010-core-power-distribution-scope.md)
 - How freight terminal demand signalling integrates with the computational network
 - Bot stat progression numbers and the specific material requirements per stage
 - Whether a "connection manager" UI exists for dedicated train routes, or if it's purely automated

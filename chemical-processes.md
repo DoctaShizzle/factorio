@@ -1,7 +1,9 @@
-# Chemical Products and Processes
+# Chemical Products and Processes Design
 
-*For: Factorio Overhaul Mod*  
-*Status: Design reference / requirements phase*
+*For: Project Prometheus*
+*Status: Candidate design; process registry not approved*
+*Owner: Chemical products and processes*
+*Last updated: 2026-11-12*
 
 Related documents: [Minerals and Refining](minerals-and-refining.md) for deposits, minerals, and refining; [Intermediate Products](intermediate-products.md) for alloys, components, and manufactured materials.
 
@@ -11,7 +13,7 @@ This document tracks named industrial reactions, chemical processes, reagents, a
 
 **What it covers:** Process families, candidate chains, product index, and reaction registry — all grounded in real industrial chemistry but simplified for gameplay.
 
-**What it does not cover:** Solid alloys and components downstream of chemistry (see [Intermediate Products](intermediate-products.md)), or equipment families that execute these processes (see [Machine Systems](machine-systems.md)).
+**What it does not cover:** Solid alloys and components downstream of chemistry (see [Intermediate Products](intermediate-products.md)), or equipment families that execute these processes. The referenced `machine-systems.md` is not present in the current repository inventory; its intended ownership is tracked in the [Documentation Map](documentation-map.md).
 
 ## Purpose and Boundaries
 
@@ -33,6 +35,12 @@ The chemical registry is bounded by the Phase 2 intermediate cap (~50-60 total) 
 | Adding new chemical entries | Must solve an existing gap (missing capability, missing tradeoff, missing horizon). Each must have a visible downstream consumer beyond "it exists in the chain" |
 | Semiconductor process chemicals guardrail | Entries like WF₆, SF₆, NF₃ earn their place through storyline/progression necessity (required for cleanroom and simulation infrastructure), not because they are chemically interesting. Review against this standard before promotion |
 | Alternative routes gate | Only products creating meaningful tradeoffs get multiple processes. Many have one clear path with QoL improvements instead |
+
+## Current Design and Status
+
+The four chains below are the initial chemistry scope, and the remaining products and reactions are candidates. No registry entry is approved solely because it appears here. Promote an entry only when it has a validated use, capability, or meaningful tradeoff and a traceable downstream consumer.
+
+The equations are simplified design references, not final Factorio recipes or claims about universal industrial yields. Product scope, route availability, machine assignment, quantities, and research gates remain provisional.
 
 ## Core Chemical Chains
 
@@ -186,3 +194,12 @@ Several entries are mixtures or industrial product classes rather than pure comp
 | Lithium breeder processing | Lithium mineral/brine -> lithium-bearing blanket material -> bred tritium recovery | Fusion-linked candidate; neutron breeding is nuclear physics, not a chemical reaction |
 
 This registry is intentionally broad so the proposal's scale is visible. Promotion to the approved design still requires your review and a documented use path for each product or intermediate.
+
+## Open Decisions and Validation
+
+- Decide which later process families and candidate products belong in core scope versus an extension or remain out of scope.
+- Reconcile the candidate reaction and research-intermediate counts with the shared product taxonomy; the current approximate counts are not targets.
+- Validate chemical coproducts, reagent recovery, and stable sinks against the no-required-voiding principle.
+- Confirm each retained chemistry product has a downstream use and an owning product-tree entry.
+- Assign process equipment after the missing machine-system reference is reconciled.
+- Validate educational claims and reaction simplifications against trustworthy references before promoting them to player-facing content.

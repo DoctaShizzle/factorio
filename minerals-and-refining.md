@@ -1,9 +1,11 @@
-# Factorio Overhaul - Mineral and Refining Map
+# Minerals and Refining Design
 
-*For: Factorio Overhaul Mod*  
-*Status: Design reference / candidate catalog — **biomes mapped** to all 3 deposit tiers, aligned with map-world-generation.md.*
+*For: Project Prometheus*
+*Status: Candidate design; catalog and routes require validation*
+*Owner: Minerals and refining*
+*Last updated: 2026-11-12*
 
-Related documents: [Chemical Products and Processes](chemical-processes.md), and [Intermediate Products](intermediate-products.md).
+Related documents: [Map and World Generation](map-world-generation.md), [Chemical Products and Processes](chemical-processes.md), and [Intermediate Products](intermediate-products.md).
 
 > **Draft catalog v0.4:** Use real mineral/resource names and real geological deposit classes as identifiers; this draft does not assign invented site names. Recovery associations are candidate gameplay mappings, not claims that every specimen contains each listed element. Exact assays, ratios, and recipe availability remain to be validated.
 
@@ -13,7 +15,15 @@ This document catalogs the mining and refining scope: three tiers of deposits (s
 
 **What it covers:** Deposit tiers, mineral catalog, recovery assignments, pure-material roster, refining process templates, dedicated exceptions (Al, Ti, REEs, PGM), balanceability checks, and reference inspirations from GTNH / Bob's / Angel's.
 
-**What it does not cover:** Chemical reactions and reagents (see [Chemical Products and Processes](chemical-processes.md)), manufactured alloys and components downstream of refining (see [Intermediate Products](intermediate-products.md)), or machine equipment families (see [Machine Systems](machine-systems.md)).
+**What it does not cover:** Chemical reactions and reagents (see [Chemical Products and Processes](chemical-processes.md)), manufactured alloys and components downstream of refining (see [Intermediate Products](intermediate-products.md)), or machine equipment families. The referenced `machine-systems.md` is not present in the current repository inventory; its intended ownership is tracked in the [Documentation Map](documentation-map.md).
+
+## Current Design and Boundaries
+
+The deposit roster, recovery associations, pure-material inventory, and route exceptions below are candidates, not a final approved product list or chemical formula table. The draft uses real mineral/resource and geological deposit names; recovery roles are gameplay mappings to validate, not universal claims about every specimen. Exact assays, yields, recipe quantities, and recipe availability remain undecided.
+
+The working scope is approximately 36 deposit types across three tiers, with a broader Phase 2 intermediate cap of approximately 50–60 products. These figures are design assumptions for review, not approved catalog targets. Add a deposit or refined material only when it enables a capability, meaningful choice, or progression need; geological existence alone is not sufficient.
+
+Chemical products and manufactured alloys/components are owned by their linked domain documents. This document owns mined feeds, mineral recovery, mineral-derived pure materials, and reusable refining route patterns.
 
 ### Mining Catalog
 
@@ -206,3 +216,14 @@ Finishing (washing, drying, calcining, casting) is part of the relevant route, n
 
 - [Chemical Products and Processes](chemical-processes.md) covers chemical reactions, reagents, chemical intermediates, petrochemistry, polymers, and process chemicals.
 - [Intermediate Products](intermediate-products.md) covers alloys, batteries, semiconductor components, nuclear assemblies, and the distributed computational endgame.
+
+## Open Decisions and Validation
+
+- Validate the candidate deposit roster, recovery associations, and pure-material inventory against the intended product-tree scope; do not treat the current candidate counts as targets.
+- Reconcile deposit-to-biome assignments with the current [Map and World Generation](map-world-generation.md) design, including any locations or resource classes not represented by its committed biome model.
+- Evaluate the lithium-brine, niobium-tantalum, zirconium-hafnium, and Ga/Ge/In/Re exception candidates before promoting any to required routes.
+- Verify that primary, secondary, and tertiary outputs have legitimate uses or bounded handling under the balanceability rules; do not introduce required voiding.
+- Align refining-stage equipment ownership once the referenced machine-system design has been recovered or its replacement owner is agreed.
+- Validate all geological recovery associations against references before educational claims or recipes are finalized.
+
+No separate dated decision log was present in this document's current draft. Catalog revisions remain candidates here; this migration did not invent decisions or extract unsupported ADRs.
