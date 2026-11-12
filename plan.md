@@ -81,7 +81,7 @@ The document inventory and its references may change during the documentation cl
 
 **Exit criteria:** It is unambiguous where current design, historical decisions, gap evidence, and coverage data belong.
 
-**Phase 0 baseline (2026-11-12):** Conventions and taxonomy are recorded in [documentation-conventions.md](documentation-conventions.md) and [product-taxonomy.md](product-taxonomy.md); ownership is mapped in [documentation-map.md](documentation-map.md). The ADR home is `adrs/` with sequential `ADR-NNNN-short-title.md` names; the coverage ledger will be `product-coverage-ledger.md`, introduced in Phase 4. Reusable templates are in `templates/`.
+**Phase 0 baseline (2026-11-12):** Conventions and taxonomy are recorded in [documentation-conventions.md](documentation-conventions.md) and [product-taxonomy.md](product-taxonomy.md); ownership is mapped in [documentation-map.md](documentation-map.md). The ADR home is `adrs/` with sequential `ADR-NNNN-short-title.md` names; the coverage ledger will be `product-coverage-ledger.md`, introduced in Phase 5. Reusable templates are in `templates/`.
 
 **Pilot selected:** [map-world-generation.md](map-world-generation.md). It is bounded, has explicit committed/rejected decisions, and is suitable for testing how to separate current design from decision history without changing its content in this phase.
 
@@ -116,11 +116,33 @@ The document inventory and its references may change during the documentation cl
 
 **Completion checkpoint (2026-11-12):** The user accepted the world-generation pilot. All Phase 1 manifest documents now have a traceable current-state destination or an explicit missing-source disposition; unapproved proposals, estimates, and internal conflicts are labeled and linked to their owners. The accepted power and military decisions remain traceable to their ADRs. The user confirmed that Machine Systems was subsumed into Infrastructure; the `session-plan.md` and `mineral-catalog.md` references were resolved without inventing missing content. README and source-of-truth navigation were reconciled. Local Markdown links/anchors, changed table shapes, and `git diff --check` pass. Phase 1 is complete; Phase 2 can begin under its own entry criteria.
 
-### Phase 2 — Verify the Gap Analysis
+### Phase 2 — Review and Resolve High-Impact Cross-Domain Decisions
+
+**Status: Not started; await the user's instruction. The Power System review also awaits the user's forthcoming detailed prompt.**
+
+**Objective:** Identify and resolve the open decisions that would otherwise materially skew gap assessment, scope, or the later product, recipe, constructable, and research lists.
+
+**Prerequisites:** Phase 1 is complete. Use the migrated current-state documents and their linked ADRs as the baseline.
+
+**Work:**
+- Inventory open decisions, ambiguities, and conflicts across the domain documents and linked ADRs. For each, record its owner, evidence, and impact on products, recipes, constructables, or research.
+- Prioritize decisions by downstream impact and dependency; distinguish decisions required before proceeding from those that can safely remain open.
+- Review required decisions with the user. Record accepted, rejected, or superseded decisions in ADRs and update the owning current-state documents; do not infer approval from a proposal.
+- Review and align [Power System](power-system.md) with its related domain documents and accepted power decisions. Wait for the user's forthcoming detailed prompt before beginning this review or making power-system changes.
+- Reconcile the accepted Hawking Radiation Engine option with the existing requirement for at least one alternative Phase 3/4 power route. Determine which power decisions must be settled before later catalog work and record any explicitly deferred decisions with their constraints.
+- For decisions deferred beyond this phase, state why deferral is safe, what later phase or evidence will resolve them, and which assumptions must not be made meanwhile.
+
+**Outputs:** A prioritized disposition of high-impact open decisions; updated ADRs and owning design documents for decisions made; and explicit constraints, blockers, and safe deferrals for the next phases.
+
+**Exit criteria:** Every open decision with material downstream impact has a recorded decision or an explicit, justified deferral. Decisions needed to assess gaps and establish scope are resolved or bounded. The Power System review is complete and aligned with related documents, following the user's detailed prompt.
+
+**Checkpoint and gate:** Record the decisions, affected documents, remaining blockers, and constraints for Phase 3. Do not treat unresolved, high-impact choices as settled while reviewing the gap analysis.
+
+### Phase 3 — Verify the Gap Analysis
 
 **Objective:** Determine which reported gaps are real requirements for the intended design.
 
-**Prerequisites:** Phase 1 has produced a trustworthy current-state baseline for the documents being assessed.
+**Prerequisites:** Phase 1 has produced a trustworthy current-state baseline, and Phase 2 has resolved or bounded the high-impact decisions needed for gap assessment.
 
 **Work:**
 - Assess each recommendation in the gap report against the design north star, current scope, and intended player capabilities.
@@ -135,11 +157,11 @@ The document inventory and its references may change during the documentation cl
 
 **Checkpoint and gate:** Freeze the gap ledger for infrastructure alignment. A new recommendation discovered later reopens only its affected entry and dependencies.
 
-### Phase 3 — Align Infrastructure and Buildable/Usable Scope
+### Phase 4 — Align Infrastructure and Buildable/Usable Scope
 
 **Objective:** Make the infrastructure inventory consistent with the intended game scope and player-facing progression.
 
-**Prerequisites:** Phases 1 and 2 complete enough to identify current scope and confirmed gaps.
+**Prerequisites:** Phases 1-3 are complete enough to identify current scope, confirmed gaps, and decision constraints.
 
 **Work:**
 - Normalize the infrastructure list: unique placeable entities, machine families, tiers/variants, support equipment, and recipes are separate counts.
@@ -147,7 +169,7 @@ The document inventory and its references may change during the documentation cl
 - Include or explicitly exclude vehicles, fuel, weapons, ammunition, armor equipment, utilities, modules, and other non-building outputs.
 - For every in-scope constructable, record its role, phase, tier/capability changes, core/extension status, and expected product families.
 - Include the accepted tiered power-pole family in the constructable inventory; keep its tier count, statistics, materials, and phase gates open until designed.
-- Develop and compare at least one alternative Phase 3/4 power route alongside the accepted Hawking option before power progression is locked; keep concepts and gates open until reviewed.
+- Carry the Phase 2 power decisions and any explicit deferrals into the constructable inventory; represent the accepted Hawking option and any approved alternative route(s) consistently without silently reopening settled decisions.
 - Reconcile overlaps, duplicate categories, inconsistent names, and phase or vanilla-replacement assumptions across domain documents.
 - Treat the construction-material index as demand hypotheses: every material reference must have an intended capability and a traceable supply path, or be recorded as a gap.
 - Keep exact ingredient quantities and final build recipes deferred until the product catalog and recipe phases.
@@ -158,11 +180,11 @@ The document inventory and its references may change during the documentation cl
 
 **Checkpoint and gate:** Review the aligned inventory and unresolved scope choices before using it as a coverage input.
 
-### Phase 4 — Establish Full Coverage Before Enumerating the Catalog
+### Phase 5 — Establish Full Coverage Before Enumerating the Catalog
 
 **Objective:** Prove that all required product families and production capabilities are represented, without prematurely filling every item or recipe.
 
-**Prerequisites:** Phases 2 and 3 complete; the source documents for affected domains are available in current-state form.
+**Prerequisites:** Phases 2-4 complete; the source documents for affected domains are available in current-state form.
 
 **Work:**
 - Begin with the Factorio-style product-family checklist in [Intermediate Products](intermediate-products.md) and cross-check the infrastructure-family checklist in [Infrastructure](infrastructure.md). Verify relevant families against the selected game version and give each an explicit scope disposition; category presence alone does not require adding products.
@@ -170,7 +192,7 @@ The document inventory and its references may change during the documentation cl
 - Work forward from mineral feeds and vanilla starting resources through refining and chemical/process capabilities.
 - Build a coverage matrix connecting each demand area to required product families, upstream material groups, process capabilities, and source documents.
 - Mark coverage as present, missing, uncertain, optional, or out of scope.
-- Check that confirmed gaps from Phase 2 are represented and that proposed products have a consumer or a justified terminal role.
+- Check that confirmed gaps from Phase 3 are represented and that proposed products have a consumer or a justified terminal role.
 
 **Outputs:** A coverage matrix and a list of remaining decisions/blockers, maintained in the agreed canonical ledger; the product-family and infrastructure-family checklists have dispositions for every category.
 
@@ -178,11 +200,11 @@ The document inventory and its references may change during the documentation cl
 
 **Checkpoint and gate:** This is the **coverage gate**. Do not begin detailed catalog enumeration until the user accepts the coverage boundary and outstanding decisions are explicit.
 
-### Phase 5 — Complete the Product Catalog
+### Phase 6 — Complete the Product Catalog
 
 **Objective:** Enumerate the approved products across the complete tree.
 
-**Prerequisites:** Phase 4 coverage gate approved.
+**Prerequisites:** Phase 5 coverage gate approved.
 
 **Work:**
 - Catalog mined feeds, pure raw/refined materials, chemical products, manufactured intermediates, directly usable products, constructables, and research ingredients.
@@ -197,11 +219,11 @@ The document inventory and its references may change during the documentation cl
 
 **Checkpoint and gate:** Freeze the catalog version before assigning detailed recipe quantities. Changes after this gate must identify affected recipes and research.
 
-### Phase 6 — Complete the Recipe Tree
+### Phase 7 — Complete the Recipe Tree
 
 **Objective:** Connect every approved product to its production process.
 
-**Prerequisites:** Phase 5 catalog approved.
+**Prerequisites:** Phase 6 catalog approved.
 
 **Work:**
 - Define inputs, outputs, quantities, machine/process family, phase, prerequisites, and coproducts for each recipe.
@@ -216,11 +238,11 @@ The document inventory and its references may change during the documentation cl
 
 **Checkpoint and gate:** Freeze a validated recipe graph before finalizing technology dependencies.
 
-### Phase 7 — Complete the Research Roster
+### Phase 8 — Complete the Research Roster
 
 **Objective:** Define the technologies and research ingredients that gate the approved product and recipe graph.
 
-**Prerequisites:** Phases 5 and 6 approved.
+**Prerequisites:** Phases 6 and 7 approved.
 
 **Work:**
 - Define conventional, domain, and simulation-gated research items and their production chains.
@@ -235,11 +257,11 @@ The document inventory and its references may change during the documentation cl
 
 **Checkpoint and gate:** Freeze the research graph before integrated consistency review.
 
-### Phase 8 — Integrated Consistency Review and Publication
+### Phase 9 — Integrated Consistency Review and Publication
 
 **Objective:** Validate the complete current-state design across documents.
 
-**Prerequisites:** Phases 1-7 complete.
+**Prerequisites:** Phases 1-8 complete.
 
 **Work:**
 - Check product/source/consumer links, recipe inputs/outputs, machine capability, construction requirements, research gates, phase order, and core/extension boundaries.
@@ -258,14 +280,15 @@ The document inventory and its references may change during the documentation cl
 
 | Requirement | Primary phases |
 |---|---|
-| Separate historical ADR material from clean current design | 0-1, verified again in 8 |
-| Check the gap analysis against intended complexity and scope | 2 |
-| Align infrastructure and all other buildable/usable outputs | 3 |
-| Establish complete coverage before detailed lists | 4 |
-| Enumerate products from mineral feeds through research ingredients | 5 |
-| Define production processes and recipe dependencies | 6 |
-| Define research ingredients, technologies, and unlocks | 7 |
-| Verify end-to-end consistency and preserve decision history | 8 |
+| Separate historical ADR material from clean current design | 0-1, verified again in 9 |
+| Review and resolve high-impact cross-domain decisions, including Power System alignment | 2 |
+| Check the gap analysis against intended complexity and scope | 3 |
+| Align infrastructure and all other buildable/usable outputs | 4 |
+| Establish complete coverage before detailed lists | 5 |
+| Enumerate products from mineral feeds through research ingredients | 6 |
+| Define production processes and recipe dependencies | 7 |
+| Define research ingredients, technologies, and unlocks | 8 |
+| Verify end-to-end consistency and preserve decision history | 9 |
 
 ## State Transfer, Checkpoints, and Recovery
 
