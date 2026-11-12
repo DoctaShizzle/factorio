@@ -80,7 +80,11 @@ The document inventory and its references may change during the documentation cl
 
 **Exit criteria:** It is unambiguous where current design, historical decisions, gap evidence, and coverage data belong.
 
-**Checkpoint and gate:** Save the conventions and open questions in the plan or session checkpoint. Do not migrate documents or start the gap audit until the taxonomy and source-of-truth rules are agreed.
+**Phase 0 baseline (2026-11-12):** Conventions and taxonomy are recorded in [documentation-conventions.md](documentation-conventions.md) and [product-taxonomy.md](product-taxonomy.md); ownership is mapped in [documentation-map.md](documentation-map.md). The ADR home is `adrs/` with sequential `ADR-NNNN-short-title.md` names; the coverage ledger will be `product-coverage-ledger.md`, introduced in Phase 4. Reusable templates are in `templates/`.
+
+**Pilot selected:** [map-world-generation.md](map-world-generation.md). It is bounded, has explicit committed/rejected decisions, and is suitable for testing how to separate current design from decision history without changing its content in this phase.
+
+**Checkpoint and gate:** Phase 0 is complete. Begin the pilot only in Phase 1, preserving all source information and recording unresolved provenance rather than guessing. The missing-document references identified in the documentation map must be reconciled during migration, not silently redirected.
 
 ### Phase 1 — Pilot and Migrate Documentation
 
