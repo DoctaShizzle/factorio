@@ -13,7 +13,7 @@ This map assigns one current-state owner per design area. Reports, summaries, an
 | [mod-overview.md](mod-overview.md) | North star, pillars, global scope, guardrails, and cross-domain open-work queue | Owns cross-cutting direction. Detailed system behavior belongs to domain owners below. |
 | [plan.md](plan.md) | Work sequence, phase outputs, gates, and checkpoints | Process roadmap only; not a domain specification or decision history. |
 | [technical-architecture.md](technical-architecture.md) | Modpack deployment structure, dependencies, and technical/performance constraints | Owns technical architecture; align its claims with approved scope and domain designs. |
-| [map-world-generation.md](map-world-generation.md) | Terrain, biome/resource placement, exploration, and world-generation behavior | Selected Phase 1 pilot. Its committed status and embedded decision history should be reconciled during migration. |
+| [map-world-generation.md](map-world-generation.md) | Terrain, biome/resource placement, exploration, and world-generation behavior | Phase 1 pilot converted to current-state design on 2026-11-12; see [migration map](migration-map.md) and linked ADRs. Pilot review is pending. |
 | [minerals-and-refining.md](minerals-and-refining.md) | Deposit/feed catalog, recovery assignments, pure materials, and refining routes | Owns the mineral-to-refined-material portion of the tree. |
 | [chemical-processes.md](chemical-processes.md) | Chemical products, reactions, process families, and reagents | Owns chemical chains; downstream solid products belong to `intermediate-products.md`. |
 | [intermediate-products.md](intermediate-products.md) | Manufactured materials, components, assemblies, and candidate pathways | Owns non-chemical manufactured intermediates downstream of refining/chemistry. |
@@ -36,6 +36,7 @@ This map assigns one current-state owner per design area. Reports, summaries, an
 - Power, logistics, military, endgame, and research behavior: their respective domain owners in the table.
 - Cross-domain intent and open items: `mod-overview.md`; detailed resolutions belong in the affected domain owner and, when significant, a linked ADR.
 - Complete coverage: `product-coverage-ledger.md` (to be created in Phase 4).
+- Migration provenance and content mapping: [migration-map.md](migration-map.md); this is a process record, not a competing domain design source.
 
 ## References Requiring Reconciliation
 

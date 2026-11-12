@@ -103,7 +103,9 @@ The document inventory and its references may change during the documentation cl
 
 **Exit criteria:** Current design is distinguishable from proposals and history; the source-of-truth map identifies one owner for each design area; important rationale remains traceable.
 
-**Checkpoint and gate:** Checkpoint the migration map and all unresolved provenance questions. If the pilot causes information loss or ambiguity, revise the conventions before migrating further documents.
+**Pilot checkpoint (2026-11-12):** The user accepted the world-generation split as the migration pattern. It consists of a current-state design, five linked ADRs, an updated ADR index, and a [migration map](migration-map.md). Conflicting distance targets and missing cross-reference files are recorded, not silently resolved. Repository-level rules are in [AGENTS.md](AGENTS.md); migrate the remaining design docs in the manifest's bounded batches.
+
+**Checkpoint and gate:** The pilot is accepted; Phase 1 remains active until the manifest documents are migrated or explicitly excluded with rationale. Do not start Phase 2 before that gate is met. If migration reveals information loss or ambiguity, revise the conventions before continuing.
 
 ### Phase 2 — Verify the Gap Analysis
 
