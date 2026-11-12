@@ -5,8 +5,7 @@
 *Last updated: 2026-11-12*
 
 Related documents: [Mod Overview](mod-overview.md), [Intermediate Products](intermediate-products.md), [Infrastructure](infrastructure.md), [Power System](power-system.md), and [Research and Progression](research-progression.md) for simulation-gated research mechanics.
-
-> **Migration note:** The source draft used “Phase 1: Design locked” and “locked design” wording. [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md) records the selected first-Core gate and six-bridge count. Higher Core-level gates, exact bridge-to-facility mapping, and detailed mechanics below remain open or candidate.
+Related ADRs: [ADR-0009](adrs/ADR-0009-endgame-assembly-proposals.md), [ADR-0011](adrs/ADR-0011-hawking-radiation-endgame-generator.md), and [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md).
 
 ## Summary
 
@@ -55,8 +54,6 @@ The Core is proposed as a **modular orchestration hub** — not a megastructure 
 
 **Physical description:** *A precision metrology instrument that integrates six distinct physics measurement domains into one coherent device mounted inside a vibration-isolated, thermally-stabilized calibration frame. Each zone operates as independent instrumentation, scientific hardware from each practitioner's field — co-located to enable cross-domain calibration while the simulation network runs.*
 
-Former Phase A2 assembly quantities, satellite recipes, and timing hypotheses are preserved as unapproved candidate history in [ADR-0009](adrs/ADR-0009-endgame-assembly-proposals.md); they are not current recipe requirements.
-
 ### Candidate Satellite Buildings
 
 The Core has four satellite facility types, each adding capacity or data streams:
@@ -80,7 +77,7 @@ The Core and its peripheral facilities may be built and upgraded in stages. The 
 
 ## Candidate Model Inputs
 
-The network is proposed to be fed evidence that the factory has built the capabilities it is modeling. Domain science packs from the six currently listed research facilities represent cross-domain knowledge demonstration — breadth across physics disciplines, not depth in one. Older source text says five facilities; the current six-facility roster is retained, with the stale wording noted in [Research and Progression](research-progression.md).
+The network is proposed to be fed evidence that the factory has built the capabilities it is modeling. Domain science packs from the six listed research facilities represent cross-domain knowledge demonstration — breadth across physics disciplines, not depth in one.
 
 - **Plasma Physics Readings** (Superconductivity Research Lab) — requires electronic-grade polysilicon + Nb₃Sn wire as facility materials
 - **Magnetic Confinement Data** (Plasma Confinement Facility) — requires Nb₃Sn wire + cryogenic infrastructure
@@ -141,8 +138,7 @@ Specific material recipes belong in the [Intermediate Products](intermediate-pro
 
 ### Facility Infrastructure
 
-**Selected first-Core gate:** All six domains at T2b2 plus the Unified Metrology Reference Array (convergence item) are required before first Core construction; see [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md).
-- What gates and roles should apply to Core Levels 2–3 after the selected first-Core gate? See [Research and Progression](research-progression.md).
+- What gates and roles should apply to Core Levels 2–3? See [Research and Progression](research-progression.md).
 - Are Core Levels 1–3, their pack totals, and the proposed post-activation role of domain labs part of the final progression?
 - Is there a single final milestone, or a staged set of regional commissioning goals?
 - How much of the compute network must be physically distributed to make the spatial requirement meaningful without becoming arbitrary busywork?

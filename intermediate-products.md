@@ -5,7 +5,7 @@
 *Owner: Cross-domain non-building product catalog*
 *Last updated: 2026-11-12*
 
-Related documents: [Minerals and Refining](minerals-and-refining.md) for mined feeds and mineral-derived products; [Chemical Products and Processes](chemical-processes.md) for reactions and chemical feeds; [Infrastructure](infrastructure.md) for candidate placeable equipment families and construction hypotheses. Exact product-to-machine assignments remain open. The optional spider-bot and power-suit extension direction is recorded in [ADR-0016](adrs/ADR-0016-late-game-defense-drones.md).
+Related documents: [Minerals and Refining](minerals-and-refining.md) for mined feeds and mineral-derived products; [Chemical Products and Processes](chemical-processes.md) for reactions and chemical feeds; [Infrastructure](infrastructure.md) for candidate placeable equipment families and construction hypotheses. Related ADRs: [ADR-0006](adrs/ADR-0006-capability-based-intermediate-scope.md), [ADR-0007](adrs/ADR-0007-rhenium-reaction-dynamics-bridge.md), [ADR-0008](adrs/ADR-0008-factorio-product-family-coverage.md), [ADR-0016](adrs/ADR-0016-late-game-defense-drones.md), and [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md). Exact product-to-machine assignments remain open.
 
 ## Summary
 
@@ -125,7 +125,7 @@ Each product requires deep Phase 1 capability (high-purity processing, isotopic 
 | High-purity cryogenic argon/nitrogen mixture | Air → multi-stage refrigeration cascade → cryogenic distillation | Superconducting cooling infrastructure + low-temperature experiments; enables Quantum States Laboratory. | Gases cooled to within degrees of absolute zero — the point where thermal noise disappears and quantum effects become macroscopically visible. Below certain temperatures, matter stops behaving like particles and starts behaving like waves. |
 | High-performance rhenium-catalyst powder | Molybdenite concentrate → acid attack + solvent extraction from MoS₂ residue → high-purity rhenium powder reduction → catalyst bed preparation with controlled particle size | Reaction Dynamics gate; enables Reaction Dynamics Facility. Product selection is recorded in [ADR-0007](adrs/ADR-0007-rhenium-reaction-dynamics-bridge.md); its detailed route remains provisional. | Description hook not yet drafted. |
 
-**Domain distribution:** The current direction is six bridge products for the six listed research facilities; the earlier source statement saying five is retained as historical wording, not current scope. Reconcile the candidate product-to-facility mapping with [Research and Progression](research-progression.md); recipes and supporting inputs are not implied by this count.
+**Domain distribution:** Six bridge products are the current direction for the six listed research facilities. Product-to-facility mapping, recipes, and supporting inputs remain open; see [Research and Progression](research-progression.md).
 
 ### Research Ingredients and Data Products
 

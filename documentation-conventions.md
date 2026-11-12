@@ -24,9 +24,17 @@ Use relative Markdown links between repository documents. ADR IDs are sequential
 
 - Describe the approved or intended current design, not the history of how it evolved.
 - Distinguish **approved**, **proposed**, **deferred**, and **open** content explicitly. Do not promote candidates or recommendations to requirements without an accepted decision.
-- Keep concise current rationale when it helps explain a constraint; link to the ADR for alternatives and full decision history.
+- State an accepted outcome only where it is needed to define current behavior, and link the relevant ADR rather than repeating its context, alternatives, rationale, or consequences.
 - State the document's purpose, boundaries, dependencies, current design, and unresolved decisions. Use the template as the starting structure, adapting sections to the domain.
 - Each design area has one owning document, as listed in `documentation-map.md`. Other documents may summarize it but must link to the owner rather than establish a competing source of truth.
+
+## Decision-History Boundary
+
+- ADRs are the sole historical record of design decisions. Current-state domain documents must not contain a `Decision Log`, dated decision entries, `Options Considered`, `Revisions`, or a narrative of how a settled decision was reached.
+- Keep the ADR links in a concise `Related ADRs` list. When a settled decision affects the current design, state the resulting constraint once in the relevant design section and link the ADR; do not copy the ADR's context, alternatives, detailed rationale, or consequences.
+- Open decisions may remain as current questions with their status and downstream impact. Include options only when they are necessary to describe the current unresolved design; do not present decision history as current design.
+- When a legacy design document contains decision history, verify that it is preserved in an ADR before removing it. If no ADR exists, create one for the significant decision and update `adrs/README.md`; keep only the current design and an ADR link in the domain document.
+- These repository rules take precedence over generic design workflows or templates that recommend embedding historical logs in design documents. Use `templates/design-document.md` for current-state content and `templates/adr.md` for history.
 
 ## ADR Rules
 

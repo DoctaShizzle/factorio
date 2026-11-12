@@ -3,68 +3,17 @@
 *Status: Draft — core distribution and Hawking option accepted; Phase 1/2 generation direction and Phase 3/4 route identities selected; detailed conversion, construction, and progression rules remain open*
 *Last updated: 2026-11-12*
 
-Related documents: [Chemical Products and Processes](chemical-processes.md), [Intermediate Products](intermediate-products.md), [Minerals and Refining](minerals-and-refining.md), [Infrastructure](infrastructure.md), [Endgame Vision](endgame-vision.md). Related decisions: [ADR-0010](adrs/ADR-0010-core-power-distribution-scope.md), [ADR-0011](adrs/ADR-0011-hawking-radiation-endgame-generator.md), [ADR-0018](adrs/ADR-0018-phase-3-and-4-power-route-roster-and-conversion.md), and [ADR-0009](adrs/ADR-0009-endgame-assembly-proposals.md).
+Related documents: [Chemical Products and Processes](chemical-processes.md), [Intermediate Products](intermediate-products.md), [Minerals and Refining](minerals-and-refining.md), [Infrastructure](infrastructure.md), [Endgame Vision](endgame-vision.md). Related ADRs: [ADR-0010](adrs/ADR-0010-core-power-distribution-scope.md), [ADR-0011](adrs/ADR-0011-hawking-radiation-endgame-generator.md), [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md), [ADR-0018](adrs/ADR-0018-phase-3-and-4-power-route-roster-and-conversion.md), and [ADR-0019](adrs/ADR-0019-phase-1-and-2-power-progression.md).
 
 ## Summary
 
-This draft describes candidate power-generation progression, fuel-density comparisons, generator infrastructure needs, and optional transmission concepts. The vanilla-grid-plus-tiered-poles direction and the Hawking Radiation Engine as one Phase 4 option are accepted. The Phase 2 review direction uses vanilla-style boiler/steam-engine combustion, keeps steam turbines through Phase 2 fission, and retires them afterward. Phase 3/4 route identities and the non-steam converter families are selected; recipes, material quantities, performance, and progression gates remain open.
-
-## Decision Log
-
-### 2026-11-12 — Power Progression Constraints
-**Context:** Phase 2 review requires consistent combustion rules, early renewable generation, and clear conversion boundaries across the four phases.
-**Status:** Accepted
-
-**Options Considered:**
-1. Directly burn producer gas, biogas, or liquid fuels in dedicated generators.
-2. Convert fuels to burner items, then use the vanilla boiler and untiered steam engine.
-3. Retire steam turbines after Phase 1 or retain them through Phase 2 fission.
-
-**Decision:** Use burner items with the vanilla boiler/steam-engine path; keep steam turbines through Phase 2 and retire them afterward. Introduce fission in Phase 2 and fusion in Phase 3; keep uranium and thorium as distinct fission options. Use early solar with storage, consider later solar tiers, use non-steam conversion after Phase 2, and provide at least three viable options in each of Phases 3 and 4.
-**Rationale:** These are the user's stated progression constraints; detailed generator routes and construction chains are not thereby approved.
-**Consequences:** Direct gas/liquid generator candidates are removed. Fuel preparation, fission fuel-chain timing, later solar tiers, and non-steam conversion remain open.
-**Related Decisions:** [ADR-0010](adrs/ADR-0010-core-power-distribution-scope.md), [ADR-0011](adrs/ADR-0011-hawking-radiation-endgame-generator.md), [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md).
-**Open Questions:** Phase 2 fuel fabrication and startup fuel; distinct uranium/thorium reactor and fuel-cycle designs; Phase 3/4 converter implementation, materials, research gates, and construction gates.
-**Revisions:** 2026-11-12 — Recorded the user's Phase 2 review direction; route identities and conversion families were selected later the same day, while implementation details remain open.
-
-### 2026-11-12 — Phase 3–4 Route Shortlist
-**Context:** The accepted Hawking option cannot be the only Phase 4 power goal, and each of Phases 3 and 4 needs at least three options.
-**Status:** Superseded
-
-**Options Considered:** Phase 3 candidates include Tokamak fusion, geothermal, tiered solar PV, and concentrated solar thermal. Phase 4 candidates include the accepted Hawking option, cross-universe exergy-gradient extraction, and stellar-scale solar collection with beaming; black-hole spin extraction and antimatter remain reserves.
-
-**Decision:** Keep this shortlist in the phase descriptions for detailed user review; do not treat it as an approved constructable or recipe roster.
-**Rationale:** It provides distinct candidate routes while preserving the user's request to review the remaining ideas before they are accepted.
-**Consequences:** At least three options are represented per phase, but feasibility, trade-offs, materials, and progression gates remain open.
-**Related Decisions:** [ADR-0011](adrs/ADR-0011-hawking-radiation-endgame-generator.md).
-**Open Questions at Supersession:** Which routes to keep, how each converts energy to electricity, and what construction and research gates are appropriate. Route identities and converter families were selected in the later accepted decision; implementation details remain open.
-**Revisions:** 2026-11-12 — Added the user's cross-universe entropy-gradient idea as a speculative candidate, not an accepted design. Superseded later the same day when the user accepted the minimum route roster and CSP addition; see the accepted route-roster decision below.
-
-### 2026-11-12 — Phase 3/4 Route Roster and Non-Steam Conversion
-**Context:** The user requires at least three distinct options in each of Phases 3 and 4, accepted the current route identities, added concentrated solar thermal with storage, and requested realistic heat-to-power conversion that does not continue the Phase 2 steam-turbine path.
-**Status:** Accepted
-
-**Options Considered:**
-1. Keep all route identities and conversion families provisional until later catalog work. This would postpone decisions needed to align generator progression.
-2. Select source-matched converter families now and leave exact construction, materials, values, and gates open. Selected.
-3. Use a single converter for all thermal sources. Rejected because geothermal's lower-grade heat and the higher-grade fusion/solar-thermal sources have different practical conversion needs.
-4. Continue the water-steam turbine path beyond Phase 2. Rejected; steam-turbine generation ends after Phase 2.
-
-**Decision:** The minimum Phase 3 roster is Tokamak fusion, geothermal, and solar PV; concentrated solar thermal with storage is an additional selected Phase 3 option. The Phase 4 roster is Hawking radiation, cross-universe exergy-gradient extraction, and stellar-scale solar collection with beamed transmission. Use a closed supercritical-CO₂ Brayton cycle for high-grade heat from fusion and concentrated solar thermal; use a binary organic Rankine cycle for lower-temperature geothermal heat; use thermophotovoltaic conversion for a controlled high-temperature emitter recovering Hawking-route radiation. Solar PV and the stellar collector convert sunlight photovoltaically, while the cross-universe route remains a separate direct field-coupling concept.
-**Rationale:** Temperature-matched converters are more credible than a single cycle for every source. MIT's comparison of CO₂ and helium Brayton designs reports similar cycle efficiency at a lower heat-source temperature for CO₂ (about 550°C versus 850°C for helium) and compact turbomachinery, supporting CO₂ for the high-grade route while leaving actual operating conditions open ([MIT analysis](https://dspace.mit.edu/handle/1721.1/17746)). Geothermal binary plants use a separate low-boiling working fluid instead of routing reservoir fluid through the turbine ([U.S. DOE](https://www.energy.gov/hgeo/geothermal/geothermal-electricity-generation)); thermophotovoltaics convert thermal infrared radiation directly to electricity, with laboratory demonstrations above 40% at high emitter temperatures ([Nature, 2022](https://doi.org/10.1038/s41586-022-04473-y)). The selected converter families create material links to nickel/chromium/cobalt hot-side alloys, sodium/potassium salt storage, corrosion-resistant titanium or stainless heat exchangers, tungsten emitters, and gallium/indium/arsenic semiconductor cells.
-**Consequences:** Phase 3 has four selected route identities and Phase 4 has the required three; the Phase 3/4 heat-conversion boundary no longer relies on steam. These are architecture-level choices, not approved recipes, material quantities, efficiency targets, exact working fluids, thermal-storage compositions, or research/construction gates. TPV is an emerging technology and the Hawking source remains speculative; its radiation must be absorbed and spectrally matched to a controlled emitter rather than assumed to feed a cell directly.
-**Related Decisions:** [ADR-0011](adrs/ADR-0011-hawking-radiation-endgame-generator.md), [ADR-0018](adrs/ADR-0018-phase-3-and-4-power-route-roster-and-conversion.md).
-**Open Questions:** Exact converter temperatures and working fluids; CSP thermal-storage salts and heat exchangers; TPV emitter/cell spectrum and cooling; source-specific material chains, performance, and progression gates.
-**Revisions:** 2026-11-12 — Selected the route identities and source-matched conversion families after user review; detailed implementation remains open.
+This document is the current-state reference for generation routes, energy conversion, storage, fuel-density tradeoffs, and optional transmission. Detailed recipes, material quantities, performance, and progression gates remain open.
 
 ## Purpose and Boundaries
 
 - **Core distribution (accepted):** Retain Factorio's vanilla pole grid and add compatible tiered power poles; exact pole tiers and statistics belong in [Infrastructure](infrastructure.md) and remain open.
 - **Extension candidate:** A custom transmission system is outside core scope and remains an optional `power-transmission-override` proposal.
-- **Phase 4 option (accepted):** Include the Hawking Radiation Engine, but do not make it the sole late-game power path. Provide at least three viable power options in each of Phases 3 and 4; see [ADR-0011](adrs/ADR-0011-hawking-radiation-endgame-generator.md).
-- **Phase 2 review direction:** Combustion uses burner items in vanilla-style boilers and untiered steam engines. Phase 2 fission uses steam turbines through the end of Phase 2; retire steam-turbine generation afterward.
-- **Route diversity requirement:** The selected minimum roster is Tokamak, geothermal, and solar PV in Phase 3, with concentrated solar thermal and storage as an additional Phase 3 option; Phase 4 includes Hawking, cross-universe exergy-gradient extraction, and stellar-scale solar collection with beamed transmission. Route identities are accepted, but their detailed constructables, recipes, and gates are not.
-- **Renewable direction:** Introduce solar photovoltaic generation and basic storage in Phase 1/2; allow its materials and efficiency to progress into later phases.
+- **Progression decisions:** The phase sections below state current design; [ADR-0019](adrs/ADR-0019-phase-1-and-2-power-progression.md) and [ADR-0018](adrs/ADR-0018-phase-3-and-4-power-route-roster-and-conversion.md) preserve the associated decision records.
 - **In scope:** Candidate generator phases, fuel-density spectrum, infrastructure needs, power storage, and design questions.
 - **Not specified:** Recipe ratios, exact MW/kWh values, machine consumption values, detailed fuel cycling, and electrical engineering formulas.
 
@@ -146,9 +95,9 @@ Other Phase 3/4 routes do not need a heat engine: solar PV and the stellar-scale
 
 ### Phase 4: Near-Realistic Sci-Fi Endgame Power Generation
 
-*Source proposal: connect late-game generation to an active Planetary Simulation Core; this dependency and its gate remain unresolved. The user requires at least three distinct Phase 4 routes.*
+*The relationship between Phase 4 generation and an active Planetary Simulation Core, including its unlock gate, remains open.*
 
-The Hawking Radiation Engine is one of the three selected Phase 4 route identities, not the exclusive route. The selected Phase 4 roster also includes cross-universe exergy-gradient extraction and stellar-scale solar collection with beamed transmission. The former Subspace Capacitor and its rationale are retained in [ADR-0011](adrs/ADR-0011-hawking-radiation-endgame-generator.md) as historical material; it is not currently selected. The routes' detailed mechanics, research gates, relationship to the Core, and whether each is optional or required for progression remain open.
+The Phase 4 roster includes three selected route identities; see the table below. The Subspace Capacitor is not selected; see [ADR-0011](adrs/ADR-0011-hawking-radiation-endgame-generator.md). Detailed mechanics, research gates, relationship to the Core, and whether each route is optional or required remain open.
 
 | Generator concept | Principle | Design role | Key tradeoff |
 |---|---|---|---|
@@ -160,16 +109,12 @@ The Hawking Radiation Engine is one of the three selected Phase 4 route identiti
 - **Rotating black-hole energy extraction:** tap a rotating black hole's spin rather than its Hawking radiation. It is a distinct theoretical mechanism but shares extreme black-hole containment and overlaps the Hawking route thematically.
 - **Antimatter annihilation:** a high-density energy carrier used in science fiction, but not a net primary source if the factory must spend more energy creating it than it later recovers. It only becomes a distinct power route if its source and energy balance are defined.
 
-The accepted Hawking decision establishes the engine as one power option only; its detailed mechanics and operating model remain proposals.
-
 **Hawking Radiation Engine — provisional implementation concept:**
 - **Construction phase (massive power investment):** Player builds an optical concentrator array (precision glass/mirror elements from optics chain) that collapses a concentrated radiation field into a micro-singularity. This requires enormous input power to achieve the threshold for radiation-pressure collapse. Ironic cycle: you need more power to build it than it produces initially — but once stable, output exceeds construction draw.
 - **Operational phase (finite but extendable):** The contained micro-black hole emits Hawking radiation at a predictable spectrum (computed by the Planetary Simulation Core). The selected conversion direction absorbs that radiation into a controlled high-temperature emitter for TPV cells; the spectrum and thermal-management model remain unvalidated. The black hole's mass decreases over time as it radiates — its operational lifetime is finite, inversely proportional to initial mass.
 - **Feeding matter to extend life:** Player can feed concentrated matter/fuel into the singularity (mass → energy via E=mc²). This extends operational life but costs resources: you trade material inputs for power output at a predictable rate. Different fuel types have different mass-energy yields, connecting back to the fuel-density spectrum.
 - **Smaller = faster evaporation:** The physics is unforgiving here — smaller initial black hole has higher Hawking temperature (more efficient thermal conversion) but evaporates much faster. Player chooses: compact fast-burning engine vs. massive slow-dying one. This creates a meaningful size-vs-lifetime tradeoff with real engineering consequences.
 - **Simulation's role:** Computes Hawking radiation spectrum for thermal converter optimization, models collapse dynamics during construction to prevent containment breach, predicts remaining lifetime based on feeding schedule.
-
-The former Subspace Capacitor construction and simulation proposals are retained in [ADR-0011](adrs/ADR-0011-hawking-radiation-endgame-generator.md) as historical alternatives, not as selected requirements.
 
 **Candidate player education — informatron/guidebook entries:**
 - The Phase 4 candidate may have a **dedicated physics page** in the player's guidebook (informatron or equivalent). It would explain the underlying science at increasing levels of depth:
@@ -269,27 +214,10 @@ The former Phase A2 component list and build quantities are preserved as unappro
 - **Size vs. lifetime tradeoff:** Smaller initial black hole has higher Hawking temperature (more efficient thermal conversion via Thermoelectric Array) but evaporates faster. Player chooses: compact fast-burning engine vs. massive slow-dying one.
 - **Simulation's role:** Planetary Simulation Core computes Hawking radiation spectrum for Thermal Converter optimization, models collapse dynamics during construction to prevent containment breach, predicts remaining lifetime based on feeding schedule.
 
-#### Subspace Capacitor — Historical Alternative
-
-The former Subspace Capacitor proposal and its infrastructure requirements are preserved in [ADR-0011](adrs/ADR-0011-hawking-radiation-endgame-generator.md); they are not current power-system requirements.
-
-## Proposed Design Directions and Tensions
-
-| Tension | Options | Candidate direction or status |
-|---|---|---|
-| Combustion pollution as military driver | Make all combustion pollute; or let scrubbing/scrubbed-fuel eliminate pollution | Pollution should be a *process choice* — clean fuel or scrubbing removes the pressure, but each option has its own cost (space, complexity, resources) |
-| Fusion: too strong too early? | Gate behind endgame network commissioning; or gate behind fusion-research from simulation model | Fusion should require deep industrial capability (tungsten refining, niobium-titanium alloy, lithium processing, precision control), which naturally gates it to late-game without arbitrary research walls |
-| Fission: is it too convenient? | Add maintenance, waste-accumulation, or meltdown risk; or keep it simple and let fabrication cost be the gate | **Meltdown risk via cooling dependency** — GTNH-inspired. The reactor requires continuous active cooling. If grid power is lost and backup capacitance depletes, the core escalates: elevated temperature → increased pressure → fuel rod stress → potential meltdown. Each stage has clear UI feedback (thermal indicators, pressure gauges, warning alarms) giving time to react. This makes thermal redundancy a meaningful engineering decision rather than punishment — players who invested in grid diversity and load-shedding diagnostics have built-in resilience. |
-| Space pressure from renewables vs. density axis | Do we include solar/wind as explicit generators? Or let the density axis speak for itself | **Option A:** Include a compact "solar array" machine with area-dependent output, built from semiconductor-grade silicon — connecting to the wafer/processor chain but requiring raw cells and glass. **Option B:** Let the *concept* of distributed renewables exist as design flavor (see military-system.md's space pressure section) without building explicit solar/wind generators. |
-| Fusion fuel: infinite power → does it remove all tension? | No — the *construction cost* is enormous, and once built, the generator may still need cooling, maintenance, or grid integration. The tension shifts from "can I afford fuel?" to "where do I put this facility?" | Emphasize placement/logistics over supply. Fusion solves the fuel problem but creates an *infrastructure* challenge: connecting massive power output to the grid, managing heat rejection, and protecting against grid surges |
-| Phase 3/4 power-path diversity | Use one linear generator path or provide viable alternatives | The minimum route identities are accepted: Phase 3 Tokamak, geothermal, and solar PV, plus concentrated solar thermal with storage; Phase 4 Hawking, cross-universe exergy extraction, and stellar-scale solar collection with beaming. Detailed buildables, values, and gates remain open. See [ADR-0018](adrs/ADR-0018-phase-3-and-4-power-route-roster-and-conversion.md). |
-| Grid transmission infrastructure: voltage tiers, conductors, transformers | How detailed should an optional grid model be? | Extension-only candidate; not approved. A 4-tier model, conductor materials, and transformer progression remain in the reference catalog below. |
-| Underground power cable vs overhead towers | Should an optional transmission extension offer both? | Extension-only candidate; not approved. The source proposes overhead towers and underground trenches; see the extension catalog below. |
-
 ## Open Design Decisions (Power Production)
 
 - **Which Phase 3/4 non-steam conversion details remain?** The selected directions are closed supercritical-CO₂ Brayton for high-grade heat, binary organic Rankine for geothermal heat, and TPV for the Hawking-route emitter. Exact source conditions, materials, working fluids, performance, and construction details remain open.
-- **Which diagnostics and stabilization capabilities belong in core?** The source labels power diagnostics as core, while its transmission proposal and Infrastructure place detailed diagnostics and grid-stabilization devices in extension scope.
+- **Which diagnostics and stabilization capabilities belong in core?** Basic status for the vanilla grid may belong in core; voltage/loss diagnostics and grid stabilization remain extension candidates.
 - **Which fuel-processing routes produce burner items?** The vanilla boiler/steam-engine path is selected, but the exact item forms and processing paths for producer gas, biogas, and liquid fuels remain open.
 - **What is the minimum Phase 2 fission fuel chain?** Uranium and thorium reactor types are separate directions; uranium enrichment/recycling details, thorium startup fuel and U-233 recovery, and waste handling remain open. Some candidate fuel-fabrication capabilities are currently placed after Phase 2 in Infrastructure.
 - **How does fusion connect to the endgame network?** Is fusion itself an endgame milestone, or is it parallel to (or prerequisite for) the Planetary Simulation Core?
@@ -299,7 +227,7 @@ The former Subspace Capacitor proposal and its infrastructure requirements are p
 - **Is waste handling for fission a meaningful mechanic** (spent fuel storage, reprocessing choice) or just flavor text with an item input?
 - **Which construction and research gates apply to the selected routes?** Route identities are selected, but exact Core dependencies, progression order, and whether each route is optional or required remain open.
 - **Where does advanced fusion end and Phase 4 begin?** Hawking is accepted as one Phase 4 option, but its boundary and the Simulation Core dependency still need alignment with [Endgame Vision](endgame-vision.md).
-- **How should power-route gates use the Core?** The first-Core construction gate is set to all six domains at T2b2 plus the Unified Metrology Reference Array under [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md). Core Level 2/3 and route-specific gates remain open; the six-bridge count includes rhenium, while exact facility mapping remains a candidate.
+- **How should power-route gates use the Core?** Core Level 2/3 and route-specific gates remain open. The first-Core gate and six-bridge count are recorded in [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md); facility mapping remains open.
 
 ## Design Intent
 
@@ -342,7 +270,7 @@ Power and floor space are secondary optimization axes in the overall design. The
 
 > The following voltage tiers and generator requirements are source proposals for an optional custom-transmission extension. They are not core behavior: the accepted core direction retains the vanilla grid and adds compatible tiered poles, without custom voltage levels or transmission losses.
 
-The source's custom-grid proposal assigns minimum voltage-tier requirements to generator output:
+The optional custom-grid extension would assign minimum voltage-tier requirements to generator output:
 
 | Phase | Generator Type | Min Voltage Tier | Notes |
 |-------|---------------|------------------|-------|

@@ -1,10 +1,11 @@
 # Research and Progression — Design Proposal
 
 *For: Factorio Overhaul Mod (Project Prometheus)*  
-*Status: Working design; six domains are the current roster. First Core construction requires all six domains at T2b2 plus the Unified Metrology Reference Array (convergence item); higher Core gates, pack tiers, bridge mappings, technology assignments, and timing remain open.*
+*Status: Working design; six domains are the current roster. Core Level 2/3 gates, pack tiers, bridge mappings, technology assignments, and timing remain open.*
 *Last updated: 2026-11-12*
 
 Related documents: [Mod Overview](mod-overview.md) for cross-domain direction; [Endgame Vision](endgame-vision.md) for the planetary simulation network; [Infrastructure](infrastructure.md) for candidate machine families and placeable facilities.
+Related ADRs: [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md) for first-Core prerequisites and [ADR-0018](adrs/ADR-0018-phase-3-and-4-power-route-roster-and-conversion.md) for Phase 3/4 power routes and converters.
 
 ## Summary
 
@@ -13,34 +14,6 @@ This document proposes how technology advancement could work across all phases o
 **What it covers:** Three-phase progression (conventional → transitional domain science → full simulation research), when and where the transition from conventional to simulation-gated research happens, what domain science packs look like mechanically, which technologies require simulation results vs. conventional science, and how completing the planetary digital twin connects to the final victory condition.
 
 **What it does not cover:** Specific recipe ratios for research items (covered in [Chemical Products and Processes](chemical-processes.md)); candidate facility construction and placeable infrastructure (covered in [Endgame Vision](endgame-vision.md) and [Infrastructure](infrastructure.md)). Exact product-to-machine assignments remain open.
-
-## Decision Log
-
-### 2026-11-12 — First Core Construction Gate
-**Context:** The source proposed both a T2a first-Core gate and a T2b2-before-construction gate.
-**Status:** Accepted
-
-**Options Considered:** Build the first Core at T2a with the Unified Metrology Reference Array; require all six domains at T2b2 before first construction; or treat the two thresholds as separate milestones.
-
-**Decision:** Require all six domains at T2b2 and the Unified Metrology Reference Array, which is the convergence item, before first Core construction.
-**Rationale:** This is the user's clarified Phase 2 progression direction and matches the T2b2 Phase 2 wall.
-**Consequences:** The T2a first-Core proposal is superseded. The previous pack-count and playtime estimates need reassessment, and the Core Level 2 gate remains open.
-**Related Decisions:** [Endgame Vision](endgame-vision.md); [Intermediate Products](intermediate-products.md); [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md).
-**Open Questions:** Core Level 2 gate; the Array's detailed recipe and whether domain packs are construction inputs; exact supporting-material assignments.
-**Revisions:** 2026-11-12 — Updated after the user confirmed the all-six-at-T2b2 plus Array gate.
-
-### 2026-11-12 — Phase 2 Bridge-Prerequisite Count
-**Context:** The current domain roster has six facilities, while source prose described five prerequisite products.
-**Status:** Accepted
-
-**Options Considered:** Retain five bridge products with one facility sharing or lacking a unique bridge; or use six bridge products, including the accepted rhenium-catalyst selection.
-
-**Decision:** Use six candidate bridge products for the six-domain roster, counting rhenium-catalyst powder as the sixth; do not reopen [ADR-0007](adrs/ADR-0007-rhenium-reaction-dynamics-bridge.md).
-**Rationale:** This matches the user's selected count and preserves the accepted Reaction Dynamics bridge.
-**Consequences:** Earlier five-product/five-facility wording is stale source text. The candidate product associations remain subject to review; this count does not finalize recipes.
-**Related Decisions:** [Intermediate Products](intermediate-products.md), [ADR-0007](adrs/ADR-0007-rhenium-reaction-dynamics-bridge.md), [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md).
-**Open Questions:** Supporting inputs and exact product-to-facility mapping.
-**Revisions:** 2026-11-12 — Recorded six bridges with rhenium as the sixth; mapping details remain open.
 
 ## Core Design Philosophy: Knowledge Before Capability
 
@@ -81,8 +54,7 @@ Phase 2 (Domain Science)
 ├── Conventional + domain packs gate nuclear advancement
 ├── Six domain labs: Superconductivity, Plasma, Nanofabrication, Isotope Separation, Reaction Dynamics, Quantum States
 ├── Pack tiers per domain: T1 → T2a → T2b1 → T2b2 → each producing distinct research items
-├── Phase 2 wall: all six domains at T2b2 required before first Core construction (no shortcuts)
-├── Unified Metrology Reference Array is the convergence item required for first Core construction
+├── First-Core construction requirements are listed in Candidate Core Unlock Requirements below
 └── Player learns: "I am an industrial engineer who chooses processes"
 
 Transition Point: First compute capacity commissioned, first simulation model run
@@ -139,7 +111,7 @@ Key design points for each dedicated research facility:
 
 #### Candidate Domain Pack Tiers — Distinct Items per Tier (Not Alt Recipes)
 
-The source draft describes each domain as having a distinct-item tier progression, but calls it both a **five-tier** and a seven-tier ladder. The seven labels in the table are retained as a candidate; item identities, tier count, and upgrade mechanics are unresolved.
+The candidate domain-pack progression has a tier-count conflict: the current prose and progression table describe five and seven tiers, respectively. Item identities, tier count, and upgrade mechanics remain unresolved.
 
 **Naming convention per domain:** `[Domain] [Tier Descriptor]` — e.g., *Superconductivity Observation Log*, *Superconductivity Analysis Dossier*, *Superconductivity Condition Survey*, *Superconductivity Cross-Reference Study*, *Superconductivity Simulation Record*. The tier descriptor is consistent across all domains for recognizability without sacrificing domain identity.
 
@@ -157,13 +129,11 @@ The source draft describes each domain as having a distinct-item tier progressio
 
 | Core Stage | Packs Required per Domain | Total Packs (~6 domains) | What It Unlocks |
 |-----------|--------------------------|--------------------------|------------------|
-| Core construction (first activation) | All 6 domains at T2b2 + **Unified Metrology Reference Array (convergence item)** → calibrated reference hardware mounted in Calibration Reference Frame | TBD; the prior ~42-pack estimate assumed T2a and is no longer applicable | Thermal Frame + Computation Cluster installed; basic simulation model operational. Access to the Hawking route is a proposal; exact and alternative-route gates remain open. |
-| **Core Level 2** | Gate TBD; must follow first-Core construction | TBD; the prior T2b2 estimate is no longer assigned to this level | Quantum-state enhancement module + memory expansion + Integration Bus upgrade for faster satellite communication; higher-fidelity models and accelerated discovery |
+| Core construction (first activation) | All 6 domains at T2b2 + **Unified Metrology Reference Array (convergence item)** → calibrated reference hardware mounted in Calibration Reference Frame | TBD; estimate requires reassessment for this gate | Thermal Frame + Computation Cluster installed; basic simulation model operational. Access to the Hawking route is a proposal; exact and alternative-route gates remain open. |
+| **Core Level 2** | Gate TBD; must follow first-Core construction | TBD; no estimate assigned | Quantum-state enhancement module + memory expansion + Integration Bus upgrade for faster satellite communication; higher-fidelity models and accelerated discovery |
 | **Core Level 3 / Final milestone** | All six domains at T3c | ~7,920+ packs over extended production (unvalidated estimate) | Multi-domain synthesis components fully integrated; Calibration Reference could model phenomena beyond known physics; general-physics discovery unlock |
 
 > The Core itself is a hybrid technology — requires both conventional science packs (real materials to build) and domain datasets (operational evidence the network functions). **Unified Metrology Reference Array** bridges both by integrating six genuine scientific instruments measuring real physical quantities.
-
-> **Selected first-Core gate:** All six domains at T2b2 plus the Unified Metrology Reference Array (the convergence item) are required before first Core construction, as recorded in [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md). The Core Level 2 gate, Array recipe, and pack-count estimates remain open.
 
 #### Breakthroughs Per Core Level (Phase 3 Capabilities)
 
@@ -196,9 +166,9 @@ The transition zone is where the player has mastered conventional industry but h
 This is also where your existing Endgame Vision "Planetary and Industrial Model" stage begins. Domain packs are the evidence the player submits to say: "I understand this domain well enough to let the simulation extend my knowledge."
 
 ### When Phase 2 Ends
-The selected Phase 2 Core gate requires all six domain pack chains to reach T2b2 and the Unified Metrology Reference Array (convergence item) before first Core construction.
+Phase 2 ends when the first-Core requirements in the Core Unlock Requirements table above are met; see [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md) for the recorded prerequisites.
 
-The source rationale for the T2b2 gate is to encourage balanced investment rather than specialization. Whether domain packs are also physical inputs to the Array, and what gate applies to Core Level 2, remain open.
+Whether domain packs are also physical inputs to the Array, and what gate applies to Core Level 2, remain open.
 
 **Duration estimate:** Phase 2 stretches ~180–200 hours within the 300+ hour ambition. The majority of this time comes from deep mineral → refinement → chemical chains needed for Phase 2 bridge materials, not from item count. Each domain pack tier traces back through multiple minerals and processing stages, generating hours through *depth per category*, not breadth all at once.
 
@@ -260,13 +230,7 @@ Candidate mapping based on the current Endgame Vision stages:
 
 ### Phase 4 Power Options and the Planetary Simulation Core
 
-The Hawking Radiation Engine is an accepted Phase 4 option, not the only late-game power route. The current proposal for the Hawking route is **not to gate it behind completing the simulation network.** Instead:
-
-> **Current, unfinalized gate proposal:** The player builds a basic Planetary Simulation Core to access the Hawking route. Its exact gate, the gates for other power routes, and how those routes fit the Core's progression remain open.
-
-Under that proposal, the Hawking route would be available *during* the final third of gameplay, rather than after Core completion. This gate has not been finalized, and no alternative Phase 3/4 route has been selected.
-
-The design intent is for late-game power choices to support an expanding computational civilization, but the Hawking route's role, power scale, and relationship to Core growth still require balancing and comparison with at least one alternative.
+The Phase 3/4 power-route identities and non-steam converter families are recorded in [ADR-0018](adrs/ADR-0018-phase-3-and-4-power-route-roster-and-conversion.md) and detailed in [Power System](power-system.md). Their unlock gates, relationship to Core progression, and whether each route is optional or required remain open. Late-game power should support the expanding computational network without assuming a specific Core dependency.
 
 ### How Many Technologies Gate on Simulation?
 
@@ -278,15 +242,15 @@ The design intent is for late-game power choices to support an expanding computa
 
 ### Unvalidated Playtime Estimate: Simulation Construction Phase
 
-The source draft estimates that simulation-network construction could occupy about **1/3 of total game time** (~70–100 hours within the 300+ hour ambition). This estimate has not been validated.
+An unvalidated planning estimate places simulation-network construction at about **1/3 of total game time** (~70–100 hours within the 300+ hour ambition).
 
 | Segment | Hours | Activities |
 |---------|-------|-----------|
-| First Core construction (all six domains at T2b2 + Array) | TBD; prior ~25-hour estimate assumed T2a | Balancing all six domains, building the convergence item, first Core infrastructure |
-| Core Level 2 progression (gate TBD) | TBD; prior ~30–40-hour estimate is unvalidated | Deepening Phase 2 production, cross-domain calibration, higher-fidelity simulation tiers |
+| First Core construction | TBD; estimate requires reassessment for the selected gate | Balancing all six domains, building the convergence item, first Core infrastructure |
+| Core Level 2 progression (gate TBD) | TBD; current estimate unvalidated | Deepening Phase 2 production, cross-domain calibration, higher-fidelity simulation tiers |
 | Core Level 3 / final milestone (T3c packs) | ~15–35 | Expanded industrial base feeding Tier 3 domain pack production, convergence synthesis |
 
-Under the current gate proposal, the Hawking route would become available during this construction phase after a basic Planetary Simulation Core. Its role in powering network expansion, how it scales with the Core, and how alternatives fit this progression remain to be designed.
+A proposal would make the Hawking route available during this construction phase, after a basic Planetary Simulation Core. Its role in powering network expansion, how it scales with the Core, and how alternatives fit this progression remain to be designed.
 
 ### Unvalidated Total Playtime Estimate
 
@@ -348,7 +312,7 @@ The informatron pages are not just flavor text. They represent **accumulated the
 
 ## Candidate Endgame Feedback Loop
 
-The source draft described the following elements as finalized, but contains no dated decision record or linked ADR for them. They are retained as candidate design, not as approved decisions.
+The following concepts remain proposals and are not approved requirements.
 
 ### Core as Phase 3 Research Center
 **Candidate:** The Planetary Simulation Core could become the Phase 3 research center, with domain packs submitted to it to advance the tech tree. This would shift from conventional research buildings in Phase 2 to the Core in Phase 3.
@@ -359,8 +323,8 @@ One proposal is for each Core level to add a distinct research category rather t
 
 | Core Stage | Packs Required per Domain | Total Packs (~6 domains) | What It Unlocks |
 |-----------|--------------------------|--------------------------|------------------|
-| **Core construction (first activation)** | All 6 domains at T2b2 + Unified Metrology Reference Array (convergence item) | TBD; prior ~42-pack estimate assumed T2a | Basic simulation model; access to the Hawking route is the current proposal, with exact and alternative-route gates open |
-| **Core Level 2** | Gate TBD; must follow first-Core construction | TBD; prior T2b2 estimate no longer assigned to this level | Higher-fidelity models, accelerated discovery |
+| **Core construction (first activation)** | See [Candidate Core Unlock Requirements (Per Domain)](#candidate-core-unlock-requirements-per-domain) | TBD | Basic simulation model; route-specific access gates remain open |
+| **Core Level 2** | Gate TBD; must follow first-Core construction | TBD | Higher-fidelity models, accelerated discovery |
 | **Core Level 3 / Final milestone** | All 6 domains at T3c | ~7,920+ packs total (spread over extended production) | General-physics discovery unlock |
 
 Each tier unlocks tech that previous tiers cannot touch, gated by the domain pack tiers required for that Core level.
@@ -385,16 +349,13 @@ The items below remain open as the material pipeline and technology roster are d
 ### Internal Consistency Issues to Resolve
 
 - The pack ladder prose says five tiers, while the named progression lists seven (T1 through T3c).
-- First Core construction is selected at all six domains T2b2 plus the Unified Metrology Reference Array; the Core Level 2 gate and pack-count estimates need reassessment.
-- The current roster has six domain facilities; the source's five-facility sentence is stale wording.
 - This document's five-tier machine example must be reconciled with the candidate machine-family and tier counts in [Infrastructure](infrastructure.md).
-- Six bridge products, including rhenium-catalyst powder, are the current direction; exact facility mapping and supporting inputs remain open.
 
 | Item | Status | Blocks |
 |------|--------|--------|
 | **Exact technology roster** | Open — which techs gate on conventional vs domain packs vs simulation findings? | Finalizing domain pack recipes, simulating time budget accuracy |
-| **Prerequisite count and first Core gate** | Partially resolved — six bridges including rhenium and first Core at all six domains T2b2 + Array; exact mapping and Core Level 2 gate remain open | Core Level 2 progression, facility requirements, and power-route gates |
-| **Pack tier count and facility count** | Open — five-tier prose conflicts with seven named tiers; six-facility roster is retained and the stale five-facility reference is historical | Pack catalog and endgame facility requirements |
+| **First-Core prerequisites and bridge mapping** | Selected in [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md); Core Level 2 gate, Array recipe, detailed bridge mapping, and pack-count estimates remain open | Core Level 2 progression, facility requirements, and power-route gates |
+| **Pack tier count and facility count** | Open — five-tier prose conflicts with seven named tiers; confirm six facilities align with the finalized pack catalog | Pack catalog and endgame facility requirements |
 | **Machine-tier model** | Open — the five-tier example is not aligned with Infrastructure's candidate family progression | Machine recipe eligibility and research gates |
 | **Final victory condition specifics** | Open — is completing the planetary digital twin itself the win, or does it unlock further gameplay? | Endgame Vision alignment, Core L3 milestone definition |
 | **Technology classification matrix (WIP)** | See table below — placeholder categories until mineral/chemical roster approved | All domain documents' tech tree planning |
@@ -407,7 +368,7 @@ A technology may gate on multiple domain packs if it spans >1 physics domain. Th
 |---|---|---|---|---|---|
 | *— pending stabilization —* | Phase 1 | ✅ required | — | No | Baseline industrial tech |
 | *e.g., enriched uranium fuel* | Phase 2 | ✅ + domain pack(s) | e.g., Superconductivity T2a + Isotope Separation T2b1 | No | Supplement conventional research building |
-| *e.g., cleanroom fabrication* | Phase 3 | — | All six domains at T2b2+ | Yes, Core L1 | Requires simulation understanding |
+| *e.g., cleanroom fabrication* | Phase 3 | — | TBD (placeholder) | Yes, Core L1 | Requires simulation understanding |
 | *e.g., tungsten armor tiles* | Phase 3 | — | e.g., Plasma Confinement T3a + Superconductivity T3a | Yes, Core L2 | Specific domain fidelity gate |
 | *— core infrastructure techs —* | Phase 3 | Hybrid (varies) | Variable per tech | Yes, Core L1/L2/L3 | Final milestone chain gates on Core L3 synthesis reports |
 

@@ -3,13 +3,11 @@
 *Status: Draft — ammunition and sustained-defense-power principles accepted; military scope, product details, and values remain open*
 *Last updated: 2026-11-12*
 
-Related documents: [Mod Overview](mod-overview.md), [Chemical Products and Processes](chemical-processes.md), [Intermediate Products](intermediate-products.md), [Minerals and Refining](minerals-and-refining.md), [Infrastructure](infrastructure.md), [Power System](power-system.md). Related decisions: [ADR-0012](adrs/ADR-0012-bound-core-military-scope.md), [ADR-0013](adrs/ADR-0013-military-pressure-model.md), [ADR-0014](adrs/ADR-0014-capability-based-ammunition.md), [ADR-0015](adrs/ADR-0015-sustained-power-for-defense.md), [ADR-0016](adrs/ADR-0016-late-game-defense-drones.md).
-
-> **Decision status:** The source marked multiple choices "Resolved" or "Adopted" without approval records. The user has since accepted capability-based ammunition progression and sustained power for defense, rejected military drones in favor of fixed defenses, and requested bounded, layer-based electrical turret additions. These outcomes and the still-open details are recorded in the linked ADRs. Do not treat candidate product counts, families, or values as approved unless explicitly noted.
+Related documents: [Mod Overview](mod-overview.md), [Chemical Products and Processes](chemical-processes.md), [Intermediate Products](intermediate-products.md), [Minerals and Refining](minerals-and-refining.md), [Infrastructure](infrastructure.md), [Power System](power-system.md). Related ADRs: [ADR-0012](adrs/ADR-0012-bound-core-military-scope.md), [ADR-0013](adrs/ADR-0013-military-pressure-model.md), [ADR-0014](adrs/ADR-0014-capability-based-ammunition.md), [ADR-0015](adrs/ADR-0015-sustained-power-for-defense.md), [ADR-0016](adrs/ADR-0016-late-game-defense-drones.md).
 
 ## Summary
 
-This draft proposes military and expansion pressure as consequences of industrial choices. Candidate pressure axes are pollution, which can create defensive demand, and process footprint, which can create spatial urgency. Candidate ammo and defense chains connect chemistry, metallurgy, power, and logistics. These directions and their approval state are recorded in the linked ADRs; detailed values remain provisional.
+This draft proposes military and expansion pressure as consequences of industrial choices. Candidate pressure axes are pollution, which can create defensive demand, and process footprint, which can create spatial urgency. Candidate ammunition and defense chains connect chemistry, metallurgy, power, and logistics; detailed values remain provisional.
 
 ## Purpose and Boundaries
 
@@ -200,7 +198,7 @@ Weapon tiers follow Bob's Weapons Pack philosophy:
 | Flamethrower turret | Vanilla | T2a incendiary fuel | Petrochemical cracking or oil refining capability |
 | Rocket turret | Vanilla | T3 HE shell → T4 penetration rocket | Explosive compound chain / nuclear fuel cycle |
 
-Both proposed electrical families should require substantial power as a balancing cost. Whether this is sustained draw, firing bursts, stored energy per shot, or a combination remains open; see [ADR-0015](adrs/ADR-0015-sustained-power-for-defense.md). The source's earlier rationale for avoiding new turret families remains historical context, not an approved user decision.
+Both proposed electrical families should require substantial power as a balancing cost. Whether this is sustained draw, firing bursts, stored energy per shot, or a combination remains open; see [ADR-0015](adrs/ADR-0015-sustained-power-for-defense.md).
 
 ### Material Sources (Mapped to Infrastructure)
 
@@ -268,19 +266,7 @@ This gives players two endgame aspirations:
 
 The user rejected military drones and specified fixed defenses. An optional, more advanced military extension may consider a spider-bot vehicle and power-suit equipment additions. This direction is distinct from drone defense; exact scope, product families, unlocks, and supply paths remain open. The rejected drone proposal and its supply-chain details are preserved in [ADR-0016](adrs/ADR-0016-late-game-defense-drones.md).
 
-## Decision Records and Open Items
-
-The former source table marked these choices resolved. User review has since established the outcomes below; candidate details remain provisional where noted:
-
-| Topic | Record | Current status |
-|---|---|---|
-| Core enemy and turret scope; combat automation boundary | [ADR-0012](adrs/ADR-0012-bound-core-military-scope.md) | Proposed; bounded, layer-based electrical direction recorded; roster and scope open |
-| Pollution and space pressure | [ADR-0013](adrs/ADR-0013-military-pressure-model.md) | Proposed; thresholds and feedback need validation |
-| Ammo progression and nuclear-material use | [ADR-0014](adrs/ADR-0014-capability-based-ammunition.md) | Capability-based principle accepted; type, tier, supply-chain, and recipe-count details remain open |
-| Sustained defense power load | [ADR-0015](adrs/ADR-0015-sustained-power-for-defense.md) | Principle accepted; profiles and values need validation |
-| Military drones; advanced player equipment | [ADR-0016](adrs/ADR-0016-late-game-defense-drones.md) | Military drones rejected; optional spider-bot and power-suit extension direction recorded |
-
-Other open questions:
+## Open Design Decisions
 
 - Confirm which military scope and pressure-model proposals belong in core.
 - Decide the electrical turret progression: tier and phase placement, core-versus-extension scope, ammunition or energy model, range and splash behavior, and power draw profile and values.
@@ -307,4 +293,4 @@ Military content for extension packs follows the core mod's design but adds dept
 
 This is a candidate design, not a complete military specification. Capability-based ammunition and sustained defense power are accepted principles; the turret roster remains proposed, and military drones are rejected. The detailed ammunition, weapon, power-load, and extension tables remain candidate content, not final catalog entries, build recipes, or balance values. The rejected drone roles and supply chains are preserved in [ADR-0016](adrs/ADR-0016-late-game-defense-drones.md).
 
-Next, reconcile military scope with the Phase 3 infrastructure inventory, include or exclude military product families during Phase 4 coverage, and defer final product identities and recipes to Phases 5 and 6 of [the plan](plan.md). Preserve the source's ammo-tier and recipe-count conflict until it is explicitly resolved.
+Next, reconcile military scope with the Phase 3 infrastructure inventory, include or exclude military product families during Phase 4 coverage, and defer final product identities and recipes to Phases 5 and 6 of [the plan](plan.md). Resolve the ammo-tier and recipe-count conflict before product enumeration.

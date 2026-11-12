@@ -31,3 +31,4 @@ ADRs preserve significant decision history separately from current-state design 
 | [ADR-0016](ADR-0016-late-game-defense-drones.md) | Reject Late-Game Military Drones | Rejected; fixed defense, with optional spider-bot/power-suit extension scope open |
 | [ADR-0017](ADR-0017-phase-2-core-and-bridge-prerequisites.md) | Set Phase 2 Core and Bridge Prerequisites | Accepted |
 | [ADR-0018](ADR-0018-phase-3-and-4-power-route-roster-and-conversion.md) | Select Phase 3/4 Power Routes and Non-Steam Conversion | Accepted; implementation details and progression gates open |
+| [ADR-0019](ADR-0019-phase-1-and-2-power-progression.md) | Set Phase 1/2 Power Progression | Accepted; fuel chains, solar/storage progression, and balance remain open |

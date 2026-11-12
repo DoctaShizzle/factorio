@@ -43,7 +43,7 @@ The arc: *"Starting from dirt and ore, layering process after process, until bui
 - **Title:** *Project Prometheus* is the recommended working title; see [mod-overview.md](mod-overview.md) for alternatives.
 - **Progression shape:** A conventional → domain-pack bridge → simulation-gated arc is the current proposal; pack tiers, gates, and timing are unresolved.
 - **Endgame direction:** Build a distributed planetary simulation network that models information-formed entities (structured-data beings, not AI); final victory and unlock conditions remain open.
-- **Phase 4 power:** Hawking Radiation Engine is one accepted option. Its gate remains open, and at least one alternative Phase 3/4 route must be developed.
+- **Power progression:** Phase 1/2 boundaries are recorded in [ADR-0019](adrs/ADR-0019-phase-1-and-2-power-progression.md), and Phase 3/4 routes and converters in [ADR-0018](adrs/ADR-0018-phase-3-and-4-power-route-roster-and-conversion.md); see [Power System](power-system.md) for current design.
 - **Research items:** Science-pack-style production of readings and results is a proposal; exact facilities and mechanics remain open.
 
 ## How to Dive In

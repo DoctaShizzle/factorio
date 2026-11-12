@@ -5,6 +5,7 @@
 *Last updated: YYYY-MM-DD*
 
 Related documents: [links to upstream, downstream, and cross-domain owners]
+Related ADRs: [relevant ADR links, or None]
 
 ## Summary
 
@@ -18,7 +19,7 @@ Related documents: [links to upstream, downstream, and cross-domain owners]
 
 ## Current Design
 
-[Describe approved behavior and constraints. Label proposals, deferred content, and unresolved choices explicitly.]
+[Describe current behavior and constraints. Label proposals, deferred content, and unresolved choices explicitly. Do not include decision history or repeat ADR rationale; link to the related ADR instead.]
 
 ## Requirements and Dependencies
 
