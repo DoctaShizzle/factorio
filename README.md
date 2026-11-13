@@ -20,7 +20,7 @@ The arc: *"Starting from dirt and ore, layering process after process, until bui
 | **Tradeoffs over upgrades** | Resource efficiency, pollution, complexity — not just raw numbers |
 | **Processes over recipes** | "Which process should I use?" instead of "What's the next unlock?" |
 | **Refining creates options** | More capability reveals alternate routes, not just higher yields |
-| **Equilibrium over disposal** | No required voiding or permanent accumulation |
+| **Balanced, controlled disposal** | Gas/fluid release consumes power and produces pollution; no free or automatic dumping |
 | **Capabilities over numbers** | Prospecting, cleanrooms, simulation infrastructure are progression goals |
 | **Knowledge before capability** | The handbook explains every step before it can be built |
 
@@ -32,7 +32,7 @@ The arc: *"Starting from dirt and ore, layering process after process, until bui
 | Chemistry | Industrial reactions, coproducts, catalysts | [Chemical Products and Processes](chemical-processes.md) |
 | Non-building products | Construction materials, components, fuels, vehicles, weapons and ammunition, personal equipment and modules, research ingredients, and endgame products | [Intermediate Products](intermediate-products.md) |
 | Infrastructure | Candidate placeable buildings, machine families, construction demands, and infrastructure categories | [Infrastructure](infrastructure.md) |
-| Power | Vanilla grid retained with compatible tiered poles; Phase 1 combustion, Phase 2-or-later PV, Phase 2 uranium/thorium fission, and at least three selected routes in each of Phases 3 and 4 | [Power System](power-system.md) |
+| Power | Vanilla grid retained with compatible tiered poles; Phase 1 combustion, Phase 2 crystalline-silicon PV and LFP battery storage, Phase 2 uranium/thorium fission, and at least three selected routes in each of Phases 3 and 4 | [Power System](power-system.md) |
 | Endgame | Planetary simulation network, general-physics discovery | [Endgame Vision](endgame-vision.md) |
 | Military | Pollution pressure, ammo chains, defense infrastructure | [Military System](military-system.md) |
 | Logistics | Belts, trains, demand-based dispatch, information flow | [Logistics System](logistics-system.md) |
@@ -43,7 +43,7 @@ The arc: *"Starting from dirt and ore, layering process after process, until bui
 - **Title:** *Project Prometheus* is the recommended working title; see [mod-overview.md](mod-overview.md) for alternatives.
 - **Progression shape:** A conventional → domain-pack bridge → simulation-gated arc is the current direction. Seven distinct domain-pack tiers and the first-Core gate are selected in [ADR-0020](adrs/ADR-0020-seven-distinct-domain-pack-tiers.md) and [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md); exact pack inputs, higher gates, and timing remain open.
 - **Endgame direction:** Build a distributed planetary simulation network that models information-formed entities (structured-data beings, not AI); final victory and unlock conditions remain open.
-- **Power progression:** Phase 1/2 boundaries are recorded in [ADR-0019](adrs/ADR-0019-phase-1-and-2-power-progression.md), and Phase 3/4 routes and converters in [ADR-0018](adrs/ADR-0018-phase-3-and-4-power-route-roster-and-conversion.md); the solar boundary and thorium startup model are in [ADR-0021](adrs/ADR-0021-phase-2-material-and-solar-boundaries.md) and [ADR-0023](adrs/ADR-0023-thorium-startup-seed-and-breeding-model.md). See [Power System](power-system.md) for current design.
+- **Power progression:** Phase 1/2 boundaries are recorded in [ADR-0019](adrs/ADR-0019-phase-1-and-2-power-progression.md), and Phase 3/4 routes and converters in [ADR-0018](adrs/ADR-0018-phase-3-and-4-power-route-roster-and-conversion.md); the solar boundary, crystalline-silicon PV platform, LFP battery chemistry, and thorium startup model are in [ADR-0021](adrs/ADR-0021-phase-2-material-and-solar-boundaries.md), [ADR-0038](adrs/ADR-0038-select-phase-2-crystalline-silicon-pv.md), [ADR-0039](adrs/ADR-0039-phase-2-lfp-battery-storage.md), and [ADR-0023](adrs/ADR-0023-thorium-startup-seed-and-breeding-model.md). See [Power System](power-system.md) for current design.
 - **Research items:** Six domain facilities and their one-to-one bridge mappings are selected; exact pack inputs, facility bills of materials, and research mechanics remain open.
 
 ## How to Dive In
@@ -62,7 +62,7 @@ The arc: *"Starting from dirt and ore, layering process after process, until bui
 
 ## Guardrails
 
-Avoid: mandatory upgrades without new capability, arbitrary complexity, a single correct production route, required voiding, mechanics whose state cannot be diagnosed clearly.
+Avoid: mandatory upgrades without new capability, arbitrary complexity, a single correct production route, free or automatic disposal, mechanics whose state cannot be diagnosed clearly. Gas/fluid release must consume power and produce pollution.
 
 ## Status
 

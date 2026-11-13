@@ -3,9 +3,9 @@
 *For: Project Prometheus*
 *Status: Current process-family concepts are in Core scope; process registry entries, routes, and recipes remain provisional*
 *Owner: Chemical products and processes*
-*Last updated: 2026-11-12*
+*Last updated: 2026-11-13*
 
-Related documents: [Minerals and Refining](minerals-and-refining.md) for deposits, minerals, and refining; [Intermediate Products](intermediate-products.md) for alloys, components, and manufactured materials. Related ADRs: [ADR-0021](adrs/ADR-0021-phase-2-material-and-solar-boundaries.md) for early Phase 2 salt/brine access, [ADR-0023](adrs/ADR-0023-thorium-startup-seed-and-breeding-model.md) for the thorium fuel-cycle model, [ADR-0024](adrs/ADR-0024-include-chemical-process-concepts-in-core-scope.md) for Core process-family scope, [ADR-0027](adrs/ADR-0027-phase-2-contemporary-chipmaking-material-stack.md) for required Phase 2 chipmaking materials, and [ADR-0028](adrs/ADR-0028-phase-2-core-cpu-material-dependencies.md) for the standard CPU path's material dependencies.
+Related documents: [Minerals and Refining](minerals-and-refining.md) for deposits, minerals, and refining; [Intermediate Products](intermediate-products.md) for alloys, components, and manufactured materials. Related ADRs: [ADR-0021](adrs/ADR-0021-phase-2-material-and-solar-boundaries.md) for early Phase 2 salt/brine access, [ADR-0023](adrs/ADR-0023-thorium-startup-seed-and-breeding-model.md) for the thorium fuel-cycle model, [ADR-0024](adrs/ADR-0024-include-chemical-process-concepts-in-core-scope.md) for Core process-family scope, [ADR-0027](adrs/ADR-0027-phase-2-contemporary-chipmaking-material-stack.md) and [ADR-0028](adrs/ADR-0028-phase-2-core-cpu-material-dependencies.md) for required CPU semiconductor materials, [ADR-0032](adrs/ADR-0032-select-trichlorosilane-route-for-phase-2-polysilicon.md) for the selected polysilicon route, [ADR-0033](adrs/ADR-0033-phase-2-submerged-arc-silicon-reduction.md) for its selected quartz-to-silicon feed route, [ADR-0034](adrs/ADR-0034-select-chlor-alkali-coproducts-for-hcl-makeup.md) for the HCl startup and makeup source, [ADR-0035](adrs/ADR-0035-powered-polluting-gas-fluid-disposal.md) for gas/fluid disposal, [ADR-0039](adrs/ADR-0039-phase-2-lfp-battery-storage.md) for Phase 2 LFP battery chemistry, and [ADR-0040](adrs/ADR-0040-phase-2-lfp-feed-sources-and-access.md) for the selected mineral feed sources and access.
 
 ## Summary
 
@@ -49,7 +49,7 @@ These four chains are the initial route priorities. Each needs a readable first 
 | Chain | Straightforward route | Later choice / capability | Connects to |
 | --- | --- | --- | --- |
 | Sulfuric acid | Sulfur or sulfide off-gas -> sulfur dioxide -> contact process -> acid | Capture and clean off-gas; catalyst and purity tradeoffs | Leaching, metal recovery, batteries, semiconductor processing |
-| Chlor-alkali | Purified brine -> electrolysis -> chlorine + sodium hydroxide + hydrogen | Brine purification, cell configuration, coproduct balancing | Bayer alumina refining, metal leaching, PVC, hydrogen reduction |
+| Chlor-alkali | Purified brine -> electrolysis -> chlorine + sodium hydroxide + hydrogen | Brine purification, cell configuration, coproduct balancing | Bayer alumina refining, metal leaching, PVC, hydrogen reduction, and HCl synthesis under ADR-0034 |
 | Plastics and polyethylene | Oil -> petrochemical feed -> ethylene -> polymerization -> plastic | Alternate cracking feeds and catalyst/polymer grades | Construction, fluid infrastructure, electronics |
 | Cement and lime | Limestone -> calcination -> lime + carbon dioxide -> clinker/cement | Fuel choice, emissions capture, slag and residue use | Construction, steelmaking, endgame infrastructure |
 
@@ -100,8 +100,8 @@ Catalysts are physical process inputs or machine components where they create a 
 ## Balance and Factory Control
 
 - Route templates should have stable output proportions across compatible feed profiles; the material identities vary with the feed.
-- Every coproduct needs a useful downstream route, an optional recovery path, a bounded operating buffer, or feed throttling when demand is saturated.
-- Avoid recipes whose intended operation depends on voiding useful products. Short buffers are acceptable; permanent accumulation is a warning to revisit ratios or applications.
+- Every coproduct needs a useful downstream route, an optional recovery path, a bounded operating buffer, feed throttling when demand is saturated, or an explicit disposal path if it is a gas/fluid stream.
+- Gas/fluid disposal is an explicit process, not silent recipe deletion; every release consumes power and produces pollution under [ADR-0035](adrs/ADR-0035-powered-polluting-gas-fluid-disposal.md). Account for these operating costs when balancing routes.
 - Smart routing and circuits should support stable operation. PLCs may automate complex plant control, but should not be required for basic balance.
 - Show inputs, outputs, coproducts, and known uses in the handbook so players can understand a route before building it.
 
@@ -136,17 +136,19 @@ The equations below are simplified design references. Balanced equations are giv
 | Polymer and resin products | 1,2-dichloroethane, vinyl chloride, polyethylene (HDPE/LDPE), PVC, adipic acid, hexamethylenediamine, nylon 6,6, bisphenol A, epichlorohydrin, epoxy resin, tetrafluoroethylene, PTFE/fluoropolymer |
 | Metal and silicon process chemicals | Alumina, sodium aluminate liquor, titanium tetrachloride, magnesium chloride, trichlorosilane, electronic-grade polysilicon |
 | Semiconductor process chemicals | Photoresist precursors, tungsten hexafluoride, sulfur hexafluoride, nitrogen trifluoride |
-| Battery and energy chemicals | Lithium carbonate, lithium hydroxide, cobalt sulfate, manganese compounds, uranium oxide fuel intermediates, thorium oxide, deuterium, tritium |
+| Battery and energy chemicals | Lithium carbonate, lithium hydroxide, lithium iron phosphate (LFP) cathode material, cobalt sulfate, manganese compounds, uranium oxide fuel intermediates, thorium oxide, deuterium, tritium |
 
 Several entries are mixtures or industrial product classes rather than pure compounds (for example, producer gas, photoresist, and manganese compounds). Keep those grouped unless a distinct recipe or gameplay use requires a specific composition.
+
+The initial Phase 2 grid-storage battery uses LFP cathode chemistry under [ADR-0039](adrs/ADR-0039-phase-2-lfp-battery-storage.md), with lithium and phosphate feed families and starting-region access selected under [ADR-0040](adrs/ADR-0040-phase-2-lfp-feed-sources-and-access.md). Lithium recovery, phosphate conversion, and cathode production routes remain open.
 
 ### Reaction and Process Inventory
 
 | Process | Simplified transformation | Status / use |
 | --- | --- | --- |
 | Water electrolysis | 2H2O -> 2H2 + O2 | Candidate hydrogen source and electrochemical capability |
-| Chlor-alkali electrolysis | 2NaCl + 2H2O -> Cl2 + H2 + 2NaOH | Core brine route; the three coproducts must have useful sinks |
-| Hydrogen chloride synthesis | H2 + Cl2 -> 2HCl | Candidate reagent supply for metal and silicon chemistry |
+| Chlor-alkali electrolysis | 2NaCl + 2H2O -> Cl2 + H2 + 2NaOH | Phase 2 source of H2 and Cl2 for HCl synthesis under [ADR-0034](adrs/ADR-0034-select-chlor-alkali-coproducts-for-hcl-makeup.md); a useful NaOH consumer remains open, but surplus may be disposed under [ADR-0035](adrs/ADR-0035-powered-polluting-gas-fluid-disposal.md) |
+| Hydrogen chloride synthesis | H2 + Cl2 -> 2HCl | Selected Phase 2 startup/makeup route under [ADR-0034](adrs/ADR-0034-select-chlor-alkali-coproducts-for-hcl-makeup.md), using chlor-alkali coproducts; startup buffer and loss rates remain open |
 | Sulfur combustion | S + O2 -> SO2 | Candidate sulfur-to-acid feed route; off-gas capture versus pollution choice |
 | Pyrite roasting | 4FeS2 + 11O2 -> 2Fe2O3 + 8SO2 (heat-driven) | Industrial SO2 source from sulfide ores (chalcopyrite/sphalerite); enables acid without native sulfur mine |
 | Contact-process oxidation | 2SO2 + O2 -> 2SO3 (V2O5 catalyst) | Core sulfuric-acid route |
@@ -188,9 +190,10 @@ Several entries are mixtures or industrial product classes rather than pure comp
 | Hall-Heroult electrolysis | 2Al2O3 + 3C -> 4Al + 3CO2 (simplified net reaction) | Dedicated aluminum metal-production step; sustained power requirement |
 | Kroll chlorination | TiO2 + 2Cl2 + C -> TiCl4 + CO2 | Dedicated titanium precursor route |
 | Kroll reduction | TiCl4 + 2Mg -> Ti + 2MgCl2 | Dedicated titanium exception; magnesium/chlorine loop candidate |
-| Metallurgical-silicon reduction | SiO2 + 2C -> Si + 2CO | Quartz-to-silicon route; furnace and gas handling decision |
-| Trichlorosilane formation | Si + 3HCl -> HSiCl3 + H2 | Semiconductor silicon purification precursor |
-| Polysilicon deposition | HSiCl3 + H2 -> Si + 3HCl | Candidate high-purity silicon deposition; recycle HCl |
+| Metallurgical-silicon reduction | SiO2 + 2C -> Si + 2CO | Selected Phase 2 carbothermic route in a dedicated submerged-arc silicon furnace under [ADR-0033](adrs/ADR-0033-phase-2-submerged-arc-silicon-reduction.md); CO may be released through the Gas Flare Stack under [ADR-0035](adrs/ADR-0035-powered-polluting-gas-fluid-disposal.md), with recipe, balance, and gate details open |
+| Trichlorosilane formation | Si + 3HCl -> HSiCl3 + H2 | Selected Phase 2 electronic-grade polysilicon route under ADR-0032 |
+| Trichlorosilane distillation | HSiCl3-bearing chlorosilane mixture -> purified HSiCl3 | Selected purification stage under ADR-0032; exact purity target remains open |
+| Polysilicon deposition | HSiCl3 + H2 -> Si + 3HCl | Selected Phase 2 deposition step under ADR-0032; HCl recycle is part of the route |
 | Semiconductor gas preparation | Refined elements/compounds -> WF6, SF6, NF3 and other specialty gases | Candidate capability set; individual synthesis routes remain future work |
 | Uranium fuel conversion | Uranium concentrate -> uranium oxide fuel intermediates | Candidate fission chemistry; detailed fuel-cycle design stays in the nuclear product branch |
 | Lithium breeder processing | Lithium mineral/brine -> lithium-bearing blanket material -> bred tritium recovery | Fusion-linked candidate; neutron breeding is nuclear physics, not a chemical reaction |
@@ -201,7 +204,7 @@ This registry is intentionally broad to make the current process concepts visibl
 
 - The current process-family concepts are in Core scope under ADR-0024. Validate product entries, reactions, routes, and any process concepts added later separately; do not infer recipe approval from scope inclusion.
 - Reconcile the candidate reaction and research-intermediate counts with the shared product taxonomy; the current approximate counts are not targets.
-- Validate chemical coproducts, reagent recovery, and stable sinks against the no-required-voiding principle.
+- Validate chemical coproducts, reagent recovery, and disposal costs against the powered, pollution-producing gas/fluid release policy in ADR-0035.
 - Confirm each retained chemistry product has a downstream use and an owning product-tree entry.
 - Assign process equipment to candidate families in [Infrastructure](infrastructure.md) after the relevant routes are approved.
 - Validate educational claims and reaction simplifications against trustworthy references before promoting them to player-facing content.

@@ -2,10 +2,10 @@
 
 *For: Factorio Overhaul Mod (Project Prometheus)*  
 *Status: Working design; six domains are the current roster. Seven distinct domain-pack tiers, the first-Core gate, and the six bridge mappings are selected. Exact pack inputs, routes, supporting materials, higher Core gates, technology assignments, and timing remain open.*
-*Last updated: 2026-11-12*
+*Last updated: 2026-11-13*
 
 Related documents: [Mod Overview](mod-overview.md) for cross-domain direction; [Endgame Vision](endgame-vision.md) for the planetary simulation network; [Infrastructure](infrastructure.md) for candidate machine families and placeable facilities.
-Related ADRs: [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md) for first-Core prerequisites, [ADR-0020](adrs/ADR-0020-seven-distinct-domain-pack-tiers.md) for the seven-tier structure, [ADR-0021](adrs/ADR-0021-phase-2-material-and-solar-boundaries.md) for the Phase 2 material trunk, [ADR-0022](adrs/ADR-0022-phase-2-bridge-mappings-and-core-dependencies.md) for bridge mappings and Core dependencies, [ADR-0025](adrs/ADR-0025-phase-2-cpu-supply-and-superconducting-core-compute.md) for CPU availability and later superconducting compute, [ADR-0026](adrs/ADR-0026-phase-2-contemporary-semiconductor-capability.md) for Phase 2 contemporary chipmaking capability, [ADR-0027](adrs/ADR-0027-phase-2-contemporary-chipmaking-material-stack.md) for required semiconductor material families, [ADR-0028](adrs/ADR-0028-phase-2-core-cpu-material-dependencies.md) for the standard CPU path's material dependencies, [ADR-0029](adrs/ADR-0029-phase-2-semiconductor-mineral-feed-families.md) for selected mineral feed families, and [ADR-0018](adrs/ADR-0018-phase-3-and-4-power-route-roster-and-conversion.md) for Phase 3/4 power routes and converters.
+Related ADRs: [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md) for first-Core prerequisites, [ADR-0020](adrs/ADR-0020-seven-distinct-domain-pack-tiers.md) for the seven-tier structure, [ADR-0021](adrs/ADR-0021-phase-2-material-and-solar-boundaries.md) for the Phase 2 material trunk, [ADR-0022](adrs/ADR-0022-phase-2-bridge-mappings-and-core-dependencies.md) for bridge mappings and Core dependencies, [ADR-0025](adrs/ADR-0025-phase-2-cpu-supply-and-superconducting-core-compute.md) for CPU availability and later superconducting compute, [ADR-0026](adrs/ADR-0026-phase-2-contemporary-semiconductor-capability.md) for Phase 2 contemporary chipmaking capability, [ADR-0027](adrs/ADR-0027-phase-2-contemporary-chipmaking-material-stack.md) for required semiconductor material families, [ADR-0028](adrs/ADR-0028-phase-2-core-cpu-material-dependencies.md) for the standard CPU path's material dependencies, [ADR-0029](adrs/ADR-0029-phase-2-semiconductor-mineral-feed-families.md) for selected mineral feed families, [ADR-0018](adrs/ADR-0018-phase-3-and-4-power-route-roster-and-conversion.md) for Phase 3/4 power routes and converters, and [ADR-0036](adrs/ADR-0036-phase-2-minimum-fission-fuel-path.md) for the Phase 2 reactor-usable fuel boundary.
 
 ## Summary
 
@@ -80,7 +80,7 @@ Standard science pack tech tree — largely inspired by vanilla Factorio but re-
 - The handbook (mod overview) establishes **"Knowledge before capability"** here: every step's industrial journey is shown in the handbook *before* it can be built, teaching players what to expect.
 
 ### When Phase 1 Ends
-Phase 1 transitions to Phase 2 when the player reaches the **Fission → Fusion boundary** — roughly when they have established nuclear fuel fabrication (enrichment/fuel conversion) and are considering whether to pursue fusion energy production. At this point, conventional industry has exhausted its ability to independently discover advanced physics.
+Phase 1 transitions to Phase 2 at the **Fission → Fusion boundary** — when minimum fuel conversion and preparation can supply the selected Phase 2 reactors with reactor-usable fuel. Baseline fission does not require the later cladding and fuel-rod assembly capabilities under [ADR-0036](adrs/ADR-0036-phase-2-minimum-fission-fuel-path.md). Exact processes and technology assignments remain open. At this point, conventional industry has exhausted its ability to independently discover advanced physics.
 
 ## Phase 2: Transitional Domain Science (Mid-Game Bridge)
 

@@ -2,7 +2,7 @@
 
 *Status: Accepted*
 *Decision date: 2026-11-12*
-*Last updated: 2026-11-12*
+*Last updated: 2026-11-13*
 
 Related documents: [Minerals and Refining](../minerals-and-refining.md), [Map and World Generation](../map-world-generation.md), [Intermediate Products](../intermediate-products.md), [Infrastructure](../infrastructure.md), [Research and Progression](../research-progression.md), and [Plan](../plan.md).
 
@@ -16,7 +16,7 @@ Related documents: [Minerals and Refining](../minerals-and-refining.md), [Map an
 2. Select zircon as the hafnium-bearing feed family; hafnium remains a secondary product of the zirconium-bearing feed.
 3. Select columbite-tantalite as the tantalum-bearing feed family; tantalum remains a secondary product of the niobium-bearing feed.
 4. Accept the existing copper-bearing feed families—malachite, chalcopyrite, and pentlandite—as eligible copper sources. No exact ore mix or priority among these sources is selected.
-5. These assignments establish feed families for the standard late-Phase-2 CPU path. They do not select extraction, separation, or refining routes; grades, yields, quantities, phase gates, and resource placement/accessibility remain open.
+5. These assignments establish feed families for the standard late-Phase-2 CPU path. They do not select extraction, separation, or refining routes; grades, yields, quantities, precise placement, and process/research gates remain open. Feed access timing is set in [ADR-0030](ADR-0030-early-access-to-semiconductor-feed-deposits.md) for zircon and columbite-tantalite and [ADR-0031](ADR-0031-starting-region-access-to-cpu-feed-families.md) for quartz and copper.
 
 ## Options Considered
 
@@ -37,5 +37,5 @@ Selecting the existing source families makes the required CPU material stack tra
 ## Affected Design and Related Decisions
 
 - Design documents: [Minerals and Refining](../minerals-and-refining.md), [Map and World Generation](../map-world-generation.md), [Intermediate Products](../intermediate-products.md), [Infrastructure](../infrastructure.md), [Research and Progression](../research-progression.md), [Documentation Map](../documentation-map.md), and [Plan](../plan.md).
-- Related ADRs: [ADR-0022](ADR-0022-phase-2-bridge-mappings-and-core-dependencies.md), [ADR-0027](ADR-0027-phase-2-contemporary-chipmaking-material-stack.md), [ADR-0028](ADR-0028-phase-2-core-cpu-material-dependencies.md), and [ADR-0030](ADR-0030-early-access-to-semiconductor-feed-deposits.md).
-- Supersedes / superseded by: No prior decision is superseded. This assigns source families for the material requirements established in ADR-0027 and ADR-0028; ADR-0030 sets limited early/mid-Phase-2 access for zircon and columbite-tantalite. Detailed source and process routes remain open.
+- Related ADRs: [ADR-0022](ADR-0022-phase-2-bridge-mappings-and-core-dependencies.md), [ADR-0027](ADR-0027-phase-2-contemporary-chipmaking-material-stack.md), [ADR-0028](ADR-0028-phase-2-core-cpu-material-dependencies.md), [ADR-0030](ADR-0030-early-access-to-semiconductor-feed-deposits.md), and [ADR-0031](ADR-0031-starting-region-access-to-cpu-feed-families.md).
+- Supersedes / superseded by: No prior decision is superseded. This assigns source families for the material requirements established in ADR-0027 and ADR-0028; ADR-0030 sets limited early/mid-Phase-2 access for zircon and columbite-tantalite, and ADR-0031 sets starting-region access for quartz and copper. Detailed source and process routes remain open.

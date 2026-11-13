@@ -2,7 +2,7 @@
 
 *Status: Accepted*
 *Decision date: 2026-11-12*
-*Last updated: 2026-11-12*
+*Last updated: 2026-11-13*
 
 Related documents: [Map and World Generation](../map-world-generation.md), [Minerals and Refining](../minerals-and-refining.md), and [Plan](../plan.md).
 
@@ -35,5 +35,5 @@ The CPU path needs hafnium and tantalum before the Core can activate, but making
 ## Affected Design and Related Decisions
 
 - Design documents: [Map and World Generation](../map-world-generation.md), [Minerals and Refining](../minerals-and-refining.md), [Documentation Map](../documentation-map.md), and [Plan](../plan.md).
-- Related ADRs: [ADR-0028](ADR-0028-phase-2-core-cpu-material-dependencies.md) and [ADR-0029](ADR-0029-phase-2-semiconductor-mineral-feed-families.md).
-- Supersedes / superseded by: No prior decision is superseded. This adds an access-timing constraint for the feed families selected in ADR-0029; exact map placement and distances remain open.
+- Related ADRs: [ADR-0028](ADR-0028-phase-2-core-cpu-material-dependencies.md), [ADR-0029](ADR-0029-phase-2-semiconductor-mineral-feed-families.md), and [ADR-0031](ADR-0031-starting-region-access-to-cpu-feed-families.md).
+- Supersedes / superseded by: No prior decision is superseded. This adds an early/mid-Phase-2 access-timing constraint for zircon and columbite-tantalite selected in ADR-0029; ADR-0031 sets starting-region access for quartz and copper. Exact map placement and distances remain open.

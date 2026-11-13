@@ -35,7 +35,7 @@ The player should feel less like a factory builder following longer recipe chain
 - **Tradeoffs over linear upgrades:** prioritize resource efficiency, pollution/military pressure, and capital complexity. Throughput, power, and space are useful secondary constraints.
 - **Processes over recipes:** present the question "Which process should I use?" rather than only "Which recipe unlocks next?"
 - **Refining creates options:** additional capability reveals recoverable materials and alternate routes, not just higher yields.
-- **Equilibrium over disposal:** buffers may help production, but required voiding or permanent accumulation is not an acceptable solution.
+- **Balanced, controlled disposal:** Gas and fluid streams may be deliberately released through powered, pollution-producing systems; free or automatic disposal is not acceptable, and solid coproducts still need useful or bounded handling.
 - **Capabilities over numbers:** prospecting, flotation, chemical refining, cleanrooms, programmable control, and simulation infrastructure are memorable progression goals.
 - **Knowledge before capability:** show the industrial journey in the handbook before every step can be built; unlock implementation gradually.
 
@@ -120,7 +120,7 @@ The Hawking Radiation Engine is one accepted Phase 4 power option, not the sole 
 - **Dyson Sphere Program:** a large computational objective that gives purpose to factory growth.
 - **Factorio:** legible logistics, automation, and spatial factory design.
 
-Avoid mandatory upgrades without a new capability, arbitrary complexity, a single correct production route, required voiding, and mechanics whose state cannot be diagnosed clearly.
+Avoid mandatory upgrades without a new capability, arbitrary complexity, a single correct production route, free or automatic disposal, and mechanics whose state cannot be diagnosed clearly. Gas/fluid release must consume power and produce pollution.
 
 ## Open Design Questions (Active Work Queue)
 
@@ -170,7 +170,7 @@ Each domain document tracks its own open decisions at the bottom of that doc —
 | [Minerals and Refining](minerals-and-refining.md) | Final mineral roster, real deposit classes, assays, material recovery assignments; aluminum/alumina are Phase 2 or later, and basic salt/brine access is early Phase 2 |
 | [Chemical Products and Processes](chemical-processes.md) | Validate product and reaction entries, routes, and catalysts; all process-family concepts currently documented are in Core scope under ADR-0024 |
 | [Intermediate Products](intermediate-products.md) | Validate selected bridge-product routes and facility bills of materials; pre-Core supply for candidate packaged ICs and positioning stages; specific battery chemistry selection |
-| [Power System](power-system.md) — Production | Exact combustion-fuel items, uranium/thorium fuel routes and balance, the first Phase 2 PV-cell route, construction/research gates, fusion/endgame connection, and military-pressure contribution per generator class; Phase 3/4 route identities are selected |
+| [Power System](power-system.md) — Production | Exact combustion-fuel items, uranium/thorium fuel routes and balance, the crystalline-silicon PV process, lithium/phosphate sourcing and the full LFP cell/pack route, storage progression, construction/research gates, fusion/endgame connection, and military-pressure contribution per generator class; Phase 3/4 route identities are selected |
 | [Power System](power-system.md) — Distribution | Compatible tiered-pole levels and stats; custom voltage, conductor-loss, and grid-stabilization mechanics remain optional extension candidates, not core requirements |
 | [Endgame Vision](endgame-vision.md) | Pre-Core source for candidate Core electronics and positioning materials; Array support inputs; higher Core gates, final milestone structure, and compute distribution |
 | [Research and Progression](research-progression.md) | Seven distinct tiers per domain and the T2b2 first-Core gate are selected; exact pack items/recipes, later Core gates, technology roster, and timing remain open |

@@ -3,9 +3,9 @@
 *For: Project Prometheus*
 *Status: Candidate design; catalog and routes require validation*
 *Owner: Minerals and refining*
-*Last updated: 2026-11-12*
+*Last updated: 2026-11-13*
 
-Related documents: [Map and World Generation](map-world-generation.md), [Chemical Products and Processes](chemical-processes.md), and [Intermediate Products](intermediate-products.md). Related ADRs: [ADR-0021](adrs/ADR-0021-phase-2-material-and-solar-boundaries.md) for material and brine phase boundaries, [ADR-0022](adrs/ADR-0022-phase-2-bridge-mappings-and-core-dependencies.md) for the pre-Core polysilicon precursor, [ADR-0023](adrs/ADR-0023-thorium-startup-seed-and-breeding-model.md) for the selected thorium fuel-cycle model, [ADR-0027](adrs/ADR-0027-phase-2-contemporary-chipmaking-material-stack.md) for required Phase 2 semiconductor material families, [ADR-0028](adrs/ADR-0028-phase-2-core-cpu-material-dependencies.md) for their use on the standard CPU path, [ADR-0029](adrs/ADR-0029-phase-2-semiconductor-mineral-feed-families.md) for selected mineral feed families, and [ADR-0030](adrs/ADR-0030-early-access-to-semiconductor-feed-deposits.md) for limited early/mid-Phase-2 access to zircon and columbite-tantalite.
+Related documents: [Map and World Generation](map-world-generation.md), [Chemical Products and Processes](chemical-processes.md), and [Intermediate Products](intermediate-products.md). Related ADRs: [ADR-0021](adrs/ADR-0021-phase-2-material-and-solar-boundaries.md) for material and brine phase boundaries, [ADR-0022](adrs/ADR-0022-phase-2-bridge-mappings-and-core-dependencies.md) for the pre-Core polysilicon precursor, [ADR-0023](adrs/ADR-0023-thorium-startup-seed-and-breeding-model.md) for the selected thorium fuel-cycle model, [ADR-0027](adrs/ADR-0027-phase-2-contemporary-chipmaking-material-stack.md) for required Phase 2 semiconductor material families, [ADR-0028](adrs/ADR-0028-phase-2-core-cpu-material-dependencies.md) for their use on the standard CPU path, [ADR-0029](adrs/ADR-0029-phase-2-semiconductor-mineral-feed-families.md) for selected mineral feed families, [ADR-0030](adrs/ADR-0030-early-access-to-semiconductor-feed-deposits.md) for limited early/mid-Phase-2 access to zircon and columbite-tantalite, [ADR-0031](adrs/ADR-0031-starting-region-access-to-cpu-feed-families.md) for quartz and copper starting-region access, [ADR-0032](adrs/ADR-0032-select-trichlorosilane-route-for-phase-2-polysilicon.md) for the downstream polysilicon route, [ADR-0033](adrs/ADR-0033-phase-2-submerged-arc-silicon-reduction.md) for the selected quartz reduction route, [ADR-0035](adrs/ADR-0035-powered-polluting-gas-fluid-disposal.md) for powered, pollution-producing gas/fluid disposal, [ADR-0039](adrs/ADR-0039-phase-2-lfp-battery-storage.md) for the selected Phase 2 battery chemistry and feed requirements, and [ADR-0040](adrs/ADR-0040-phase-2-lfp-feed-sources-and-access.md) for selected feed sources and starting-region access.
 
 > **Draft catalog v0.4:** Use real mineral/resource names and real geological deposit classes as identifiers; this draft does not assign invented site names. Recovery associations are candidate gameplay mappings, not claims that every specimen contains each listed element. Exact assays, ratios, and recipe availability remain to be validated.
 
@@ -54,7 +54,7 @@ The mineral catalog is bounded by validated gameplay capabilities, not by a Phas
 | Dolomite | Magnesian limestone or dolostone | Sedimentary basin | Magnesium compounds | Calcium/lime | Silica traces |
 | Gypsum | Gypsum-bearing evaporite bed | Sedimentary basin, Coastal/shelf hybrid | Gypsum | Lime | — |
 
-These are finite starter supplies of foundational materials. Secondary and tertiary recovery are later refining capabilities; listing a material here does not mean the early process exposes it.
+These are finite starter supplies of foundational materials. Secondary and tertiary recovery are later refining capabilities; listing a material here does not mean the early process exposes it. Under [ADR-0031](adrs/ADR-0031-starting-region-access-to-cpu-feed-families.md), the starting region provides accessible quartz and at least one eligible copper-bearing feed for the later Phase 2 CPU chain. This does not select the copper deposit or require Phase 1 semiconductor processing.
 
 ### Tier 2: Underground Deposits
 
@@ -153,7 +153,9 @@ This is the consolidated candidate list of refined mineral products represented 
 | Specialty and semiconductor metals | Gallium, germanium, indium, cadmium, tungsten, molybdenum, rhenium, niobium, tantalum, beryllium, zirconium, hafnium |
 | Chemical and battery feedstocks | Lithium carbonate / hydroxide, sodium chloride / sodium compounds, potassium chloride, phosphorus / phosphate, boron compounds, fluorine-bearing feedstocks, bromine compounds |
 
-Under [ADR-0027](adrs/ADR-0027-phase-2-contemporary-chipmaking-material-stack.md) and [ADR-0028](adrs/ADR-0028-phase-2-core-cpu-material-dependencies.md), the standard late-Phase-2 CPU path for initial Core supply requires silicon, hafnium, tantalum, and copper material families. Their feed-family assignments are selected in [ADR-0029](adrs/ADR-0029-phase-2-semiconductor-mineral-feed-families.md): quartz for metallurgical silicon, zircon for hafnium as a secondary product, columbite-tantalite for tantalum as a secondary product, and copper-bearing deposits (malachite, chalcopyrite, and pentlandite) as eligible copper sources. Limited zircon and columbite-tantalite supply must be reachable by early/mid Phase 2 under [ADR-0030](adrs/ADR-0030-early-access-to-semiconductor-feed-deposits.md); exact ore mix, extraction/separation/refining routes, grades, yields, quantities, and phase gates remain open.
+Under [ADR-0027](adrs/ADR-0027-phase-2-contemporary-chipmaking-material-stack.md) and [ADR-0028](adrs/ADR-0028-phase-2-core-cpu-material-dependencies.md), the standard late-Phase-2 CPU path for initial Core supply requires silicon, hafnium, tantalum, and copper material families. Their feed-family assignments are selected in [ADR-0029](adrs/ADR-0029-phase-2-semiconductor-mineral-feed-families.md): quartz for metallurgical silicon, zircon for hafnium as a secondary product, columbite-tantalite for tantalum as a secondary product, and copper-bearing deposits (malachite, chalcopyrite, and pentlandite) as eligible copper sources. Limited zircon and columbite-tantalite supply must be reachable by early/mid Phase 2 under [ADR-0030](adrs/ADR-0030-early-access-to-semiconductor-feed-deposits.md); carbothermic quartz reduction in a dedicated Phase 2 submerged-arc silicon furnace is selected under [ADR-0033](adrs/ADR-0033-phase-2-submerged-arc-silicon-reduction.md), feeding the electronic-grade polysilicon route in [ADR-0032](adrs/ADR-0032-select-trichlorosilane-route-for-phase-2-polysilicon.md). Quartz preparation, carbon reductant mix, other-feed recovery routes, grades, yields, quantities, CO handling, and phase gates remain open.
+
+The initial Phase 2 battery uses LFP cathode chemistry under [ADR-0039](adrs/ADR-0039-phase-2-lfp-battery-storage.md). Lithium may come from spodumene or brine as alternative sources, and apatite-rich phosphorite supplies phosphate under [ADR-0040](adrs/ADR-0040-phase-2-lfp-feed-sources-and-access.md). The starting region guarantees apatite-rich phosphorite and lithium-bearing brine; spodumene may be regional. Detailed extraction/recovery routes, grades, quantities, and exact deposit placement remain open.
 | Rare, radioactive, and trace | Uranium, thorium, cerium, lanthanum, neodymium, yttrium, selenium, tellurium, arsenic |
 | Other recovered compounds | Carbon dioxide, water |
 
@@ -191,7 +193,7 @@ Under [ADR-0027](adrs/ADR-0027-phase-2-contemporary-chipmaking-material-stack.md
 
 #### Exception Candidates to Evaluate
 
-- **Lithium from brines:** Salt/brine is reachable by early Phase 2, with basic extraction/evaporation; chlor-alkali remains Phase 2. Lithium recovery from brines, beyond the accepted basic salt/brine access, remains a source-specific route candidate. Spodumene remains a separate chemical-extraction path.
+- **Lithium source routes:** Brine and spodumene are selected as alternative lithium sources for LFP under [ADR-0040](adrs/ADR-0040-phase-2-lfp-feed-sources-and-access.md). Salt/brine is reachable by early Phase 2, with basic extraction/evaporation; chlor-alkali remains a Phase 2 process. Lithium recovery from brines and the separate spodumene chemical-extraction route remain to be designed.
 - **Nb-Ta and Zr-Hf separation:** these chemically similar element pairs may justify dedicated late separation steps after shared concentration. They do not need separate end-to-end ore routes.
 - **Ga, Ge, In, and Re:** keep these as residue/byproduct recovery capabilities within aluminum, zinc, coal, and molybdenum chains, rather than creating a bespoke primary route for each.
 
@@ -203,7 +205,7 @@ Finishing (washing, drying, calcining, casting) is part of the relevant route, n
 
 - Every polymineral deposit feed must have at least one viable baseline route and a discoverable advanced route.
 - Across the mineral roster, common primary materials need multiple sources and multiple consumers; trace targets should be recoverable from residues without requiring pure primary products to be consumed at the same rate.
-- For each route template, account for every output as a useful material, an input to further recovery, a finite buffer, or a reason to throttle/pause feed. Required voiding is not an acceptable balance solution.
+- For each route template, account for every output as a useful material, an input to further recovery, a finite buffer, a reason to throttle/pause feed, or an optional disposal path for gas/fluid streams. Any gas/fluid release must consume power and produce pollution under [ADR-0035](adrs/ADR-0035-powered-polluting-gas-fluid-disposal.md); solid outputs still need a consumer, recovery path, buffer, or production control.
 - Test the roster against iron-heavy, copper-heavy, alloy-heavy, and trace-recovery demand profiles. No profile should force permanent accumulation when the player selects compatible deposits and routes.
 - Smart routing and throughput control should be enough for stable operation. PLCs can automate the decisions, but basic balance must not depend on custom code.
 
@@ -224,7 +226,7 @@ Finishing (washing, drying, calcining, casting) is part of the relevant route, n
 - Validate the candidate deposit roster, recovery associations, and pure-material inventory against the intended product-tree scope; do not treat the current candidate counts as targets.
 - Reconcile deposit-to-biome assignments with the current [Map and World Generation](map-world-generation.md) design, including any locations or resource classes not represented by its committed biome model.
 - Evaluate the lithium-brine, niobium-tantalum, zirconium-hafnium, and Ga/Ge/In/Re exception candidates before promoting any to required routes.
-- Verify that primary, secondary, and tertiary outputs have legitimate uses or bounded handling under the balanceability rules; do not introduce required voiding.
+- Verify that primary, secondary, and tertiary outputs have legitimate uses or bounded handling under the balanceability rules, including the power and pollution costs for gas/fluid disposal under ADR-0035.
 - Align refining-stage equipment ownership once the referenced machine-system design has been recovered or its replacement owner is agreed.
 - Validate all geological recovery associations against references before educational claims or recipes are finalized.
 
