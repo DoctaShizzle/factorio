@@ -28,10 +28,10 @@ Sharing the uranium chain makes the startup dependency explicit without introduc
 
 - Positive: the thorium startup seed has a defined upstream source in the Phase 2 uranium chain.
 - Trade-offs: the shared uranium chain must support both uranium-fuel demand and thorium startup-seed demand; the combined material, power, and waste balance remains to be validated.
-- Follow-up work: determine the seed's composition, item identity, enrichment level, quantity, any additional preparation, and research gates; include its demand in the uranium and thorium route balances.
+- Follow-up work: the shared uranium chain's high-level concentrate/UF6/centrifuge/UO2 sequence is selected under [ADR-0048](ADR-0048-select-phase-2-uf6-uranium-fuel-cycle.md). Determine the seed's composition, item identity, enrichment level, quantity, branch point, any additional preparation, and research gates; include its demand in the uranium and thorium route balances.
 
 ## Affected Design and Related Decisions
 
 - Design documents: [Power System](../power-system.md), [Chemical Products and Processes](../chemical-processes.md), [Intermediate Products](../intermediate-products.md), [Infrastructure](../infrastructure.md), [Research and Progression](../research-progression.md), [Mod Overview](../mod-overview.md), [Documentation Map](../documentation-map.md), and [Plan](../plan.md).
-- Related ADRs: [ADR-0023](ADR-0023-thorium-startup-seed-and-breeding-model.md) selects the uranium-derived seed and thorium breeding/reprocessing model; [ADR-0042](ADR-0042-require-enriched-phase-2-uranium-fuel.md) requires enriched UO2 for uranium fission; [ADR-0046](ADR-0046-select-phase-2-uranium-centrifuge-enrichment.md) selects gas-centrifuge enrichment for the shared uranium chain.
+- Related ADRs: [ADR-0023](ADR-0023-thorium-startup-seed-and-breeding-model.md) selects the uranium-derived seed and thorium breeding/reprocessing model; [ADR-0042](ADR-0042-require-enriched-phase-2-uranium-fuel.md) requires enriched UO2 for uranium fission; [ADR-0046](ADR-0046-select-phase-2-uranium-centrifuge-enrichment.md) selects gas-centrifuge enrichment for the shared uranium chain; [ADR-0048](ADR-0048-select-phase-2-uf6-uranium-fuel-cycle.md) selects its high-level chemical-form sequence.
 - Supersedes / superseded by: No prior decision is superseded. This resolves the seed-source relationship left open by ADR-0023 and ADR-0046; seed-specific details remain open.

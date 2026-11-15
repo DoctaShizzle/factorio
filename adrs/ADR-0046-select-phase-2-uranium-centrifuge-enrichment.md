@@ -15,7 +15,7 @@ The U.S. Energy Information Administration describes gas centrifuges as the meth
 ## Decision
 
 1. Select gas-centrifuge enrichment for the Phase 2 uranium-fuel route.
-2. This selects the enrichment method only. Uranium feed preparation, conversion and reconversion chemistry, output forms, enrichment target, equipment layout and integration, material and power balances, waste handling, pellet preparation, and research gates remain open.
+2. This selects the enrichment method only. The high-level uranium-concentrate/UF6/UO2 form sequence is selected under [ADR-0048](ADR-0048-select-phase-2-uf6-uranium-fuel-cycle.md); upstream feed recovery, detailed conversion and reconversion chemistry, enrichment target, equipment layout and integration, material and power balances, depleted-tails handling, pellet preparation, and research gates remain open.
 3. This does not decide whether or how the uranium route supplies the thorium cycle's startup seed. The seed remains a thorium-route prerequisite only; its composition, item identity, and production relationship remain open under ADR-0023.
 
 ## Options Considered
@@ -32,10 +32,10 @@ The centrifuge method aligns the Phase 2 uranium route with a contemporary, indu
 
 - Positive: the Phase 2 uranium route has an explicit enrichment method that can inform later process and infrastructure design.
 - Trade-offs: the route depends on a centrifuge-enrichment capability; its construction footprint, power use, throughput, and operating costs have not been selected.
-- Follow-up work: define the upstream and downstream uranium conversion path, equipment integration, output forms, balances, waste handling, and research gates. The shared uranium chain supplies the thorium startup seed under [ADR-0047](ADR-0047-share-phase-2-uranium-chain-with-thorium-seed.md); the seed's exact form, quantity, and additional preparation remain open.
+- Follow-up work: [ADR-0048](ADR-0048-select-phase-2-uf6-uranium-fuel-cycle.md) selects the high-level sequence from uranium concentrate through UF6 centrifuge enrichment to UO2. Resolve feed recovery, detailed conversion/reconversion chemistry and reagent supply, enrichment target, depleted-tails handling, equipment integration, balances, and research gates. The shared uranium chain supplies the thorium startup seed under [ADR-0047](ADR-0047-share-phase-2-uranium-chain-with-thorium-seed.md); the seed's exact form, quantity, and additional preparation remain open.
 
 ## Affected Design and Related Decisions
 
 - Design documents: [Power System](../power-system.md), [Chemical Products and Processes](../chemical-processes.md), [Intermediate Products](../intermediate-products.md), [Infrastructure](../infrastructure.md), [Research and Progression](../research-progression.md), [Documentation Map](../documentation-map.md), and [Plan](../plan.md).
-- Related ADRs: [ADR-0019](ADR-0019-phase-1-and-2-power-progression.md) selects the Phase 2 uranium and thorium options; [ADR-0023](ADR-0023-thorium-startup-seed-and-breeding-model.md) defines the thorium startup-seed model; [ADR-0042](ADR-0042-require-enriched-phase-2-uranium-fuel.md) requires enriched UO2; [ADR-0043](ADR-0043-phase-2-fission-fuel-rod-fabrication.md) requires Phase 2 cladding and rod assembly; [ADR-0047](ADR-0047-share-phase-2-uranium-chain-with-thorium-seed.md) selects the shared uranium chain for the thorium seed.
+- Related ADRs: [ADR-0019](ADR-0019-phase-1-and-2-power-progression.md) selects the Phase 2 uranium and thorium options; [ADR-0023](ADR-0023-thorium-startup-seed-and-breeding-model.md) defines the thorium startup-seed model; [ADR-0042](ADR-0042-require-enriched-phase-2-uranium-fuel.md) requires enriched UO2; [ADR-0043](ADR-0043-phase-2-fission-fuel-rod-fabrication.md) requires Phase 2 cladding and rod assembly; [ADR-0047](ADR-0047-share-phase-2-uranium-chain-with-thorium-seed.md) selects the shared uranium chain for the thorium seed; [ADR-0048](ADR-0048-select-phase-2-uf6-uranium-fuel-cycle.md) selects its high-level chemical-form sequence.
 - Supersedes / superseded by: No prior decision is superseded. This resolves the enrichment-method follow-up in ADR-0042; ADR-0047 resolves the seed-source follow-up. The remaining uranium conversion and fuel-cycle details stay open.
