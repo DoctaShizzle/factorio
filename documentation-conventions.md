@@ -34,7 +34,7 @@ Use relative Markdown links between repository documents. ADR IDs are sequential
 - Keep the ADR links in a concise `Related ADRs` list. When a settled decision affects the current design, state the resulting constraint once in the relevant design section and link the ADR; do not copy the ADR's context, alternatives, detailed rationale, or consequences.
 - Open decisions may remain as current questions with their status and downstream impact. Include options only when they are necessary to describe the current unresolved design; do not present decision history as current design.
 - When a legacy design document contains decision history, verify that it is preserved in an ADR before removing it. If no ADR exists, create one for the significant decision and update `adrs/README.md`; keep only the current design and an ADR link in the domain document.
-- These repository rules take precedence over generic design workflows or templates that recommend embedding historical logs in design documents. Use `templates/design-document.md` for current-state content and `templates/adr.md` for history.
+- These conventions and the repository templates are authoritative when generic skills or workflows conflict on document roles, locations, structure, or migration. Use `templates/design-document.md` for current-state content and `templates/adr.md` for history.
 
 ## ADR Rules
 
