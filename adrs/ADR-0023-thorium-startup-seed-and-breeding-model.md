@@ -31,10 +31,10 @@ The selected model preserves the real distinction between fertile Th-232 and fis
 
 - Positive: the uranium-to-thorium dependency is explicit and bounded to startup in the game model.
 - Trade-offs: the breeding/reprocessing loop and its material balance still need validation; the design does not assert a real-world self-sustaining reactor outcome.
-- Follow-up: the shared Phase 2 uranium preparation/conversion/enrichment chain supplies the thorium startup seed under [ADR-0047](ADR-0047-share-phase-2-uranium-chain-with-thorium-seed.md); seed form, quantity, preparation, balances, and research gates remain open.
+- Follow-up: the shared Phase 2 uranium preparation/conversion/enrichment chain supplies the thorium startup seed under [ADR-0047](ADR-0047-share-phase-2-uranium-chain-with-thorium-seed.md). The high-level solid-oxide seed-and-blanket architecture is selected under [ADR-0055](ADR-0055-select-phase-2-thorium-oxide-seed-blanket-architecture.md), and the seed uses the same qualitative enrichment grade as uranium fuel under [ADR-0056](ADR-0056-share-uranium-fuel-enrichment-grade-with-thorium-seed.md). The numeric target remains deferred under [ADR-0051](ADR-0051-defer-phase-2-uranium-enrichment-target.md); exact seed compound, isotope composition, quantity, item identity, preparation, balances, waste handling, and research gates remain open.
 
 ## Affected Design and Related Decisions
 
 - Design documents: [Power System](../power-system.md), [Chemical Products and Processes](../chemical-processes.md), [Intermediate Products](../intermediate-products.md), [Plan](../plan.md).
-- Related ADRs: [ADR-0019](ADR-0019-phase-1-and-2-power-progression.md), [ADR-0022](ADR-0022-phase-2-bridge-mappings-and-core-dependencies.md), [ADR-0046](ADR-0046-select-phase-2-uranium-centrifuge-enrichment.md), and [ADR-0047](ADR-0047-share-phase-2-uranium-chain-with-thorium-seed.md).
+- Related ADRs: [ADR-0019](ADR-0019-phase-1-and-2-power-progression.md), [ADR-0022](ADR-0022-phase-2-bridge-mappings-and-core-dependencies.md), [ADR-0046](ADR-0046-select-phase-2-uranium-centrifuge-enrichment.md), [ADR-0047](ADR-0047-share-phase-2-uranium-chain-with-thorium-seed.md), [ADR-0055](ADR-0055-select-phase-2-thorium-oxide-seed-blanket-architecture.md), and [ADR-0056](ADR-0056-share-uranium-fuel-enrichment-grade-with-thorium-seed.md).
 - Supersedes / superseded by: Resolves the thorium startup-fuel relationship left open by ADR-0019; does not supersede its uranium/thorium route selection.

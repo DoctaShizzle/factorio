@@ -52,7 +52,7 @@ project-prometheus/
 | **difficulty-extreme** | Extreme mode | Resource scarcity, aggressive biter scaling, fortified bases, pollution multipliers | Hardcore players |
 | **chemistry-harsh-reactions** | Complexity layer | Tighter catalyst windows, more extreme conditions. Makes chemistry feel like real process engineering with less margin for error | Players who want the chemistry layer to challenge them |
 | **machinery-advanced-bots** | Deep dive | Smarter pathfinding, multi-item batch handling, predictive scheduling for bots | Bot enthusiasts |
-| **power-nuclear-waste** | System addition | Spent fuel reprocessing, containment storage, long-lived isotope decay chains | Players who care about nuclear power |
+| **power-nuclear-waste** | System addition | Phase 2 post-discharge reprocessing/recovery for spent uranium fuel is required under [ADR-0057](adrs/ADR-0057-require-phase-2-reprocessing-for-spent-uranium-fuel.md), so this proposed optional pack cannot be its sole home. Whether containment storage and long-lived isotope decay chains remain optional extension features is unresolved. | Players who care about nuclear power |
 | **logistics-advanced-trains** | Deep dive | Dynamic routing algorithms, predictive scheduling, multi-modal transfer optimization | Train enthusiasts |
 | **endgame-simulation-hard** | Hard mode | More information-formed entities to debug, harder network scaling, more complex fidelity requirements | Players who want the endgame to challenge them |
 | **worldgen-altered-geography** | Alternative start | Different continent shapes, unusual mineral concentrations, varied early-game resource distribution | Players who want different starting conditions |

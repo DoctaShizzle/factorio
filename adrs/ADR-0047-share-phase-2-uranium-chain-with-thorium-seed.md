@@ -12,7 +12,7 @@ Related documents: [Power System](../power-system.md), [Chemical Products and Pr
 
 ## Decision
 
-Use the shared Phase 2 uranium preparation/conversion/enrichment chain to supply the thorium startup seed. The seed may still require a distinct product form or thorium-specific preparation; this decision does not select its composition, identity, enrichment level, quantity, or final fuel form.
+Use the shared Phase 2 uranium preparation/conversion/enrichment chain to supply the thorium startup seed. The high-level solid-oxide seed-and-blanket architecture is selected under [ADR-0055](ADR-0055-select-phase-2-thorium-oxide-seed-blanket-architecture.md). The startup seed uses the same qualitative enrichment grade as uranium fuel under [ADR-0056](ADR-0056-share-uranium-fuel-enrichment-grade-with-thorium-seed.md); the numeric target remains deferred under [ADR-0051](ADR-0051-defer-phase-2-uranium-enrichment-target.md). Exact seed compound, isotope composition, item identity, quantity, and additional preparation remain open.
 
 ## Options Considered
 
@@ -22,16 +22,16 @@ Use the shared Phase 2 uranium preparation/conversion/enrichment chain to supply
 
 ## Rationale
 
-Sharing the uranium chain makes the startup dependency explicit without introducing a second uranium source path. Leaving the seed's final form and any thorium-specific processing open preserves the remaining design work.
+Sharing the uranium chain makes the startup dependency explicit without introducing a second uranium source path. The broad seed-and-blanket architecture is now selected, while leaving the seed's exact form and any thorium-specific processing open preserves the remaining design work.
 
 ## Consequences
 
 - Positive: the thorium startup seed has a defined upstream source in the Phase 2 uranium chain.
 - Trade-offs: the shared uranium chain must support both uranium-fuel demand and thorium startup-seed demand; the combined material, power, and waste balance remains to be validated.
-- Follow-up work: the shared uranium chain's high-level concentrate/UF6/centrifuge/UO2 sequence is selected under [ADR-0048](ADR-0048-select-phase-2-uf6-uranium-fuel-cycle.md). Determine the seed's composition, item identity, enrichment level, quantity, branch point, any additional preparation, and research gates; include its demand in the uranium and thorium route balances.
+- Follow-up work: the shared uranium chain's high-level concentrate/UF6/centrifuge/UO2 sequence is selected under [ADR-0048](ADR-0048-select-phase-2-uf6-uranium-fuel-cycle.md), and the broad seed-and-blanket architecture is selected under [ADR-0055](ADR-0055-select-phase-2-thorium-oxide-seed-blanket-architecture.md). The seed's qualitative enrichment grade is shared with uranium fuel under [ADR-0056](ADR-0056-share-uranium-fuel-enrichment-grade-with-thorium-seed.md), while the numeric target remains deferred under [ADR-0051](ADR-0051-defer-phase-2-uranium-enrichment-target.md). Determine the seed's exact compound, isotope composition, item identity, quantity, branch point, additional preparation, and research gates; include its demand in the uranium and thorium route balances.
 
 ## Affected Design and Related Decisions
 
 - Design documents: [Power System](../power-system.md), [Chemical Products and Processes](../chemical-processes.md), [Intermediate Products](../intermediate-products.md), [Infrastructure](../infrastructure.md), [Research and Progression](../research-progression.md), [Mod Overview](../mod-overview.md), [Documentation Map](../documentation-map.md), and [Plan](../plan.md).
-- Related ADRs: [ADR-0023](ADR-0023-thorium-startup-seed-and-breeding-model.md) selects the uranium-derived seed and thorium breeding/reprocessing model; [ADR-0042](ADR-0042-require-enriched-phase-2-uranium-fuel.md) requires enriched UO2 for uranium fission; [ADR-0046](ADR-0046-select-phase-2-uranium-centrifuge-enrichment.md) selects gas-centrifuge enrichment for the shared uranium chain; [ADR-0048](ADR-0048-select-phase-2-uf6-uranium-fuel-cycle.md) selects its high-level chemical-form sequence.
+- Related ADRs: [ADR-0023](ADR-0023-thorium-startup-seed-and-breeding-model.md) selects the uranium-derived seed and thorium breeding/reprocessing model; [ADR-0042](ADR-0042-require-enriched-phase-2-uranium-fuel.md) requires enriched UO2 for uranium fission; [ADR-0046](ADR-0046-select-phase-2-uranium-centrifuge-enrichment.md) selects gas-centrifuge enrichment for the shared uranium chain; [ADR-0048](ADR-0048-select-phase-2-uf6-uranium-fuel-cycle.md) selects its high-level chemical-form sequence; [ADR-0055](ADR-0055-select-phase-2-thorium-oxide-seed-blanket-architecture.md) selects the high-level thorium fuel form; [ADR-0056](ADR-0056-share-uranium-fuel-enrichment-grade-with-thorium-seed.md) selects the shared enrichment-grade relationship.
 - Supersedes / superseded by: No prior decision is superseded. This resolves the seed-source relationship left open by ADR-0023 and ADR-0046; seed-specific details remain open.
