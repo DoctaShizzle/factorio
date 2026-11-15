@@ -1,6 +1,6 @@
 # ADR-0036: Set the Minimum Phase 2 Fission-Fuel Capability
 
-*Status: Accepted*
+*Status: Superseded by [ADR-0043](ADR-0043-phase-2-fission-fuel-rod-fabrication.md)*
 *Decision date: 2026-11-13*
 *Last updated: 2026-11-13*
 
@@ -40,4 +40,4 @@ The phase gate for a generator and its minimum fuel supply must align. Allowing 
 
 - Design documents: [Power System](../power-system.md), [Infrastructure](../infrastructure.md), [Research Progression](../research-progression.md), [Documentation Map](../documentation-map.md), and [Plan](../plan.md).
 - Related ADRs: [ADR-0019](ADR-0019-phase-1-and-2-power-progression.md), which selects Phase 2 uranium and thorium fission options, and [ADR-0023](ADR-0023-thorium-startup-seed-and-breeding-model.md), which selects the thorium startup-seed and breeding model.
-- Supersedes / superseded by: Refines the Phase 2 fuel-fabrication boundary in ADR-0019 without changing its selected generation routes or the thorium model in ADR-0023.
+- Supersedes / superseded by: Superseded by [ADR-0043](ADR-0043-phase-2-fission-fuel-rod-fabrication.md), which makes Phase 2 cladding and fuel-rod assembly prerequisites for both fission options.

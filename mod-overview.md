@@ -3,7 +3,7 @@
 *Industrial Ecosystems and Process Engineering — Project Prometheus*
 
 *Status: Working design overview; detailed systems and unapproved proposals remain with their domain owners.*  
-*Last updated: 2026-11-12*
+*Last updated: 2026-11-15*
 
 This document records cross-domain intent and the active design queue. The phase order is maintained in [plan.md](plan.md); accepted decisions and historical rationale are linked to their owning design documents and ADRs.
 
@@ -168,9 +168,9 @@ Each domain document tracks its own open decisions at the bottom of that doc —
 | Document | Key Open Decisions |
 |---|---|
 | [Minerals and Refining](minerals-and-refining.md) | Final mineral roster, real deposit classes, assays, material recovery assignments; aluminum/alumina are Phase 2 or later, and basic salt/brine access is early Phase 2 |
-| [Chemical Products and Processes](chemical-processes.md) | Validate product and reaction entries, routes, and catalysts; all process-family concepts currently documented are in Core scope under ADR-0024 |
-| [Intermediate Products](intermediate-products.md) | Validate selected bridge-product routes and facility bills of materials; pre-Core supply for candidate packaged ICs and positioning stages; specific battery chemistry selection |
-| [Power System](power-system.md) — Production | Exact combustion-fuel items, uranium/thorium fuel routes and balance, the crystalline-silicon PV process, lithium/phosphate sourcing and the full LFP cell/pack route, storage progression, construction/research gates, fusion/endgame connection, and military-pressure contribution per generator class; Phase 3/4 route identities are selected |
+| [Chemical Products and Processes](chemical-processes.md) | Validate product and reaction entries, routes, and catalysts; the distinct Phase 2 Zr/Hf separation-stage boundary is selected under ADR-0045, while its chemistry, reagents, and implementation remain open; all process-family concepts currently documented are in Core scope under ADR-0024 |
+| [Intermediate Products](intermediate-products.md) | Validate selected bridge-product routes and facility bills of materials; pre-Core supply for candidate packaged ICs and positioning stages; complete LFP cell/pack design and capacity progression remain open after the cathode chemistry and feed-source decisions |
+| [Power System](power-system.md) — Production | Exact combustion-fuel items, uranium feed preparation/conversion route, thorium seed form, fuel form/routes and balance, the distinct Zr/Hf separation stage's chemistry/equipment plus zirconium-alloy cladding grade and processing/supply details, the crystalline-silicon PV process, brine-lithium recovery, phosphate processing, and the full LFP cell/pack route, storage progression, construction/research gates, fusion/endgame connection, and military-pressure contribution per generator class; enriched UO2 is required under [ADR-0042](adrs/ADR-0042-require-enriched-phase-2-uranium-fuel.md), gas-centrifuge enrichment is selected under [ADR-0046](adrs/ADR-0046-select-phase-2-uranium-centrifuge-enrichment.md), the shared uranium chain supplies the thorium startup seed under [ADR-0047](adrs/ADR-0047-share-phase-2-uranium-chain-with-thorium-seed.md), Phase 2 cladding and fuel-rod assembly are required under [ADR-0043](adrs/ADR-0043-phase-2-fission-fuel-rod-fabrication.md), shared early/mid-Phase-2 zircon access for CPU and cladding is selected under [ADR-0044](adrs/ADR-0044-phase-2-shared-zircon-supply-for-fission-cladding.md), and a distinct Zr/Hf separation stage is required under [ADR-0045](adrs/ADR-0045-phase-2-zirconium-hafnium-separation-stage.md); Phase 3/4 route identities are selected |
 | [Power System](power-system.md) — Distribution | Compatible tiered-pole levels and stats; custom voltage, conductor-loss, and grid-stabilization mechanics remain optional extension candidates, not core requirements |
 | [Endgame Vision](endgame-vision.md) | Pre-Core source for candidate Core electronics and positioning materials; Array support inputs; higher Core gates, final milestone structure, and compute distribution |
 | [Research and Progression](research-progression.md) | Seven distinct tiers per domain and the T2b2 first-Core gate are selected; exact pack items/recipes, later Core gates, technology roster, and timing remain open |
