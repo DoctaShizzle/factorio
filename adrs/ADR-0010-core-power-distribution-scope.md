@@ -14,7 +14,7 @@ The source rationale is that major overhauls such as Space Exploration, Bob's Mo
 
 The proposed extension would add discrete transmission lines, voltage tiers, length- and material-dependent losses, transformers, HVDC converters, grid diagnostics, and fault propagation. The source describes it as a parallel architecture alongside vanilla poles, which players could use alone or mix with the vanilla network; it would be optional and separate from the core experience.
 
-The same source later calls power diagnostics a core feature, despite placing grid diagnostics in the proposed extension. It does not distinguish basic vanilla-grid status from voltage/loss diagnostics, so the diagnostics boundary remains unresolved.
+The same source later calls power diagnostics a core feature, despite placing grid diagnostics in the proposed extension. It does not distinguish basic vanilla-grid status from voltage/loss diagnostics. [ADR-0058](ADR-0058-keep-custom-power-diagnostics-and-stabilization-out-of-core.md) clarifies that Core relies on native feedback and keeps custom grid diagnostics and stabilization out of Core.
 
 ## Decision
 
@@ -35,14 +35,15 @@ The accepted direction retains compatibility with Factorio's power network while
 
 - Positive: Core generation remains compatible with the vanilla network, while pole variants add construction and placement choices.
 - Trade-offs: Tier count, pole statistics, materials, and phase gates still need design; the core grid does not model voltage or transmission loss.
-- Follow-up: Add the tiered pole family to [Infrastructure](../infrastructure.md), align powered-rail assumptions in [Logistics System](../logistics-system.md), and reconcile basic versus grid-specific diagnostics and stabilization scope.
+- Follow-up: Add the tiered pole family to [Infrastructure](../infrastructure.md) and align powered-rail assumptions in [Logistics System](../logistics-system.md). The diagnostics and stabilization boundary is clarified by [ADR-0058](ADR-0058-keep-custom-power-diagnostics-and-stabilization-out-of-core.md).
 
 ## Affected Design and Related Decisions
 
 - Design documents: [Power System](../power-system.md), [Infrastructure](../infrastructure.md), [Logistics System](../logistics-system.md), [Military System](../military-system.md).
-- Related ADRs: None recorded.
+- Related ADRs: [ADR-0058](ADR-0058-keep-custom-power-diagnostics-and-stabilization-out-of-core.md).
 - Supersedes / superseded by: Replaces the source's proposed vanilla-only core pole scope with the accepted vanilla-grid-plus-tiered-poles direction; the optional full-grid replacement remains separate.
 
 ## Revisions
 
 - 2026-11-12 — User accepted retaining the vanilla power system and requested compatible tiered power poles; pole statistics and progression details remain open.
+- 2026-11-15 — Clarified the Core diagnostics and stabilization boundary in ADR-0058; the vanilla-grid decision remains unchanged.
