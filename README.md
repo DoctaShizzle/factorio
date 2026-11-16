@@ -33,7 +33,7 @@ The arc: *"Starting from dirt and ore, layering process after process, until bui
 | Non-building products | Construction materials, components, fuels, vehicles, weapons and ammunition, personal equipment and modules, research ingredients, and endgame products | [Intermediate Products](intermediate-products.md) |
 | Infrastructure | Candidate placeable buildings, machine families, construction demands, and infrastructure categories | [Infrastructure](infrastructure.md) |
 | Power | Vanilla grid retained with compatible tiered poles; Phase 1 combustion, Phase 2 crystalline-silicon PV and LFP battery storage, Phase 2 uranium/thorium fission, and at least three selected routes in each of Phases 3 and 4 | [Power System](power-system.md) |
-| Endgame | Planetary simulation network, general-physics discovery | [Endgame Vision](endgame-vision.md) |
+| Endgame | Planetary simulation network; general-physics discovery is a candidate | [Endgame Vision](endgame-vision.md) |
 | Military | Pollution pressure, ammo chains, defense infrastructure | [Military System](military-system.md) |
 | Logistics | Belts, trains, demand-based dispatch, information flow | [Logistics System](logistics-system.md) |
 | Research | Three-phase progression (conventional → domain packs → simulation-gated) | [Research and Progression](research-progression.md) |
@@ -66,4 +66,4 @@ Avoid: mandatory upgrades without new capability, arbitrary complexity, a single
 
 ## Status
 
-Phase 1 documentation migration is complete. Phase 2 material-trunk decisions are being reconciled; see [plan.md](plan.md) for accepted decisions, remaining high-impact questions, and the gate before Phase 3. The project remains a broad design proposal, with system details and open decisions in the linked owner documents.
+Phase 1 documentation migration and Phase 2 cross-domain decision reconciliation are complete. Phase 3 has not started; see [plan.md](plan.md) for remaining deferred decisions and later gates. The project remains a broad design proposal, with system details and open decisions in the linked owner documents.

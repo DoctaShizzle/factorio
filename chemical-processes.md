@@ -102,6 +102,7 @@ Catalysts are physical process inputs or machine components where they create a 
 - Route templates should have stable output proportions across compatible feed profiles; the material identities vary with the feed.
 - Every coproduct needs a useful downstream route, an optional recovery path, a bounded operating buffer, feed throttling when demand is saturated, or an explicit disposal path if it is a gas/fluid stream.
 - Gas/fluid disposal is an explicit process, not silent recipe deletion; every release consumes power and produces pollution under [ADR-0035](adrs/ADR-0035-powered-polluting-gas-fluid-disposal.md). Account for these operating costs when balancing routes.
+- If an earlier recipe produces a modeled gas/fluid coproduct, make a viable handling path available by its first operation without permanent accumulation; use the selected powered disposal facility when release is the path.
 - Smart routing and circuits should support stable operation. PLCs may automate complex plant control, but should not be required for basic balance.
 - Show inputs, outputs, coproducts, and known uses in the handbook so players can understand a route before building it.
 

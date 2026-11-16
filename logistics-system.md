@@ -13,7 +13,7 @@ This draft proposes logistics as an engineering decision layer spanning physical
 
 - **In scope:** Candidate design philosophy and progression for belts, rail, bots, freight terminals, demand-based dispatch, and information logistics.
 - **Out of scope:** Specific item recipes for belt/machine variants, train timetable/track networking implementation details, and exact bot stat progression numbers.
-- **Source-of-truth boundaries:** Product identities and recipes belong to the relevant product documents; power behavior belongs to [Power System](power-system.md). Missing machine-system ownership remains an open repository reference in [Documentation Map](documentation-map.md).
+- **Source-of-truth boundaries:** Product identities and recipes belong to the relevant product documents; power behavior belongs to [Power System](power-system.md). Machine families and candidate placeable transport entities belong to [Infrastructure](infrastructure.md).
 
 ## Design Philosophy
 
@@ -169,8 +169,8 @@ Information logistics creates a **direct connection** between semiconductors, co
 5. **Belts evolve alongside materials science.** Better infrastructure is earned through industrial progress.
 6. **Information logistics becomes a late-game engineering discipline.** Moving decisions, not just items, connects to the endgame.
 7. **Logistics rewards infrastructure design, not repetitive maintenance.** The player decides architecture; the system handles execution.
-8. **Machine capability tiers are defined by build materials, not input material quality** (see research-progression.md "Machine Tiering Through Material"). Each assembler type has multiple tiers built from progressively better materials — higher tiers unlock recipes that lower-tier machines cannot perform because they must withstand higher temperatures, pressures, or precision requirements. Better raw deposits remain useful because easier purification cascades mean cheaper machine upgrades.
-9. **Machine capability scales through building higher-tier variants, not just upgrading in-place.** A furnace can accept upgrade modules for limited improvement, but building a Tier 2 or Tier 3 furnace from scratch unlocks capabilities that upgrades cannot replicate.
+8. **Candidate capability tiers use build materials, not input material quality** (see [Research and Progression](research-progression.md)). Where tiers are selected, higher tiers could unlock operations needing greater temperature, pressure, or precision. The number of tiers and whether a family is tiered remain open.
+9. **Candidate higher-tier builds provide new capabilities, not only in-place upgrades.** A furnace could accept limited upgrade modules while a separately built higher tier unlocks additional operations; exact family and module rules remain open.
 
 ## Engineering Complexity Patterns — Game-Wide Logistics Design
 
@@ -181,7 +181,7 @@ These patterns create meaningful engineering decisions across all phases. They a
 Not all production chains produce only useful output. Some recipes generate coproducts alongside the primary product:
 - **Recycle path:** Feed coproduct back into another chain — creates routing puzzles that reward cross-domain awareness
 - **Convert path:** Add a secondary processing step to transform coproduct into something else useful — adds depth but increases infrastructure cost
-- **Manage loss:** Accept material loss and optimize around it — faster to set up but resource-inefficient
+- **Manage loss:** Accept lower recovery and optimize around it — faster to set up but resource-inefficient. Modeled coproducts still need bounded handling; gas/fluid disposal follows [ADR-0035](adrs/ADR-0035-powered-polluting-gas-fluid-disposal.md).
 
 This forces process strategy choice, not just machine placement. The player asks "how do I handle the waste?" as much as "which process should I use?"
 
@@ -212,9 +212,9 @@ Even though only ~30 intermediates feed into research directly, each traces back
 - **Mixed solid+fluid inputs** require piping infrastructure to join belt networks — creates natural spatial boundaries between production zones
 - **Three+ inputs from different origins** create convergence-point hubs that become natural organizational centers
 
-#### Machine Tiering Through Building, Not Just Upgrading
+#### Candidate Machine Tiering Through Building, Not Just Upgrading
 
-Machine capability scales through **building higher-tier variants** from scratch, not just slotting in modules:
+Where a family is tiered, a candidate model scales machine capability through **building higher-tier variants** from scratch, not just slotting in modules:
 - A basic machine can accept upgrade modules for limited improvement (throughput boost, power reduction), but these have caps — a Tier 1 furnace can never match a Tier 3 furnace's maximum throughput
 - Building a new machine unlocks capabilities that upgrades cannot replicate (new recipe access, higher material grade processing)
 - This creates retrofit engineering pressure: can you fit upgrades in your existing footprint, or do you need to tear it down and rebuild?
@@ -230,3 +230,5 @@ Machine capability scales through **building higher-tier variants** from scratch
 - Interaction between information logistics and the PLC automation system
 - Catalyst degradation severity — light (manageable rhythm) vs. heavy (constant maintenance pressure)
 - Upgrade module caps — how far can modules push a machine before building a new tier becomes necessary?
+
+Resolve powered-rail and transport-family core/extension scope, the treatment of vanilla trains, and family-specific tiering before closing Phase 4 infrastructure scope. Phase 3 gap assessment must mark dependent recommendations as needing a decision; Phase 5 must verify the selected transport capabilities and resource access. No mandatory pre-Core route may rely on unapproved powered rails, custom voltage/loss mechanics, or an external dispatch mod.

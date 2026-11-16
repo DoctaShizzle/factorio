@@ -49,9 +49,9 @@ Phase 1 (Conventional)
 ├── Baseline power generation and factory automation
 └── Player learns: "I am a factory builder"
 
-Transition Point: Fission → Fusion boundary
+Transition: conventional industry → domain science (exact gate open)
 Phase 2 (Domain Science)
-├── Conventional + domain packs gate nuclear advancement
+├── Conventional and domain research support industrial advancement; exact gates remain open
 ├── Six domain labs: Superconductivity, Plasma, Nanofabrication, Isotope Separation, Reaction Dynamics, Quantum States
 ├── Pack tiers per domain: T1 → T2a → T2b1 → T2b2 → each producing distinct research items
 ├── First-Core construction requirements are listed in Candidate Core Unlock Requirements below
@@ -65,8 +65,8 @@ Phase 3 (Simulation-Gated)
 ├── General-Physics Model supports late-game power research; Hawking is one accepted route, with its gate still open
 └── Player learns: "I am an engineer who must understand the universe to manipulate it"
 
-Final Milestone: Planetary Digital Twin Complete
-└── Unlocks general-physics discovery. The player has demonstrated mastery of every industrial domain and proven that their simulation network can model reality accurately enough to push beyond known physics.
+Candidate Milestone: Planetary Digital Twin Complete
+└── General-physics discovery is a possible continuation; the final milestone and victory versus ongoing gameplay remain open.
 ```
 
 ## Phase 1: Conventional Science (Early Game)
@@ -80,7 +80,7 @@ Standard science pack tech tree — largely inspired by vanilla Factorio but re-
 - The handbook (mod overview) establishes **"Knowledge before capability"** here: every step's industrial journey is shown in the handbook *before* it can be built, teaching players what to expect.
 
 ### When Phase 1 Ends
-Phase 1 transitions to Phase 2 at the **Fission → Fusion boundary** — when the selected Phase 2 fission routes can supply reactor-usable fuel rods. The uranium route requires enriched UO2 pellets under [ADR-0042](adrs/ADR-0042-require-enriched-phase-2-uranium-fuel.md), gas-centrifuge enrichment under [ADR-0046](adrs/ADR-0046-select-phase-2-uranium-centrifuge-enrichment.md), and the high-level concentrate -> UF6 -> centrifuge -> UO2 sequence under [ADR-0048](adrs/ADR-0048-select-phase-2-uf6-uranium-fuel-cycle.md). Uraninite feed and fluorspar feed are selected as accessible by the UF6-conversion unlock under [ADR-0050](adrs/ADR-0050-select-phase-2-uraninite-uranium-feed.md) and [ADR-0049](adrs/ADR-0049-select-phase-2-fluorspar-feed-for-uf6-conversion.md); uranium/fluorite recovery, reagent preparation, detailed conversion chemistry, and research gates remain open. Phase 2 tails handling is required under [ADR-0052](adrs/ADR-0052-require-phase-2-depleted-uf6-tails-handling.md), and deconversion to uranium oxide and HF is selected under [ADR-0053](adrs/ADR-0053-select-depleted-uf6-deconversion.md); uranium oxide recovery for later use and HF reuse in UF6 conversion are selected under [ADR-0054](adrs/ADR-0054-select-depleted-uf6-output-fates.md); exact forms, conditioning, process integration, and research gating remain open. The numeric uranium-fuel enrichment target is deferred under [ADR-0051](adrs/ADR-0051-defer-phase-2-uranium-enrichment-target.md) until detailed recipe and balance design. Both uranium and thorium routes require Phase 2 cladding and rod assembly under [ADR-0043](adrs/ADR-0043-phase-2-fission-fuel-rod-fabrication.md). The thorium startup seed is supplied by that shared uranium chain under [ADR-0047](adrs/ADR-0047-share-phase-2-uranium-chain-with-thorium-seed.md); the high-level solid-oxide seed-and-blanket architecture is selected under [ADR-0055](adrs/ADR-0055-select-phase-2-thorium-oxide-seed-blanket-architecture.md), and the U-233 cycle under [ADR-0023](adrs/ADR-0023-thorium-startup-seed-and-breeding-model.md). The startup seed uses the same qualitative enrichment grade as uranium fuel under [ADR-0056](adrs/ADR-0056-share-uranium-fuel-enrichment-grade-with-thorium-seed.md), while the numeric target remains deferred under [ADR-0051](adrs/ADR-0051-defer-phase-2-uranium-enrichment-target.md). Exact seed compound, isotope composition, quantity, preparation, processing/reprocessing, balances, and research gates remain open. At this point, conventional industry has exhausted its ability to independently discover advanced physics. The Phase 2 uranium route also requires post-discharge reprocessing/recovery for spent fuel under [ADR-0057](adrs/ADR-0057-require-phase-2-reprocessing-for-spent-uranium-fuel.md); recovered streams, fates, and the research gate remain open.
+Phase 1 transitions into Phase 2 as conventional industry expands into domain science; the exact transition technologies and timing remain open. Fission is a Phase 2 power option, not the boundary between Phases 1 and 2 or a first-Core prerequisite. Fusion begins in Phase 3 after first-Core activation under [ADR-0019](adrs/ADR-0019-phase-1-and-2-power-progression.md) and [ADR-0020](adrs/ADR-0020-seven-distinct-domain-pack-tiers.md). Fuel-cycle requirements and open details are owned by [Power System](power-system.md).
 
 ## Phase 2: Transitional Domain Science (Mid-Game Bridge)
 
@@ -108,6 +108,12 @@ Key design points for each dedicated research facility:
 | Quantum States Laboratory | Domain data on atomic bonding, crystalline structures, and quantum states | Cryogenic argon/nitrogen mixture | Quantum mechanics — atomic structure, bond formation, phase transitions at low temperature |
 
 These are selected bridge mappings, not complete facility bills of materials. No enriched fission fuel is required for the isotope facility or first-Core gate; other operating inputs remain open.
+
+Every bridge must be available by its first required facility use and corresponding T2a capability stage. The pre-Core progression must have an acyclic route from conventional starting capabilities through the facilities and all six domains' T2b2 packs, as well as the required CPU and Array inputs. A facility's first required inputs cannot depend on its own unavailable packs, and dependencies between domains cannot form a closed cycle. The exact facility order, supporting inputs, and technology gates remain open.
+
+The Reaction Dynamics bridge uses rhenium-bearing molybdenite under [ADR-0061](adrs/ADR-0061-select-phase-2-molybdenite-rhenium-feed.md). Its supply and recovery must be accessible by the bridge's first required use without requiring that facility, its own packs, or the first Core; exact research and processing gates remain open.
+
+The Plasma Confinement bridge uses niobium from columbite-tantalite and tin from cassiterite under [ADR-0062](adrs/ADR-0062-select-phase-2-niobium-tin-bridge-feeds.md). Both feeds and their production paths must be accessible by the wire's first required use without requiring that facility, its own packs, or the first Core; exact gates and fabrication remain open.
 
 **Candidate facility-quality mechanic:** A research facility with better materials and operating conditions could produce more domain packs than a makeshift setup. This remains a proposal, not a required mechanic.
 
@@ -139,13 +145,13 @@ Conventional CPU-grade packaged processors are available by late Phase 2 for ini
 
 #### Breakthroughs Per Core Level (Phase 3 Capabilities)
 
-Each Core level adds *new* research categories — different technology pools, not just "more of the same."
+The following breakthroughs are candidate directions for distinct research categories. Later milestones, gates, and unlocks remain open.
 
 | Core Level | Breakthrough Category | Unlockable Tech Classes | Design Notes |
 |---|---|---|---|
 | **Level 1** (T2b2 minimum) | **Planetary + Industrial Model** — simulation can accurately model physical systems at planetary scale. Breakthrough: *predictive modeling of known physics.* | Capabilities beyond current-day industrial practice, advanced materials science, and possible Josephson/SFQ compute preparation | First "we now have the data to go further" state. Conventional CPU-grade processors and contemporary cleanroom/chipmaking are available by late Phase 2; Level 1 may unlock speculative capabilities beyond that boundary. |
 | **Level 2** (gate TBD) | **Information-Based Civilization Model** — simulation can model populations of information-formed entities whose behavior *emerges* from structure, not programming. Breakthrough: *understanding how structured data produces perception and decision-making.* | Deep simulation infrastructure designs, advanced factory control frameworks (PLC expansion), emergent-system modeling tools, behavioral dataset collection methods | The "new physics" here is that the simulation itself has proven it can model entities that perceive, decide, and act — not simulated AI but mathematical beings whose behavior emerges from their information structure. Moves player from "modeling physics" to "modeling intelligence." |
-| **Level 3** (T3c final milestone) | **General-Physics Model** — simulation has achieved sufficient fidelity that it can predict phenomena *beyond* known physics. Breakthrough: *access to cutting-edge theoretical knowledge the player's civilization cannot independently discover.* New physics frontiers unlocked. | Additional Phase 4 power-generation specifics (scope and gates still open), advanced quantum mechanics applications, exotic matter manipulation frameworks, general-physics research protocols | The **final milestone**. Simulation has validated itself against every known physics domain (Core L1), proven it can model emergent information structures (Core L2), and now reaches beyond — predicting phenomena that conventional science cannot reach. Unlocking "general-physics discovery" isn't a single recipe; it's *access* to research categories previously impossible. |
+| **Level 3** (candidate; gate open) | **General-Physics Model** — simulation has achieved sufficient fidelity that it can predict phenomena *beyond* known physics. Breakthrough: *access to cutting-edge theoretical knowledge the player's civilization cannot independently discover.* New physics frontiers unlocked. | Additional Phase 4 power-generation specifics (scope and gates still open), advanced quantum mechanics applications, exotic matter manipulation frameworks, general-physics research protocols | Candidate final milestone: simulation reaches beyond validated known-physics and information-structure models to predict phenomena conventional science cannot reach. General-physics discovery and its unlocks are not selected. |
 
 #### Domain Pack Recipes: Required Intermediate Products Per Tier
 
@@ -370,7 +376,7 @@ A technology may gate on multiple domain packs if it spans >1 physics domain. Th
 |---|---|---|---|---|---|
 | *— pending stabilization —* | Phase 1 | ✅ required | — | No | Baseline industrial tech |
 | *e.g., enriched uranium fuel* | Phase 2 | ✅ + domain pack(s) | e.g., Superconductivity T2a + Isotope Separation T2b1 | No | Supplement conventional research building |
-| *e.g., cleanroom fabrication* | Phase 3 | — | TBD (placeholder) | Yes, Core L1 | Requires simulation understanding |
+| *e.g., contemporary cleanroom and chipmaking* | Phase 2 | TBD (placeholder) | TBD (placeholder) | No | Available before the first Core; exact gates remain open |
 | *e.g., tungsten armor tiles* | Phase 3 | — | e.g., Plasma Confinement T3a + Superconductivity T3a | Yes, Core L2 | Specific domain fidelity gate |
 | *— core infrastructure techs —* | Phase 3 | Hybrid (varies) | Variable per tech | Yes, Core L1/L2/L3 | Final milestone chain gates on Core L3 synthesis reports |
 

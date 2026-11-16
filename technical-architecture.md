@@ -171,9 +171,9 @@ The design proposal is to batch similar chemical processes and avoid creating a 
 
 ## Open Technical Decisions
 
-- **Packaging and module structure:** Decide whether to ship one installable mod with internal modules, separate required core mods, or another structure.
-- **Core versus extension scope:** The extension table is a proposal, not a finalized boundary. Assign content after the product and system scopes are agreed.
-- **Game-version and dependency strategy:** Verify the target Factorio version, mod APIs, included libraries, and whether any third-party dependency is needed.
+- **Packaging and module structure:** Decide whether to ship one installable mod with internal modules, separate required core mods, or another structure before implementation planning; none is selected here.
+- **Core versus extension scope:** The extension table is a proposal, not a finalized boundary. Classify gameplay capabilities in Phase 4 before coverage, independently of the eventual packaging choice; no mandatory core path may depend on an unapproved extension.
+- **Game-version and dependency strategy:** Select the target Factorio version and any required DLC before closing Phase 4's version-dependent vanilla scope, then verify APIs, libraries, and third-party dependencies before implementation. Until then, version-specific gap claims remain uncertain.
 - **Scope estimates:** Reconcile item, recipe, entity, and technology counts against the approved catalog; do not enforce the draft figures as caps.
 - **Performance constraints:** Benchmark representative production, logistics, save, and entity loads before setting thresholds.
 - **Power extension scope:** If custom voltage, conductors, transformers, HVDC, or stabilization are retained, define them as optional extension content in [Power System](power-system.md); they are not part of the accepted core grid direction.

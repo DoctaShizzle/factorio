@@ -14,7 +14,7 @@ Keep current design, historical decisions, evidence, and product-tree coverage d
 | Current-state design documents | Existing root-level domain documents | State the current intended design, scope, dependencies, and open decisions for the owned domain. |
 | Architecture Decision Records (ADRs) | `adrs/ADR-NNNN-short-title.md` | Preserve one significant decision's context, alternatives, outcome, rationale, and consequences. The index is `adrs/README.md`. |
 | Reusable templates | `templates/design-document.md` and `templates/adr.md` | Provide the required structure for new or migrated documents. |
-| Product-tree coverage ledger | `product-coverage-ledger.md` | Canonical coverage matrix, introduced in Phase 4. Use Markdown tables with stable entry IDs and links to owning design documents. |
+| Product-tree coverage ledger | `product-coverage-ledger.md` | Canonical coverage matrix, introduced in Phase 5. Use Markdown tables with stable entry IDs and links to owning design documents. |
 | Plans and work checkpoints | `plan.md` and session checkpoints | Track sequence, gates, progress, and handoffs; they do not own domain design. |
 | Reports and comparative analyses | Existing report documents | Provide evidence and recommendations. They do not become approved design merely by being present. |
 

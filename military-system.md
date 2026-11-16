@@ -17,7 +17,7 @@ This draft proposes military and expansion pressure as consequences of industria
 
 ## Design Philosophy
 
-The military and expansion systems exist to give weight to process selection. There are two independent pressure axes arising from industrial decisions:
+The draft proposes two complementary pressure axes arising from industrial decisions:
 
 1. **Pollution pressure** — dirty processes generate attacks that require defense infrastructure
 2. **Space pressure** — inefficient processes demand far more footprint, forcing urgency about expansion
@@ -106,7 +106,7 @@ This differentiation stays at the *attack profile* level (which unit types appea
 
 **Design principle:** No single ammo is universally optimal. Players must plan production quantities based on enemy composition in each zone, mirroring our core philosophy of "process choice" — which ammo you produce for a zone is a deliberate engineering decision, not just "which does highest DPS."
 
-## Space Pressure — Process-Driven Expansion Urgency
+## Candidate Space Pressure — Process-Driven Expansion Urgency
 
 Process selection creates a second, independent axis of expansion urgency. Some industrial paths demand far more land and infrastructure than others, regardless of pollution. This means the rate and priority at which the player explores space depends on their chosen process mix.
 
@@ -196,7 +196,7 @@ Weapon tiers follow Bob's Weapons Pack philosophy:
 | Plasma turret | New electrical candidate | Artillery-like plasma orb with a relatively large splash radius | Substantial power draw proposed; tier, range, ammunition/consumables, and values TBD |
 | Railgun turret | New electrical candidate | Very-long-range beam/shot damages enemies along its path with small-to-medium splash, potentially to maximum visible or targetable range | Substantial power draw proposed; attack model, tier, ammunition/consumables, and values TBD |
 | Flamethrower turret | Vanilla | T2a incendiary fuel | Petrochemical cracking or oil refining capability |
-| Rocket turret | Vanilla | T3 HE shell → T4 penetration rocket | Explosive compound chain / nuclear fuel cycle |
+| Rocket turret | Vanilla status unverified | T3 HE shell → T4 penetration rocket | Explosive compound chain / nuclear fuel cycle |
 
 Both proposed electrical families should require substantial power as a balancing cost. Whether this is sustained draw, firing bursts, stored energy per shot, or a combination remains open; see [ADR-0015](adrs/ADR-0015-sustained-power-for-defense.md).
 
@@ -235,17 +235,17 @@ A mature defensive posture requires:
 - **Power infrastructure** — defense grids add sustained load to local power networks
 - **Pollution tradeoff awareness** — expanding the factory frontier often pushes operations into higher-pressure zones
 
-## Integration with Vanilla: Space Platform Completion
+## Candidate Integration with a Space-Platform Objective
 
-The mod should support completion of the vanilla space platform victory condition (rocket fuel, rockets, rocket parts) as one possible endgame path alongside the Project Prometheus endgame. Key considerations:
+The source proposes a space-platform objective alongside the Project Prometheus endgame. Its availability in the selected Factorio version or DLC, its victory status, and its inclusion in core scope remain unverified. Candidate considerations:
 
 - **Rocket fuel** connects to chemical chains — sulfuric acid processing from oil or coal routes can feed into hydrazine/monopropellant production
 - **Rocket parts** connect to intermediate product chains — aluminum alloys, titanium structures, semiconductor sensors for guidance systems
 - **Ammo for defending the launch site** — late-game military pressure around the space platform area needs dedicated defense logistics
 
-This gives players two endgame aspirations:
+The proposed aspirations are:
 1. **Project Prometheus:** Build the distributed planetary computing network (the mod's signature endgame)
-2. **Space platform completion:** Achieve the vanilla victory using the mod's industrial ecosystem to produce rocket fuel and parts through new chains
+2. **Space platform completion:** Use the mod's industrial ecosystem to produce rocket fuel and parts through new chains, if the objective is included
 
 ### Sustained Defense Power Load (Accepted Principle; Values Provisional)
 
@@ -277,6 +277,8 @@ The user rejected military drones and specified fixed defenses. An optional, mor
 - Define the optional advanced military extension scope for spider-bot and power-suit additions.
 - Align sustained defense power demand with the accepted core power model; reconcile the differing laser-turret estimates in this document and [Infrastructure](infrastructure.md).
 
+The enemy/pressure conflict and core-versus-extension turret roster must be bounded before Phase 4 infrastructure scope is closed. Until then, Phase 3 gap assessment must classify affected recommendations as needing a decision rather than approving either proposal. Phase 5 coverage must trace the chosen defense capabilities and power demands; ammunition identities, recipes, and research gates follow in Phases 6–8. The proposed space-platform objective is not an approved second victory condition.
+
 ## Candidate Extension Pack Scope
 
 The following extension concepts are source proposals only; none is approved.
@@ -293,4 +295,4 @@ Military content for extension packs follows the core mod's design but adds dept
 
 This is a candidate design, not a complete military specification. Capability-based ammunition and sustained defense power are accepted principles; the turret roster remains proposed, and military drones are rejected. The detailed ammunition, weapon, power-load, and extension tables remain candidate content, not final catalog entries, build recipes, or balance values. The rejected drone roles and supply chains are preserved in [ADR-0016](adrs/ADR-0016-late-game-defense-drones.md).
 
-Next, reconcile military scope with the Phase 3 infrastructure inventory, include or exclude military product families during Phase 4 coverage, and defer final product identities and recipes to Phases 5 and 6 of [the plan](plan.md). Resolve the ammo-tier and recipe-count conflict before product enumeration.
+Next, reconcile military scope with the Phase 4 infrastructure inventory, classify military product families during Phase 5 coverage, and defer final product identities, recipes, and research to Phases 6–8 of [the plan](plan.md). Resolve the ammo-tier and recipe-count conflict before product enumeration.
