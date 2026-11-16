@@ -1,7 +1,7 @@
 # Technical Architecture — Project Prometheus Modpack
 
 *Status: Draft — packaging, dependencies, scope estimates, and performance claims are unverified proposals.*  
-*Last updated: 2026-11-12*
+*Last updated: 2026-11-16*
 
 Related documents: [Mod Overview](mod-overview.md), [Infrastructure](infrastructure.md), [Power System](power-system.md), [Logistics System](logistics-system.md), and [Product Taxonomy](product-taxonomy.md).
 
@@ -52,7 +52,7 @@ project-prometheus/
 | **difficulty-extreme** | Extreme mode | Resource scarcity, aggressive biter scaling, fortified bases, pollution multipliers | Hardcore players |
 | **chemistry-harsh-reactions** | Complexity layer | Tighter catalyst windows, more extreme conditions. Makes chemistry feel like real process engineering with less margin for error | Players who want the chemistry layer to challenge them |
 | **machinery-advanced-bots** | Deep dive | Smarter pathfinding, multi-item batch handling, predictive scheduling for bots | Bot enthusiasts |
-| **power-nuclear-waste** | System addition | Phase 2 post-discharge reprocessing/recovery for spent uranium fuel is required under [ADR-0057](adrs/ADR-0057-require-phase-2-reprocessing-for-spent-uranium-fuel.md), so this proposed optional pack cannot be its sole home. Whether containment storage and long-lived isotope decay chains remain optional extension features is unresolved. | Players who care about nuclear power |
+| **power-nuclear-waste** | Additional-detail candidate | Required Phase 2 fuel recovery, conditioning/packaging, and continuous slightly polluting deep disposal are Core capabilities under [ADR-0066](adrs/ADR-0066-select-phase-2-nuclear-recovery-flows.md) and [ADR-0068](adrs/ADR-0068-continuous-nuclear-waste-disposal.md), not extension-only content. Optional isotope/decay detail remains unapproved; this pack cannot be required for baseline operation or reintroduce mandatory finite waste storage into Core. | Players wanting additional nuclear detail |
 | **logistics-advanced-trains** | Deep dive | Dynamic routing algorithms, predictive scheduling, multi-modal transfer optimization | Train enthusiasts |
 | **endgame-simulation-hard** | Hard mode | More information-formed entities to debug, harder network scaling, more complex fidelity requirements | Players who want the endgame to challenge them |
 | **worldgen-altered-geography** | Alternative start | Different continent shapes, unusual mineral concentrations, varied early-game resource distribution | Players who want different starting conditions |

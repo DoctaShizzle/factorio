@@ -1,8 +1,8 @@
 # ADR-0035: Permit Powered, Pollution-Producing Disposal of Gases and Fluids
 
-*Status: Accepted*
+*Status: Accepted; nuclear-stream eligibility and solid-handling boundary partially superseded by [ADR-0068](ADR-0068-continuous-nuclear-waste-disposal.md)*
 *Decision date: 2026-11-13*
-*Last updated: 2026-11-13*
+*Last updated: 2026-11-16*
 
 Related documents: [Mod Overview](../mod-overview.md), [Minerals and Refining](../minerals-and-refining.md), [Chemical Processes](../chemical-processes.md), [Intermediate Products](../intermediate-products.md), [Infrastructure](../infrastructure.md), and [Plan](../plan.md).
 
@@ -41,4 +41,4 @@ Separate facilities make gas release and liquid treatment legible as distinct op
 
 - Design documents: [Mod Overview](../mod-overview.md), [Minerals and Refining](../minerals-and-refining.md), [Chemical Processes](../chemical-processes.md), [Intermediate Products](../intermediate-products.md), [Infrastructure](../infrastructure.md), [Documentation Map](../documentation-map.md), and [Plan](../plan.md).
 - Related ADRs: [ADR-0033](ADR-0033-phase-2-submerged-arc-silicon-reduction.md), which selects the silicon-reduction route that produces CO.
-- Supersedes / superseded by: Supersedes the former no-required-voiding constraint for gas and fluid streams in the current-state documents. No prior ADR recorded that constraint; solid coproduct handling is unchanged.
+- Supersedes / superseded by: Supersedes the former no-required-voiding constraint for gas and fluid streams in the current-state documents. No prior ADR recorded that constraint. [ADR-0068](ADR-0068-continuous-nuclear-waste-disposal.md) partially supersedes unrestricted nuclear-stream release and adds continuous disposal of conditioned nuclear solids with slight pollution; ordinary gas/fluid facilities, power/pollution costs, and availability remain in force. [ADR-0067](ADR-0067-engineered-terminal-nuclear-waste-disposal.md) preserves the superseded finite-capacity amendment. The original decision text above is preserved.

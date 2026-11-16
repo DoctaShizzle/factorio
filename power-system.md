@@ -1,9 +1,11 @@
 # Power System Design
 
-*Status: Draft — core distribution and Hawking option accepted; Phase 1/2 generation direction, Phase 2 UF6-based uranium fuel-cycle forms and Uraninite/fluorspar feed access, monazite Th-232 feed and unlock-level access, gas-centrifuge enrichment, fission fuel-rod requirement and distinct Zr/Hf separation-stage boundary, initial crystalline-silicon PV platform and LFP battery chemistry, Phase 2 fission-safety boundary, Core grid-diagnostics boundary, and Phase 3/4 route identities selected; detailed conversion, construction, and progression rules remain open*
+*Status: Draft — power-route identities, Phase 2 fuel architecture, practical fission baseline, recovery interfaces, and conditioned nuclear-waste endpoint selected; detailed chemistry, construction, numerical balance, and progression gates remain open*
 *Last updated: 2026-11-16*
 
 Related documents: [Chemical Products and Processes](chemical-processes.md), [Intermediate Products](intermediate-products.md), [Minerals and Refining](minerals-and-refining.md), [Infrastructure](infrastructure.md), [Endgame Vision](endgame-vision.md). Related ADRs: [ADR-0010](adrs/ADR-0010-core-power-distribution-scope.md), [ADR-0011](adrs/ADR-0011-hawking-radiation-endgame-generator.md), [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md), [ADR-0018](adrs/ADR-0018-phase-3-and-4-power-route-roster-and-conversion.md), [ADR-0019](adrs/ADR-0019-phase-1-and-2-power-progression.md), [ADR-0021](adrs/ADR-0021-phase-2-material-and-solar-boundaries.md), [ADR-0022](adrs/ADR-0022-phase-2-bridge-mappings-and-core-dependencies.md), [ADR-0023](adrs/ADR-0023-thorium-startup-seed-and-breeding-model.md), [ADR-0035](adrs/ADR-0035-powered-polluting-gas-fluid-disposal.md) for gas/fluid disposal power and pollution constraints, [ADR-0036](adrs/ADR-0036-phase-2-minimum-fission-fuel-path.md) and [ADR-0041](adrs/ADR-0041-phase-2-direct-use-fission-fuel.md) for superseded Phase 2 fuel boundaries, [ADR-0038](adrs/ADR-0038-select-phase-2-crystalline-silicon-pv.md) for the initial Phase 2 PV platform and fabrication boundary, [ADR-0039](adrs/ADR-0039-phase-2-lfp-battery-storage.md) for the initial Phase 2 battery chemistry, [ADR-0040](adrs/ADR-0040-phase-2-lfp-feed-sources-and-access.md) for battery feed sources and starting-region access, [ADR-0042](adrs/ADR-0042-require-enriched-phase-2-uranium-fuel.md) for the uranium enrichment requirement, [ADR-0043](adrs/ADR-0043-phase-2-fission-fuel-rod-fabrication.md) for the required Phase 2 rod assembly, [ADR-0044](adrs/ADR-0044-phase-2-shared-zircon-supply-for-fission-cladding.md) for zirconium-alloy cladding and shared zircon access, [ADR-0045](adrs/ADR-0045-phase-2-zirconium-hafnium-separation-stage.md) for the distinct Zr/Hf separation-stage boundary, [ADR-0046](adrs/ADR-0046-select-phase-2-uranium-centrifuge-enrichment.md) for the selected gas-centrifuge enrichment method, [ADR-0047](adrs/ADR-0047-share-phase-2-uranium-chain-with-thorium-seed.md) for the shared uranium-chain source of the thorium startup seed, [ADR-0048](adrs/ADR-0048-select-phase-2-uf6-uranium-fuel-cycle.md) for the high-level UF6-based uranium fuel-cycle forms, [ADR-0049](adrs/ADR-0049-select-phase-2-fluorspar-feed-for-uf6-conversion.md) for the selected fluorspar feed and access timing, [ADR-0050](adrs/ADR-0050-select-phase-2-uraninite-uranium-feed.md) for the selected Uraninite feed and access timing, [ADR-0051](adrs/ADR-0051-defer-phase-2-uranium-enrichment-target.md) for the deferred numeric uranium-fuel target, [ADR-0056](adrs/ADR-0056-share-uranium-fuel-enrichment-grade-with-thorium-seed.md) for the same qualitative grade for the thorium startup seed, [ADR-0057](adrs/ADR-0057-require-phase-2-reprocessing-for-spent-uranium-fuel.md) for required post-discharge reprocessing/recovery of spent uranium fuel, [ADR-0058](adrs/ADR-0058-keep-custom-power-diagnostics-and-stabilization-out-of-core.md) for the Core grid-diagnostics/stabilization boundary, [ADR-0059](adrs/ADR-0059-exclude-blackout-meltdown-gameplay-from-phase-2-core-fission.md) for the Phase 2 Core fission-safety boundary, and [ADR-0060](adrs/ADR-0060-select-phase-2-monazite-thorium-feed.md) for monazite as the thorium feed and its access boundary.
+
+Related fission ADRs: [ADR-0063](adrs/ADR-0063-select-depleted-uranium-oxide-reuse.md) for depleted-oxide reuse, [ADR-0064](adrs/ADR-0064-phase-2-ptfe-bootstrap.md) for PTFE startup, [ADR-0065](adrs/ADR-0065-practical-phase-2-fission-readiness.md) for baseline operability, [ADR-0066](adrs/ADR-0066-select-phase-2-nuclear-recovery-flows.md) for recovery handoffs, and [ADR-0068](adrs/ADR-0068-continuous-nuclear-waste-disposal.md) for continuous, slightly polluting nuclear-solid disposal.
 
 ## Summary
 
@@ -15,7 +17,7 @@ This document is the current-state reference for generation routes, energy conve
 - **Extension candidate:** A custom transmission system is outside core scope and remains an optional `power-transmission-override` proposal.
 - **Progression decisions:** The phase sections below state current design; [ADR-0019](adrs/ADR-0019-phase-1-and-2-power-progression.md) and [ADR-0018](adrs/ADR-0018-phase-3-and-4-power-route-roster-and-conversion.md) preserve the associated decision records.
 - **In scope:** Candidate generator phases, fuel-density spectrum, infrastructure needs, power storage, and design questions.
-- **Not specified:** Recipe ratios, exact MW/kWh values, machine consumption values, detailed fuel cycling, and electrical engineering formulas.
+- **Not specified:** Recipe ratios, exact MW/kWh values, machine consumption values, detailed fuel-cycle chemistry and balances, and electrical engineering formulas.
 
 ## Core Design Principles for Power Production
 
@@ -47,22 +49,141 @@ This document is the current-state reference for generation routes, energy conve
 
 | Generator type | Fuel source | Design role | Key tradeoff |
 |---|---|---|---|
-| Uranium fission reactor | Uraninite -> uranium concentrate -> UF6 conversion -> gas-centrifuge enrichment -> enriched UF6 -> UO2 pellets clad and assembled into fuel rods under [ADR-0048](adrs/ADR-0048-select-phase-2-uf6-uranium-fuel-cycle.md) | Direct enriched-uranium cycle for dense, sustained power | High construction and fuel-cycle cost; requires Uraninite and fluorspar feeds under [ADR-0050](adrs/ADR-0050-select-phase-2-uraninite-uranium-feed.md) and [ADR-0049](adrs/ADR-0049-select-phase-2-fluorspar-feed-for-uf6-conversion.md), cladding supply, rod fabrication, cooling, Phase 2 depleted-UF6 deconversion to uranium oxide and HF under [ADR-0053](adrs/ADR-0053-select-depleted-uf6-deconversion.md), uranium-oxide recovery and HF reuse under [ADR-0054](adrs/ADR-0054-select-depleted-uf6-output-fates.md), and post-discharge spent-fuel reprocessing/recovery under [ADR-0057](adrs/ADR-0057-require-phase-2-reprocessing-for-spent-uranium-fuel.md); exact outputs, fates, and conditioning remain open |
-| Thorium seed-and-blanket reactor | Monazite-bearing deposits supply Th-232 for the fertile blanket, with limited supply accessible by the thorium power-route unlock and no starting-region guarantee under [ADR-0060](adrs/ADR-0060-select-phase-2-monazite-thorium-feed.md); recovery route and exact deposit assignment remain open. A uranium-derived fissile startup seed comes from the shared Phase 2 uranium preparation/enrichment chain under [ADR-0047](adrs/ADR-0047-share-phase-2-uranium-chain-with-thorium-seed.md); the separate solid-oxide seed-and-blanket architecture is selected under [ADR-0055](adrs/ADR-0055-select-phase-2-thorium-oxide-seed-blanket-architecture.md), and bred U-233 returns as oxide fuel rods | Th-232 cannot sustain fission by itself (it is fertile, not fissile). A uranium-derived seed starts the separate blanket cycle, which breeds U-233 for later oxide rods | The uranium chain is needed for the startup seed, but continuous uranium-fuel top-up is not required after startup in the selected gameplay model under [ADR-0023](adrs/ADR-0023-thorium-startup-seed-and-breeding-model.md); this is a gameplay abstraction, not a claim of real-world self-sustaining breeding. In exchange, the separate ThO2-bearing fertile stream and U-233 breeding/reprocessing loop add process and inventory complexity. The seed uses the same qualitative enrichment grade as uranium fuel under [ADR-0056](adrs/ADR-0056-share-uranium-fuel-enrichment-grade-with-thorium-seed.md), while the numeric target remains deferred under [ADR-0051](adrs/ADR-0051-defer-phase-2-uranium-enrichment-target.md); the exact seed compound, isotope composition, item identity, quantity, detailed breeding/reprocessing balance, and waste handling remain open. See [ADR-0023](adrs/ADR-0023-thorium-startup-seed-and-breeding-model.md) and the [World Nuclear Association thorium overview](https://world-nuclear.org/information-library/current-and-future-generation/thorium) |
+| Uranium fission reactor | Uraninite -> uranium concentrate -> UF6 conversion -> gas-centrifuge enrichment -> enriched UF6 -> UO2 pellets -> cladded fuel rods under [ADR-0048](adrs/ADR-0048-select-phase-2-uf6-uranium-fuel-cycle.md) | Enriched-uranium cycle for dense, sustained power | Requires Uraninite/fluorspar supply, cladding, rod fabrication, heat removal, tails deconversion, and spent-fuel recovery. Depleted oxide has shielding reuse and controlled surplus handling; recovered spent-fuel uranium returns through the qualified fuel front end. Recovery destinations are selected under [ADR-0066](adrs/ADR-0066-select-phase-2-nuclear-recovery-flows.md); detailed chemistry, conditioning, and balances remain open |
+| Thorium seed-and-blanket reactor | Monazite-derived Th-232 -> separate ThO2-bearing fertile material, with a uranium-derived startup seed from the shared uranium chain; bred U-233 returns as oxide rods under [ADR-0055](adrs/ADR-0055-select-phase-2-thorium-oxide-seed-blanket-architecture.md) | Th-232 is fertile, not fissile; the startup driver enables the separate breeding/reprocessing cycle | Monazite must be accessible by the route unlock without a starting-region guarantee under [ADR-0060](adrs/ADR-0060-select-phase-2-monazite-thorium-feed.md). The seed shares uranium fuel's qualitative enrichment grade under [ADR-0056](adrs/ADR-0056-share-uranium-fuel-enrichment-grade-with-thorium-seed.md); exact composition and quantities remain open. No continuous uranium top-up is required in the gameplay abstraction, including through waste packaging. Thorium/U-233 recovery and residual handling are selected below; no real-world self-sustaining breeding ratio is implied. See the [thorium overview](https://world-nuclear.org/information-library/current-and-future-generation/thorium) |
 | Solar photovoltaic (crystalline-silicon PV) + LFP battery storage | Sunlight; dedicated Phase 2 PV production route based on the selected silicon supply direction; LFP cells for battery storage | Clean, fuel-free supplement with day/night variability | PV and battery storage begin in Phase 2; initial PV does not depend on the CPU wafer/chip fabrication chain or post-Core-only capability. PV-specific cleanliness, equipment, and any shared upstream silicon processing remain open. The starting region guarantees apatite-rich phosphorite and lithium-bearing brine; spodumene remains an alternative and may be regional under [ADR-0040](adrs/ADR-0040-phase-2-lfp-feed-sources-and-access.md). Exact silicon grade, cell process, feed-recovery routes, cell/pack design, unlocks, capacity, and tiers remain open under [ADR-0038](adrs/ADR-0038-select-phase-2-crystalline-silicon-pv.md), [ADR-0039](adrs/ADR-0039-phase-2-lfp-battery-storage.md), and [ADR-0040](adrs/ADR-0040-phase-2-lfp-feed-sources-and-access.md) |
 
 **Current phase direction:** Introduce fission in Phase 2 as two distinct uranium and thorium-cycle options. Retain the steam-turbine conversion path through Phase 2 to use fission heat-exchanger steam; retire steam-turbine generation after Phase 2. Phase 1 combustion remains usable. PV begins no earlier than Phase 2 and remains a clean, space-intensive option rather than a Phase 1 bypass. Its initial crystalline-silicon platform uses a dedicated route independent of CPU wafer/chip fabrication and post-Core-only capability under [ADR-0038](adrs/ADR-0038-select-phase-2-crystalline-silicon-pv.md).
 
-Both Phase 2 fission options require cladding and fuel-rod assembly before their fuel can be used in a reactor under [ADR-0043](adrs/ADR-0043-phase-2-fission-fuel-rod-fabrication.md). Zirconium-alloy cladding and shared early/mid-Phase-2 zircon access for CPU hafnium and fission cladding are selected under [ADR-0044](adrs/ADR-0044-phase-2-shared-zircon-supply-for-fission-cladding.md); the shared route requires a distinct Zr/Hf separation stage under [ADR-0045](adrs/ADR-0045-phase-2-zirconium-hafnium-separation-stage.md). Enriched UO2 pellets remain the uranium rod-fabrication input under [ADR-0042](adrs/ADR-0042-require-enriched-phase-2-uranium-fuel.md), and gas-centrifuge enrichment is selected under [ADR-0046](adrs/ADR-0046-select-phase-2-uranium-centrifuge-enrichment.md). The high-level Uraninite -> uranium concentrate -> UF6 -> centrifuge -> UO2 sequence and separate depleted-UF6 tails stream are selected under [ADR-0048](adrs/ADR-0048-select-phase-2-uf6-uranium-fuel-cycle.md) and [ADR-0050](adrs/ADR-0050-select-phase-2-uraninite-uranium-feed.md); fluorspar feed/access by the UF6-conversion unlock is selected under [ADR-0049](adrs/ADR-0049-select-phase-2-fluorspar-feed-for-uf6-conversion.md). Uranium/fluorite recovery, reagent preparation, detailed conversion chemistry, balances, and research gates remain open. Phase 2 tails handling is required under [ADR-0052](adrs/ADR-0052-require-phase-2-depleted-uf6-tails-handling.md), with deconversion to uranium oxide and HF selected under [ADR-0053](adrs/ADR-0053-select-depleted-uf6-deconversion.md); uranium-oxide recovery for later use and HF reuse in UF6 conversion are selected under [ADR-0054](adrs/ADR-0054-select-depleted-uf6-output-fates.md); exact forms, conditioning, and integration remain open. The numeric uranium-fuel enrichment target is deferred under [ADR-0051](adrs/ADR-0051-defer-phase-2-uranium-enrichment-target.md) until detailed recipe and balance design; under [ADR-0056](adrs/ADR-0056-share-uranium-fuel-enrichment-grade-with-thorium-seed.md), the thorium startup seed uses the same qualitative grade, so the eventual numeric target applies to both. The thorium route retains its selected startup-seed and U-233 breeding/reprocessing model under [ADR-0023](adrs/ADR-0023-thorium-startup-seed-and-breeding-model.md); its startup seed comes from the shared uranium chain under [ADR-0047](adrs/ADR-0047-share-phase-2-uranium-chain-with-thorium-seed.md), while the seed-and-blanket architecture is selected under [ADR-0055](adrs/ADR-0055-select-phase-2-thorium-oxide-seed-blanket-architecture.md); the seed's exact compound, isotope composition, item identity, quantity, and preparation, detailed routes, balances, and waste remain open; its same-grade relationship to uranium fuel is selected under [ADR-0056](adrs/ADR-0056-share-uranium-fuel-enrichment-grade-with-thorium-seed.md), while the numeric target remains open under [ADR-0051](adrs/ADR-0051-defer-phase-2-uranium-enrichment-target.md). Separation chemistry and equipment, output forms and grades, alloying and fabrication routes, quantities, material balances, and research gates remain open.
+Both Phase 2 fission options require zirconium-alloy cladding and fuel-rod assembly under [ADR-0043](adrs/ADR-0043-phase-2-fission-fuel-rod-fabrication.md) and [ADR-0044](adrs/ADR-0044-phase-2-shared-zircon-supply-for-fission-cladding.md). Shared early/mid-Phase-2 zircon supply feeds a distinct Zr/Hf separation stage under [ADR-0045](adrs/ADR-0045-phase-2-zirconium-hafnium-separation-stage.md), serving cladding, CPU hafnium, and baseline hafnium absorbers. Detailed separation chemistry, metal preparation, alloying, grades, quantities, and equipment assignments remain open.
+
+The uranium chain and thorium startup seed retain their shared qualitative enrichment grade; the numeric target remains deferred under [ADR-0051](adrs/ADR-0051-defer-phase-2-uranium-enrichment-target.md) and applies to both under [ADR-0056](adrs/ADR-0056-share-uranium-fuel-enrichment-grade-with-thorium-seed.md). Exact seed compound, isotope composition, item identity, quantity, preparation, and detailed breeding/reprocessing chemistry and balances remain open.
+
+#### Phase 2 Startup and Material Handling
+
+- **Core capability, optional power choice:** First fission is a usable, normally automated plant with Phase 2 hafnium preparation/forming and ordinary fuel handling under [ADR-0065](adrs/ADR-0065-practical-phase-2-fission-readiness.md). Later precision equipment, superconductors, boron-carbide alternatives, and beryllium reflectors are not universal startup prerequisites.
+- **Acyclic startup:** Boiler/steam-engine power can run the initial supply chain. First PTFE, including its fluorine/monomer preparation and construction-product finishing, must be available without PTFE-built equipment or recovered nuclear HF under [ADR-0064](adrs/ADR-0064-phase-2-ptfe-bootstrap.md). First nuclear buildings must also have suitable ordinary shielding, rather than require their own depleted-oxide coproduct.
+- **Required back end:** The chosen route's recovery and residual-handling capabilities must be available in Phase 2 by first production of the corresponding streams. These are not extension-only capabilities or evidence of a numerically balanced cycle.
+
+| Stream | Selected handling |
+|---|---|
+| Depleted oxide from UF6 tails | Stabilized shielding ceramics under [ADR-0063](adrs/ADR-0063-select-depleted-uranium-oxide-reuse.md); optional military uses are not a required sink. Surplus enters conditioned terminal handling |
+| Uranium recovered from spent uranium fuel | Recovered oxide -> purification/requalification -> existing conversion/enrichment front end -> qualified oxide fuel and rods; no direct spent-to-fresh recipe |
+| Recovered thorium and bred/recovered U-233 | Return thorium to fertile-material preparation and U-233 through oxide-fuel preparation and cladded rod assembly; preserve the startup-only uranium dependency |
+| Recoverable cladding and fluorine-bearing streams | Qualify metal before metallurgy/fabrication reuse; recover and condition fluorine from both UF6 branches for reagent reuse, retaining fresh startup/makeup |
+| Radioactive residues, contaminated recovery rejects, and surplus depleted oxide | Immobilization -> suitable sealed packages -> continuous deep disposal under [ADR-0068](adrs/ADR-0068-continuous-nuclear-waste-disposal.md), consuming power/materials and producing slight pollution; no tracked storage cap |
+
+[ADR-0066](adrs/ADR-0066-select-phase-2-nuclear-recovery-flows.md) selects the recovery interfaces. Depleted oxide, recovered spent-fuel oxide, and qualified enriched fuel are distinct roles, not interchangeable grades. No lossless cycle, separate plutonium product, MOX route, or mandatory ammunition link is selected.
+
+Continuous deep disposal is a narrow terminal exception for conditioned nuclear solids, not a generic solid voider. It has no tracked lifetime storage capacity or permanent-cell expansion. Throughput, electrical power, and conditioning/packaging material supply constrain operation. A small, nonzero operating pollution cost represents abstracted underground leakage/environmental impact using the ordinary pollution system, not a new groundwater or accident simulation.
+
+Nuclear-bearing effluents retain radioactive fractions for recovery/conditioning; generic flares and clarifiers cannot erase them. Ordinary shielding remains available for all waste packaging, so thorium does not require ongoing uranium enrichment. Loss of power/materials pauses processing rather than creating a permanent containment-power or blackout-failure loop. Ultimate underground capacity is deliberately outside the model; the waste is disposed of, not recycled or physically destroyed. Package chemistry, cooling/buffers, exact entities, throughput, operating inputs, small emission rate, and gates remain open.
+
+#### Fuel Production and Recovery Diagrams
+
+These are capability/material-role diagrams, not balanced recipes. Orange nodes have selected roles but unresolved chemistry, qualification, equipment details, or quantities. Dashed arrows mark construction or startup dependencies, not continuous fuel consumption. The thorium diagram reuses the shared fabrication and residual-handling capabilities shown in the uranium diagram.
+
+```mermaid
+flowchart TD
+    Ore["Uraninite"] --> Feed["Recovery / uranium concentrate"]
+    Fluor["Fluorspar"] --> Reagents["Fluorine reagent preparation"]
+    Feed --> Convert["UF6 conversion"]
+    Reagents --> Convert
+    Convert --> Enrich["Gas-centrifuge enrichment"]
+    Enrich --> Enriched["Enriched UF6"]
+    Enriched --> Oxide["UO2 reconversion / pellet preparation"]
+    Oxide --> Rods["Uranium rod assembly"]
+    Rods --> Reactor["Uranium reactor"]
+    Reactor --> Heat["Heat -> steam turbine -> electricity"]
+    Reactor --> Spent["Spent uranium rods"]
+
+    Enrich --> Tails["Depleted UF6 tails"]
+    Tails --> Deconvert["Tails deconversion"]
+    Deconvert --> DU["DEPLETED uranium oxide"]
+    DU --> Shield["Stabilized shielding ceramics"]
+    DU -->|"surplus without a consumer"| Waste["Residual immobilization / sealed packages"]
+    Deconvert --> HF["Recovered fluorine / HF conditioning"]
+    Oxide -->|"fluorine-bearing outputs"| HF
+    HF --> Reagents
+
+    Spent --> Recover["Spent-fuel recovery"]
+    Recover --> RU["RECOVERED uranium oxide"]
+    RU --> Qualify["Purification / fuel-feed qualification"]
+    Qualify --> Convert
+    Qualify -->|"rejected radioactive fractions"| Waste
+    Recover --> Metal["Cladding recovery / qualification"]
+    Metal -->|"suitable metal"| Clad["Zirconium-alloy cladding fabrication"]
+    Metal -->|"rejected radioactive fractions"| Waste
+    Recover -->|"non-recovered radioactive material"| Waste
+    Recover --> Liquids["Contaminated carriers / reagent recovery"]
+    Liquids -->|"reusable reagents"| Recover
+    Liquids -->|"remaining radioactive fractions"| Waste
+    Liquids -->|"suitably cleaned carriers"| Release["Ordinary powered / polluting release"]
+    Materials["Conditioning / packaging materials"] --> Waste
+    Power["Electrical power"] --> Waste
+    Power --> Dispose["Continuous deep disposal: no tracked storage cap"]
+    Waste --> Dispose
+    Dispose -->|"small operating impact"| Pollution["Slight pollution: abstracted underground leakage"]
+    Shield -->|"optional shielding material"| Waste
+    Ordinary["Suitable ordinary shielding"] --> Waste
+
+    Zircon["Shared zircon feed"] --> Split["Distinct Zr/Hf separation"]
+    Split -->|"zirconium stream"| Clad
+    Clad --> Rods
+    Split -->|"hafnium stream"| Hf["Hafnium metal preparation / absorber forming"]
+    Split -->|"separate hafnium demand"| CPU["CPU HfO2 branch"]
+    Hf -. "reactor construction / controls" .-> Reactor
+
+    Reagents --> Monomer["Fluoromonomer preparation"]
+    Petro["Phase 2 chemical / petrochemical feeds"] --> Monomer
+    Monomer --> Polymer["PTFE-free baseline polymerization"]
+    Polymer --> Finish["PTFE forming / sintering: seals and linings"]
+    Finish -. "construction" .-> Convert
+    Finish -. "construction" .-> Split
+
+    classDef detail fill:#fff3cd,stroke:#9a6700,color:#24292f;
+    classDef terminal fill:#f8d7da,stroke:#b02a37,color:#24292f;
+    class Feed,Reagents,Convert,Oxide,Deconvert,HF,Recover,Qualify,Metal,Liquids,Clad,Monomer,Polymer,Finish,Split,Hf detail;
+    class Waste,Dispose terminal;
+```
+
+```mermaid
+flowchart TD
+    Mono["Monazite"] --> Fertile["Thorium recovery / ThO2-bearing fertile preparation"]
+    Fertile --> Blanket["Separate fertile material / blanket"]
+    Blanket --> Reactor["Thorium seed-and-blanket reactor"]
+    Shared["Shared uranium front end"] -. "startup seed only; exact preparation open" .-> Reactor
+    Reactor --> Heat["Heat -> steam turbine -> electricity"]
+    Reactor --> Recover["Discharged thorium-cycle material / recovery"]
+    Recover --> Th["Recovered thorium-bearing material"]
+    Th --> Fertile
+    Recover --> U233["Bred / recovered U-233"]
+    U233 --> Fuel["U-233 oxide preparation / cladded rod assembly"]
+    Clad["Shared cladding supply"] --> Fuel
+    Clad --> Blanket
+    Fuel --> Reactor
+    Recover --> Metal["Shared qualified cladding-metal recovery"]
+    Metal -->|"suitable metal"| Clad
+    Metal -->|"rejected radioactive fractions"| Waste["Shared continuous waste-disposal endpoint: power, materials, slight pollution"]
+    Recover -->|"non-recovered material / contaminated rejects"| Waste
+    Ordinary["Ordinary shielding option: no ongoing uranium feed"] --> Waste
+
+    classDef detail fill:#fff3cd,stroke:#9a6700,color:#24292f;
+    classDef terminal fill:#f8d7da,stroke:#b02a37,color:#24292f;
+    class Fertile,Recover,Fuel,Metal detail;
+    class Waste terminal;
+```
+
+Recovered uranium still needs conversion/enrichment and qualification; depleted oxide is not that recovered-fuel stream. Shielding demand is useful but finite, so surplus depleted oxide retains continuous disposal without a storage cap. Recovery never implies zero residues. The thorium loop's startup-only uranium dependency is a gameplay abstraction, not a proven real-world breeding balance. Independent zirconium/hafnium demands and every numerical material, energy, recovery-loss, disposal-throughput, and pollution balance remain to be validated.
 
 **Phase 2 design notes:**
-- Fission power density should be **orders of magnitude higher** than combustion, creating massive spatial relief for the factory. However, the *fabrication cost* of a reactor (stainless steel pressure vessel, zirconium cladding, graphite moderator, control rods with hafnium/boron absorbers) is substantial.
+- Fission power density should be **orders of magnitude higher** than combustion, creating massive spatial relief for the factory. Fabrication remains substantial; the baseline hafnium-control capability is selected, while exact vessel/moderator materials and optional absorber variants remain configuration choices.
 - Fission heat must pass through the Phase 2 heat-to-steam path; exact heat-exchanger and coolant details remain open. Core excludes blackout-induced meltdown gameplay and a dedicated emergency-safety device under [ADR-0059](adrs/ADR-0059-exclude-blackout-meltdown-gameplay-from-phase-2-core-fission.md).
 - Phase 2 fission converts heat through steam turbines. The exact turbine removal point is after Phase 2, not before fission is introduced.
 - The baseline uranium route requires enriched UO2 pellets under [ADR-0042](adrs/ADR-0042-require-enriched-phase-2-uranium-fuel.md), then Phase 2 cladding and rod assembly. Both fission options depend on those fabrication capabilities under [ADR-0043](adrs/ADR-0043-phase-2-fission-fuel-rod-fabrication.md); the shared zircon path includes a distinct Zr/Hf separation stage under [ADR-0045](adrs/ADR-0045-phase-2-zirconium-hafnium-separation-stage.md). Fuel-form details, zirconium-alloy grade, zircon feed preparation/conversion, separation chemistry/equipment, alloying and rod-forming routes, combined supply quantities, conversion/reprocessing steps, material balances, equipment assignments, and research gates remain open.
 - Neither uranium nor thorium fuel is a first-Core prerequisite; a fission path is required only when selected to supply power. The thorium startup model is selected in ADR-0023, with the seed sourced from the shared uranium chain under ADR-0047; the solid-oxide seed-and-blanket architecture is selected under [ADR-0055](adrs/ADR-0055-select-phase-2-thorium-oxide-seed-blanket-architecture.md); exact seed details and the fuel-route balance remain open.
 - Exact normal operating controls, monitoring, coolant routing, reactor tiers, and research gates remain open; the Core boundary does not add a separate blackout-failure loop.
-- Fission creates **breathing room from military pressure** if operated cleanly. No combustion pollution means fewer attacks, giving the player a choice: dense power without the military consequence.
+- Fission can create **breathing room from military pressure** if operated cleanly. Reactor generation avoids combustion exhaust, but fuel preparation, recovery, and waste handling may still have pollution costs; their values remain open.
 
 ### Phase 3: Fusion (Late Game)
 
@@ -160,7 +281,7 @@ The mod's space-pressure design makes fuel density a critical comparison axis. T
 
 ### Fission Generators
 
-The following reactor-construction and equipment details are candidates. [Infrastructure](infrastructure.md) owns equipment scope; the Phase 2 fission routes must not depend on equipment available only in later game phases.
+The minimum capabilities above are selected; detailed construction and equipment implementations below remain candidates unless explicitly stated. [Infrastructure](infrastructure.md) owns equipment scope; the Phase 2 fission routes must not depend on equipment available only in later game phases.
 
 #### Reactor Core Assembly
 
@@ -168,7 +289,7 @@ The following reactor-construction and equipment details are candidates. [Infras
 |-----------|----------------------|-------------------|--------------|
 | Pressure vessel shell | Candidate refractory steel panels and zirconium cladding | Candidate welding and inspection equipment; power needs open | High-pressure coolant containment; reactor tiers remain open |
 | Graphite moderator blocks | Candidate graphite from carbon processing | None directly, but thermal management is important | Candidate neutron moderation and servo-controlled spacing |
-| Hafnium control rod assemblies | Candidate hafnium plate and boron carbide fabrication | Candidate electrically powered insertion and extraction; power needs open | Candidate neutron-absorbing plates; construction and operating controls remain open |
+| Hafnium control rod assemblies | Phase 2 hafnium metal preparation and basic absorber forming | Normally automated baseline controls; exact mechanism and power needs open | Selected baseline capability under [ADR-0065](adrs/ADR-0065-practical-phase-2-fission-readiness.md); boron carbide remains an optional alternative, not a co-required input |
 
 #### Fuel Fabrication Chain — Parallel Supply Line
 
@@ -177,12 +298,12 @@ The following reactor-construction and equipment details are candidates. [Infras
 | Uranium Conversion Line | Conversion → gas-centrifuge enrichment under [ADR-0046](adrs/ADR-0046-select-phase-2-uranium-centrifuge-enrichment.md) → UO2 powder → Phase 2 pellet preparation; feed/conversion chemistry and equipment split remain open | Candidate electrical loads for pumps, heaters, and agitators; exact power needs open | Parallel chain from minerals-and-refining through chemistry; enriched UO2 is required under [ADR-0042](adrs/ADR-0042-require-enriched-phase-2-uranium-fuel.md) |
 | Fuel Pellet Sintering Furnace | Candidate refractory construction | Phase 2 pellet-preparation capability; exact equipment assignment and power draw remain open | Produces enriched UO2 pellets as an intermediate for the required rod-assembly route; an integrated process or different equipment split remains possible |
 | Cladding Tube Mill | Candidate zirconium-alloy tube extrusion + pilger rolling | Phase 2 minimum capability for both fission options under [ADR-0043](adrs/ADR-0043-phase-2-fission-fuel-rod-fabrication.md); zirconium-alloy family and shared zircon access selected under [ADR-0044](adrs/ADR-0044-phase-2-shared-zircon-supply-for-fission-cladding.md); a distinct Zr/Hf separation stage is required under [ADR-0045](adrs/ADR-0045-phase-2-zirconium-hafnium-separation-stage.md) | Produces fuel-rod cladding; exact feed recovery/conversion, separation chemistry and equipment, alloy grade and fabrication route, supply quantities, and build details remain open |
-| Fuel Rod Assembly Line (MTier 1-3) | Candidate manual load → semi-auto → fully automated with inline inspection | Phase 2 minimum capability for both fission options under [ADR-0043](adrs/ADR-0043-phase-2-fission-fuel-rod-fabrication.md); exact tier timing and research gates remain open | Candidate steps are pellet loading → end-cap welding → leak-testing; tier capabilities and inspection details remain open |
+| Fuel Rod Assembly Line (MTier 1-3 candidate) | Item-fed baseline batch assembly; later handling and inline-inspection upgrades | Usable Phase 2 minimum under [ADR-0043](adrs/ADR-0043-phase-2-fission-fuel-rod-fabrication.md) and [ADR-0065](adrs/ADR-0065-practical-phase-2-fission-readiness.md); exact tiers and gates remain open | No compulsory per-pellet player actions; detailed welding, testing, and inspection implementation remains open |
 | Zr/Hf Separation Plant | Candidate implementation of the distinct separation stage selected under [ADR-0045](adrs/ADR-0045-phase-2-zirconium-hafnium-separation-stage.md) | Exact equipment and power requirement remain open | Separates the shared zircon path into zirconium-bearing and hafnium-bearing streams for cladding and CPU/fission uses; chemistry, output forms, yields, and dedicated-entity status remain open |
 
 #### Waste Handling & Maintenance
-- Candidate only: actively cooled spent-fuel storage pools. Whether this is the storage form, whether cooling or backup power is required, and whether it is a constructable remain open
-- Post-discharge reprocessing/recovery for spent uranium fuel is required in Phase 2 under [ADR-0057](adrs/ADR-0057-require-phase-2-reprocessing-for-spent-uranium-fuel.md); recovered outputs, residues, and implementation remain open. Plutonium extraction and any military-ammunition link are not selected
+- Phase 2 recovery and waste interfaces are selected in the [startup and material-handling section](#phase-2-startup-and-material-handling). Detailed chemistry, equipment split, and any cooling/buffer implementation remain open; no particular spent-fuel pool is selected.
+- Conditioned nuclear solids use suitable sealed packages and continuous deep disposal with power/material costs, slight pollution, and no tracked storage cap. Ordinary-shielding alternatives keep thorium independent of ongoing uranium. Required recovery and disposal are Core capabilities, not optional-extension substitutes; plutonium extraction and mandatory military demand are not selected.
 - Core fission-safety scope excludes blackout-induced meltdown gameplay and a dedicated Dead-Battery Capacitor / Fuse Link under [ADR-0059](adrs/ADR-0059-exclude-blackout-meltdown-gameplay-from-phase-2-core-fission.md); exact normal controls and heat-management details remain open.
 
 ### Fusion Generators
@@ -220,12 +341,12 @@ The construction entries are candidates, not current recipe requirements; exact 
 - **Which Phase 2 fission operating details remain?** The Core excludes blackout-induced meltdown gameplay and a dedicated emergency-safety device under [ADR-0059](adrs/ADR-0059-exclude-blackout-meltdown-gameplay-from-phase-2-core-fission.md); exact normal heat-transfer, coolant, controls, monitoring, tiering, and research/construction gates remain open.
 - **How is the selected monazite feed processed for the thorium blanket?** Monazite is the Phase 2 Th-232 feed family, with limited supply accessible by the thorium power-route unlock under [ADR-0060](adrs/ADR-0060-select-phase-2-monazite-thorium-feed.md). Exact output form, recovery/separation chemistry, residue handling, grades, quantities, and balances are deferred to detailed product and recipe design after Phase 5 coverage; equipment and research assignments remain for their owning design phases. A starting-region monazite deposit is not required.
 - **Which fuel-processing routes produce burner items?** The vanilla boiler/steam-engine path is selected, but the exact item forms and processing paths for producer gas, biogas, and liquid fuels remain open.
-- **What fission fuel-cycle details remain open?** Phase 2 cladding and fuel-rod assembly are required for both fission options under [ADR-0043](adrs/ADR-0043-phase-2-fission-fuel-rod-fabrication.md); zirconium-alloy cladding and shared early/mid-Phase-2 zircon access are selected under [ADR-0044](adrs/ADR-0044-phase-2-shared-zircon-supply-for-fission-cladding.md), and the shared route includes a distinct Zr/Hf separation stage under [ADR-0045](adrs/ADR-0045-phase-2-zirconium-hafnium-separation-stage.md). The uranium route requires enriched UO2 under [ADR-0042](adrs/ADR-0042-require-enriched-phase-2-uranium-fuel.md), with gas-centrifuge enrichment selected under [ADR-0046](adrs/ADR-0046-select-phase-2-uranium-centrifuge-enrichment.md), its high-level concentrate/UF6/enrichment/UO2 sequence under [ADR-0048](adrs/ADR-0048-select-phase-2-uf6-uranium-fuel-cycle.md), Uraninite feed/access under [ADR-0050](adrs/ADR-0050-select-phase-2-uraninite-uranium-feed.md), and fluorspar feed/access under [ADR-0049](adrs/ADR-0049-select-phase-2-fluorspar-feed-for-uf6-conversion.md); the same uranium chain supplies the thorium seed under [ADR-0047](adrs/ADR-0047-share-phase-2-uranium-chain-with-thorium-seed.md); the solid-oxide seed-and-blanket architecture is selected under [ADR-0055](adrs/ADR-0055-select-phase-2-thorium-oxide-seed-blanket-architecture.md). Uranium/fluorite recovery, reagent preparation, detailed conversion chemistry, exact oxide/HF forms, conditioning, and process integration for the output fates selected under [ADR-0054](adrs/ADR-0054-select-depleted-uf6-output-fates.md), separation chemistry and equipment, alloy grade, combined supply quantities, exact seed compound/isotope composition, quantity, preparation, detailed recycling/reprocessing routes, U-233 recovery and production implementation, material balances, waste handling, equipment assignments, and research gates remain open; its qualitative grade is shared with uranium fuel under [ADR-0056](adrs/ADR-0056-share-uranium-fuel-enrichment-grade-with-thorium-seed.md), with the numeric target deferred under [ADR-0051](adrs/ADR-0051-defer-phase-2-uranium-enrichment-target.md). The numeric uranium-fuel enrichment target is deferred under [ADR-0051](adrs/ADR-0051-defer-phase-2-uranium-enrichment-target.md) until detailed recipe and balance design.
+- **What fission fuel-cycle details remain open?** The feed/form sequences, rod requirement, recovery interfaces, oxide reuse, and continuous residual-disposal endpoint are selected above. Detailed feed recovery, reagent/monomer preparation, conversion and separation chemistry, recovered-fuel qualification, oxide/HF forms, alloy and absorber grades, seed identity/composition/preparation, breeding/reprocessing implementation, equipment split, and research gates remain open. Numerical enrichment targets, yields, losses, combined feed demand, energy/material costs, disposal throughput, and slight pollution rates remain deferred; the eventual uranium-fuel target also applies to the thorium startup seed.
 - **How does fusion connect to later endgame progression?** Fusion begins in Phase 3 and cannot be a first-Core prerequisite; its relationship to later Core levels and milestones remains open.
 - **What are the remaining solar material and storage gates?** The initial Phase 2 platform is crystalline silicon on a dedicated route independent of CPU wafer/chip fabrication and post-Core-only capability under [ADR-0038](adrs/ADR-0038-select-phase-2-crystalline-silicon-pv.md); initial Phase 2 battery cells use LFP cathode chemistry under [ADR-0039](adrs/ADR-0039-phase-2-lfp-battery-storage.md), with feed sources and starting-region access selected under [ADR-0040](adrs/ADR-0040-phase-2-lfp-feed-sources-and-access.md). Exact silicon grade, shared upstream processing, PV-specific cleanliness and equipment, lithium/phosphate recovery routes/grades, spodumene placement/access timing, cell/pack design, unlocks, capacities, later tiers, site design, efficiencies, and research gates are deferred to downstream design. Phase 5 coverage must verify viable PV and LFP supply paths before catalog freeze; preserve the selected feeds and access, and do not make cobalt or nickel necessary for the initial LFP route. The Phase 3 PV scale-up and additional CSP-with-storage route are selected.
 - **How should geothermal sites work?** The Phase 3 geothermal route and binary ORC direction are selected, but site placement, resource limits, working fluid, and heat-exchanger design remain open.
 - **How much does each generator class contribute to military pressure?** Clean combustion (scrubbed) vs. dirty combustion; fission's thermal pollution; fusion's zero-emission profile — these affect the player's decision calculus.
-- **What recovered outputs and residual-waste handling does the uranium spent-fuel branch need?** The Phase 2 post-discharge reprocessing/recovery branch is required under [ADR-0057](adrs/ADR-0057-require-phase-2-reprocessing-for-spent-uranium-fuel.md). Exact recovered-stream identities and fates, residuals, process details, balances, and reuse are deferred to detailed fuel-cycle design after Phase 5 coverage; storage/containment, equipment, and research assignments remain for their owning design phases. Phase 5 coverage must retain the required branch if uranium fission is in scope. Do not infer plutonium recovery or a military-ammunition link, or conflate this branch with depleted-UF6 tails handling or the thorium U-233 cycle.
+- **How are the selected recovery and terminal interfaces implemented?** Phase 5 must verify the [selected handoffs](#phase-2-startup-and-material-handling), including sustained uranium operation with saturated reuse demand and thorium operation without new uranium supply. Detailed product identities, chemistry, losses, conditioning/disposal construction, throughput, operating inputs, small pollution rate, cooling/buffers, equipment, and gates remain for their owning phases. Source/consumer closure is not a numerical balance proof.
 - **Which construction and research gates apply to the selected routes?** Route identities are selected, but exact Core dependencies, progression order, and whether each route is optional or required remain open.
 - **Where does advanced fusion end and Phase 4 begin?** Hawking is accepted as one Phase 4 option, but its boundary and the Simulation Core dependency still need alignment with [Endgame Vision](endgame-vision.md).
 - **How should power-route gates use the Core?** Core Level 2/3 and route-specific gates remain open. The first-Core gate is recorded in [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md); the six bridge mappings are selected in [ADR-0022](adrs/ADR-0022-phase-2-bridge-mappings-and-core-dependencies.md).

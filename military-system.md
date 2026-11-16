@@ -1,7 +1,7 @@
 # Military System Design
 
 *Status: Draft — ammunition and sustained-defense-power principles accepted; military scope, product details, and values remain open*
-*Last updated: 2026-11-12*
+*Last updated: 2026-11-16*
 
 Related documents: [Mod Overview](mod-overview.md), [Chemical Products and Processes](chemical-processes.md), [Intermediate Products](intermediate-products.md), [Minerals and Refining](minerals-and-refining.md), [Infrastructure](infrastructure.md), [Power System](power-system.md). Related ADRs: [ADR-0012](adrs/ADR-0012-bound-core-military-scope.md), [ADR-0013](adrs/ADR-0013-military-pressure-model.md), [ADR-0014](adrs/ADR-0014-capability-based-ammunition.md), [ADR-0015](adrs/ADR-0015-sustained-power-for-defense.md), [ADR-0016](adrs/ADR-0016-late-game-defense-drones.md).
 
@@ -163,7 +163,9 @@ This is where military meets industry — weapons and ammo are manufactured prod
 | **T2a** | Incendiary bullet | Fuel/oxidizer mix, magnesium ignition compound, steel casing | Oil refining → hydrocarbon fraction + chlor-alkali NaOH → hydrogenation FT synth glycerol or coconut palm oil + spodumene/carnotite → MgO calcined + sintered igniter pellet | Anti-spider and anti-light-armor suppression. First "capability shift" — incendiary burns through armor where kinetic fails. |
 | **T2b** | Explosive (HE) bullet | High-explosive core, detonator compound, steel casing | Chlor-alkali → NaOH + H₂ → Haber-Bosch NH₃ + Ostwald chain → concentrated HNO₃ + FT glycerol or coconut palm oil → nitroglycerin precursor + galena lead → lead azide initiator (or cheaper ammonium nitrate alternative) | Heavy armor and hardened target engagement. Tunnels through spitter carapace. Requires dedicated chemical intermediate infrastructure — high barrier to entry |
 | **T3** | Armor-piercing (AP) bullet | Tungsten core alloy, specialized propellant, copper sabot | Scheelite/Tungstenite → Caustic leach + purification → W powder + pressing/sintering + nitrocellulose/tungstenite + carbonized charcoal/calcined biomass | Engagement with heavily armored enemy variants at high pollution. Requires end-of-phase-2 metallurgy capability (tungsten processing). Capability shift: one shot pierces through multiple targets |
-| **T4** | Penetration rocket (endgame) | Enriched uranium/tungsten payload, solid fuel booster, guidance module | Uraninates → acid leach → purification → conversion + enrichment cascade or thorium monazite → Th-cycle fuel Zr-Cl₄ chlorination → metal reduction → Zr cladding for casing + fission reactor → enriched U/W penetrator core | Endgame strategic capability. For fortress-level enemy encampments only. Ties to full nuclear fuel cycle + semiconductor guidance module from cleanroom fabrication |
+| **T4** | Penetration rocket (endgame candidate) | Tungsten or optional depleted-uranium material, booster, guidance module | Candidate dense-material use; any depleted-uranium metal preparation requires a separately qualified route. Exact materials and recipes remain open | Optional military reuse under [ADR-0063](adrs/ADR-0063-select-depleted-uranium-oxide-reuse.md), not a requirement for enriched fuel, thorium processing, or operating a reactor. Weapon scope and gate remain provisional |
+
+Depleted-uranium military uses remain optional candidates, not an accepted weapon roster or guaranteed material sink. Fission operation never requires ammunition consumption; surplus depleted oxide has the continuous disposal route owned by [Power System](power-system.md#phase-2-startup-and-material-handling). Depleted oxide is not automatically metal or qualified reactor fuel.
 
 **Open scope — see [ADR-0014](adrs/ADR-0014-capability-based-ammunition.md):** The source says **5 tiers across ~12 core recipes**, but elsewhere says four tiers and lists T1, T2a, T2b, T3, and T4. The user accepted the capability-based principle, not either conflicting count or every listed type and recipe.
 
@@ -176,7 +178,7 @@ Weapon tiers follow Bob's Weapons Pack philosophy:
 | T1 | Handgun (pistol) | Kinetic bullet | Starter weapon. Low capacity, low damage, no armor penetration. |
 | T2a | Machine gun | Kinetic / Incendiary | Mid-range turret/ammo support. Requires lead/copper processing unlocked in Phase 1-2 bridge. |
 | T2b | Flamethrower turret / incendiary launcher | Incendiary | Anti-spitter capability. First genuine capability shift over kinetic ammo. |
-| T3a | Rocket launcher (man-portable) | Penetration rocket variant | Heavy anti-bunker capability. Requires nuclear/fission pathway or advanced metallurgy. |
+| T3a | Rocket launcher (man-portable) | Penetration rocket variant | Candidate advanced-metallurgy/electronics capability; optional depleted-uranium material use does not require reactor operation. Exact scope and gate remain open. |
 | T3b | Explosive artillery shell | HE explosive | Siege capability against enemy strongholds. Late-phase unlocked through chemical depth. |
 | T4 | Anti-materiel rifle / heavy cannon | AP penetrator + HE dual-compatible | Endgame precision weapon. Pierces through fortified structures and heavily armored enemies. |
 

@@ -1,8 +1,8 @@
 # ADR-0057: Require Phase 2 Reprocessing for Spent Uranium Fuel
 
-*Status: Accepted*
+*Status: Accepted; recovered-stream and residual-destination deferrals partially superseded by [ADR-0066](ADR-0066-select-phase-2-nuclear-recovery-flows.md) and [ADR-0068](ADR-0068-continuous-nuclear-waste-disposal.md)*
 *Decision date: 2026-11-15*
-*Last updated: 2026-11-15*
+*Last updated: 2026-11-16*
 
 Related documents: [Power System](../power-system.md), [Chemical Products and Processes](../chemical-processes.md), [Intermediate Products](../intermediate-products.md), [Infrastructure](../infrastructure.md), [Research Progression](../research-progression.md), [Technical Architecture](../technical-architecture.md), and [Plan](../plan.md).
 
@@ -39,4 +39,4 @@ Requiring the branch gives spent uranium fuel an explicit post-discharge handlin
 
 - Design documents: [Power System](../power-system.md), [Chemical Products and Processes](../chemical-processes.md), [Intermediate Products](../intermediate-products.md), [Infrastructure](../infrastructure.md), [Research Progression](../research-progression.md), [Technical Architecture](../technical-architecture.md), [Documentation Map](../documentation-map.md), and [Plan](../plan.md).
 - Related ADRs: [ADR-0023](ADR-0023-thorium-startup-seed-and-breeding-model.md) and [ADR-0055](ADR-0055-select-phase-2-thorium-oxide-seed-blanket-architecture.md) define the separate thorium cycle; [ADR-0042](ADR-0042-require-enriched-phase-2-uranium-fuel.md), [ADR-0043](ADR-0043-phase-2-fission-fuel-rod-fabrication.md), and [ADR-0048](ADR-0048-select-phase-2-uf6-uranium-fuel-cycle.md) define the Phase 2 uranium fuel path; [ADR-0052](ADR-0052-require-phase-2-depleted-uf6-tails-handling.md), [ADR-0053](ADR-0053-select-depleted-uf6-deconversion.md), and [ADR-0054](ADR-0054-select-depleted-uf6-output-fates.md) define the distinct depleted-UF6 tails path.
-- Supersedes / superseded by: No prior decision is superseded. This resolves the Phase 2 spent-uranium-fuel disposition requirement while leaving its detailed route open.
+- Supersedes / superseded by: No prior decision is superseded. [ADR-0066](ADR-0066-select-phase-2-nuclear-recovery-flows.md) and [ADR-0068](ADR-0068-continuous-nuclear-waste-disposal.md) partially supersede the recovered-stream and residual-destination deferrals. [ADR-0067](ADR-0067-engineered-terminal-nuclear-waste-disposal.md) preserves the superseded finite-capacity endpoint. The required Phase 2 recovery capability and exclusion of inferred plutonium/military links remain in force; the original decision text above is preserved.

@@ -2,10 +2,12 @@
 
 *For: Factorio Overhaul Mod (Project Prometheus)*  
 *Status: Working design; six domains are the current roster. Seven distinct domain-pack tiers, the first-Core gate, and the six bridge mappings are selected. Exact pack inputs, routes, supporting materials, higher Core gates, technology assignments, and timing remain open.*
-*Last updated: 2026-11-15*
+*Last updated: 2026-11-16*
 
 Related documents: [Mod Overview](mod-overview.md) for cross-domain direction; [Endgame Vision](endgame-vision.md) for the planetary simulation network; [Infrastructure](infrastructure.md) for candidate machine families and placeable facilities.
 Related ADRs: [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md) for first-Core prerequisites, [ADR-0020](adrs/ADR-0020-seven-distinct-domain-pack-tiers.md) for the seven-tier structure, [ADR-0021](adrs/ADR-0021-phase-2-material-and-solar-boundaries.md) for the Phase 2 material trunk, [ADR-0022](adrs/ADR-0022-phase-2-bridge-mappings-and-core-dependencies.md) for bridge mappings and Core dependencies, [ADR-0025](adrs/ADR-0025-phase-2-cpu-supply-and-superconducting-core-compute.md) for CPU availability and later superconducting compute, [ADR-0026](adrs/ADR-0026-phase-2-contemporary-semiconductor-capability.md) for Phase 2 contemporary chipmaking capability, [ADR-0027](adrs/ADR-0027-phase-2-contemporary-chipmaking-material-stack.md) for required semiconductor material families, [ADR-0028](adrs/ADR-0028-phase-2-core-cpu-material-dependencies.md) for the standard CPU path's material dependencies, [ADR-0029](adrs/ADR-0029-phase-2-semiconductor-mineral-feed-families.md) for selected mineral feed families, [ADR-0018](adrs/ADR-0018-phase-3-and-4-power-route-roster-and-conversion.md) for Phase 3/4 power routes and converters, [ADR-0023](adrs/ADR-0023-thorium-startup-seed-and-breeding-model.md) for the thorium startup-seed model, [ADR-0042](adrs/ADR-0042-require-enriched-phase-2-uranium-fuel.md) for enriched uranium fuel, [ADR-0043](adrs/ADR-0043-phase-2-fission-fuel-rod-fabrication.md) for required Phase 2 cladding and fuel-rod assembly, [ADR-0046](adrs/ADR-0046-select-phase-2-uranium-centrifuge-enrichment.md) for the Phase 2 uranium enrichment method, [ADR-0047](adrs/ADR-0047-share-phase-2-uranium-chain-with-thorium-seed.md) for the thorium seed's shared uranium-chain source, [ADR-0048](adrs/ADR-0048-select-phase-2-uf6-uranium-fuel-cycle.md) for the high-level uranium chemical-form path, [ADR-0049](adrs/ADR-0049-select-phase-2-fluorspar-feed-for-uf6-conversion.md) for fluorspar feed and access timing, [ADR-0050](adrs/ADR-0050-select-phase-2-uraninite-uranium-feed.md) for Uraninite feed and access timing, [ADR-0051](adrs/ADR-0051-defer-phase-2-uranium-enrichment-target.md) for the deferred numeric uranium-fuel target, [ADR-0055](adrs/ADR-0055-select-phase-2-thorium-oxide-seed-blanket-architecture.md) for the high-level thorium fuel architecture, [ADR-0056](adrs/ADR-0056-share-uranium-fuel-enrichment-grade-with-thorium-seed.md) for the seed's shared qualitative enrichment grade, and [ADR-0057](adrs/ADR-0057-require-phase-2-reprocessing-for-spent-uranium-fuel.md) for required post-discharge reprocessing/recovery of spent uranium fuel.
+
+Related readiness ADRs: [ADR-0064](adrs/ADR-0064-phase-2-ptfe-bootstrap.md), [ADR-0065](adrs/ADR-0065-practical-phase-2-fission-readiness.md), [ADR-0066](adrs/ADR-0066-select-phase-2-nuclear-recovery-flows.md), and [ADR-0068](adrs/ADR-0068-continuous-nuclear-waste-disposal.md).
 
 ## Summary
 
@@ -132,6 +134,17 @@ The accepted structure has seven distinct domain-pack items per domain, not alte
 | **T3c** | `Superconductivity Synthesis Report` | Post-Core: convergent materials and results spanning multiple domains; Core Level 3 relationship remains open | Full multi-domain synthesis |
 
 Conventional CPU-grade packaged processors are available by late Phase 2 for initial Core computation under [ADR-0025](adrs/ADR-0025-phase-2-cpu-supply-and-superconducting-core-compute.md). Full contemporary cleanroom and advanced semiconductor manufacturing also belongs in Phase 2 under [ADR-0026](adrs/ADR-0026-phase-2-contemporary-semiconductor-capability.md); exact routes, material grades, equipment, and research gates remain open. Josephson/SFQ superconducting compute is a later Core upgrade, not an activation prerequisite. Post-Core semiconductor progression is primarily for capabilities beyond current-day industry.
+
+#### Phase 2 Capability-Readiness Constraints
+
+Exact technologies and pack costs remain open, but the eventual graph must preserve these boundaries:
+
+- Process-appropriate vacuum for contemporary CVD/PVD is available in Phase 2 under ADR-0026. First vacuum equipment cannot require the semiconductor products whose fabrication needs it; later precision variants are optional upgrades.
+- The complete fluorine/monomer/PTFE/initial-finishing path bootstraps without PTFE-built equipment or nuclear HF recovery and precedes its first construction consumers under ADR-0064. Fluorspar access must meet that first use.
+- First fission has Phase 2 hafnium metal preparation/basic absorber forming, usable rod supply, and normally automated operation under ADR-0065. Do not gate practical fission behind Phase 3 specialist equipment, superconductors, or the first Core.
+- The chosen fuel route's recovery, conditioning, and continuous slightly polluting disposal are available by first corresponding output under ADR-0066/0068. No extension-only handling, permanent storage-expansion gate, compulsory ammunition demand, or ongoing uranium requirement for thorium packaging is introduced.
+
+These are capability-order constraints, not a selected in-phase technology sequence or new first-Core prerequisites. Detailed gates belong to the concrete graph validation in [Plan](plan.md#phase-8--complete-the-research-roster).
 
 #### Candidate Core Unlock Requirements (Per Domain)
 
