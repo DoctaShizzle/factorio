@@ -66,4 +66,4 @@ Avoid: mandatory upgrades without new capability, arbitrary complexity, a single
 
 ## Status
 
-Phase 1 documentation migration and Phase 2 cross-domain decision reconciliation are complete. Phase 3 has not started; see [plan.md](plan.md) for remaining deferred decisions and later gates. The project remains a broad design proposal, with system details and open decisions in the linked owner documents.
+Phase 1 documentation migration, Phase 2 cross-domain decision reconciliation, and the [Phase 3 gap analysis](gap-analysis-report-16-11-26.md) are complete. Phase 4 infrastructure alignment is next; see [plan.md](plan.md) for remaining decisions and gates. The project remains a broad design proposal, with system details and open decisions in the linked owner documents.

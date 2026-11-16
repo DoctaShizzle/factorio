@@ -1,5 +1,7 @@
 # Project Prometheus — Comparative Gap Analysis Report
 
+> **Historical report:** Its counts, assumptions, and recommendations predate later design decisions. See the [updated Phase 3 gap analysis](gap-analysis-report-16-11-26.md) for current evidence and a disposition of each recommendation.
+
 *Date: 2026-11-11*  
 *Purpose: Compare Prometheus design scope against GregTech, Bob's/Angels, and Space Exploration; identify quantitative and qualitative gaps in intermediate products, infrastructure, personal items, and tools.*
 

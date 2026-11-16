@@ -1,5 +1,7 @@
 # Project Prometheus — Market Research Report
 
+> **Earlier research:** Treat its market forecasts and recommendations as hypotheses, not approved requirements. The [updated Phase 3 gap analysis](gap-analysis-report-16-11-26.md) assesses them against the current design and comparator evidence.
+
 **Date:** 2026-11-06  
 **Purpose:** Assess popular-market potential for Factorio Overhaul Mod against comparable games/mods  
 **Audience:** Lead designer / project author

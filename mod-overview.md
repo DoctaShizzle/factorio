@@ -127,7 +127,7 @@ Avoid mandatory upgrades without a new capability, arbitrary complexity, a singl
 Items below are cross-domain open questions, not an approval list. Phase order and gates live in [plan.md](plan.md); not every question blocks every domain detail. Record resolutions in the owning design document and, when significant, a linked ADR; remove resolved items from this active queue.
 
 ### Exhaustive Product Catalog— *Priority 1*
-The full catalog has not yet been enumerated. The agreed work order is to verify the gap analysis and align infrastructure before building complete coverage and then enumerating products, recipes, and research; see [plan.md](plan.md).
+The full catalog has not yet been enumerated. The [gap analysis](gap-analysis-report-16-11-26.md) is complete; the next stage aligns infrastructure before establishing coverage and then enumerating products, recipes, and research. See [plan.md](plan.md).
 
 Sub-gaps to fill in order:
 - **Minerals & deposits:** Complete list of ore/deposit types with their class (surface/underground/polymineral), location strategy, and outputs belongs in [Minerals and Refining](minerals-and-refining.md), coordinated with [Map and World Generation](map-world-generation.md). `mineral-catalog.md` was only a placeholder filename, not a separate source.

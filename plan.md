@@ -56,7 +56,8 @@ Use these as inputs to the work, checking their current state during the relevan
 - [mod-overview.md](mod-overview.md) — mission, pillars, scope, system map, and current open design questions.
 - [minerals-and-refining.md](minerals-and-refining.md) — deposit tiers, recovery candidates, pure-material candidates, and refining route patterns.
 - [infrastructure.md](infrastructure.md) — infrastructure inventory, tentative material demands, and category summaries.
-- [gap-analysis-report-11-11-26.md](gap-analysis-report-11-11-26.md) — comparative gap hypotheses to verify.
+- [gap-analysis-report-16-11-26.md](gap-analysis-report-16-11-26.md) — current Phase 3 comparative assessment and prioritized gap ledger.
+- [gap-analysis-report-11-11-26.md](gap-analysis-report-11-11-26.md) and [market-research-report.md](market-research-report.md) — earlier comparative and market hypotheses, assessed in the updated report.
 - [chemical-processes.md](chemical-processes.md), [intermediate-products.md](intermediate-products.md), [military-system.md](military-system.md), [power-system.md](power-system.md), [logistics-system.md](logistics-system.md), [research-progression.md](research-progression.md), [endgame-vision.md](endgame-vision.md), and other linked domain documents — consult as the audit reaches each domain.
 
 The document inventory and its references may change during the documentation cleanup. Record those changes in the source-of-truth map rather than silently duplicating or moving design content.
@@ -118,7 +119,7 @@ The document inventory and its references may change during the documentation cl
 
 ### Phase 2 — Review and Resolve High-Impact Cross-Domain Decisions
 
-**Status: Phase 2 is complete; Phase 1 is complete and Phase 3 has not started.**
+**Status: Complete.**
 
 **Decision source:** Use the owning domain documents identified in [Documentation Map](documentation-map.md) for current design, and the [ADR index](adrs/README.md) for decision history. This plan tracks phase status, dependencies, gates, and safe deferrals rather than restating technical decisions.
 
@@ -126,7 +127,7 @@ The document inventory and its references may change during the documentation cl
 
 **Current fission-readiness boundary:** The accepted follow-up constraints are recorded in [ADR-0063](adrs/ADR-0063-select-depleted-uranium-oxide-reuse.md), [ADR-0064](adrs/ADR-0064-phase-2-ptfe-bootstrap.md), [ADR-0065](adrs/ADR-0065-practical-phase-2-fission-readiness.md), [ADR-0066](adrs/ADR-0066-select-phase-2-nuclear-recovery-flows.md), and [ADR-0068](adrs/ADR-0068-continuous-nuclear-waste-disposal.md); current flows and Mermaid diagrams are owned by [Power System](power-system.md#fuel-production-and-recovery-diagrams). These constraints correct affected candidate entries without completing the broader Phase 4 inventory or Phase 5 coverage work. Numerical balance remains deferred.
 
-**Next action:** Begin Phase 3 gap verification against the updated owners. Preserve the readiness and recovery/disposal constraints in Phases 4-5; do not treat selected material destinations as proof of quantitative balance.
+**Handoff:** Phase 3 gap verification is complete; use the [updated gap ledger](gap-analysis-report-16-11-26.md) for Phase 4 infrastructure alignment. Preserve the readiness and recovery/disposal constraints in Phases 4-5; do not treat selected material destinations as proof of quantitative balance.
 
 **Safe deferral — additional starting-area resources:** [Map and World Generation](map-world-generation.md) records the selected CPU, LFP, fission, and bridge-feed access deadlines. The molybdenite, cassiterite, and columbite-tantalite bridge feeds have no starting-region or colocation guarantee under [ADR-0061](adrs/ADR-0061-select-phase-2-molybdenite-rhenium-feed.md) and [ADR-0062](adrs/ADR-0062-select-phase-2-niobium-tin-bridge-feeds.md). Defer any broader starting-area resource package and exact placement/quantities to map validation; preserve all selected access deadlines and do not assume any other feed is guaranteed.
 
@@ -188,6 +189,8 @@ The document inventory and its references may change during the documentation cl
 
 ### Phase 3 — Verify the Gap Analysis
 
+**Status: Complete (2026-11-16).**
+
 **Objective:** Determine which reported gaps are real requirements for the intended design.
 
 **Prerequisites:** Phase 1 has produced a trustworthy current-state baseline, and Phase 2 has resolved or bounded the high-impact decisions needed for gap assessment.
@@ -203,7 +206,7 @@ The document inventory and its references may change during the documentation cl
 
 **Exit criteria:** Every recommendation has a disposition; confirmed gaps and unresolved decisions are clearly separated from speculative additions.
 
-**Checkpoint and gate:** Freeze the gap ledger for infrastructure alignment. A new recommendation discovered later reopens only its affected entry and dependencies.
+**Checkpoint and gate (2026-11-16):** The [updated gap analysis](gap-analysis-report-16-11-26.md) classifies the earlier report's recommendations, prioritizes evidenced coverage gaps, and separates unresolved choices and conflicts. The ledger is frozen as an analysis baseline for Phase 4, not as an approved item list or proof of completed coverage. Phase 4 is the next stage; resolve its version, military, transport, and family-scope choices before closing it. A new recommendation discovered later reopens only its affected entry and dependencies.
 
 ### Phase 4 — Align Infrastructure and Buildable/Usable Scope
 

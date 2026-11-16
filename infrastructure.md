@@ -525,7 +525,7 @@ Candidate recovery machines are player-built and may gain **capability changes p
 
 ## Consolidated Multi-Tier Machine Summary
 
-This table summarizes candidate family coverage and tiering. Counts remain provisional and do not consistently distinguish placeable entities, machine families, support systems, and tier variants; Phase 3 will normalize them.
+This table summarizes candidate family coverage and tiering. Counts remain provisional and do not consistently distinguish placeable entities, machine families, support systems, and tier variants; work-plan Phase 4 will normalize them.
 
 | Category | Candidate Entries (Provisional) | Tiered? | Key Tiers That Change Capability |
 |----------|------------------|---------|---------------------------------|
