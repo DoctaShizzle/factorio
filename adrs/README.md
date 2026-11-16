@@ -24,8 +24,8 @@ ADRs preserve significant decision history separately from current-state design 
 | [ADR-0009](ADR-0009-endgame-assembly-proposals.md) | Preserve Former Phase A2 Endgame Assembly Proposals | Accepted as a historical record; recipe values remain unapproved |
 | [ADR-0010](ADR-0010-core-power-distribution-scope.md) | Retain the Vanilla Grid with Tiered Power Poles | Accepted; exact tiers and pole properties open |
 | [ADR-0011](ADR-0011-hawking-radiation-endgame-generator.md) | Add a Hawking Radiation Engine as a Phase 4 Power Option | Accepted option; at least one alternative Phase 3/4 route required |
-| [ADR-0012](ADR-0012-bound-core-military-scope.md) | Bound Core Military Scope to Industrial Defense | Proposed; bounded, layer-based electrical direction; roster and scope open |
-| [ADR-0013](ADR-0013-military-pressure-model.md) | Use Pollution and Space as Complementary Military Pressures | Proposed; model and thresholds require validation |
+| [ADR-0012](ADR-0012-bound-core-military-scope.md) | Bound Core Military Scope to Industrial Defense | Partially superseded by ADR-0071; remaining details unapproved |
+| [ADR-0013](ADR-0013-military-pressure-model.md) | Use Pollution and Space as Complementary Military Pressures | Partially superseded by ADR-0072; other proposals unapproved |
 | [ADR-0014](ADR-0014-capability-based-ammunition.md) | Use Capability-Based Ammunition Progression | Accepted principle; types, tiers, and recipe counts open |
 | [ADR-0015](ADR-0015-sustained-power-for-defense.md) | Give Defense Infrastructure a Sustained Power Load | Accepted principle; profiles and values require validation |
 | [ADR-0016](ADR-0016-late-game-defense-drones.md) | Reject Late-Game Military Drones | Rejected; fixed defense, with optional spider-bot/power-suit extension scope open |
@@ -81,3 +81,13 @@ ADRs preserve significant decision history separately from current-state design 
 | [ADR-0066](ADR-0066-select-phase-2-nuclear-recovery-flows.md) | Select Phase 2 Nuclear Recovery Flows | Accepted; uranium, thorium/U-233, cladding, fluorine, and residual handoffs selected; chemistry, quantities, and balances remain open |
 | [ADR-0067](ADR-0067-engineered-terminal-nuclear-waste-disposal.md) | Permit Engineered Terminal Disposal of Nuclear Solids | Superseded by ADR-0068; original finite-capacity endpoint preserved |
 | [ADR-0068](ADR-0068-continuous-nuclear-waste-disposal.md) | Use Continuous, Slightly Polluting Nuclear-Waste Disposal | Accepted; powered/material-consuming, throughput-limited disposal without a storage cap; slight pollution required, exact rates deferred |
+| [ADR-0069](ADR-0069-target-factorio-2-1-base-game.md) | Target Factorio 2.1 Without a Required DLC | Accepted; optional DLC compatibility and independent space implementation open |
+| [ADR-0070](ADR-0070-overhaul-vanilla-recipes-and-progression.md) | Overhaul Vanilla Recipes and Progression Where Useful | Accepted; individual prototype, recipe, and gate dispositions remain to be designed |
+| [ADR-0071](ADR-0071-bound-core-defense-roster.md) | Bound Core Defense to Vanilla Families Plus Electrical Additions | Accepted; plasma and railgun details open; vanilla combat robots are extension candidates |
+| [ADR-0072](ADR-0072-retain-vanilla-enemies-and-pollution.md) | Retain Vanilla Enemies and Pollution Behavior in Core | Accepted; new enemies and custom pollution behavior are extension candidates |
+| [ADR-0073](ADR-0073-core-electric-only-rail.md) | Use Electric-Only Rail Traction in Core | Accepted; powered-rail adapter feasibility and exact construction open |
+| [ADR-0074](ADR-0074-core-demand-based-train-dispatch.md) | Add Optional Core Demand-Based Train Dispatch | Accepted; interface, implementation, and gates open |
+| [ADR-0075](ADR-0075-capability-based-machine-family-tiering.md) | Select Machine Tiers by Family and Capability | Accepted; exact family tiers and gates open |
+| [ADR-0076](ADR-0076-invar-mechanical-first-core-alignment.md) | Use Invar Mechanical Alignment for the First Core | Accepted; pre-Core nickel/alloy path and detailed construction require validation |
+| [ADR-0077](ADR-0077-domain-packs-not-array-construction-inputs.md) | Keep Domain Packs Out of Array Construction Inputs | Accepted; remaining Array materials and neutron reference open |
+| [ADR-0078](ADR-0078-assign-phase-2-ptfe-finishing-equipment.md) | Assign Phase 2 PTFE Finishing to Existing Equipment Families | Accepted; non-PTFE press and compatible thermal equipment, exact configuration open |

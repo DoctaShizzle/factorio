@@ -1,13 +1,13 @@
 # Logistics System Design
 
-*Status: Draft — candidate logistics concepts; acceptance and behavior remain under review*
-*Last updated: 2026-11-12*
+*Status: Current rail scope with candidate logistics details*
+*Last updated: 2026-11-16*
 
-Related documents: [Mod Overview](mod-overview.md), [Power System](power-system.md), and [Infrastructure](infrastructure.md) for candidate placeable logistics and transport entities. Logistics behavior and progression remain owned here.
+Related documents: [Mod Overview](mod-overview.md), [Power System](power-system.md), and [Infrastructure](infrastructure.md) for placeable logistics and transport entities. Logistics behavior and progression remain owned here. Related decisions: [ADR-0073](adrs/ADR-0073-core-electric-only-rail.md), [ADR-0074](adrs/ADR-0074-core-demand-based-train-dispatch.md), and [ADR-0075](adrs/ADR-0075-capability-based-machine-family-tiering.md).
 
 ## Summary
 
-This draft proposes logistics as an engineering decision layer spanning physical transport (belts, trains, bots) and information flow (demand signalling, intelligent dispatching). Candidate concepts include a progression from primitive conveyors through freight terminals and demand-based rail networks to late-game "information logistics" — where the factory moves from shifting materials to orchestrating decisions. Proposals below are not approved requirements unless explicitly marked otherwise.
+Logistics spans physical transport and information flow. Core rail uses grid-fed electric traction, ordinary train schedules, and optional demand-based dispatch. Belt, bot, freight-terminal, and information-logistics details remain proposals unless explicitly selected.
 
 ## Purpose and Boundaries
 
@@ -47,11 +47,11 @@ Key principle: **better infrastructure should be earned through industrial progr
 
 ### Rail Logistics
 
-#### Freight Terminals — Compact Late-Game Stations
+#### Freight Terminals — Compact Late-Game Candidate
 
 **Problem:** Vanilla train loading/unloading consumes enormous space — stacks of inserters, buffers, balancers — making stations larger than the production blocks they serve.
 
-**Solution:** A late-game Freight Terminal that is expensive but compact, with integrated buffering and built-in balancing.
+**Candidate solution:** A later freight terminal with integrated buffering and built-in balancing. Its entity, construction, capabilities, and timing are not selected.
 
 | Cheap Station | Freight Terminal |
 |---|---|
@@ -60,49 +60,40 @@ Key principle: **better infrastructure should be earned through industrial progr
 | Manual routing, frequent rebuilds | Integrated demand awareness or dedicated connections |
 | Low throughput per tile | High throughput, easy scaling |
 
-This preserves engineering choice: early factories *must* accept station bloat; late-game players earn a compact alternative at meaningful material cost.
+Ordinary stations, schedules, and automated inserter/belt loading remain usable without this candidate terminal.
 
-#### Train Dispatch — Candidate Coexistence of Both Modes
+#### Train Dispatch
 
-The source proposes that dedicated connections and demand-based dispatch are **not mutually exclusive** and could serve different use cases across the progression. Their coexistence and progression remain unapproved:
+Dedicated connections and optional demand-based dispatch coexist in Core under [ADR-0074](adrs/ADR-0074-core-demand-based-train-dispatch.md):
 
-**Mode A: Dedicated Connections (earlier unlock)**
+**Mode A: Dedicated Connections**
 - Explicit source → destination routes (inspired by Satisfactory)
 - A train per connection, waits on the receiving station until material is needed
 - Simpler to implement, more predictable, less computational overhead
 - Useful for steady-state flows: ore to smelter, plates to rocket part factory
 
-**Mode B: Intelligent Demand Dispatch (later unlock)**
+**Mode B: Demand Dispatch**
 - Stations advertise current inventory + requested inventory
 - Available trains are automatically dispatched to where they're needed
-- Requires advanced electronics, communication infrastructure, computational resources
+- Specific electronics, communication, and computational requirements are open
 - Useful for variable-demand or bottlenecked material flows
 
-Both coexist. A player might run dedicated ore haulage lines *and* a demand-dispatched fleet for chemical feedstocks that fluctuate with plant equilibrium.
+Players may use dedicated ore haulage and a pooled fleet together. Basic rail service and required resource access do not depend on advanced dispatch or an external mod; matching, reservations, interface, performance, and research gates remain to be designed.
 
-#### Electrified Trains — Candidate Model
+#### Electrified Trains
 
-The source proposes electrified trains as a first-class logistics option, with **rails as power conduits** that supply moving electric locomotives.
+Core uses electric locomotives supplied through powered rail connected to the native grid; fuel-powered locomotives are replaced under [ADR-0073](adrs/ADR-0073-core-electric-only-rail.md). The first intended train use must have a usable rail, power, and locomotive path without a pre-existing train or advanced dispatch. Exact construction and unlocks are open.
 
-> **Core boundary:** [ADR-0010](adrs/ADR-0010-core-power-distribution-scope.md) now accepts the vanilla pole grid with compatible tiered poles. The voltage-tier and transmission-loss assumptions below are not part of that core decision. Powered rails and electrified trains remain unapproved candidates; custom voltage and loss mechanics, if pursued, require a separate extension design.
+The [Factorio 2.1 locomotive prototype](https://lua-api.factorio.com/2.1.25/prototypes/LocomotivePrototype.html#energy_source) accepts burner or void energy sources rather than a direct electric source. A Core runtime adapter is allowed but must be proven to charge actual grid power for traction, stop trains safely on power loss, preserve schedules, and automatically resume when power returns. Its entity model, grid-connection rules, behavior across saves and rail segments, and performance remain unvalidated.
 
-**Optional extension concepts — voltage tiers for powered rails:**
+Custom voltage tiers, transmission losses, and substations are not Core requirements under [ADR-0010](adrs/ADR-0010-core-power-distribution-scope.md). The following remain unapproved extension concepts, not prerequisites for electric rail:
 
 | Type | Tradeoff | Use case |
 |---|---|---|
 | Low-voltage powered rails | Simpler infrastructure, lower installation cost, but higher power loss over distance | Short-haul freight, nearby mine-to-factory lines |
 | High-voltage powered rails | Requires transformer substations at intervals, higher per-segment cost, but much lower loss over long distances | Long-distance ore haulage, remote deposit extraction |
 
-**Candidate design implications (not accepted core behavior):**
-- Trains don't carry fuel — they draw power from the rail line, making them emission-free operators
-- A powered rail network is itself a factory infrastructure investment, with losses tied to length and voltage tier (ties into the power system doc)
-- Remote freight terminals need power fed to them via high-voltage rails + local step-down transformers, creating meaningful placement decisions
-- Electric locomotives trade speed/efficiency against their own power draw rating — a heavy-haul locomotive pulls more but needs lower-voltage or denser power infrastructure
-
-**Source-recorded proposals and unresolved choice:**
-- **Non-electric trains:** Allowed for backwards-compatibility with existing blueprints and mod content. The design preference is to remove them if feasible — electric locomotives are the ideal state, tying logistics directly into the power infrastructure.
-- **Power outages:** Candidate behavior is for trains to pause mid-line rather than lose dispatch state. Whether they resume automatically or require manual re-initiation remains open.
-- **Powered rail construction:** Candidate behavior is for stations to act as power-distribution nodes. Its voltage and power-flow assumptions remain open pending alignment with the Power System.
+Whether stations also act as powered-rail connection nodes remains open; power must not be supplied by an assumed custom transmission network.
 
 ### Bot Progression
 
@@ -222,7 +213,8 @@ Where a family is tiered, a candidate model scales machine capability through **
 ## Open Decisions
 
 - Exact belt tier names and throughput stat curves
-- Whether powered rails belong in core or an extension. Any custom voltage/loss mechanics remain outside the accepted core-power direction in [ADR-0010](adrs/ADR-0010-core-power-distribution-scope.md)
+- Validate the powered-rail adapter's actual grid draw, safe stop, automatic resumption, save/load behavior, rail connectivity, and performance.
+- Define the electric locomotive and rail construction path, first availability, and compatibility with vanilla rolling stock.
 - How freight terminal demand signalling integrates with the computational network
 - Bot stat progression numbers and the specific material requirements per stage
 - Whether a "connection manager" UI exists for dedicated train routes, or if it's purely automated
@@ -231,4 +223,4 @@ Where a family is tiered, a candidate model scales machine capability through **
 - Catalyst degradation severity — light (manageable rhythm) vs. heavy (constant maintenance pressure)
 - Upgrade module caps — how far can modules push a machine before building a new tier becomes necessary?
 
-Resolve powered-rail and transport-family core/extension scope, the treatment of vanilla trains, and family-specific tiering before closing Phase 4 infrastructure scope. Phase 3 gap assessment must mark dependent recommendations as needing a decision; Phase 5 must verify the selected transport capabilities and resource access. No mandatory pre-Core route may rely on unapproved powered rails, custom voltage/loss mechanics, or an external dispatch mod.
+Phase 5 must verify a non-circular early electric-rail path and required resource access. Custom voltage/loss mechanics and external dispatch remain outside the Core dependency path.

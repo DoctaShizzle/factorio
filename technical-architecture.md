@@ -3,7 +3,7 @@
 *Status: Draft — packaging, dependencies, scope estimates, and performance claims are unverified proposals.*  
 *Last updated: 2026-11-16*
 
-Related documents: [Mod Overview](mod-overview.md), [Infrastructure](infrastructure.md), [Power System](power-system.md), [Logistics System](logistics-system.md), and [Product Taxonomy](product-taxonomy.md).
+Related documents: [Mod Overview](mod-overview.md), [Infrastructure](infrastructure.md), [Power System](power-system.md), [Logistics System](logistics-system.md), and [Product Taxonomy](product-taxonomy.md). The platform and vanilla-integration boundaries are recorded in [ADR-0069](adrs/ADR-0069-target-factorio-2-1-base-game.md) and [ADR-0070](adrs/ADR-0070-overhaul-vanilla-recipes-and-progression.md).
 
 > The estimates and technical claims below are retained from an earlier planning draft. They are not hard limits or accepted targets unless linked to an approved ADR or current design owner. Validate implementation-facing claims against the supported Factorio version and representative benchmarks before using them to constrain scope.
 
@@ -106,7 +106,7 @@ The following tools were suggested as optional recommendations, not approved dep
 | **Milestones** | Progress tracking with mod presets | Good for endgame milestone visibility. |
 | **GTFO / Squeak Through** | Pull items from full inventories | Small quality-of-life that compounds over long playthroughs. |
 
-**Candidate integration position:** [Logistics System](logistics-system.md) proposes native demand-based dispatch. The earlier rationale favored keeping dispatch coherent with the electrified-rail vision and cited LTN signal instability and large-factory crashes; those claims are unverified, and external logistics integrations remain an open decision.
+**Core integration boundary:** [Logistics System](logistics-system.md) selects optional Core demand-based dispatch alongside ordinary schedules. External dispatch integrations remain open and are not dependencies; earlier third-party stability claims are unverified.
 
 ## Performance Hypotheses to Validate
 
@@ -167,14 +167,17 @@ The design proposal is to batch similar chemical processes and avoid creating a 
 
 ## Accepted Cross-Domain Constraint
 
+- **Platform:** Target Factorio 2.1 without a required DLC under [ADR-0069](adrs/ADR-0069-target-factorio-2-1-base-game.md). Space Age-only prototypes and mechanics are not baseline content. Optional compatibility remains open; the selected stellar solar-beaming route needs a DLC-independent implementation.
+- **Vanilla integration:** Retain useful base-game prototypes and modify their recipes/progression where appropriate; add or replace prototypes for distinct capabilities under [ADR-0070](adrs/ADR-0070-overhaul-vanilla-recipes-and-progression.md).
 - **Core power distribution:** Retain the vanilla power system and add compatible tiered poles, as recorded in [ADR-0010](adrs/ADR-0010-core-power-distribution-scope.md). Exact pole tiers and statistics remain open. Custom voltage tiers, transmission losses, HVDC, and grid-stabilization mechanics are extension candidates, not accepted core requirements.
+- **Electric rail:** A Core runtime adapter may bridge the lack of a directly electric locomotive energy source, but actual grid accounting, safe stopping, automatic restart, and performance require implementation validation under [ADR-0073](adrs/ADR-0073-core-electric-only-rail.md). Optional demand dispatch must not be required for ordinary trains under [ADR-0074](adrs/ADR-0074-core-demand-based-train-dispatch.md).
 
 ## Open Technical Decisions
 
 - **Packaging and module structure:** Decide whether to ship one installable mod with internal modules, separate required core mods, or another structure before implementation planning; none is selected here.
-- **Core versus extension scope:** The extension table is a proposal, not a finalized boundary. Classify gameplay capabilities in Phase 4 before coverage, independently of the eventual packaging choice; no mandatory core path may depend on an unapproved extension.
-- **Game-version and dependency strategy:** Select the target Factorio version and any required DLC before closing Phase 4's version-dependent vanilla scope, then verify APIs, libraries, and third-party dependencies before implementation. Until then, version-specific gap claims remain uncertain.
+- **Core versus extension scope:** Family-level gameplay dispositions are recorded in [Infrastructure](infrastructure.md) and [Intermediate Products](intermediate-products.md); the extension table and packaging remain proposals. Phase 5 must verify that no mandatory Core path depends on an unapproved extension.
+- **Game-version and dependency validation:** Verify APIs, libraries, required dependencies, and any optional DLC compatibility against Factorio 2.1 before implementation. No DLC or external dispatch mod may be required for Core.
 - **Scope estimates:** Reconcile item, recipe, entity, and technology counts against the approved catalog; do not enforce the draft figures as caps.
 - **Performance constraints:** Benchmark representative production, logistics, save, and entity loads before setting thresholds.
 - **Power extension scope:** If custom voltage, conductors, transformers, HVDC, or stabilization are retained, define them as optional extension content in [Power System](power-system.md); they are not part of the accepted core grid direction.
-- **Logistics integrations:** Decide whether to support external dispatch mods in addition to the native dispatch proposal in [Logistics System](logistics-system.md).
+- **Logistics integrations:** Decide whether to support external dispatch mods in addition to the selected optional Core dispatch in [Logistics System](logistics-system.md).

@@ -98,7 +98,7 @@ The Planetary Simulation Core anchors a distributed network of memory archives, 
 
 ### Pollution and Military Pressure
 
-Pollution is an economic consequence of industrial choices, not a collection of special-case enemy mechanics. Dirty, high-throughput production may defer costs into military pressure; cleaner routes trade for infrastructure, power, or process complexity.
+Pollution is an economic consequence of industrial choices. Core uses vanilla enemies and pollution behavior; it retains vanilla fixed defenses and adds plasma and railgun turrets, with detailed balance open. New enemy and pollution-specific mechanics are optional-extension candidates, not Core requirements. See [Military System](military-system.md), [ADR-0071](adrs/ADR-0071-bound-core-defense-roster.md), and [ADR-0072](adrs/ADR-0072-retain-vanilla-enemies-and-pollution.md).
 
 ### Fluids and Process Infrastructure
 
@@ -156,10 +156,7 @@ The victory direction is owned by [Endgame Vision](endgame-vision.md); [Research
 **The full technology roster hasn't been defined yet.** This blocks all domain documents because every tech tree depends on knowing what materials and capabilities exist. See the WIP matrix and classification rules in [research-progression.md](research-progression.md) for working structure.
 
 ### Combat & Warfare System
-"Pollution pressure" and ammo chains are sketched but the enemy itself is underspecified:
-- **What are the enemies?** Mutant creatures? Indigenous life reacting to industrial encroachment? Something thematically aligned with Prometheus?
-- **How does pollution scale into attacks?** Distance-based (closer factories = more attacks)? Frequency-based (dirty production → constant pressure vs. clean → occasional raids)?
-- **Military defense vs. industrial capability.** Does better ammo require advanced chemistry, or is there a separate supply chain?
+The Core enemy/pollution boundary and turret-family roster are selected. Ammo identities, electrical-turret behavior and power profiles, progression, and optional extension content remain open in [Military System](military-system.md).
 
 ## Open Items by Domain
 
@@ -169,10 +166,10 @@ Each domain document tracks its own open decisions at the bottom of that doc —
 |---|---|
 | [Minerals and Refining](minerals-and-refining.md) | Final mineral roster, real deposit classes, assays, material recovery assignments; aluminum/alumina are Phase 2 or later, basic salt/brine access is early Phase 2, and Uraninite plus fluorspar feed/access for UF6 conversion are selected under ADR-0050 and ADR-0049 while occurrence and recovery remain open |
 | [Chemical Products and Processes](chemical-processes.md) | Validate product and reaction entries, routes, and catalysts; the distinct Phase 2 Zr/Hf separation-stage boundary is selected under ADR-0045, while its chemistry, reagents, and implementation remain open; the high-level UF6-based uranium fuel-cycle path is selected under ADR-0048, Uraninite feed/access under ADR-0050, and fluorspar feed/access under ADR-0049, while recovery and conversion chemistry remain open; all process-family concepts currently documented are in Core scope under ADR-0024 |
-| [Intermediate Products](intermediate-products.md) | Validate selected bridge-product routes and facility bills of materials; conventional packaged CPUs are selected for initial Core supply, while their detailed path, the non-semiconductor alignment mechanism, and complete LFP cell/pack design remain open |
+| [Intermediate Products](intermediate-products.md) | Validate bridge, CPU, and Invar alignment supply routes and facility inputs; detailed product forms and the complete LFP cell/pack design remain open |
 | [Power System](power-system.md) — Production | Detailed Uraninite/fluorspar recovery, reagent/monomer preparation, UF6 conversion and conditioning, recovered-fuel qualification, seed specifications, Zr/Hf separation and metal fabrication, and thorium breeding/reprocessing chemistry remain open. Selected recovery/reuse and continuous slightly polluting disposal roles are not deferred; exact products, yields, losses, power/material/emission rates, throughput, equipment, and gates remain for downstream design. The shared uranium-fuel/seed numeric enrichment target remains deferred under ADR-0051/0056. Other open work includes combustion-fuel items, crystalline-silicon PV production, lithium/phosphate recovery and full LFP cells/packs, storage progression, fusion/endgame connections, and military-pressure contribution per generator class; selected power-route identities remain unchanged |
 | [Power System](power-system.md) — Distribution | Compatible tiered-pole levels and stats; custom voltage, conductor-loss, and grid-stabilization mechanics remain optional extension candidates, not core requirements |
-| [Endgame Vision](endgame-vision.md) | Detailed pre-Core CPU path and non-semiconductor alignment mechanism; Array support inputs; higher Core gates, final milestone structure, and compute distribution |
+| [Endgame Vision](endgame-vision.md) | Detailed pre-Core CPU and Invar alignment paths; Array support inputs; higher Core gates, final milestone structure, and compute distribution |
 | [Research and Progression](research-progression.md) | Seven distinct tiers per domain and the T2b2 first-Core gate are selected; exact pack items/recipes, later Core gates, technology roster, and timing remain open |
-| [Infrastructure](infrastructure.md) | Machine-family tier coverage, vanilla-versus-new entity dispositions, and exact construction assignments remain provisional; Phase 2 polysilicon precursor purification and the Phase 2-or-later PV boundary are aligned; former Machine Systems content is subsumed here |
+| [Infrastructure](infrastructure.md) | Family-level scope and capability boundaries are aligned; individual entity splits, tier details, construction assignments, and support-material routes remain provisional |
 | [Technical Architecture](technical-architecture.md) | Candidate packaging and extension model, unvalidated scope estimates, dependencies, and performance hypotheses; none are hard limits until verified |

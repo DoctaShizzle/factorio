@@ -1,6 +1,6 @@
 # ADR-0012: Bound Core Military Scope to Industrial Defense
 
-*Status: Proposed*
+*Status: Partially superseded by [ADR-0071](ADR-0071-bound-core-defense-roster.md); remaining detailed proposals are unapproved*
 *Decision date: Unknown*
 *Last updated: 2026-11-12*
 
@@ -47,7 +47,7 @@ The source argues that new enemy types would expand art, animation, attack, deat
 
 - Design documents: [Military System](../military-system.md), [Infrastructure](../infrastructure.md), [Intermediate Products](../intermediate-products.md), [Power System](../power-system.md).
 - Related ADRs: [ADR-0013](ADR-0013-military-pressure-model.md), [ADR-0014](ADR-0014-capability-based-ammunition.md), [ADR-0015](ADR-0015-sustained-power-for-defense.md), [ADR-0016](ADR-0016-late-game-defense-drones.md).
-- Supersedes / superseded by: The blanket no-new-core-turret-family clause is superseded as a statement of user intent; this ADR remains Proposed overall.
+- Supersedes / superseded by: The blanket no-new-core-turret-family clause was superseded as a statement of user intent. [ADR-0071](ADR-0071-bound-core-defense-roster.md) selects the Core roster and vanilla combat-robot boundary; other detailed proposals remain unapproved.
 
 ## Open Questions
 

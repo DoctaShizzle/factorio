@@ -1,13 +1,13 @@
 # Military System Design
 
-*Status: Draft — ammunition and sustained-defense-power principles accepted; military scope, product details, and values remain open*
+*Status: Core defense roster and enemy/pollution boundary selected; detailed products and values remain open*
 *Last updated: 2026-11-16*
 
-Related documents: [Mod Overview](mod-overview.md), [Chemical Products and Processes](chemical-processes.md), [Intermediate Products](intermediate-products.md), [Minerals and Refining](minerals-and-refining.md), [Infrastructure](infrastructure.md), [Power System](power-system.md). Related ADRs: [ADR-0012](adrs/ADR-0012-bound-core-military-scope.md), [ADR-0013](adrs/ADR-0013-military-pressure-model.md), [ADR-0014](adrs/ADR-0014-capability-based-ammunition.md), [ADR-0015](adrs/ADR-0015-sustained-power-for-defense.md), [ADR-0016](adrs/ADR-0016-late-game-defense-drones.md).
+Related documents: [Mod Overview](mod-overview.md), [Chemical Products and Processes](chemical-processes.md), [Intermediate Products](intermediate-products.md), [Minerals and Refining](minerals-and-refining.md), [Infrastructure](infrastructure.md), [Power System](power-system.md). Related ADRs: [ADR-0014](adrs/ADR-0014-capability-based-ammunition.md), [ADR-0015](adrs/ADR-0015-sustained-power-for-defense.md), [ADR-0016](adrs/ADR-0016-late-game-defense-drones.md), [ADR-0071](adrs/ADR-0071-bound-core-defense-roster.md), and [ADR-0072](adrs/ADR-0072-retain-vanilla-enemies-and-pollution.md).
 
 ## Summary
 
-This draft proposes military and expansion pressure as consequences of industrial choices. Candidate pressure axes are pollution, which can create defensive demand, and process footprint, which can create spatial urgency. Candidate ammunition and defense chains connect chemistry, metallurgy, power, and logistics; detailed values remain provisional.
+Vanilla enemies and pollution behavior provide the Core pressure baseline. Core retains vanilla fixed defenses and adds plasma and railgun turret families; capability-based ammunition and sustained defense power remain selected principles. Exact products, profiles, phases, and balance remain open.
 
 ## Purpose and Boundaries
 
@@ -30,9 +30,9 @@ Pollution is an economic consequence of industrial processes, not a collection o
 
 **Key principle:** Military pressure should feel like an engineering problem (how do I design my factory to minimize defensive overhead?), not a combat challenge (can I build better turrets?).
 
-### Reference Model and Core Scope — Candidate
+### Reference Model and Core Scope
 
-The source proposes Bob's Weapons Pack as the primary reference, with a vanilla-based enemy roster and industrial supply chains as the main source of military complexity. The user requested a bounded, layer-based turret roster with more power-based options; plasma and railgun turrets are proposals alongside the existing laser turret, not an accepted roster. Their progression and core-versus-extension placement remain open. Riftbreaker is a secondary source of mechanical ideas, not a proposed combat-model replacement. The comparative research and rationale are preserved in [ADR-0012](adrs/ADR-0012-bound-core-military-scope.md).
+Core retains the base-game fixed-defense families and adds plasma and railgun turrets under [ADR-0071](adrs/ADR-0071-bound-core-defense-roster.md). Their specific progression remains open. Bob's Weapons Pack and Riftbreaker are references for ideas, not dependencies or replacement combat models.
 
 ### Industrial Choice Example
 
@@ -50,16 +50,11 @@ Different industrial choices push the player toward expansion through different 
 
 Both create urgency for space. A player choosing efficient processes gets breathing room and can prioritize defense first. A player choosing spacious processes gets expansion urgency from space constraints alone.
 
-## Candidate Pollution-to-Military Pressure Model
+## Core Pollution and Military Pressure
 
-### Candidate Core Mechanics
+### Core Mechanics
 
-Pollution spreads from emitting sources in a radius. The density at any map location determines the military pressure score:
-
-- **High pollution zones** near production blocks generate stronger/more frequent attacks on nearby infrastructure
-- **Pollution fades over distance and time** — large spread-out factories have lower local pressure than dense clusters, all else equal
-- **Different pollution types attract different attack profiles** at high thresholds (see below)
-- **Mechanics are radius-based:** Bob's Weapons Pack proved this model works well; no complex time-decay curves or zone thresholds needed
+Use the base game's enemy types and pollution response under [ADR-0072](adrs/ADR-0072-retain-vanilla-enemies-and-pollution.md). Process emissions may change ordinary pollution pressure, but Core does not add pollution-type-specific attack profiles, new enemy variants, or a separate pressure score. The separately accepted map-edge patrol concept remains with [Map and World Generation](map-world-generation.md).
 
 ### Pressure Consequences
 
@@ -72,9 +67,9 @@ Military pressure translates into two kinds of player-facing effects:
 
 **Guardrail:** Military pressure should never make the player stop building their factory. It should influence *where* and *how* they build, and what defensive infrastructure they invest in. Attacks are a cost of doing business, not a wall that stops progress.
 
-### Candidate Pollution-Type Differentiation
+### Optional Pollution-Type Differentiation Candidate
 
-**Candidate direction — see [ADR-0013](adrs/ADR-0013-military-pressure-model.md):** At a proposed high threshold (>1000 units/s), differentiate attack profiles by pollution type. The threshold and effects are unvalidated.
+This unapproved extension candidate would differentiate attack profiles by pollution type at a proposed high threshold (>1000 units/s). The threshold and effects are unvalidated and are not Core behavior.
 
 | Pollution type | Attack profile at high threshold | Player-facing meaning |
 |---|---|---|
@@ -82,7 +77,7 @@ Military pressure translates into two kinds of player-facing effects:
 | **Acid emissions** (HCl, H₂SO₄ mists, SOₓ) | Spitters appear earlier and in higher proportion; acid attacks deal more damage to structures. | Acidic effluent accelerates enemy adaptation. Requires scrubber infrastructure or relocation. |
 | **Heavy metal contamination** (Pb, Cd, Cr, etc.) | Worms burrow closer to base before emerging; ground units are armored variants with reduced turret effectiveness. | Toxic waste corrupts soil — enemies mutate toward the hazard zone. Requires containment, not distance alone. |
 
-This differentiation stays at the *attack profile* level (which unit types appear and what they do), not at the *enemy variety* level (no new sprites). It rewards players who invested in scrubbers and filtration with different gameplay challenges rather than just "less attacks."
+Whether such an extension would change existing unit behavior, add variants, or use these profiles at all remains open.
 
 ### Candidate Damage-Effectiveness Matrix
 
@@ -102,7 +97,7 @@ This differentiation stays at the *attack profile* level (which unit types appea
 | **Biters** (ground melee) | HE Explosive, AP Penetrator | Incendiary (thick carapace blocks flame) | Stock T2b/T3 ammo for biter-heavy zones; T1 only in safe areas |
 | **Spitters** (ranged acid) | Incendiary (acid shell ignites), Kinetic (light body armor) | HE Explosive (splash wastes shots on small targets) | Stock T2a near spitter nests; use dispersed turret placement to avoid acid splash damage |
 | **Worms** (burrowing ambush) | Incendiary (burns when emerging), HE Explosive (ground shockwave) | AP Penetrator (burrowed = evades kinetic energy) | Stock T2a/T2b near expansion frontier; prioritize fixed defenses |
-| **Elite/Armored variants** (high pollution zones) | AP Penetrator only | All other ammo types severely reduced | Must produce T3 ammo or rotate perimeter defense |
+| **Elite/Armored variants** (extension candidate only) | AP Penetrator only | All other ammo types severely reduced | Must produce T3 ammo or rotate perimeter defense |
 
 **Design principle:** No single ammo is universally optimal. Players must plan production quantities based on enemy composition in each zone, mirroring our core philosophy of "process choice" — which ammo you produce for a zone is a deliberate engineering decision, not just "which does highest DPS."
 
@@ -141,13 +136,13 @@ This means:
 
 **Candidate direction — see [ADR-0013](adrs/ADR-0013-military-pressure-model.md):** Space pressure would be communicated through gameplay rather than an in-game dashboard. Whether this should remain entirely implicit, or use optional external quality-of-life support, remains open.
 
-## Candidate Enemy Scope
+## Enemy Scope
 
-**Candidate direction — see [ADR-0012](adrs/ADR-0012-bound-core-military-scope.md):** Use vanilla Factorio enemy units without new enemy types or pollution-adapted variants. Acceptance remains unverified.
+Core uses vanilla enemy units without new pollution-adapted variants under [ADR-0072](adrs/ADR-0072-retain-vanilla-enemies-and-pollution.md).
 
 ### Candidate Changes to Vanilla Units
 
-The source proposes that pollution affect vanilla biter, spitter, and worm pressure, including earlier changes in enemy composition, while retaining vanilla sprites and stats. This conflicts with the pollution-type proposal for armored ground variants and other profile changes; reconcile the conflict in [ADR-0013](adrs/ADR-0013-military-pressure-model.md) before treating either behavior as intended.
+New pollution-driven composition changes and armored variants are not Core behavior. They may be considered separately for an optional extension; no such extension is selected.
 
 ## Candidate Ammo and Weapon Intermediate Chains
 
@@ -157,11 +152,13 @@ This is where military meets industry — weapons and ammo are manufactured prod
 
 *Capability-based progression is accepted. The listed ammo types, supply trees, tier placement, and recipe totals remain candidates.*
 
+References below to armored variants, altered burrowing, or other non-vanilla enemy behavior are illustrative extension scenarios, not selected Core enemies.
+
 | Tier | Ammo Type | Primary Feed Materials | Recipe Input Chain (key intermediates) | Industrial role |
 |---|---|---|---|---|
-| **T1** | Kinetic bullet (standard) | Lead core, copper jacket, steel case, gunpowder propellant | Galena → roasted/smeled lead ingot + chalcopyrite flotation → electrolytic Cu + hematite → pig iron → EAF steel sulfur combustion + charcoal → carbonized biomass/coal coke → ground powder | Early/mid defense — standard turret ammo. All players need this from Phase 1 onward. |
-| **T2a** | Incendiary bullet | Fuel/oxidizer mix, magnesium ignition compound, steel casing | Oil refining → hydrocarbon fraction + chlor-alkali NaOH → hydrogenation FT synth glycerol or coconut palm oil + spodumene/carnotite → MgO calcined + sintered igniter pellet | Anti-spider and anti-light-armor suppression. First "capability shift" — incendiary burns through armor where kinetic fails. |
-| **T2b** | Explosive (HE) bullet | High-explosive core, detonator compound, steel casing | Chlor-alkali → NaOH + H₂ → Haber-Bosch NH₃ + Ostwald chain → concentrated HNO₃ + FT glycerol or coconut palm oil → nitroglycerin precursor + galena lead → lead azide initiator (or cheaper ammonium nitrate alternative) | Heavy armor and hardened target engagement. Tunnels through spitter carapace. Requires dedicated chemical intermediate infrastructure — high barrier to entry |
+| **T1** | Kinetic bullet (standard) | Lead core, copper jacket, steel case, gunpowder propellant | Candidate lead, copper, steel, and propellant paths; source access, processing, and the complete route remain open | Candidate early/mid turret ammunition; no specific ingredient list is selected. |
+| **T2a** | Incendiary bullet | Fuel/oxidizer mix, magnesium ignition compound, steel casing | Candidate organic and magnesium feeds; dolomite is a possible magnesium source. Precursors, recovery, processing, and the complete route remain open | Candidate incendiary capability; specific targets and performance remain open. |
+| **T2b** | Explosive (HE) bullet | Candidate explosive and initiating components, steel casing | Candidate chemical precursors and assembly; feed roles, compatibility, and the complete route remain open | Candidate heavy-target or area-effect capability; performance and supporting infrastructure remain open. |
 | **T3** | Armor-piercing (AP) bullet | Tungsten core alloy, specialized propellant, copper sabot | Scheelite/Tungstenite → Caustic leach + purification → W powder + pressing/sintering + nitrocellulose/tungstenite + carbonized charcoal/calcined biomass | Engagement with heavily armored enemy variants at high pollution. Requires end-of-phase-2 metallurgy capability (tungsten processing). Capability shift: one shot pierces through multiple targets |
 | **T4** | Penetration rocket (endgame candidate) | Tungsten or optional depleted-uranium material, booster, guidance module | Candidate dense-material use; any depleted-uranium metal preparation requires a separately qualified route. Exact materials and recipes remain open | Optional military reuse under [ADR-0063](adrs/ADR-0063-select-depleted-uranium-oxide-reuse.md), not a requirement for enriched fuel, thorium processing, or operating a reactor. Weapon scope and gate remain provisional |
 
@@ -187,9 +184,9 @@ Weapon tiers follow Bob's Weapons Pack philosophy:
 - Incendiary → HE: One-shot high damage vs. single heavy targets (spitter nests, worm burrows).
 - HE → AP: Pierces through multiple targets in a line.
 
-## Candidate Turret Progression
+## Core Turret Scope and Candidate Progression
 
-**Proposed direction — see [ADR-0012](adrs/ADR-0012-bound-core-military-scope.md):** Keep the turret roster bounded across progression layers, with greater emphasis on electrical options; do not assume it is vanilla-only. Plasma and railgun turrets are candidates, not an approved roster. Their layer and tier placement, and core-versus-extension scope, remain open.
+**Selected scope — see [ADR-0071](adrs/ADR-0071-bound-core-defense-roster.md):** Retain base-game gun, laser, flamethrower, and artillery defense families and add plasma and railgun turret families to Core. Roles and gates below are candidates, not approved recipes or tier counts. Space Age's rocket turret is not a base-game family and is not selected for Core.
 
 | Turret Family | Relationship to Vanilla | Candidate Role / Progression | Industrial / Balance Gate |
 |---|---|---|---|
@@ -198,11 +195,14 @@ Weapon tiers follow Bob's Weapons Pack philosophy:
 | Plasma turret | New electrical candidate | Artillery-like plasma orb with a relatively large splash radius | Substantial power draw proposed; tier, range, ammunition/consumables, and values TBD |
 | Railgun turret | New electrical candidate | Very-long-range beam/shot damages enemies along its path with small-to-medium splash, potentially to maximum visible or targetable range | Substantial power draw proposed; attack model, tier, ammunition/consumables, and values TBD |
 | Flamethrower turret | Vanilla | T2a incendiary fuel | Petrochemical cracking or oil refining capability |
-| Rocket turret | Vanilla status unverified | T3 HE shell → T4 penetration rocket | Explosive compound chain / nuclear fuel cycle |
+| Artillery turret | Vanilla base-game family | Long-range fixed artillery; exact progression open | Artillery shells and industrial supply path remain open |
+| Rocket turret | Space Age-only vanilla counterpart; not selected in Core | Separate candidate, not an alias for the railgun | No nuclear-cycle or enriched-fuel requirement is selected |
 
-Both proposed electrical families should require substantial power as a balancing cost. Whether this is sustained draw, firing bursts, stored energy per shot, or a combination remains open; see [ADR-0015](adrs/ADR-0015-sustained-power-for-defense.md).
+Both added electrical families require substantial power as a balancing cost. Whether their draw is sustained, firing bursts, stored energy per shot, or a combination remains open; see [ADR-0015](adrs/ADR-0015-sustained-power-for-defense.md).
 
-### Material Sources (Mapped to Infrastructure)
+### Candidate Material Sources (Mapped to Infrastructure)
+
+The following links are hypotheses, not established routes or required starting resources. Validate feed access, process compatibility, and actual consumers before approving them.
 
 | Component | Mineral source | Refining chain | Infrastructure (infra.md §) |
 |---|---|---|---|
@@ -210,10 +210,10 @@ Both proposed electrical families should require substantial power as a balancin
 | Copper jacketing | Chalcopyrite, malachite | Froth flotation → electrolysis → high-purity cathode Cu | infra.md §2 Flotation, §7 Electrochemical |
 | Steel casings (base alloy) | Hematite (Tier 1 surface) | Blast furnace → converter → steel EAF | infra.md §4 Smelting |
 | Gunpowder propellant | Sulfur (Tier 1 surface) + charcoal/carbonized biomass | Simple carbonization + sulfur refinement | infra.md §3 Thermal |
-| Nitric acid (HE component) | Chlor-alkali: NaOH → ammonia (Haber-Bosch) → Ostwald chain | Tank reactor → catalytic converter | infra.md §5 Reactors, §6 Solution Proc. |
+| Nitric acid (candidate HE component) | Industrial-gas and reagent feeds are candidates | Source and process chain remain open | infra.md §5 Reactors, §6 Solution Proc. |
 | Glycerol/explosive precursor | Coconut palm oil (vegetable glycerol) or FT synthetic intermediate | Esterification/cracking plant | infra.md §8 Polymer/Composite |
 | Tungsten for AP cores | Scheelite/Tungstenite (Tier 2 underground), W in BIF/polymineral | Caustic leach → purification → powder metallurgy pressing | infra.md §5 Reactors, §8 Polymer |
-| Lead-acid propellant oxidizer | Potassium/sodium chlorates from trona/halite brine evaporation | Crystallization/evaporator → decomposition furnace | infra.md §6 Solution Proc. |
+| Candidate oxidizer | Evaporite or brine-derived feed candidates | Material identity, suitability, and processing remain open | infra.md §6 Solution Proc. |
 
 **Candidate scope — see [ADR-0014](adrs/ADR-0014-capability-based-ammunition.md):** A later source statement says **~12 core recipes across four tiers**, conflicting with the five-tier wording above. The recipe and tier counts remain open.
 
@@ -239,7 +239,7 @@ A mature defensive posture requires:
 
 ## Candidate Integration with a Space-Platform Objective
 
-The source proposes a space-platform objective alongside the Project Prometheus endgame. Its availability in the selected Factorio version or DLC, its victory status, and its inclusion in core scope remain unverified. Candidate considerations:
+The space-platform objective is not an approved second victory condition. Space Age platforms are not part of the selected no-DLC base; any separate space implementation and objective remain open. Candidate considerations:
 
 - **Rocket fuel** connects to chemical chains — sulfuric acid processing from oil or coal routes can feed into hydrazine/monopropellant production
 - **Rocket parts** connect to intermediate product chains — aluminum alloys, titanium structures, semiconductor sensors for guidance systems
@@ -266,20 +266,18 @@ The proposed aspirations are:
 
 ### Optional Advanced Military Extension: Spider-Bot and Power-Suit Additions
 
-The user rejected military drones and specified fixed defenses. An optional, more advanced military extension may consider a spider-bot vehicle and power-suit equipment additions. This direction is distinct from drone defense; exact scope, product families, unlocks, and supply paths remain open. The rejected drone proposal and its supply-chain details are preserved in [ADR-0016](adrs/ADR-0016-late-game-defense-drones.md).
+Vanilla deployable combat-robot capsules are outside Core and may be offered by an extension under ADR-0071. New patrol-attack and sensor/early-warning drone concepts remain rejected under [ADR-0016](adrs/ADR-0016-late-game-defense-drones.md). An optional advanced military extension may also consider spider-bot vehicles and power-suit additions; exact scope, unlocks, and supply paths remain open.
 
 ## Open Design Decisions
 
-- Confirm which military scope and pressure-model proposals belong in core.
-- Decide the electrical turret progression: tier and phase placement, core-versus-extension scope, ammunition or energy model, range and splash behavior, and power draw profile and values.
+- Decide the electrical turret progression: tier and phase placement, ammunition or energy model, range and splash behavior, and power draw profile and values.
 - Reconcile the ammo categories, T3a/T3b weapon variants, and five-tier/four-tier statements before catalog enumeration.
-- Reconcile the no-new-enemy-variant proposal with the heavy-metal pollution table's armored ground variants.
-- Validate pollution units and the proposed `>1000 units/s` threshold against the implementation model.
+- If an enemy/pollution extension is pursued, validate its proposed behavior and pollution units independently of Core.
 - Decide whether space pressure is entirely implicit and whether any external quality-of-life integration is in scope.
 - Define the optional advanced military extension scope for spider-bot and power-suit additions.
 - Align sustained defense power demand with the accepted core power model; reconcile the differing laser-turret estimates in this document and [Infrastructure](infrastructure.md).
 
-The enemy/pressure conflict and core-versus-extension turret roster must be bounded before Phase 4 infrastructure scope is closed. Until then, Phase 3 gap assessment must classify affected recommendations as needing a decision rather than approving either proposal. Phase 5 coverage must trace the chosen defense capabilities and power demands; ammunition identities, recipes, and research gates follow in Phases 6–8. The proposed space-platform objective is not an approved second victory condition.
+Phase 5 coverage must trace the selected defense capabilities and power demands; ammunition identities, recipes, and research gates follow in Phases 6–8. The proposed space-platform objective is not an approved second victory condition.
 
 ## Candidate Extension Pack Scope
 
@@ -295,6 +293,6 @@ Military content for extension packs follows the core mod's design but adds dept
 
 ## Current Status and Next Work
 
-This is a candidate design, not a complete military specification. Capability-based ammunition and sustained defense power are accepted principles; the turret roster remains proposed, and military drones are rejected. The detailed ammunition, weapon, power-load, and extension tables remain candidate content, not final catalog entries, build recipes, or balance values. The rejected drone roles and supply chains are preserved in [ADR-0016](adrs/ADR-0016-late-game-defense-drones.md).
+This is not a complete military specification. The Core roster, vanilla enemy/pollution boundary, capability-based ammunition, and sustained-defense-power principles are selected. Detailed ammunition, weapon, power-load, and extension tables remain candidates, not final catalog entries, build recipes, or balance values.
 
-Next, reconcile military scope with the Phase 4 infrastructure inventory, classify military product families during Phase 5 coverage, and defer final product identities, recipes, and research to Phases 6–8 of [the plan](plan.md). Resolve the ammo-tier and recipe-count conflict before product enumeration.
+Next, trace military product families during Phase 5 coverage and defer final product identities, recipes, and research to Phases 6–8 of [the plan](plan.md). Resolve the ammo-tier and recipe-count conflict before product enumeration.

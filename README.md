@@ -41,6 +41,8 @@ The arc: *"Starting from dirt and ore, layering process after process, until bui
 ## Current Design Direction and Accepted Decisions
 
 - **Title:** *Project Prometheus* is the recommended working title; see [mod-overview.md](mod-overview.md) for alternatives.
+- **Platform:** Factorio 2.1 base game, with no required DLC; vanilla recipes and progression may be overhauled. See [ADR-0069](adrs/ADR-0069-target-factorio-2-1-base-game.md) and [ADR-0070](adrs/ADR-0070-overhaul-vanilla-recipes-and-progression.md).
+- **Rail and defense:** Core rail uses powered electric locomotives with optional demand dispatch. Core retains vanilla defenses and adds plasma and railgun turrets, using vanilla enemies and pollution behavior. See [Logistics System](logistics-system.md) and [Military System](military-system.md).
 - **Progression shape:** A conventional → domain-pack bridge → simulation-gated arc is the current direction. Seven distinct domain-pack tiers and the first-Core gate are selected in [ADR-0020](adrs/ADR-0020-seven-distinct-domain-pack-tiers.md) and [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md); exact pack inputs, higher gates, and timing remain open.
 - **Endgame direction:** Build a distributed planetary simulation network that models information-formed entities (structured-data beings, not AI); final victory and unlock conditions remain open.
 - **Power progression:** Phase 1/2 boundaries are recorded in [ADR-0019](adrs/ADR-0019-phase-1-and-2-power-progression.md), and Phase 3/4 routes and converters in [ADR-0018](adrs/ADR-0018-phase-3-and-4-power-route-roster-and-conversion.md); the solar boundary, crystalline-silicon PV platform, LFP battery chemistry, and thorium startup model are in [ADR-0021](adrs/ADR-0021-phase-2-material-and-solar-boundaries.md), [ADR-0038](adrs/ADR-0038-select-phase-2-crystalline-silicon-pv.md), [ADR-0039](adrs/ADR-0039-phase-2-lfp-battery-storage.md), and [ADR-0023](adrs/ADR-0023-thorium-startup-seed-and-breeding-model.md). See [Power System](power-system.md) for current design.
@@ -66,4 +68,4 @@ Avoid: mandatory upgrades without new capability, arbitrary complexity, a single
 
 ## Status
 
-Phase 1 documentation migration, Phase 2 cross-domain decision reconciliation, and the [Phase 3 gap analysis](gap-analysis-report-16-11-26.md) are complete. Phase 4 infrastructure alignment is next; see [plan.md](plan.md) for remaining decisions and gates. The project remains a broad design proposal, with system details and open decisions in the linked owner documents.
+Phases 1–4 are complete, including the [Phase 3 gap analysis](gap-analysis-report-16-11-26.md) and [infrastructure alignment](infrastructure.md). Phase 5 coverage is next; see [plan.md](plan.md) for its inputs and gate. Detailed products, recipes, technologies, and implementation remain open.

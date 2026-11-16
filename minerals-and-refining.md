@@ -149,6 +149,8 @@ Monazite-bearing deposits are the selected mined feed family for Th-232 under [A
 
 Rhenium-bearing molybdenite is the selected baseline feed for the Phase 2 Reaction Dynamics bridge under [ADR-0061](adrs/ADR-0061-select-phase-2-molybdenite-rhenium-feed.md). Limited supply and recovery must be accessible by the bridge's first required use without relying on the Reaction Dynamics Facility, its own domain packs, or the first Core; a starting-region deposit is not guaranteed. Deposit profile, recovery chemistry, coproduct handling, forms, grades, quantities, and gates remain open.
 
+The first-Core Invar mechanical alignment assembly under [ADR-0076](adrs/ADR-0076-invar-mechanical-first-core-alignment.md) requires an accessible pre-Core iron/nickel supply and alloy/fabrication capability. Hematite is a candidate iron feed and pentlandite a candidate nickel feed; neither this requirement nor the matrix selects a particular feed, guarantees a nickel deposit in the starting region, or establishes a recovery route.
+
 The Phase 2 Nb3Sn wire bridge uses niobium from columbite-tantalite and tin from cassiterite under [ADR-0062](adrs/ADR-0062-select-phase-2-niobium-tin-bridge-feeds.md). Columbite-tantalite supply is shared with the CPU tantalum path. Both feeds and their recovery must be accessible by the wire's first required use without relying on the Plasma Confinement Facility, its own packs, or the first Core; neither a starting-region deposit nor colocation is guaranteed. Recovery, shared-feed balances, fabrication, and gates remain open.
 
 ## Pure-Material Inventory

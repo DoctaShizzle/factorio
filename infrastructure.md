@@ -1,26 +1,26 @@
-# Infrastructure - Candidate Infrastructure and Placeable-Entity Catalog
+# Infrastructure - Infrastructure and Placeable-Entity Catalog
 
 *For: Project Prometheus Factorio Overhaul Mod*  
-*Status: Candidate inventory; scope, counts, and construction-demand hypotheses await work-plan Phase 4 alignment*
+*Status: Family scope aligned; individual entities, tiers, construction inputs, and recipes remain provisional*
 
 Related documents: [Minerals and Refining](minerals-and-refining.md), [Chemical Products and Processes](chemical-processes.md), [Intermediate Products](intermediate-products.md), [Power System](power-system.md), [Design Coverage and Product-Tree Plan](plan.md), [Documentation Map](documentation-map.md). Related ADRs: [ADR-0010](adrs/ADR-0010-core-power-distribution-scope.md), [ADR-0011](adrs/ADR-0011-hawking-radiation-endgame-generator.md), [ADR-0012](adrs/ADR-0012-bound-core-military-scope.md), [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md), [ADR-0018](adrs/ADR-0018-phase-3-and-4-power-route-roster-and-conversion.md), [ADR-0019](adrs/ADR-0019-phase-1-and-2-power-progression.md), [ADR-0021](adrs/ADR-0021-phase-2-material-and-solar-boundaries.md), [ADR-0022](adrs/ADR-0022-phase-2-bridge-mappings-and-core-dependencies.md), [ADR-0023](adrs/ADR-0023-thorium-startup-seed-and-breeding-model.md), [ADR-0025](adrs/ADR-0025-phase-2-cpu-supply-and-superconducting-core-compute.md), [ADR-0026](adrs/ADR-0026-phase-2-contemporary-semiconductor-capability.md), [ADR-0027](adrs/ADR-0027-phase-2-contemporary-chipmaking-material-stack.md), [ADR-0028](adrs/ADR-0028-phase-2-core-cpu-material-dependencies.md), [ADR-0029](adrs/ADR-0029-phase-2-semiconductor-mineral-feed-families.md), [ADR-0032](adrs/ADR-0032-select-trichlorosilane-route-for-phase-2-polysilicon.md), [ADR-0033](adrs/ADR-0033-phase-2-submerged-arc-silicon-reduction.md), [ADR-0034](adrs/ADR-0034-select-chlor-alkali-coproducts-for-hcl-makeup.md), [ADR-0035](adrs/ADR-0035-powered-polluting-gas-fluid-disposal.md), [ADR-0036](adrs/ADR-0036-phase-2-minimum-fission-fuel-path.md), [ADR-0038](adrs/ADR-0038-select-phase-2-crystalline-silicon-pv.md), [ADR-0039](adrs/ADR-0039-phase-2-lfp-battery-storage.md), [ADR-0040](adrs/ADR-0040-phase-2-lfp-feed-sources-and-access.md), [ADR-0041](adrs/ADR-0041-phase-2-direct-use-fission-fuel.md), [ADR-0042](adrs/ADR-0042-require-enriched-phase-2-uranium-fuel.md), [ADR-0043](adrs/ADR-0043-phase-2-fission-fuel-rod-fabrication.md), [ADR-0044](adrs/ADR-0044-phase-2-shared-zircon-supply-for-fission-cladding.md), [ADR-0045](adrs/ADR-0045-phase-2-zirconium-hafnium-separation-stage.md), [ADR-0046](adrs/ADR-0046-select-phase-2-uranium-centrifuge-enrichment.md), [ADR-0047](adrs/ADR-0047-share-phase-2-uranium-chain-with-thorium-seed.md), [ADR-0048](adrs/ADR-0048-select-phase-2-uf6-uranium-fuel-cycle.md), [ADR-0049](adrs/ADR-0049-select-phase-2-fluorspar-feed-for-uf6-conversion.md), [ADR-0050](adrs/ADR-0050-select-phase-2-uraninite-uranium-feed.md), [ADR-0051](adrs/ADR-0051-defer-phase-2-uranium-enrichment-target.md), [ADR-0056](adrs/ADR-0056-share-uranium-fuel-enrichment-grade-with-thorium-seed.md), [ADR-0057](adrs/ADR-0057-require-phase-2-reprocessing-for-spent-uranium-fuel.md), [ADR-0058](adrs/ADR-0058-keep-custom-power-diagnostics-and-stabilization-out-of-core.md), and [ADR-0059](adrs/ADR-0059-exclude-blackout-meltdown-gameplay-from-phase-2-core-fission.md) for the Phase 2 Core fission-safety boundary.
 
 Related closure ADRs: [ADR-0063](adrs/ADR-0063-select-depleted-uranium-oxide-reuse.md), [ADR-0064](adrs/ADR-0064-phase-2-ptfe-bootstrap.md), [ADR-0065](adrs/ADR-0065-practical-phase-2-fission-readiness.md), [ADR-0066](adrs/ADR-0066-select-phase-2-nuclear-recovery-flows.md), and [ADR-0068](adrs/ADR-0068-continuous-nuclear-waste-disposal.md).
 
-> **Scope**: Candidate catalog of placeable production, power, logistics, fluid, defense, research, waste, and control infrastructure across the planned progression. Explicitly accepted capability boundaries below constrain the candidates. The current rough estimate of ~100-120 entries is not a normalized count of placeable entities, machine families, support systems, or tier variants; work-plan Phase 4 will reconcile it.
+> **Scope**: Factorio 2.1 base game without a required DLC under [ADR-0069](adrs/ADR-0069-target-factorio-2-1-base-game.md). Core reuses useful vanilla prototypes and modifies recipes/progression where appropriate under [ADR-0070](adrs/ADR-0070-overhaul-vanilla-recipes-and-progression.md). The checklist and family register below define scope; detailed entries are capability and construction candidates unless explicitly selected.
 >
-> **Construction demand**: Material and build notes are hypotheses for work-plan Phase 4 alignment and Phase 5 coverage. Product identities, exact recipes, and research gates follow in Phases 6, 7, and 8 respectively.
+> **Construction demand**: The high-level demand map distinguishes selected material families, candidate uses, and unresolved sources. Detailed material lists, numeric values, machine upgrades, and phase assignments in the category tables are hypotheses, not accepted bills of materials. Product identities, exact recipes, and research gates follow in Phases 6, 7, and 8.
 >
 > **Boundary**: Non-building products (vehicles, fuels, weapons/ammo, armor/equipment, modules, and research ingredients) belong in [Intermediate Products](intermediate-products.md). The ammo table in section 12 is a cross-domain candidate reference only and is excluded from infrastructure counts.
 >
-> **Document ownership**: The former Machine Systems design was subsumed into this catalog. Candidate placeable machine families and progression are cataloged here; exact route-to-machine assignments remain deferred until process routes and product coverage are ready. The current work roadmap is [plan.md](plan.md); no separate `session-plan.md` source is present.
+> **Document ownership**: The former Machine Systems design was subsumed into this catalog. Placeable machine families and capability progression are cataloged here; exact route-to-machine assignments remain deferred except where explicitly selected. The roadmap is [plan.md](plan.md).
 
 ---
 
 ## Equipment Principles
 
 - A machine family should support multiple related processes where practical.
-- A prior proposal called for multiple build-material tiers on every frequently built machine type; this catalog also lists single-tier exceptions. Whether to tier a family remains capability-driven and unresolved.
+- Decide tiering per family; an untiered family is valid. Newly required tiers need a meaningful capability change rather than speed or capacity alone under [ADR-0075](adrs/ADR-0075-capability-based-machine-family-tiering.md). Existing vanilla throughput variants are not automatically new Prometheus capability tiers.
 - Tier progression must change capability — not just speed. Higher tiers can handle more materials, higher pressures/temperatures, automate sub-tasks, or improve precision.
 - Introduce specialized equipment when it changes the player's capability, input/output behavior, or meaningful constraints, not just to add a machine tier.
 - Keep recipe eligibility, inputs, outputs, coproducts, catalysts, and required technology visible in the handbook and machine UI.
@@ -32,24 +32,71 @@ Related closure ADRs: [ADR-0063](adrs/ADR-0063-select-depleted-uranium-oxide-reu
 
 ## Factorio-Style Infrastructure-Family Coverage Checklist
 
-This is a completeness checklist, not a commitment to add every vanilla or modded entity. Examples describe gameplay families, not a version-specific prototype inventory. During work-plan Phase 4, assign each family a project scope disposition: core, vanilla retained/modified/replaced, extension, or out of scope.
+This checklist is a family-level 2.1 base-game scope review, not a complete prototype or recipe inventory. **Core candidate** means the capability may be implemented in Core but a separate entity is not selected. Exact unlocks and placing-item/entity splits remain open.
 
 | Family to verify | Factorio-style examples | Current catalog coverage or handoff |
 |---|---|---|
-| Resource extraction and prospecting | Mining drills, pumps, deposit scanners | Candidate inventory in Category 1. |
-| Ore processing and production | Crushers, separators, furnaces, reactors, refineries, assemblers | Categories 2-10 and 15 cover specialized production; disposition for general-purpose crafting/assembly remains to be recorded. |
-| Power generation and storage | Boilers, generators, solar, accumulators, batteries | Core candidates in Category 11. |
-| Power distribution | Poles, lines, transformers, substations | The vanilla pole grid with compatible tiered poles is selected under [ADR-0010](adrs/ADR-0010-core-power-distribution-scope.md); custom transmission and grid-stabilization remain extension candidates, with exact pole tiers and build requirements open. |
-| Item transport and storage | Belts, splitters, inserters, chests, logistics bots, roboports | Category 13 has candidate belts, sorting/insertion, hubs, and storage; exact vanilla retained/replaced coverage remains to be reconciled. |
-| Rail transport | Track, signals, stations, locomotives, wagons | Freight terminal is in Category 13; track/signal coverage and rolling-stock scope need a disposition. Non-building rolling stock belongs in [Intermediate Products](intermediate-products.md). |
-| Fluid transport and storage | Pipes, pumps, tanks, valves | Candidate inventory in Category 14. |
-| Defense and military placeables | Turrets, walls, gates, mines, repair/supply entities | Category 12 covers turret and support candidates; other placeable-defense families need a disposition with [Military System](military-system.md). |
-| Factory support and alerts | Beacons, radars, lamps, programmable speakers, repair/charging stations | These placeable support families need an explicit disposition, including whether vanilla entities are retained or replaced. |
-| Research, observation, and endgame facilities | Labs, observation or satellite facilities, launch/endgame sites | Category 17 and provisional endgame pathways; science packs and other non-building outputs belong in [Intermediate Products](intermediate-products.md). |
-| Automation, control, and sensing | Sensors, combinators, circuit networks, PLCs, alarms | Candidate inventory in Category 18; explicit vanilla circuit-network entities and wires need a disposition. |
-| Waste, recycling, and pollution handling | Tailings recovery, reprocessing, incinerators | Candidate inventory in Category 16; other pollution-handling entities need a scope check. |
-| Terrain and construction utilities | Landfill, tiles, concrete, construction robotics | Construction Bot Bay is in Category 13; terrain behavior belongs in [Map and World Generation](map-world-generation.md), while construction products belong in [Intermediate Products](intermediate-products.md). Placeable types still need a disposition. |
-| Non-building constructables (excluded here) | Vehicles, fuel, weapons/ammo, armor/equipment, modules, research packs | Product identities belong in [Intermediate Products](intermediate-products.md); domain behavior remains with the relevant system documents. |
+| Resource extraction and prospecting | Mining drills, pumpjack, offshore pump, scanners | Core; vanilla drills and pumps retained/modified, with specialist extraction/prospecting candidates in §1. The proposed underground extractor is not an underground transport belt. |
+| Ore processing and production | Furnaces, chemical plants, refineries, assemblers, crushers, separators | Core; vanilla furnaces, assemblers, chemical plants, refineries, and centrifuges retained/modified where useful. Specialized capability candidates are in §§2-10 and 15. |
+| Power generation and storage | Boilers, engines, turbines, solar, accumulators | Core selected power routes and vanilla boiler/engine/turbine boundaries are in §11; storage and other generator designs remain family-specific candidates. |
+| Power distribution | Poles, lines, substations, transformers | Core retains the vanilla grid and adds compatible tiered poles under ADR-0010. Custom voltage/loss transmission and stabilization are extension candidates; ordinary vanilla substations remain Core. |
+| Item transport and storage | Belts, underground belts, splitters, inserters, chests, roboports | Core retains/modifies the base-game families; §13 candidates must add distinct capability to justify a separate entity. |
+| Rail transport | Rails, signals, stations, locomotives, wagons | Core retains/modifies vanilla rail geometry, signals, stops and wagons; powered rails and electric locomotives replace fueled traction under [ADR-0073](adrs/ADR-0073-core-electric-only-rail.md). Optional demand dispatch is Core under [ADR-0074](adrs/ADR-0074-core-demand-based-train-dispatch.md). Rolling-stock items belong in [Intermediate Products](intermediate-products.md). |
+| Fluid transport and storage | Pipes, underground pipes, pumps, tanks, valves | Core retains/modifies vanilla pipes, pumps and tanks; extra valves and specialized handling in §14 are candidates. |
+| Defense and military placeables | Gun, laser, flamethrower and artillery turrets; walls, gates, mines | Core retains/modifies the base-game families and adds plasma and railgun turrets under [ADR-0071](adrs/ADR-0071-bound-core-defense-roster.md). A rocket turret is not selected; Space Age is not required. |
+| Factory support and alerts | Beacons, radars, lamps, programmable speakers, roboports | Core retains/modifies the base-game families. Separate repair or charging stations are candidates, not assumed extra entities; roboport charging is the baseline. |
+| Research, observation, and endgame facilities | Labs, launch silo, domain labs, Core facilities | Core retains/modifies vanilla labs and launch capability; the six domain facilities, first-Core gate, and selected Array are in §17. Later satellite structures and exact entity splits remain candidates; a second victory is not selected. |
+| Automation, control, and sensing | Circuit network, combinators, power switches, PLCs, alarms | Core retains/modifies vanilla circuit controls and connections; §18 PLC/sensor additions are candidates. No count of wire products is assumed from connection behavior. |
+| Waste, recycling, and pollution handling | Flare, effluent clarifier, reprocessing, nuclear disposal | Core selected disposal and nuclear recovery capabilities are in §16. Other recovery and recycling machines remain candidates. |
+| Terrain and construction utilities | Landfill, tiles, concrete, construction robots | Core retains/modifies useful vanilla terrain and construction systems; terrain behavior is owned by [Map and World Generation](map-world-generation.md) and non-building items by [Intermediate Products](intermediate-products.md). |
+| Non-building constructables (excluded here) | Vehicles, fuel, weapons/ammo, armor/equipment, modules, packs | Their Core/vanilla/extension dispositions and product ownership are in [Intermediate Products](intermediate-products.md); items and their corresponding placeable entities must be counted separately. |
+
+## Family Scope and Counting Register
+
+The register assigns a scope to every named family in the detailed categories. Each category table below supplies its individual role, candidate phase, candidate tier/capability changes, and proposed inputs/outputs; the material map supplies source or gap status. A candidate phase or tier is not an approved unlock. **Core capability** means the function is required but does not imply a separate entity; **Core candidate** is not a required entity or recipe. Where several names appear in one row, they remain separate family candidates unless an alias is explicitly identified.
+
+| Category / families | Disposition, role, phase, and expected product or service |
+|---|---|
+| 1. Vanilla drills, pumpjack, offshore pump | Core, vanilla retained/modified; Phase 1 extraction and water/oil, with later mineral/brine service open. Existing vanilla variants and any new capability tiers remain distinct. |
+| 1. Underground extractor, deep drill, scanner, open-pit excavator, enhanced pump | Core candidates for buried/deep extraction, prospecting, bulk ore, or brine/offshore fluid service; individual Phase 1-3 timings and tiers in §1 are provisional. |
+| 2. Crushers, mills, screens, washers, gravity/magnetic/electrostatic/contact separators, flotation | Core processing-family candidates, Phases 1-3; produce prepared ores/concentrates. Rougher and cleaner/scavenger cells are configurations of a flotation family unless a distinct entity is justified. Tiered and untiered examples remain provisional. |
+| 3. Dryer, roaster, calciner, kiln, sintering, press, spray dryer | Core thermal/forming candidates, Phases 1-3; produce dried, roasted, calcined, sintered, or formed feed. A PTFE-free Phase 2 press configuration plus compatible thermal furnace is required for first PTFE construction materials under [ADR-0078](adrs/ADR-0078-assign-phase-2-ptfe-finishing-equipment.md); exact tier/entity split remains open. |
+| 4. Blast/direct-reduction, converter, arc/submerged-arc, reverberatory, cupola, induction furnaces | Core metallurgical candidates, Phases 1-4; produce pig iron, DRI, steel, silicon, and other metal feed. The Phase 2 submerged-arc silicon capability is selected; other exact equipment splits and tiers are open. Phase 1 furnaces cannot require bauxite-derived alumina. |
+| 5. Leach vessels and pads, autoclave, general, fixed-bed and fluidized-bed reactors | Core chemical process-family scope; produce leach solutions and chemical intermediates in the candidate phases shown in §5. No blanket tier roster or separate entity per operation is selected. |
+| 6. Filter, crystallizer, extraction column, ion exchange, precipitation and decanting | Core separation candidates, Phases 2-3, for filtered, recovered, crystallized, and separated material streams. Their exact equipment, phase and tier splits are open; nuclear startup is not automatically gated on Phase 3 candidates. |
+| 7. Electrowinning, electrorefining, chlor-alkali and water electrolysis | Core process-family candidates, Phases 2-4, for metals and chemical reagents; chlor-alkali coproducts supply selected HCl startup. Phase 2 copper supply must not depend solely on the Phase 3 electrorefiner candidate. Specific cell entities and tiers remain open. |
+| 8. Cracking, polymerization, extrusion, molding and fiber processing | Core chemical and polymer candidates, Phases 2-3; produce monomers, resins, shapes and fibers. First PTFE polymerization uses the non-PTFE baseline; first finished PTFE uses §3, not the later extruder/molder. |
+| 9. Purification, crystal growth, sawing, polishing, etching, thermal processing, deposition, lithography, cleanroom and packaging | Core semiconductor capabilities by Phase 2; exact separate entities and tiers are candidates, producing the selected wafer/chip/package families. The floating-zone row is removed, not an additional family. First vacuum equipment is independent of its own chip outputs. |
+| 10. Uranium conversion/enrichment, pellet preparation, Zr/Hf separation, cladding, rod and absorber fabrication | Core Phase 2 capabilities for usable fission and CPU hafnium; equipment splits and tiers remain open. Fuel-pellet sintering and Zr/Hf separation are capability rows, not automatically separate entities. |
+| 10. B₄C press, breeder-panel, tungsten-tile, coil-winding, optics and containment fabrication | Core candidates for specialist fabrication, Phases 2-4 as individually shown. Phase 2 bridge-facility construction needs any required magnet assembly before the Phase 3 winder candidate; Phase 3 Tokamak construction needs compatible forming, assembly, magnet and fuel capabilities without Phase 4-only specialists. Thermoelectric conversion is unselected, not the chosen Hawking converter. |
+| 11. Boiler, steam engine, steam turbine, native poles | Core, vanilla retained; boiler/engine operate in Phases 1-2, turbine in Phase 2. All three are untiered; grid and pole behavior remain vanilla-compatible. |
+| 11. PV, fission, LFP storage, tiered poles, later power routes/converters | Core selected capabilities; PV/fission/LFP begin in Phase 2, Tokamak/geothermal/PV/CSP in Phase 3, and Hawking/exergy/stellar solar in Phase 4. Exact entities, materials and tiers remain open. Stellar collection and beaming need a no-DLC implementation. |
+| 11. Wind, advanced wind, tidal/wave, flywheel | Unselected supplementary Core candidates; phases and entities remain open. A capacitor bank and vanilla accumulator are overlapping storage concepts, not automatically two families. |
+| 11. Custom transmission and grid stabilization | Optional extension candidates, not Core; no tiers or dependency are selected. The blackout-fuse safety item is not selected. |
+| 12. Gun, laser, flamethrower, artillery, plasma and railgun turrets; walls/gates/mines | Core fixed-defense families; four turret families reuse base-game scope and two are added. Sustained power and ammunition capabilities are selected principles; phases, individual tiers, construction, and product inputs remain open. |
+| 12. Ammunition loading, mixing, nitration, detonator assembly, tungsten-core forming | Core support-capability candidates in the phases shown in §12; produce ammunition components and finished munitions. Press and reactor operations may reuse §3 and §5 families; a distinct detonator-assembly entity and all tiers remain open. |
+| 12. Rocket turret, anti-materiel weapon | Unselected separate weapon candidates, not additional Core turret families. The Space Age rocket turret is not a 2.1 base-game prototype; the anti-materiel concept is an optional extension candidate. |
+| 13. Belts, splitters, inserters, storage and roboports | Core, vanilla retained/modified; Phase 1 onward as progression permits, transporting or storing items and supporting construction/logistics robots. Exact variants remain open. High-speed belt is a belt variant candidate, while belt-jumper crossings correspond to vanilla underground transport belts; bot hub and construction bay are roboport-family candidates unless distinct capabilities justify a split. |
+| 13. Rails, signals, stops, powered rail, freight terminal | Core vanilla rail/signaling/station service plus selected electric traction; first intended train use requires an acyclic powered-rail path. The compact freight terminal is a later Core candidate, not required for normal automated loading or scheduling. |
+| 13. Crane, AGV station and robotic arm | Core logistics/assembly candidates, Phases 3-4 as shown in §13; exact roles, entity splits, tiering, and sources are open. |
+| 14. Tanks, pipes, pumps, valves, heat exchangers and vacuum/compression | Core fluid-service families, with vanilla tanks/pipes/pumps retained or modified. Required Phase 2 semiconductor vacuum must bootstrap without its own chips; individual compatibility mechanics, tiers and specialist entities are open. |
+| 15. Rubber mill, sheet press and fiber layup | Core polymer-forming candidates, Phases 2-3, for elastomers, sheets and composite parts; tier counts and distinct entity splits are open. |
+| 16. Tailings, waste-to-fuel, metal recovery and sludge conditioning | Core recovery/process candidates, Phases 2-3; exact outputs and separate entities are open. They do not replace the required ordinary gas/fluid or nuclear disposal paths. |
+| 16. Gas flare, liquid clarifier, nuclear recovery, conditioning and deep disposal | Core required capabilities: the flare is available no later than Phase 2 silicon reduction; liquid handling must be viable when needed; nuclear handling exists by each corresponding first output. Ordinary gas/fluid release is powered and polluting, while conditioned nuclear-solid disposal is continuous, powered/material-consuming, slightly polluting, and uncapped. Nuclear capability/entity splits and construction remain open. |
+| 17. Vanilla lab, six domain labs, Core and Array | Core lab and first-Core capabilities: vanilla research retained/modified; six distinct domain facilities and bridge mappings in Phase 2; first Core follows all six T2b2 domains and the Array. Its first compute uses packaged CPUs and its alignment uses Invar mechanical adjustment; the Array does not consume domain packs. Component item/entity splits are open. |
+| 17. Compute campus, archive and observation | Core simulation-network candidates, Phase 3 onward; supply compute, storage and observations. Their necessity, entity splits, quantities and tiers are open. |
+| 18. Sensors, PLC, actuator, wired control and optimization | Core control-family candidates, Phases 1-4 as individually shown; vanilla combinators and circuit connections remain available. Exact custom controller entities and tiers are open; ordinary process balance must not depend on custom control code. |
+
+**Counting boundary:** Six selected turret families and six selected domain-facility families are separate family counts, not counts of new items, entities, tiers, recipes, or technologies. The remaining candidate names are not a normalized total: capability rows can share entities, and aliases and variants must not be added again. Total unique products, constructables, placeable entities, machine families, tiers/variants, recipes, and technologies are independently **TBD** until their identities are fixed in the relevant catalog and research phases. Do not add extension candidates or excluded entries to Core totals.
+
+**Alias and discrepancy dispositions:**
+
+- Underground mining extractor and vanilla underground transport belt have different functions; retain the latter for belt crossings and do not claim one replaces the other.
+- Enhanced blast furnace is a new or repurposed ironmaking capability, not a replacement for a nonexistent vanilla blast-furnace prototype; vanilla furnace reuse is open.
+- Flotation banks, high-speed belts, roboport/bot-bay proposals, capacitor/accumulator storage, and military press/reactor support may share existing families as noted above; resolve any separate entity only against a distinct capability.
+- Plasma Discharge Emitter and Railgun/Coilgun proposals are alternative descriptions of the selected plasma and railgun families, not two extra turrets. Their attack details remain open.
+- A Phase 4 breeder-panel assembler or tungsten-tile molder is not the first Phase 3 Tokamak production capability. Phase 5 must verify earlier suitable forming and assembly paths.
+- Candidate component lists below that conflict with an accepted phase or bootstrap boundary do not impose extra prerequisites. In particular, Phase 1 has no bauxite-derived alumina, first fission has no mandatory B₄C/superconductor, and first vacuum/PTFE equipment cannot require its own outputs.
 
 ---
 
@@ -58,7 +105,7 @@ This is a completeness checklist, not a commitment to add every vanilla or modde
 | Machine Name | Tier/Phase | Operations | Design Notes |
 |-------------|-----------|------------|--------------|
 | Electric Mining Drill | MTier 1–4 (Phases 1–3) | Mine single mineral deposits from surface | Multi-tier: larger footprint, higher ore yield multiplier per tick at each tier |
-| Underground Mining Belt | MTier 2–3 (Phases 1–2) | Auto-extract from buried deposit onto belt | Replaces vanilla underground belt; needs specific tier for each deposit type |
+| Underground Deposit Extractor (formerly Underground Mining Belt) | MTier 2–3 candidates (Phases 1–2) | Extract buried deposits onto a transport belt | New extraction capability candidate; not an alias for, or replacement of, the vanilla underground transport belt. Deposit eligibility and tiers remain open |
 | Deep Borehole Drill | Phase 3 | Access Tier 3 polymineral deposits in situ | Broaches mixed feed at depth; lower yield per tick but no excavation pit needed |
 | Prospect Scanner | Phase 2 | Reveal depth/grade of hidden mineral veins under terrain | Diagnostic tool, not productive; reveals deposit data for player planning |
 | Open-Pit Excavator | Phase 3 | High-throughput surface mining of bulk materials (coal, stone, iron) | Large footprint, massive output — endgame mining alternative to electric drills |
@@ -66,7 +113,7 @@ This is a completeness checklist, not a commitment to add every vanilla or modde
 
 ## 2. Ore Preparation & Concentration
 
-All preparation machines are player-built and should be multi-tiered with **different materials per tier** — especially wear-resistant surfaces that change the machine's material class. Crushing/grinding is abrasive by nature: each tier introduces a new hardness class of cutting/grinding surface.
+Preparation machines may use different wear-resistant materials where a distinct hardness or processing capability warrants a tier. Tiering is family-specific; single-tier equipment and shared machines remain valid under ADR-0075.
 
 | Machine Name | Tier/Phase | Build Materials by Tier | Capability Change Per Tier |
 |-------------|-----------|------------------------|---------------------------|
@@ -115,7 +162,7 @@ Candidate thermal-machine tiers use **different refractory/structural materials 
 
 | Machine Name | Tier/Phase | Operations | Design Notes |
 |-------------|-----------|------------|--------------|
-| Enhanced Blast Furnace | MTier 1–3 (Phases 1–2) | Carbon-reduced iron smelting from ore + coke/lignite → pig iron | Larger hearth, better heat recovery, automated tap at higher tiers. Replaces vanilla blast furnace |
+| Enhanced Blast Furnace | MTier 1–3 candidates (Phases 1–2) | Carbon-reduced iron smelting from ore + coke/lignite → pig iron | New or repurposed ironmaking capability; vanilla has furnace families but no blast-furnace prototype to replace. Phase 1 uses basic refractory, not bauxite-derived alumina |
 | Direct Reduction Furnace | Phase 2 | Produce DRI (direct reduced iron) from ore using reducing gas (H₂/CO mix) | Gas feed from gasifier or electrolysis; alternative to blast furnace path |
 | Converter (BOF/LD) | MTier 1–3 (Phases 2–3) | Convert pig iron to steel by blowing oxygen to burn off excess carbon | Requires pig iron input + oxygen; tier = blow rate/temperature control |
 | Electric-Arc Furnace (EAF) | MTier 1–4 (Phases 2–4) | Melt scrap metal or DRI with graphite electrodes for alloy production | Higher voltage → more power → faster melting, better temp range at high tiers |
@@ -126,7 +173,7 @@ Candidate thermal-machine tiers use **different refractory/structural materials 
 
 ## 5. Chemical Extraction & Reactors
 
-All chemical reactors must be tiered with **different pressure/temperature/material compatibility ratings per tier**. Higher tier = the machine can handle more extreme process conditions, not just "bigger." This is where material selection creates real engineering decisions: wrong tier choice leads to corrosion, leaks, or catastrophic failure.
+Chemical equipment may differ by pressure, temperature, or material compatibility when those differences create useful capabilities. Tiers and any corrosion, leak, or failure mechanics remain unselected; no family must be tiered by default.
 
 | Machine Name | Tier/Phase | Build Materials by Tier | Capability Change Per Tier |
 |-------------|-----------|------------------------|---------------------------|
@@ -141,7 +188,7 @@ All chemical reactors must be tiered with **different pressure/temperature/mater
 
 ## 6. Solution Processing & Separation
 
-All solution processing machines handle corrosive chemicals in suspension or precipitation — material compatibility is the primary tier driver. The progression mirrors real hydrometallurgy: from simple gravity settling to precision chemical separation.
+Solution-processing candidates include gravity settling, filtration, and chemical separation. Material compatibility and tiering remain open; Phase 2 battery and nuclear routes cannot depend solely on later specialist configurations.
 
 | Machine Name | Tier/Phase | Build Materials by Tier | Capability Change Per Tier |
 |-------------|-----------|------------------------|---------------------------|
@@ -155,11 +202,11 @@ All solution processing machines handle corrosive chemicals in suspension or pre
 
 ## 7. Electrochemical Processing
 
-Electrochemical machines require **precision power delivery and corrosion-resistant materials** — each tier introduces new electrode materials, membrane quality, and control precision. This is one of the most material-rich categories because every tier adds a different conductive/insulative combination.
+Electrochemical candidates may differ in electrode material, membrane quality, control precision, and compatible service. Families may also remain untiered; their construction, capabilities, and required power interface remain open.
 
 | Machine Name | Tier/Phase | Build Materials by Tier | Capability Change Per Tier |
 |-------------|-----------|------------------------|---------------------------|
-| **Electrowinning Cell / Tankhouse** (MTier 1–3) | Phases 2–4 | T1: Lead-acid alloy anodes + copper cathode starter sheets + carbon steel frame. Electrode surface area: limited. Power delivery: basic DC (rectifier input only). No auto-cathode mechanism — manual removal required. T2: Stainless steel frame + chrome-molybdenum anode support structure + niobium-microalloyed busbar connections. Larger electrode surface area. Auto-cathode swapping mechanism at MTier 3+. T3: Niobium-microalloyed pressure vessel + tantalum-bearing cathode transport system + semiconductor-grade current density monitoring | T1 produces *only one metal type* with periodic auto-cathode cycling — throughput is lower than T2+ tiers. Cannot process mixed-metal electrolytes without cross-contamination. T2 enables *continuous operation*: auto-cathode swapping allows unattended deposition of pure metal on replacement sheets. Electrode surface area triples at this tier. T3 adds *current density control*: real-time monitoring and adjustment of amperage per cell — the capability that unlocks electrowinning of alloys and selective metal recovery from mixed solutions (critical for recovering cobalt/nickel from leach solutions) |
+| **Electrowinning Cell / Tankhouse** (MTier 1–3 candidate) | Phases 2–4 | T1 candidate: lead-alloy anodes, copper starter sheets, carbon-steel frame, and limited electrode area. T2 candidate: stainless frame, alloy supports, and larger area. T3 candidate: niobium-alloy vessel, tantalum-bearing transport, and current-density monitoring. The source disagrees whether automatic cathode handling begins at T1, T2, or T3; exact capabilities remain open. | Candidate functions include metal deposition, unattended cathode handling, and selective recovery from mixed solutions. First usable automated handling, phase gates, tiering, and materials require validation; no specific candidate tier is selected. |
 | **Electrorefiner** | Phase 3+ | Candidate single-tier equipment: stainless steel vessel + nickel-plated tank interior + titanium anode support structure. Purifies impure metal by controlled deposition — copper/nickel/zinc purification from impure smelted product. Inputs, process conditions, and output quality remain open. | Candidate specialist machine with configuration by material; exact power draw is open and no custom grid-quality mechanic is selected |
 | **Chlor-Alkali Membrane Cell** (MTier 2–4) | Phases 2–3 | T2: Titanium anode (dimensionally stable anode coating) + polymer membrane cell body + copper busbar connections. Can split brine into Cl₂, NaOH, and H₂ but with standard membrane configuration (~1000 hours). Higher membrane replacement cost. T3: Niobium-microalloyed housing + reinforced polymer membrane (PTFE-reinforced) + niobium-tin shielding layers. Membrane lifetime extended to ~5000 hours. Better separation efficiency — less chlorine contamination of NaOH product stream. T4: Tungsten-carbide electrode support + niobium-microalloyed pressure vessel + semiconductor-grade cell voltage monitoring | T2 produces *chlorine-contaminated caustic soda* that requires secondary purification — the tier where basic chlor-alkali chemistry becomes viable but at significant ongoing membrane consumption cost (1 membrane per 5 cycles). Its H₂ and Cl₂ coproducts feed the HCl synthesis route under [ADR-0034](adrs/ADR-0034-select-chlor-alkali-coproducts-for-hcl-makeup.md); the NaOH sink and detailed coproduct balance remain open. T3 produces *high-purity sodium hydroxide* directly from the cell, eliminating the need for separate purification infrastructure. The tier where chlor-alkali becomes economically competitive with purchased NaOH, with reduced consumable cost (1 membrane per 20 cycles). T4 adds *precision monitoring and lowest consumable cost*: semiconductor-grade voltage tracking paired with premium "high-grade membrane" item per 50 output cycles |
 | **AEM Water Electrolyzer** | Phase 3 | Single-tier: stainless steel vessel + alkaline electrolyte (KOH solution) + AEM (anion-exchange membrane) separator + copper/nickel electrode plates. Splits water into high-purity H₂ and O₂ gases. Fusion-grade hydrogen purity. | No tier progression — *specialist* fuel production machine. Material selection (membrane type) is critical to performance but doesn't vary by tier |
@@ -167,7 +214,7 @@ Electrochemical machines require **precision power delivery and corrosion-resist
 
 ## 8. Polymer Chemistry & Primary Processing
 
-These are the *production* machines that transform refined chemicals into polymers, plastics, and composite materials. They must be tiered with **different reaction chamber materials** per tier — higher temperature/pressure polymerization requires different metallurgy.
+These are candidate production machines that transform refined chemicals into polymers, plastics, and composite materials. Different chamber materials may support distinct processes; no blanket tier requirement is selected.
 
 | Machine Name | Tier/Phase | Build Materials by Tier | Capability Change Per Tier |
 |-------------|-----------|------------------------|---------------------------|
@@ -177,18 +224,18 @@ These are the *production* machines that transform refined chemicals into polyme
 | **Injection Molding Press** | Phase 3 | Single-tier: chrome-molybdenum mold assembly + niobium-microalloyed clamping mechanism + semiconductor-grade temperature controllers. Forms polymers into complex shapes under pressure in heated mold. Produces casings, connectors, components directly from polymer melt. | No tier progression — *specialist* shaping machine for high-precision plastic parts. Used when extrusion profiles are insufficient (requires specific component geometry) |
 | **Fiber Winder / Spinning Line** | Phase 3+ | Single-tier: stainless steel fiber-drawing assembly + niobium-microalloyed heating elements + precision tension control system. Draws polymer or glass fibers for composite reinforcement. Produces fiberglass or synthetic fiber feedstock for composite materials. | No tier progression — *specialist* machine with one function per configuration. Polymer type selection (polyester vs nylon) is chosen at construction, determining final fiber strength and chemical resistance |
 
-**Selected PTFE bootstrap:** Initial construction-grade PTFE forming/sintering must use Phase 2-compatible press/thermal capabilities with non-PTFE tooling under ADR-0064; exact equipment allocation remains open. Do not require the Extruder / Pelletizer's PTFE die, ordinary melt processing, or the Phase 3 Injection Molding Press for first seals and linings. Nuclear equipment may use PTFE only after this complete startup path exists; stainless steel is not assumed compatible with every fluorine service.
+**Selected PTFE bootstrap:** Initial construction-grade PTFE forming uses a Phase 2-compatible configuration of the §3 Pellet Press / Briquette Machine family, followed by a compatible general-purpose §3 thermal furnace, under [ADR-0078](adrs/ADR-0078-assign-phase-2-ptfe-finishing-equipment.md). Both must use non-PTFE construction and tooling; the specific thermal configuration and process service remain open. Do not require the Extruder / Pelletizer's PTFE die, ordinary melt processing, tungsten-carbide specialist tooling, or the Phase 3 Injection Molding Press for first seals and linings. Nuclear equipment may use PTFE only after this complete startup path exists; stainless steel is not assumed compatible with every fluorine service.
 
 
 ## 9. Semiconductor Fabrication Chain
 
-Semiconductor machines are tiered with **increasing precision capabilities** — each tier introduces new fabrication capabilities, not just throughput. Under [ADR-0025](adrs/ADR-0025-phase-2-cpu-supply-and-superconducting-core-compute.md) and [ADR-0026](adrs/ADR-0026-phase-2-contemporary-semiconductor-capability.md), full cleanroom and advanced chipmaking capability through contemporary real-world practice belongs in Phase 2. Post-Core progression is reserved primarily for capabilities beyond current-day industry. Exact machine tiers, process routes, material grades, build inputs, and research gates remain open; the entries below are candidate implementations. Bridge products (polysilicon, HfO₂ dielectric) appear as infrastructure needs here, giving them real-world factory applications beyond endgame assembly.
+Semiconductor machines may have precision-based capability tiers; untiered families are also valid. Under [ADR-0025](adrs/ADR-0025-phase-2-cpu-supply-and-superconducting-core-compute.md) and [ADR-0026](adrs/ADR-0026-phase-2-contemporary-semiconductor-capability.md), full cleanroom and advanced chipmaking capability through contemporary real-world practice belongs in Phase 2. Post-Core progression is reserved primarily for capabilities beyond current-day industry. Exact machine tiers, process routes, material grades, build inputs, and research gates remain open; the entries below are candidate implementations.
 
 | Machine Name | Tier/Phase | Build Materials by Tier | Capability Change Per Tier |
 |-------------|-----------|------------------------|---------------------------|
 | **Purification Column (polysilicon grade)** | Phase 2 | Single-tier: high-purity silica/ceramic column internals + niobium-microalloyed reflux condenser. Trichlorosilane distillation for the pre-Core electronic-grade polysilicon precursor under [ADR-0032](adrs/ADR-0032-select-trichlorosilane-route-for-phase-2-polysilicon.md). | No tier progression — *specialist* purity machine. This is a candidate facility implementation for the Phase 2 contemporary cleanroom, wafer, chip, and packaging capability under ADR-0026; build materials remain open |
 | **Czochralski Crystal Grower** (MTier 1–3) | Phase 2 (T1–T3 contemporary capability; exact tier gates open) | T1: Graphite crucible + basic inert atmosphere system + copper-wound heating coil. Maximum ingot diameter: 50 mm. Limited rotation control precision (~±10 RPM). Single-crystal growth possible but with moderate defect density. T2: Niobium-microalloyed graphite crucible liner + niobium-tin temperature control wiring + HfO₂ thermal insulation layer. Maximum ingot diameter: 150 mm. Rotation control ±1 RPM — enables doping uniformity required for conventional CPU-grade wafers. T3: Tungsten-carbide crucible support + semiconductor-grade inert atmosphere monitoring + automated seed crystal positioning | T1 produces *wafers with high defect density* — sufficient only for basic photovoltaic cells, not integrated circuits. The player can make solar-grade polysilicon crystals but cannot yet produce chips from them. T2 produces *conventional CPU-grade wafers*: larger diameter (150 mm) with controlled doping uniformity. T3 adds *automated growth control*: computer-controlled seed descent and rotation optimization, reducing manual calibration steps and improving yield |
-| **Floating Zone Furnace** | *(removed)* | Consolidated into existing purification column → crystal grower chain. One purification stage is sufficient. | No tier progression — *specialist* purification step used between purification column and crystal growing when higher purity is required |
+| **Floating Zone Furnace** | Not selected | The separate entity is removed from this inventory; the purification column and crystal grower remain candidate capabilities. | Do not count as an additional family, entity, tier, or mandatory purification stage |
 | **Wafer Saw / Multi-Wire Diamond Cutter** | MTier 1–3 (Phase 2 contemporary wafer preparation; exact tier gates open) | T1: Steel frame + basic diamond wire tensioning. Produces thick wafers. Recipe input: 2 ingots → 6 wafer blanks (lower yield per ingot). T2: Niobium-microalloyed cutting head + tungsten-carbide wire guide bearings + precision tension control system. Recipe input: 1 ingot → 5 wafer blanks (improved yield over T1). T3: Tungsten-carbide wire drive system + niobium-microalloyed coolant circulation + semiconductor-grade thickness measurement sensor. Recipe input: 1 ingot → 8 wafer blanks (highest yield). | T1 requires *more input ingots per output wafer* — the player must account for higher polysilicon consumption across the chain. T2 improves *material utilization*: fewer ingots needed per wafer, reducing bottleneck pressure across the production chain. Produces thinner, more uniform wafers suitable for both solar and basic electronics. T3 enables *sub-100 µm wafer production* — required for advanced multi-layer chip packaging where thin die are stacked vertically |
 | **Chemical-Mechanical Polisher (CMP)** | Phase 2 (contemporary capability; exact process grades open) | Single-tier: niobium-microalloyed polishing chamber + tungsten-carbide platen + semiconductor-grade slurry delivery system. Polishes wafer surface to nanometer roughness with controlled abrasive slurry + pad. Prepares ultra-flat surface before lithography. | No tier progression — *specialist* finishing machine with one function per slurry type (different slurries for silicon, copper, dielectric polishing) |
 | **Wet Etch Bath / Station** (MTier 1–3) | Phase 2 (T1–T3 contemporary capability; exact tier gates open) | T1: Plastic (HDPE) tank + rubber seals. Handles only mild etchants (dilute HF). Cannot process concentrated acids or elevated temperatures. Limited to basic wafer cleaning operations. T2: PTFE-lined stainless steel vessel + niobium-microalloyed heating jacket + semiconductor-grade pH/temperature control. Handles concentrated hydrofluoric acid, HNO₃/HF mixtures (piranha etch), and elevated temperatures up to 100°C. Etches silicon at controlled rates. T3: Niobium-microalloyed pressure-rated vessel + tungsten-carbide heating elements + automated chemical dosing system | T1 can perform *only basic cleaning* — insufficient for wafer preparation before lithography where nanometer-scale surface quality matters. Restricted to mild HF use only. T2 enables *controlled silicon etching*: the tier where conventional semiconductor patterning chemistry becomes viable (HNO₃/HF mixtures selectively etch crystalline silicon at known rates). T3 adds *automated chemical management*: precise dosing and concentration control ensures consistent etch rates — essential for production reliability |
@@ -202,9 +249,9 @@ Semiconductor machines are tiered with **increasing precision capabilities** —
 
 ## 10. Nuclear Fuel & Component Fabrication
 
-All nuclear fabrication machines handle materials with extreme value density and safety sensitivity — each tier introduces different containment, precision, and automation capabilities. Bridge products (zirconium, hafnium, Nb₃Sn wire) appear as infrastructure needs here, giving them real-world factory applications beyond endgame assembly.
+Nuclear fabrication may require different containment, precision, and automation capabilities. Tiering and actual construction materials are family-specific; not every equipment candidate or bridge material is a baseline requirement.
 
-The selected in-game Phase 2 fission and Phase 3 Tokamak routes need phase-compatible construction and fuel capabilities. Later-phase specialist machines listed below are candidates, not prerequisites for those earlier routes; equipment scope and viable paths remain for work-plan Phases 4 and 5.
+The selected in-game Phase 2 fission and Phase 3 Tokamak routes need phase-compatible construction and fuel capabilities. Later-phase specialist machines listed below are candidates, not prerequisites for those earlier routes; equipment splits remain open and work-plan Phase 5 must verify viable paths.
 
 **Selected Phase 2 readiness:** First fission has usable automation, hafnium metal preparation/basic absorber forming, and normally item-fed rod production under ADR-0065. Ordinary shielding must bootstrap nuclear equipment without its own depleted-oxide output. Required recovery and nuclear-solid handling are in Category 16; optional precision upgrades must not gate these minimum capabilities.
 
@@ -217,8 +264,8 @@ The selected in-game Phase 2 fission and Phase 3 Tokamak routes need phase-compa
 | **Zr/Hf Separation Plant** | Distinct stage required in the shared Phase 2 zircon path under [ADR-0045](adrs/ADR-0045-phase-2-zirconium-hafnium-separation-stage.md); exact gate and dedicated-entity status remain open | Candidate equipment: stainless steel processing vessels + PTFE-lined separation columns + niobium-microalloyed structural support. Represents the distinct separation stage between zircon-feed preparation/conversion and downstream zirconium-alloy or hafnium uses. Separation chemistry, output forms and grades, equipment configuration, yields, and recipe split remain open. | A dedicated separation machine is one candidate implementation; the route-stage requirement does not select a separate entity or tier progression |
 | **Hafnium Absorber Plate Liner** | Phase 2 baseline; Phase 3 precision upgrades are candidates | Candidate steel/stainless forming equipment with Phase 2-compatible tooling; first construction cannot need its own absorbers. Shared Zr/Hf separation must be followed by suitable hafnium metal preparation, not direct use of chipmaking HfO2. Later precision tooling/materials remain open | Basic absorber forming is available before first fission under ADR-0065. Exact grade, forming method, dedicated-entity status, and upgrades remain open; neither tungsten-carbide specialist tooling nor boron carbide is a universal baseline prerequisite |
 | **Boron Carbide Press + Sintering Furnace** | Phases 2–3 | Single-tier: tungsten-carbide pressing dies + niobium-microalloyed sintering furnace. Powder metallurgy: mixing mill → isostatic press → sintering furnace for B₄C control rod absorbers. | No tier progression — *specialist* powder metallurgy line with one function per absorber design |
-| **Lithium Breeder Blanket Panel Assembler** | Phase 4+ | Single-tier: niobium-microalloyed structural frame + tungsten-carbide welding equipment + semiconductor-grade dimensional control system. Assembles Li-containing breeder material into heat-exchange panel modules for tokamak. Endgame nuclear: produces first wall/blanket components for fusion reactor construction. | No tier progression — *specialist* endgame assembly machine with one function per panel design |
-| **Tungsten Armor Tile Molder** | Phase 4+ | Single-tier: high-temperature pressing equipment (niobium-microalloyed furnace) + tungsten-carbide mold inserts + semiconductor-grade thermal profiling. Forms sintered W-tungsten tiles for tokamak inner-wall plasma-facing surfaces. Requires extreme temperature pressing; produces armor-grade tungsten plates/tiles. | No tier progression — *specialist* refractory forming machine with one function per tile geometry |
+| **Lithium Breeder Blanket Panel Assembler** | Phase 4+ specialist candidate | Candidate equipment for Li-containing breeder/heat-exchange panels; actual materials and process remain open | A Phase 3-compatible blanket fabrication and assembly path must exist for the selected Tokamak route without this Phase 4 specialist |
+| **Tungsten Armor Tile Molder** | Phase 4+ specialist candidate | Candidate equipment for sintered tungsten plasma-facing tiles; actual materials and process remain open | A Phase 3-compatible refractory forming/sintering path must exist for the selected Tokamak route without this Phase 4 specialist |
 | **Superconducting Coil Winding Machine** (MTier 2–4) | Phases 3–4 | T2: Manual winder design — steel frame + niobium-tin tension control mechanism. Limited to small-diameter coils. Operator-controlled winding tension with manual termination points. T3: Automated tension-controlled winder — stainless steel frame + niobium-microalloyed drive system + PTFE-insulated tensioning arms + automated layer insulation applicator (HfO₂ dielectric). Consistent tension across full coil length. Eliminates hot spots from uneven winding. T4: Cryogenic-grade insulator applicator — niobium-microalloyed fully enclosed winding chamber + automated cryogenic-compatible insulation application system + semiconductor-grade position feedback for sub-millimeter wire placement precision | T2 produces *inconsistent coils*: manual tension control creates localized stress points that can crack insulation during cryogenic cooldown. Acceptable for prototype magnets but not production use. T3 produces *production-quality coils* with uniform winding tension and automated inter-layer insulation — the tier where superconducting magnet fabrication transitions from experimental to industrial. T4 enables *cryogenic-grade precision*: sub-millimeter wire placement accuracy required for high-field fusion magnets where even 0.5 mm displacement changes magnetic field distribution significantly |
 | **Precision Optics Fabrication Station** | Phase 4+ | Single-tier: cleanroom enclosure (HfO₂ particulate filtration + fluoropolymer duct) + diamond-turning lathes (tungsten-carbide tooling) + niobium-microalloyed vibration isolation table. Produces optical substrate components for endgame Extreme-Energy Core construction. Requires electronic-grade polysilicon blanks as input material. | No tier progression — *specialist* ultra-precision machine with one function per optical element type |
 | **Extreme-Pressure Containment Vessel Assembler** | Phase 4+ | Single-tier: niobium-microalloyed structural frame + tungsten-carbide shell-forming tools + automated welding systems (semiconductor-grade process control) + autoclave curing chambers (refractory-lined). Welds/assembles multi-layer pressure vessel shells for Hawking Engine containment. Shell forming → autoclave curing of composite layers → in-situ welding inspection at high tiers. | No tier progression — *specialist* endgame assembly machine with one function per vessel design |
@@ -315,20 +362,23 @@ The accepted direction retains the vanilla electrical network and adds compatibl
 
 ## 12. Military Infrastructure
 
-**Candidate direction — see [ADR-0012](adrs/ADR-0012-bound-core-military-scope.md):** The turret roster is not assumed to be vanilla-only. Plasma and railgun turrets are proposed electrical additions to the existing family candidates; their tiering, phase, and core-versus-extension placement remain open. Military products belong in [Military System](military-system.md) and [Intermediate Products](intermediate-products.md).
+**Selected scope — see [ADR-0071](adrs/ADR-0071-bound-core-defense-roster.md):** Core retains the base-game fixed-defense families and adds plasma and railgun turrets. Their exact tiering, phase, behavior, and inputs remain open. Military products belong in [Military System](military-system.md) and [Intermediate Products](intermediate-products.md).
 
-### A. Turret Systems (Core Candidates — Tiered Builds)
+### A. Selected Core Turret Families and Candidate Variants
 
 Candidate turret tiers should use distinct structural materials and weapon mechanisms where appropriate, rather than only stat increases. Ammo-driven lines may progress from kinetic through incendiary, explosive, and penetration capabilities; electrical candidates add role-based progression through laser, plasma, and railgun defenses. Exact tiering and phase placement remain open.
+
+References to burrowed or otherwise altered enemy targets are extension illustrations, not selected Core enemy behavior.
 
 | Turret Type | Tier/Phase | Build Materials by Tier | Capability Change Per Tier |
 |-------------|-----------|------------------------|---------------------------|
 | **Gun Turret (Tiered Ammo Support)** (MTier 1–3) | Phases 1–4 | T1: Steel housing + basic copper wiring + iron barrel. Fires kinetic ammo only (lead core, copper jacket, steel case). Rate of fire: moderate. Magazine capacity: small. Simple mechanical loading mechanism — reliable but limited ammunition options. T2: Stainless steel housing upgrade + nickel-alloy trigger mechanism + chrome-molybdenum reinforced barrel. Accepts incendiary ammo (fuel/oxidizer mix + magnesium ignition compound) in addition to kinetic. Rate of fire +30%. Larger magazine capacity. Semi-automatic feeding replaces manual mechanical action. T3: Niobium-microalloyed structural frame + tungsten-carbide barrel lining (erosion-resistant for AP penetrator firing) + niobium-tin targeting computer wiring + tantalum-ceramic trigger assembly | Accepts armor-piercing tungsten-core ammunition. Rate of fire +50% over T1. Maximum magazine capacity. Semiconductor-guided targeting improves first-round accuracy against fast/burrowed targets. The source proposes steel, stainless steel, tungsten carbide, and electronics as progression materials; contemporary semiconductor capability is Phase 2, while the actual turret materials and gates remain open. |
-| **Laser Turret (Electrical; MTier 1–3)** | Phases 2–4 | T1: Steel housing + basic optics (glass lens elements from silica) + copper power wiring. Low-power beam (~50 kW). Requires semiconductor targeting module at T2+ to operate effectively — below that tier, the laser is more of a precision welder than a weapon. T2: Niobium-microalloyed heat sink frame + electronic-grade polysilicon lens elements (UV-transmitting silicon optics for higher beam intensity) + HfO₂ thermal management panels (heat dissipation for sustained firing). Medium-power beam (~200 kW). Can fire continuously without overheating. Semiconductor targeting module required. T3: Tungsten-carbide optical housing + niobium-microalloyed precision alignment mechanism + advanced thermal interface materials from Phase 3 bridge products | High-power beam (~500 kW). Laser burn-through effective against lightly armored targets. Precision tracking system locks onto fast-moving targets (biters, spitters) at range. This turret's progression mirrors the *cleanroom capability* — you cannot build a T2+ laser without polysilicon optics, which requires semiconductor fabrication |
-| **Plasma Turret (Electrical; new candidate)** | TBD | Construction materials, power components, and any consumables remain TBD | Fires a plasma-energy orb with artillery-like delivery and a relatively large splash radius. Substantial power draw proposed for balance; phase, tiers, range, recipe, and power profile remain open |
-| **Railgun Turret (Electrical; new candidate)** | TBD | Construction materials, power components, and ammunition/energy model remain TBD | Very-long-range beam/shot damages enemies along its path with small-to-medium splash around the beam, potentially to maximum visible or targetable range. Substantial power draw proposed; phase, tiers, range, recipe, and power profile remain open |
+| **Laser Turret (Electrical; MTier 1–3 candidate)** | Phases 2–4 candidate | T1: proposed steel housing, glass optics, copper wiring, and ~50 kW output. T2: proposed niobium-alloy heat sink, polysilicon optical elements, HfO₂ panels, semiconductor targeting, and ~200 kW output. T3: proposed tungsten-carbide housing, precision alignment, thermal interfaces, and ~500 kW output. The source's proposed UV-transmitting silicon optics require validation; optical materials and construction remain open. | Candidate variants improve output, cooling, and tracking. Exact phases, tiers, power profiles, optics, and inputs are not selected; no additional Phase 3 bridge product is implied. |
+| **Plasma Turret (Core electrical family)** | TBD | Construction materials, power components, and any consumables remain TBD | An artillery-like plasma orb with splash is a candidate attack; substantial power is required, while attack model, phase, tiers, range, recipe, and profile remain open |
+| **Railgun Turret (Core electrical family)** | TBD | Construction materials, power components, and ammunition/energy model remain TBD | A long-range line attack with splash is a candidate; substantial power is required, while attack model, phase, tiers, range, recipe, and profile remain open |
 | **Flamethrower Turret / Incendiary Launcher** (MTier 1–3) | Phases 2–3 | T1: Steel body + basic fuel reservoir (copper piping, rubber hoses) + ignition compound chamber. Small payload capacity, short range (~30 m). Simple manual trigger mechanism. Early game incendiary option before chemical infrastructure is established. T2: Stainless steel fuel storage tank (corrosion-resistant for chemically active fuels) + PTFE hose lining (compatible with petrochemical fuels) + precision ignition chamber (nickel-alloy igniter assembly). Larger payload (~100 m³ fuel storage). Effective range extended to ~60 m. Auto-ignition system replaces manual trigger. T3: Niobium-microalloyed pressure vessel body + cryogenic-compatible sealing gaskets (for liquid fuel at low temperatures) + semiconductor-grade flow control valve (adjustable spread pattern via PLC signal) | Larger payload (~250 m³ storage), extended range to ~100 m, adjustable spray cone angle. Can be automated via industrial control network for perimeter defense. This turret's progression mirrors *petrochemical infrastructure* — you need the polymer processing chain (PVC pipes, rubber seals, tank lining materials) to build each successive tier |
-| **Rocket Turret (Tiered Ammo Support)** (MTier 1–3) | Phases 3–4 | T1: Steel launcher frame + basic guidance mechanism (simple gyroscope). Fires HE explosive shells only. Limited range (~80 m). Single rocket bay. Mechanical targeting system with manual correction. Early game anti-bunker capability. T2: Stainless steel launcher housing + niobium-microalloyed structural reinforcement for heavier projectile handling + semiconductor-grade target acquisition system. Accepts candidate tungsten or optional depleted-uranium penetration payloads at T3+. Extended range (~150 m). Dual rocket bays for sustained fire. T3: Niobium-microalloyed pressure-rated launcher + tungsten-carbide recoil dampeners + advanced semiconductor guidance module + HfO₂ thermal management for post-firing cooling | Rocket range extended to ~250 m. Triple rocket bay with automated reload from storage silo. Precision-guided targeting can track fortified encampments across the map. The optional depleted-uranium route is a material-use candidate under ADR-0063, not a requirement for reactor operation, enriched fuel, or the full nuclear cycle; exact military scope and recipes remain open |
+| **Artillery Turret** | Core vanilla family; phase and tiers open | Vanilla fixed artillery with construction and progression to be aligned | Long-range fixed defense; the placing entity and its ammunition are counted separately |
+| **Rocket Turret (unselected candidate)** | Not selected for Core | Candidate steel launcher, guidance, and explosive ammunition; tungsten or optional depleted uranium are unapproved payload possibilities | The Space Age rocket turret is not a base-game prototype. No enriched-uranium, reactor-operation, or nuclear-cycle dependency is selected |
 
 
 ### B. Ammo Products — Manufactured Intermediate Items (Cross-Domain Reference)
@@ -338,8 +388,8 @@ Candidate turret tiers should use distinct structural materials and weapon mecha
 | Product | Tier | Primary Feed Materials | Recipe Input Chain (key intermediates) | Infrastructure Section |
 |---------|------|----------------------|--------------------------------------|-----------------------------------|
 | **Kinetic Bullet (T1)** | T1 | Lead core, copper jacket, steel case, gunpowder propellant | Galena → roasted/smeled lead ingot + chalcopyrite flotation → electrolytic Cu + hematite → pig iron → EAF steel + sulfur combustion + charcoal → carbonized biomass/coal coke → ground powder | §4 Smelting, §2 Flotation, §7 Electrochemical, §3 Thermal |
-| **Incendiary Bullet (T2a)** | T2a | Fuel/oxidizer mix, magnesium ignition compound, steel casing | Oil refining → hydrocarbon fraction + chlor-alkali NaOH → hydrogenation FT synth glycerol or coconut palm oil + spodumene/carnotite → MgO calcined + sintered igniter pellet | §8 Polymer/Composite, §5 Reactors, §6 Solution Proc. |
-| **Explosive HE Shell (T2b)** | T2b | High-explosive core, detonator compound, steel casing | Chlor-alkali → NaOH + H₂ → Haber-Bosch NH₃ + Ostwald chain → concentrated HNO₃ + FT glycerol or coconut palm oil → nitroglycerin precursor + galena lead → lead azide initiator (or cheaper ammonium nitrate alternative) | §5 Reactors, §6 Solution Proc., §8 Polymer/Composite |
+| **Incendiary Bullet (T2a)** | T2a | Fuel/oxidizer mix, magnesium ignition compound, steel casing | Candidate organic and magnesium feeds; dolomite is a possible magnesium source. Precursors, recovery, processing, and the complete route remain open | §8 Polymer/Composite, §5 Reactors, §6 Solution Proc. |
+| **Explosive HE Shell (T2b)** | T2b | Candidate explosive and initiating components, steel casing | Candidate chemical precursors and assembly; feed roles, compatibility, and the complete route remain open | §5 Reactors, §6 Solution Proc., §8 Polymer/Composite |
 | **Armor-Piercing Round (T3)** | T3 | Tungsten core alloy, specialized propellant, copper sabot | Scheelite/Tungstenite → Caustic leach + purification → W powder + pressing/sintering + nitrocellulose/tungstenite + carbonized charcoal/calcined biomass | §5 Reactors, §8 Polymer/Composite, §4 Smelting |
 | **Penetration Rocket (T4)** | T4 candidate | Tungsten or optional depleted-uranium material, booster, guidance module | Candidate dense-material use; any depleted-uranium metal preparation must be separately qualified. No enriched-fuel, thorium-cycle, or operating-reactor prerequisite is selected; exact recipes and military scope remain open | Military System owns the candidate; ADR-0063 permits optional depleted-uranium use, not a mandatory sink |
 
@@ -355,19 +405,19 @@ Candidate turret tiers should use distinct structural materials and weapon mecha
 
 ### D. Advanced Weapon Concepts — Previous Extension Proposals
 
-*The plasma and railgun concepts below were previously listed as extension-only. They may overlap with the new electrical turret candidates in section A; retain them for traceability, but do not count them as separate products until their relationship and scope are reconciled. The anti-materiel concept remains an extension candidate.*
+*These alternative descriptions refer to the selected plasma and railgun families in section A, not extra turret families. Their detailed attacks and inputs remain candidates. The anti-materiel concept remains an extension candidate.*
 
 | Machine Name | Tier/Phase | Operations | Design Notes | Previous Extension Proposal / Current Scope |
 |-------------|-----------|------------|--------------|-------------------|
-| Plasma Discharge Emitter | Phase 4+ (previously EXT) | Earlier proposal: release a concentrated plasma burst from magnetic containment; requires superconducting magnetic coils | Possible overlap with the new plasma-orb turret; reconcile burst versus projectile behavior. Substantial power draw is proposed for the new candidate; values remain TBD. | Previously proposed for `difficulty-advanced` or `power-nuclear-waste`; current scope unresolved |
-| Railgun / Coilgun Turret | Endgame (previously EXT) | Earlier proposal: accelerate a ferromagnetic projectile using extreme electromagnetic force | Possible overlap with the new beam/line-attack proposal; reconcile projectile versus beam behavior. Massive power draw, superconducting magnets, and a precision capacitor bank remain source proposals, not confirmed requirements. | Previously proposed for `difficulty-extreme` or dedicated `military-endgame`; current scope unresolved |
+| Plasma Discharge Emitter | Phase TBD | Candidate concentrated plasma burst from magnetic containment; superconducting coils are an unselected material proposal | Alternative description of the Core plasma family; burst/projectile behavior and values remain open | Core family under ADR-0071 |
+| Railgun / Coilgun Turret | Phase TBD | Candidate acceleration of a ferromagnetic projectile | Alternative description of the Core railgun family; projectile/beam behavior and material inputs remain open | Core family under ADR-0071 |
 | Anti-Materiel Rifle / Heavy Cannon | T4 (EXT) | Pierces through fortified structures and heavily armored enemies with AP penetrator + HE dual-compatible ammo | Extended weapon tier for ground combat; requires tungsten refining chain from Phase 3. | `difficulty-advanced` extension candidate |
 
-Electrical turret scope remains proposed under [ADR-0012](adrs/ADR-0012-bound-core-military-scope.md); the roster and scope are not approved. The ~80-machine estimate is unnormalized and is not a catalog count.
+The electrical turret families are Core under ADR-0071; their detailed designs remain open. The ~80-machine estimate is unnormalized and is not a catalog count.
 
 ### E. Defense Infrastructure Progression
 
-Defense follows the mod's progression philosophy — earned through industrial capability, not just tech tree advancement.
+These are candidate progression examples, not selected ammunition recipes, deposit requirements, or technology gates. Vanilla defense remains available under the selected Core roster.
 
 | Stage | Defense type | Driven by | Industrial Gate |
 |---|---|---|---|
@@ -376,13 +426,13 @@ Defense follows the mod's progression philosophy — earned through industrial c
 | Late (Phase 3–4) | Distributed defense network, AP penetrator capability, automated targeting | Semiconductors, tungsten processing, advanced automation | Tungsten refining (scheelite/Tungstenite) → AP rounds; cleanroom → semiconductor guidance modules |
 | Endgame (optional) | Strategic deterrence via penetration rockets, advanced weapon extensions | Advanced metallurgy and electronics; optional depleted-uranium material use | Candidate tungsten or depleted-uranium payload and guidance; no required reactor operation or enriched fuel. Military scope, exact materials, and gates remain open |
 
-**Note:** Defense automation is not built into the core mod. Defense logistics are handled by vanilla logistics/bots + manual turret aiming. Optional extension packs may add automated targeting integrations as opt-in QOL features (see [technical-architecture.md](technical-architecture.md)).
+**Note:** Retain ordinary vanilla automatic turret operation and logistics. Additional targeting automation beyond the selected fixed-defense behavior is not specified; optional integrations remain unapproved.
 
 ## 13. Logistics & Material Handling
 
-All logistics infrastructure must be tiered with **different structural and control materials per tier**. The progression mirrors the industrial automation arc: basic steel → electronics-enabled automation → semiconductor-grade precision control. Belt tiers reflect material evolution (rubber → polymer → alloy), while buildings reflect control system evolution (mechanical → electronic → semiconductor).
+Logistics families may use different materials where they add meaningful capability; no blanket tier requirement is selected. Vanilla belt-speed variants remain available or modifiable without automatically becoming distinct Prometheus capability tiers.
 
-### Conveyor & Belt Systems (Multi-Tier)
+### Conveyor & Belt Systems (Candidate Variants)
 
 | Machine Name | Tier/Phase | Build Materials by Tier | Capability Change Per Tier |
 |-------------|-----------|------------------------|---------------------------|
@@ -392,7 +442,9 @@ All logistics infrastructure must be tiered with **different structural and cont
 | **Understacker / Topstacker Belt Jumper** | Phase 1–2 | Single-tier: steel frame + rubber isolation pads (vibration dampening) + basic alignment mechanism. Cross one belt over or under another without item transfer. Basic version from early game, upgraded versions at higher tiers with better speed handling. | No tier progression — this is a *layout tool* with one function per geometry type. Different models exist for different crossing angles, not different tiers |
 
 
-### Infrastructure Buildings (Tiered)
+### Infrastructure Buildings (Candidate Variants)
+
+The freight-terminal and bot-bay rows below are candidates, not requirements for basic vanilla automated station loading, dispatch, or roboport operation. The proposed bot-bay weight restrictions and manual construction do not restrict vanilla construction bots. A terminal may integrate with demand dispatch, but dispatch does not require that terminal. Powered rail and optional demand-based dispatch are Core under ADR-0073/0074; exact terminal design and tiers remain open.
 
 | Machine Name | Tier/Phase | Build Materials by Tier | Capability Change Per Tier |
 |-------------|-----------|------------------------|---------------------------|
@@ -414,7 +466,7 @@ All logistics infrastructure must be tiered with **different structural and cont
 
 ## 14. Fluid Handling & Transport
 
-All fluid machines are built in networked layouts (pipes laid between machines), so every type needs multi-tier progression with **different build recipes per tier**. Capability changes — not just capacity — drive the tiers.
+Pipes and other fluid machines support networked layouts. A family may remain untiered; any new progression tier must add a meaningful capability rather than only capacity.
 
 ### Storage Tanks
 
@@ -437,11 +489,11 @@ All fluid machines are built in networked layouts (pipes laid between machines),
 | **Heat Exchanger Unit** (MTier 1–3) | Phases 2–4 | T1: Copper tube bundle + aluminum fin plates + steel shell. T2: Stainless steel tubes + titanium fin plates (chemical isolation between streams). T3: Titanium tube bundle + niobium-microalloyed shell + HfO₂ thermal interface coating | T1 works for standard water cooling/heating loops. T2 enables *fluid isolation*: two streams never mix even if tube integrity partially fails — critical for separating toxic fluid from clean cooling water. T3 handles full temperature span: cryogenic to 500°C+ |
 | **Centrifugal Compressor / Vacuum Pump** (MTier 1–3 candidate configurations) | Phase 2 process-compatible compression/vacuum baseline; Phase 3 specialist upgrades optional | Baseline candidates: Phase 2-compatible metal housing, mechanical pumping components, copper motor, suitable seals, and conventional pressure control. First semiconductor-vacuum equipment cannot require chips whose fabrication needs that equipment. Later corrosion-resistant, precision-control, and higher-performance variants remain candidates | Provide process-appropriate Phase 2 vacuum for contemporary CVD/PVD under [ADR-0026](adrs/ADR-0026-phase-2-contemporary-semiconductor-capability.md), with compression and vacuum configurations distinguished; a centrifugal compressor alone is not assumed to provide every vacuum service. Exact pump types, pressure targets, tiers, and recipes remain open; required semiconductor vacuum is not Phase 3-gated |
 
-**Tiering principle:** Fluid handling tiers matter because *compatibility is the gating mechanic*. Building PTFE-lined pipe for corrosive acids vs. SS pipe for hot steam are real choices with different material costs.
+**Tiering principle:** Candidate fluid-handling tiers should add a meaningful compatibility or processing capability. Whether material-specific fluid gating or leak mechanics exist remains open.
 
 ## 15. Rubber Processing, Polymer Forming & Composite Fabrication
 
-All polymer machines must be tiered with **capability changes per tier** — not just throughput. Polymer processing introduces new materials (plastics, composite resins) that feed both mid-phase factories and endgame construction components.
+Polymer-forming families may have capability-based tiers, but untiered or shared machines remain valid. They support plastics, elastomers, and composite materials.
 
 ### Rubber Processing
 
@@ -456,7 +508,7 @@ All polymer machines must be tiered with **capability changes per tier** — not
 | **Sheet Extrusion / Rolling Press** (MTier 1–3) | Phases 2–3 | T1: Steel roller housing + basic heating elements. Produces thick sheets only (minimum 10 mm). T2: Chrome-alloy rollers with precision gap control + PTFE release surface. Can produce thin sheets for laminates (sub-1 mm). T3: Niobium-microalloyed thermal chamber + semiconductor temperature sensors + vacuum-assisted layer bonding | T1 produces only thick structural plates. T2 can produce *thin gauge sheets* — required for composite laminate layup. T3 adds *vacuum-assisted lamination*: produces layered composites directly, eliminating the need for a separate bonding step |
 | **Fiber Layup Station** (MTier 1–3) | Phase 3+ | T1: Steel frame + basic resin mixing pumps (copper motor, steel housings). Manual fiber placement. T2: Stainless steel mixing tanks with PTFE lining + precision pump controller + ceramic fiber guide rollers. Semi-automated fiber winding. T3: Niobium-microalloyed structural frame + semiconductor-grade tension control system + robotic fiber delivery arm | T1 is *manual* — a single operator places fibers by hand (low speed, low consistency). T2 adds *semi-automated winding*: consistent fiber orientation and tension, but still requires operator oversight. T3 is *fully automated*: programmable layup patterns (cross-hatch, unidirectional, helical), producing aerospace-grade composite panels |
 
-**Tiering principle:** Polymer processing tiers gate on *compound formulation capability*, not speed. You cannot produce functional composites without the right mill tier.
+**Tiering principle:** A polymer-processing tier may be justified by compound formulation capability rather than speed. Exact tier requirements and composite routes remain open.
 
 ## 16. Waste Processing & Loopback (Circular Economy)
 
@@ -476,28 +528,29 @@ Candidate recovery machines are player-built and may gain **capability changes p
 
 ## 17. Research & Measurement Infrastructure (Phase 2+)
 
+The six domain facilities produce research packs using the one-to-one bridge mappings in [Research and Progression](research-progression.md#candidate-domain-science-pack-design). The T1/T2 rows below are candidate equipment configurations, not approved facility bills, research-pack tiers, or additional bridge requirements.
+
 | Machine Name | Tier/Phase | Build Materials (per tier) | Capability Change |
 |-------------|-----------|---------------------------|-------------------|
-| **Superconductivity Research Lab** | Phase 2 | T1: steel frame + copper coils + rubber seals | Magnetic field strength, sample temperature range |
+| **Superconductivity Research Lab** | Phase 2 | T1: steel frame + copper coils + rubber seals | Magnetic field strength, sample temperature range; selected bridge: electronic-grade polysilicon |
 | | | T2: stainless steel frame + Nb₃Sn wire + tantalum shielding | Higher critical current domain packs; wider temp range |
-| **Plasma Confinement Facility** | Phase 2 | T1: steel vessel + copper magnets + ceramic liner | Max plasma temp, confinement time, measurement precision |
+| **Plasma Confinement Facility** | Phase 2 | T1: steel vessel + copper magnets + ceramic liner | Max plasma temp, confinement time, measurement precision; selected bridge: Nb₃Sn wire |
 | | | T2: nickel-alloy vessel + Nb₃Sn wire coils + beryllia liner | Higher field strengths; more diagnostics channels |
-| **Nanofabrication Laboratory** | Phase 2 | T1: steel cleanroom frame + copper HVAC + glass panels | Particle count tolerance, deposition precision, sample size |
+| **Nanofabrication Laboratory** | Phase 2 | T1: steel cleanroom frame + copper HVAC + glass panels | Particle count tolerance, deposition precision, sample size; selected bridge: HfO₂ dielectric |
 | | | T2: stainless structure + HfO₂-coated surfaces + filtered air | Sub-micron feature resolution; multi-layer processing |
-| **Isotope Separation & Calibration Lab** | Phase 2 | T1: steel separators + copper sensors + rubber gaskets | Isotope resolution, separation efficiency, sample throughput |
+| **Isotope Separation & Calibration Lab** | Phase 2 | T1: steel separators + copper sensors + rubber gaskets | Isotope resolution, separation efficiency, sample throughput; selected bridge: D₂O |
 | | | T2: corrosion-resistant alloy + D₂O cooling + tantalum shielding | Higher mass resolution; enriched isotope production |
-| **Reaction Dynamics Facility** | Phase 2 | T1: steel pressure chamber + nickel alloys + graphite seals | Max pressure/temperature, catalyst compatibility range |
+| **Reaction Dynamics Facility** | Phase 2 | T1: steel pressure chamber + nickel alloys + graphite seals | Max pressure/temperature, catalyst compatibility range; selected bridge: rhenium-catalyst powder |
 | | | T2: rhenium-clad internals + high-temp alloys + inert sealing | Higher temp operations; exotic catalyst testing |
-| **Quantum States Laboratory** | Phase 2 | T1: steel cryostat + copper thermal links + glass viewport | Base temperature (K range), measurement sensitivity |
+| **Quantum States Laboratory** | Phase 2 | T1: steel cryostat + copper thermal links + glass viewport | Base temperature (K range), measurement sensitivity; selected bridge: cryogenic argon/nitrogen mixture |
 | | | T2: multi-layer insulation + superconducting shields + mK temps | Quantum coherence measurement; crystalline structure analysis |
 | **Planetary Simulation Core — Thermal Frame** | Phase 3+ | T1: steel frame + copper thermal links | Max simulation resolution, thermal model fidelity |
 | | | T2: high-temp alloy frame + tungsten thermal paths | Higher temp range in simulation |
-| **Planetary Simulation Core — Computation Cluster** | Phase 3+ | T1: electronic-grade polysilicon PCBs + copper interconnects | Compute nodes, memory bandwidth |
+| **Planetary Simulation Core — Computation Cluster** | First Core at the Phase 2/3 transition; later upgrades open | Initial computation uses conventional CPU-grade packaged processors, with supporting components open | Compute nodes and memory bandwidth; Josephson/SFQ computation is a later post-activation upgrade |
 | | | T2: semiconductor-grade silicon + Nb₃Sn optical interconnects | Exponential compute increase; distributed processing |
 | **Planetary Simulation Core — Integration Bus** | Phase 3+ | T1: copper bus + ceramic insulators + steel connectors | I/O channels, data throughput to/from facilities |
 | | | T2: semiconductor-grade materials + fiber optics | Higher channel count; faster domain dataset transfer |
-| **Planetary Simulation Core — Calibration Reference Frame** | Phase 3+ | T1: precision steel frame + copper leveling sensors | Calibration accuracy, reference stability |
-| | | T2: invar alloy frame + laser interferometry | Sub-micron calibration; long-term drift compensation |
+| **Planetary Simulation Core — Calibration Reference Frame** | First Core at the Phase 2/3 transition; later upgrades open | Invar iron-nickel frame with mechanical fine adjustment and the Unified Metrology Reference Array; other inputs open | Phase 2-compatible non-semiconductor alignment under ADR-0076; later interferometry remains a candidate |
 | **Compute Campus Node** | Phase 3 | T1: polysilicon processors + copper cooling + standard memory | Processing bandwidth, concurrent simulation tasks |
 | | | T2: semiconductor-grade chips + Nb₃Sn thermal + expanded RAM | Higher bandwidth; more simultaneous model runs |
 | **Memory/Archive Module** | Phase 3 | T1: magnetic storage drums + steel chassis + copper wiring | Storage capacity, read/write speed |
@@ -525,11 +578,11 @@ Candidate recovery machines are player-built and may gain **capability changes p
 
 ## Consolidated Multi-Tier Machine Summary
 
-This table summarizes candidate family coverage and tiering. Counts remain provisional and do not consistently distinguish placeable entities, machine families, support systems, and tier variants; work-plan Phase 4 will normalize them.
+This table preserves source-proposed category entry estimates and tier examples for reference only. They are not normalized totals or approved tier rosters: entries mix families, support capabilities, components, and variants. Use the family register and independent counting boundary above instead.
 
 | Category | Candidate Entries (Provisional) | Tiered? | Key Tiers That Change Capability |
 |----------|------------------|---------|---------------------------------|
-| Extraction & Mining | 6 | Yes (drill, underground belt, deep bore) | Electric drill MT1–4; prospect scanner gates access to deeper deposits |
+| Extraction & Mining | 6 source entries | Candidate, family-specific | Electric drill and underground extractor are distinct from transport belts; scanner/deep-access gates remain open |
 | Ore Preparation & Concentration | 13 listed machine entries | Partial (ball mill, magnetic drum, flotation bank) | Ball mill MT2–4 for throughput/media auto-replenishment; magnetic drum tier = field strength |
 | Thermal Processing | 7 | Yes (roaster, kiln, sintering, pellet press) | Roaster tier = gas capture efficiency; kiln/sinter tier = temp control precision |
 | Smelting & Reduction | 7 | Yes (EAF multi-tier primary) | EAF MT1–4: voltage, electrode auto-feed, power range |
@@ -537,17 +590,17 @@ This table summarizes candidate family coverage and tiering. Counts remain provi
 | Solution Processing & Separation | 6 | Partial (crystallizer, filter press) | Crystallizer MT1–3: cooling → evaporator → vacuum auto-discharge |
 | Electrochemical Processing | 4 | Yes (electrowinning, chlor-alkali) | Electrowinning MT1–3 = electrode area + auto-cathode swapping; membrane cell MT2+ = membrane quality |
 | Polymer Chemistry & Primary Processing | ~6 candidate families | Partial (polymerization reactor) | Polymerization: batch → continuous → auto-controlled at high tiers |
-| Semiconductor Fabrication | 12 | Yes (crystal grower, CVD/PVD, lithography) | Each step is multi-tier; cleanroom quality and precision scale across all |
-| Nuclear Fuel & Component Fabrication | 13 | Partial (coil winder, fuel rod assembly) | Multi-stage lines: each sub-step has tier progression from manual → semi-auto → fully automated |
+| Semiconductor Fabrication | 12 | Candidate, family-specific | Precision and cleanroom capability may vary by family; tiers and gates remain open |
+| Nuclear Fuel & Component Fabrication | 13 | Candidate, family-specific | Normally automated Phase 2 fuel handling is required; later variants and entity splits remain open |
 | Power Generation (core mod) | Candidate families; count TBD | Tiering is family-specific | Boiler/steam engine untiered; Phase 2 fission with steam turbines; Phase 3/4 route identities selected, with non-steam conversion families as recorded in Power System |
 | Core Power Pole Distribution | Vanilla network plus tiered pole variants (count TBD) | Yes; details TBD | Compatible pole progression; custom voltage and transmission losses remain outside the accepted core scope |
 | Energy Storage | Candidate families; count TBD | Family-specific; tiering open | Phase 2 LFP battery chemistry is selected; other storage options remain candidates and the dedicated safety device is not selected |
 | Custom Power Transmission & Grid Stabilization (extension) | Extension reference inventory; count not normalized | Deferred from core | Custom voltage, conductor, transformer, and stabilization candidates remain separate from core poles |
-| Military Infrastructure (placeables only) | 6 turret-family candidates (4 source-listed + plasma and railgun) + 5 support-machine entries; two earlier extension concepts may overlap | Partial (ammunition-driven turret tiers; electrical-family tiering TBD; support machines scale throughput) | Candidate turret families vary by ammunition capability or electrical role, range, area/line effect, and power demand; exact tier model remains open |
-| Logistics & Material Handling | ~10 types + infrastructure (provisional) | Yes (belts, freight terminal, storage) | Belt speed/weight capacity per tier; freight terminal tiers = automation level |
+| Military Infrastructure (placeables only) | 6 selected Core turret families: 4 base-game + plasma and railgun; support entries may reuse other families | Family-specific; exact tiers open | Rocket turret is not selected for Core; historical plasma/railgun descriptions are aliases, not additional families |
+| Logistics & Material Handling | ~10 source entries + infrastructure (provisional) | Candidate, family-specific | Speed-only variants do not establish a new capability tier; normal automated stations do not require a freight terminal |
 | Fluid Handling & Transport | 6 types | Partial (pipes, heat exchanger multi-tier) | Pipe network tiers most important for pressure/temperature tolerance across distances |
 | Rubber Processing, Polymer Forming & Composite Fabrication | ~6 candidate families | Partial (mill, sheet forming, layup station) | Rubber compounding and composite-forming capability changes |
-| Waste Processing & Loopback | 4 types | Partial (tailings unit) | Each scales recovery efficiency with tier |
+| Waste Processing & Loopback | 4 types | Candidate, family-specific | Recovery improvements may justify tiers; required Phase 2 nuclear handling does not depend on later upgrades |
 | Research & Measurement Infrastructure | ~10 facilities; component count not normalized | Partial (Core satellites scale capacity) | Core L2/L3 are upgrades, not tiers per se; satellites tier by processing/storage capacity |
 | Automation & Control Systems | 5 types | Yes (PLC multi-tier primary) | PLC MT1–3: timer → PID → neural-assisted optimization |
 
@@ -555,7 +608,7 @@ This table summarizes candidate family coverage and tiering. Counts remain provi
 
 ## Design Gate
 
-A machine or variant should be approved only when its operation, input/output contract, progression role, and downstream product use are clear. A new machine family should correspond to a real process capability or a strong gameplay distinction, not simply a desire to give every reaction its own building. Tier progression for any machine type must pass this gate at each level — not all tiers need to be unique builds; some can be simple throughput upgrades if the capability change is meaningful.
+A machine or variant should be approved only when its operation, input/output contract, progression role, and downstream product use are clear. A new machine family should correspond to a real process capability or a strong gameplay distinction, not simply a desire to give every reaction its own building. A newly required progression tier must change capability; a speed-only variant is not itself a new capability tier under ADR-0075.
 
 ## Open Design Decisions
 
@@ -569,18 +622,56 @@ A machine or variant should be approved only when its operation, input/output co
 
 ---
 
-## Construction Materials Index — Per-Category Material Requirements
+## High-Level Construction Demand and Supply Status
 
-> **Purpose:** This section maps what specific materials every infrastructure category needs to build its machines, tiers, and support items. It demonstrates that infrastructure demands touch nearly the entire mineral/chemical roster — not just the endgame assembly chain. Every material in the catalog should earn its place through either: (a) an endgame assembly dependency, or (b) an infrastructure requirement from the tables below.
->
-> **Format:** Each table lists which refined materials, alloys, chemicals, and intermediates are consumed per-tier or as unique components. Quantities are relative ("×" = multiple units), not finalized.
+This is a material-family demand map, not a Phase 5 coverage proof or a construction bill of materials. **Selected** identifies a capability or material family accepted in an ADR; **candidate** identifies a possible use or feed without approving it. A named deposit is not a demonstrated extraction, refining, fabrication, or research path. Phase 5 must close the gaps before catalog freeze; quantities and recipes remain in Phases 6-7.
+
+| Material / product family | Intended constructable or capability use | Upstream source or explicit gap |
+|---|---|---|
+| Iron, carbon and structural steel | Core machines, frames, rail, poles, and ordinary tooling; specific build inputs open | Hematite/magnetite and coal/graphite are candidate feeds in [Minerals and Refining](minerals-and-refining.md); Phase 1 ironmaking and basic refractory paths need verification. |
+| Iron-nickel Invar and precision mechanical parts | **Selected:** first-Core alignment frame and mechanical adjustment | Iron and nickel must be accessible pre-Core; hematite and pentlandite are candidate feeds, not selected sources or starting-area guarantees. **Gap:** nickel recovery, alloying, mechanical fabrication, access, and exact item form must be demonstrated under ADR-0076. |
+| Copper and electrical conductors | Core motors, wiring, electrical grid, rail supply, and CPU interconnects | Malachite, chalcopyrite, or pentlandite are eligible CPU copper feeds under ADR-0029; one copper feed is available in the starting region. **Gap:** establish a suitable Phase 2 CPU refining path without relying solely on the Phase 3 electrorefiner candidate; constructable grades remain open. |
+| Chromium/nickel stainless and corrosion-resistant alloys | Candidate chemical vessels, fluid equipment, and thermal structures | Chromite and pentlandite are candidate feeds; recovery and alloying are open. Service compatibility is not established by the word “stainless.” |
+| Manganese, vanadium, molybdenum and tool/alloy steels | Candidate wear surfaces, structural alloys, and processing tools | Pyrolusite/hematite, magnetite/ilmenite, and molybdenite/scheelite are respective feed candidates. **Gap:** routes, grades, and actual construction uses are not selected. |
+| Cobalt and magnesium | Candidate high-temperature alloys, battery variants, light alloys and chemical reagents | Pentlandite/malachite and dolomite/chromite are respective feed candidates. **Gap:** recovery and final uses remain open; neither cobalt nor nickel is required for initial LFP chemistry. |
+| Refractory brick, silica/glass and ceramics | Furnaces, chemical service, optics, and insulators; product-specific material choices open | Quartz/silica, clay-like/basic refractory materials, and calcite are candidate sources. **Gap:** establish Phase 1 refractory without bauxite-derived alumina; bauxite-derived alumina/aluminum starts in Phase 2 under ADR-0021. |
+| Diamond and silicon-carbide abrasives | Candidate wafer cutters, polishing and precision tooling | Synthetic diamond and silicon carbide from carbon/silica are possible concepts, not selected routes. **Gap:** source, fabrication, equipment eligibility, and whether either is required remain open. |
+| Aluminum/alumina | Candidate Phase 2+ ceramics, PV supports, heat exchangers, and packaging | Bauxite is a candidate feed; Bayer/electrolytic production is a process candidate. No Phase 1 bauxite-alumina construction input is permitted. |
+| Metallurgical silicon and electronic-grade polysilicon | **Selected:** Phase 2 silicon precursor bridge and standard CPU chain; a separate Phase 2 PV route | Quartz -> Phase 2 submerged-arc reduction -> trichlorosilane purification/deposition is selected for the electronic precursor; exact feed preparation, reagents, grades and PV-specific processing remain open. |
+| Hafnium/HfO₂ and zirconium alloy | **Selected:** CPU dielectric, nanofabrication bridge, Phase 2 hafnium absorber capability, and fission cladding | Shared early/mid-Phase-2 zircon access and a distinct Zr/Hf separation stage are selected. **Gap:** separation chemistry, metal preparation, absorber/tube forming, independent demand, and material balances remain open. |
+| Tantalum/TaN | **Selected:** standard CPU interconnect material; candidate capacitors, bearings and vessel parts | Columbite-tantalite is the selected CPU feed with early/mid-Phase-2 access. **Gap:** recovery, TaN/capacitor fabrication and candidate non-CPU uses remain open. |
+| Niobium, tin, Nb₃Sn and NbTi | **Selected:** Nb₃Sn Plasma Confinement bridge; candidate magnets, coils, and other equipment | Columbite-tantalite and cassiterite are selected niobium/tin feeds by first bridge use. Wire fabrication, shared demand, and NbTi's titanium and processing path remain open; the additional machine uses are not requirements. |
+| Rhenium | **Selected:** Reaction Dynamics bridge catalyst; candidate high-temperature alloys and fusion parts | Rhenium-bearing molybdenite is selected by first bridge use without a starting-region guarantee. **Gap:** recovery, catalyst fabrication, coproduct handling, and any extra alloy use remain open. |
+| Tungsten and tungsten carbide | Candidate wear tooling, refractory parts, and Tokamak plasma-facing components | Scheelite is a candidate tungsten feed; carbon is a candidate carbide input. **Gap:** recovery, forming/sintering, and Phase 3-compatible fusion construction are not proven; Phase 4 tile presses cannot be the first path. |
+| Titanium and titanium alloys | Candidate chemical/thermal equipment, heat exchangers, magnets and structures | Ilmenite/rutile-bearing deposits are candidates; titanium reduction, alloying, and uses require validation. |
+| Lead, zinc, silver and gold | Candidate electrochemical electrodes, ammunition, contacts and chip packaging | Galena, sphalerite, and native gold are candidate feeds. Metal recovery and which contacts, electrodes, or packages are actually required remain open. |
+| Platinum-group metals | Candidate catalysts, coatings, and reaction hardware | Cooperite-bearing or associated platinum-group minerals are candidates. **Gap:** viable extraction, refining, catalyst preparation, and actual equipment demand are unverified. |
+| Lithium and phosphate | **Selected:** Phase 2 LFP storage; lithium blanket/fusion materials also have an intended Phase 3 role | Lithium-bearing brine and apatite-rich phosphorite are starting-region feeds under ADR-0040; spodumene is an alternative. **Gap:** Phase 2 recovery and suitable cell materials cannot depend solely on a Phase 3 crystallizer candidate; cell/blanket fabrication and usable quantities remain open. |
+| Boron and beryllium | Candidate glass/ceramic additives, alternative absorber, reflector, or fusion multiplier | Borax/borate and beryl are candidate feeds. These are not universal first-fission requirements; recovery, specific use, and phase remain open. |
+| Water, air, deuterium and cryogenic gases | **Selected:** D₂O and cryogenic Ar/N₂ domain bridges; candidate cooling and fusion support | Water/brine and air are possible sources. **Gap:** pre-Core isotope enrichment and gas separation paths and coproduct handling must be demonstrated; exact methods remain open. |
+| Tritium and fusion fuel | **Selected:** Phase 3 D-T Tokamak route with lithium breeding | Deuterium/water and lithium feeds are intended upstream inputs. **Gap:** a first-tritium/startup supply and viable breeding/recovery loop are not selected; a reactor cannot be assumed to breed its own initial fuel. |
+| Uranium, thorium and fluorine | **Selected:** optional Phase 2 uranium and thorium fission routes and PTFE fluorine startup | Uraninite, monazite and fluorspar are selected feed families with their respective access deadlines; uranium uses the UF6/centrifuge/UO₂ sequence, thorium a separate oxide seed-and-blanket. Recovery, conditioning, and detailed chemistry remain open. Neither fission route is a first-Core prerequisite. |
+| PTFE, rubber, plastics and composite binders | **Selected:** Phase 2 PTFE construction-product capability; other seals, belts and casings are candidates | Fluorspar and Phase 2 chemical/petrochemical feeds supply a PTFE-free monomer/polymerization path. First press and thermal finishing use non-PTFE equipment under ADR-0078. **Gap:** establish any required early rubber without making its first source depend on rubber-built equipment; oil/coal and other elastomer/resin routes, compatibility, and exact forms remain open. |
+| Sulfur and organic/biofeedstocks | Candidate acids, fuels, resins, solvents and military chemical inputs | Native sulfur, sulfide ores, crude oil, coal and biomass are source candidates. **Gap:** extraction and chemical routes remain open; tropical plants or a new agriculture system are not mandatory sources. |
+| Sodium, potassium, chlorine, acids and industrial gases | **Selected:** chlor-alkali coproducts supply HCl startup; other fluid, storage, and reagent uses are candidates | Salt/brine is reachable by early Phase 2; water, air and evaporite feeds are candidates. **Gap:** coproduct balances, reagent grades, and any nitrate-salt thermal storage formula remain open. |
+| Packaged CPUs, memory and electronics | **Selected:** conventional packaged CPUs supply the first-Core Computation Cluster; other electronics and later superconducting compute are candidates | The standard CPU chain requires silicon wafers, lithography chemistry, HfO₂, Cu/TaN and packaging materials; quartz, zircon, columbite-tantalite and an eligible copper feed are selected. **Gap:** complete equipment, lithography/package inputs, assembly and acyclic vacuum bootstrap require Phase 5 verification. |
+| Domain bridges and Array support | Six selected bridge materials enable the six Phase 2 domain facilities; the physical Array is required before first Core | See [Intermediate Products](intermediate-products.md#research-facility-prerequisite-materials) for selected bridges. **Gap:** exact Array materials and a pre-Core neutron-reference source remain open; enriched fission fuel is prohibited and domain packs are not physical ingredients. |
+| Cooling fluids, CO₂, organic working fluids and thermal-storage media | Selected later Brayton/ORC conversion families and CSP storage; exact construction and media are open | Water/air, carbonate sources, brine/evaporites and hydrocarbons are candidates. **Gap:** compatible material and fluid routes, converter equipment and balances need validation; do not assume steam turbines after Phase 2. |
+| Gallium, germanium, indium, cadmium, selenium, tellurium and arsenic | Candidate advanced PV/TPV materials and electronics | Bauxite, coal, sphalerite, native gold, arsenopyrite and refining residues are candidate sources where appropriate. **Gap:** element-specific recovery and selected consumers are unverified; none is automatically required for the initial Phase 2 PV or Hawking TPV construction. |
+| Yttrium, cerium, lanthanum and other rare earths | Candidate superconducting, optical and catalyst uses | Monazite/bastnaesite and related concentrates are candidates. **Gap:** separation, usable product forms, and actual consumers remain open. |
+| Neutron-reference material and noble gases | Candidate Array instrumentation, leak testing, and specialized measurement | **Gap:** neither the reference material nor its supply is selected; any reference must be pre-Core and not require enriched fission fuel. Noble-gas acquisition, including any helium supply, and specific uses remain open. |
+| Ordinary and nuclear waste-handling materials | Powered gas/fluid release; nuclear recovery, conditioning, packaging and continuous disposal by first output | Process coproducts and spent fuel supply the streams; ordinary shielding must bootstrap packaging. **Gap:** exact conditioning matrices, operating materials, facilities, rates, and independent-demand handling remain open. |
+
+## Construction Materials Index — Per-Category Candidate Uses
+
+The following source details preserve possible roles and material associations for each category. Every “materials consumed,” “first consumer,” tier number, quantity, and category count in these tables is an **unverified hypothesis**, not proof of an approved requirement or a viable route. The demand map above gives selected boundaries and gaps; a proposed material earns a final catalog entry only through a validated use or terminal role.
 
 ### Category 1 — Extraction & Mining (~6 buildings)
 
 | Building | MTier 1 / T1 Materials | MTier 2+ / T2+ Materials | Late-Game Tier Materials |
 |---|---|---|---|
 | Electric Mining Drill | Steel plates (structural frame), copper wire (motors/wiring), iron gears, basic rubber (belts/seals) | Stainless steel housing (corrosion resistance), niobium-microalloyed steel plate (load-bearing frame at MTier 3+), tantalum capacitors (control circuitry) | Titanium-alloy reinforced drill head, tungsten-carbide cutting teeth, ceramic bearing inserts |
-| Underground Mining Belt | Steel pipe + iron plates (belt mechanism), basic rubber | Stainless steel (corrosive environments), plastic stacks | — |
+| Underground Deposit Extractor | Steel pipe + iron plates (extractor mechanism), basic rubber | Stainless steel (corrosive environments), plastic stacks | — |
 | Deep Borehole Drill | Steel frame, copper motor winding | Tungsten-reinforced drilling bit, high-strength alloy housing | Vacuum-sealed drill head components (cryogenic insulation) |
 | Open-Pit Excavator | Massive steel frame (~50× steel plates), hydraulic piston assemblies (stainless steel cylinders) | Niobium-microalloyed structural plate (higher load capacity), advanced sealing gaskets (FKM/cryogenic rubber) | — |
 
@@ -592,19 +683,19 @@ A machine or variant should be approved only when its operation, input/output co
 |---|---|---|
 | Jaw Crusher (MTier 1–3) | T1: steel plates + iron shaft + basic bearings. T2: tungsten-carbide jaw plates. T3: refractory steel housing + ceramic bearing upgrades | Tungsten only enters at MTier 2+ via carbide teeth |
 | Ball/Rod Mill (MTier 2–4) | T1: steel cylinder lining + cast iron grinding media auto-replenish. T2: tungsten-carbide liner inserts. T3: niobium-microalloyed pressure vessel + ceramic seals. T4: titanium-alloy rotating assembly with automatic media feed | MTier 4 is the only tier that introduces a completely different material class (Ti alloy for light-weight high-speed) |
-| Magnetic Drum Separator (MTier 1–3) | T1: basic electromagnet + steel housing. T2: superconducting magnet winding (NbTi wire, limited early phase). T3: cryogenic cooling jacket + HfO₂ dielectric insulation | **First consumer of NbTi wire beyond endgame — bridges Phase 2 infrastructure to bridge materials** |
+| Magnetic Drum Separator (MTier 1–3) | T1: basic electromagnet + steel housing. T2: superconducting magnet winding (NbTi wire, limited early phase). T3: cryogenic cooling jacket + HfO₂ dielectric insulation | Candidate NbTi use; tier materials, timing, and any early source path remain unverified |
 | Flotation Cells (Rougher/Cleaner) | Rubber impeller/rotor, polyurethane liner plates, steel vessel frame, PVC pipe for reagent feed | Primarily polymer + basic metal consumption |
 | Spiral Concentrator / Jigging Machine | Steel frame, chrome-plated separation surfaces | Chrome from chromite — early infrastructure link to alloy steelmaking |
 | Electrostatic Separator (Phase 3) | HfO₂ high-voltage insulator panels, precision ceramic feedthroughs, mu-metal shielding plates | Uses hafnium-oxide dielectric and niobium-tin wiring |
 
-**Materials consumed:** Steel grades (structural, tungsten-carbide, refractory), Niobium-tin wire (early consumer!), chrome alloy, HfO₂ dielectric, tantalum capacitors. ~8 materials. **Key insight: magnetic drum separator is the first infrastructure item consuming superconducting material, even before endgame.**
+**Candidate material mentions:** Steel grades, tungsten carbide, NbTi or niobium-tin wire, chrome alloy, HfO₂ dielectric, and tantalum capacitors. The claimed first superconducting consumer and the approximate count are unverified.
 
 ### Category 3 — Thermal Processing (~7 buildings)
 
 | Building | Materials per Tier | Notes |
 |---|---|---|
-| Roaster (MTier 1–3) | T1: basic steel refractory + chrome-alloy hearth. T2: nickel-alloy hot gas ducts (corrosion resistant). T3: high-grade refractory steel + catalytic converter insert for off-gas treatment | Nickel from pentlandite — early alloy connection to military phase |
-| Rotary Kiln (MTier 2–3) | Steel shell, chrome-molybdenum refractory lining, graphite electrode support frame | Molybdenum from scheelite/pentlandite traces |
+| Roaster (MTier 1–3) | T1: basic steel refractory + chrome-alloy hearth. T2: nickel-alloy hot gas ducts (corrosion resistant). T3: high-grade refractory steel + catalytic converter insert for off-gas treatment | Pentlandite is a candidate nickel feed; recovery, timing, and this alloy use remain open |
+| Rotary Kiln (MTier 2–3) | Steel shell, chrome-molybdenum refractory lining, graphite electrode support frame | Scheelite-associated molybdenite is a candidate feed; recovery is open |
 | Sintering Machine | High-temp steel mesh, refractory brick (aluminum oxide + silica composite), cooling water jacket (copper tubing) | Aluminum oxide ceramics and copper heat transfer |
 | Pellet Press / Briquette Machine | Tungsten-carbide dies at MTier 3+ | First infrastructure link to tungsten tooling |
 
@@ -615,17 +706,17 @@ A machine or variant should be approved only when its operation, input/output co
 | Building | Materials per Tier | Notes |
 |---|---|---|
 | EAF (MTier 1–4) | T1: basic steel vessel + graphite electrodes. T2: nickel-alloy electrode holders. T3: niobium-microalloyed pressure vessel + refractory brick lining (alumina/silica composite). T4: vacuum-induction capability (requires HfO₂ insulation + tungsten-heated coils) | Each tier adds a new material class — this is the most tier-rich machine in the catalog |
-| Blast Furnace (MTier 1–3) | Steel shell, chrome-alloy hearth, refractory brick (alumina), silica lining | Chrome from chromite, alumina from bauxite |
+| Blast Furnace (MTier 1–3 candidate) | Phase 1: basic non-bauxite-alumina refractory; later candidate steel shell, chrome-alloy hearth and alumina/silica lining | Alumina from bauxite is Phase 2 or later; exact furnace material and chrome source remain open |
 | Converter (BOF/LD) | Nickel-chrome alloy refractory lining, graphite nozzle inserts | Links to steelmaking (chromium + nickel consumption) |
-| Induction Melting Furnace (Phase 3+) | HfO₂ crucible liner, tungsten heating element, niobium-microalloyed pressure chamber (refractory-lined electromagnetic induction vessel) | **Another early bridge-material consumer** — produces high-purity alloys requiring precise electromagnetic stirring and refractory progression. 'Vacuum' capability removed: Factorio has no ambient-pressure mechanic. |
+| Induction Melting Furnace (Phase 3+) | HfO₂ crucible liner, tungsten heating element, niobium-microalloyed pressure chamber (refractory-lined electromagnetic induction vessel) | Candidate high-purity alloy processing, including an enclosed-vacuum configuration; no global ambient-pressure mechanic is implied. Materials, source paths, and entity split remain open. |
 
-**Materials consumed:** Steel grades, nickel alloy, chrome alloy, graphite, alumina ceramics, HfO₂ dielectric, tungsten carbide, niobium microalloy. ~8 materials. **VIM furnace is the first dedicated bridge-material consumer in core industry.**
+**Candidate material mentions:** Steel grades, nickel alloy, chrome alloy, graphite, alumina ceramics, HfO₂ dielectric, tungsten carbide, and niobium microalloy. Their count and any claim that the VIM furnace is the first bridge-material consumer remain unverified.
 
 ### Category 5 — Chemical Extraction & Reactors (~6 buildings)
 
 | Building | Materials per Tier | Notes |
 |---|---|---|
-| Pressure Leach Autoclave (MTier 1–3) | T1: basic steel + rubber lining (chemical resistant). T2: stainless steel 316L vessel (chloride-resistant grade) + PTFE gaskets. T3: niobium-microalloyed pressure shell + tantalum-clad internals | **Stainless steel is a major infrastructure consumer — every high-pressure chemical machine needs it at MTier 2+** |
+| Pressure Leach Autoclave (MTier 1–3) | T1: basic steel + rubber lining (chemical resistant). T2: stainless steel 316L vessel (chloride-resistant grade) + PTFE gaskets. T3: niobium-microalloyed pressure shell + tantalum-clad internals | Candidate stainless-steel use; service compatibility and each family's materials remain open |
 | General-Purpose Chemical Reactor | Carbon steel vessel, glass-lined interior (silica coating), rubber/PTFE seals | Glass lining consumes silica and flux materials |
 | Fluidized-Bed Reactor (MTier 2–3) | High-temp steel shell, refractory brick (alumina/silica), ceramic distributor plate | Alumina ceramics from bauxite refining |
 
@@ -655,7 +746,7 @@ A machine or variant should be approved only when its operation, input/output co
 
 | Building | Materials per Tier | Notes |
 |---|---|---|
-| Cracking Furnace (MTier 1–3) | High-temp alloy vessel, nickel-based catalyst bed housing, refractory insulation | Nickel from pentlandite traces |
+| Cracking Furnace (MTier 1–3) | High-temp alloy vessel, nickel-based catalyst bed housing, refractory insulation | Pentlandite is a candidate nickel feed; recovery remains open |
 | Polymerization Reactor | Baseline compatible metal vessel and non-PTFE seals; PTFE lining only in later variants | Phase 2 first PTFE under ADR-0064, with PTFE-free upstream and construction-product finishing |
 | Injection Molding Press | Chrome-molybdenum barrel, hardened steel mold inserts, tungsten-carbide guide pins | **Another tungsten link: tooling durability** |
 
@@ -668,7 +759,7 @@ A machine or variant should be approved only when its operation, input/output co
 | Czochralski Crystal Grower | High-purity graphite crucible (from purified graphite), alumina/silica thermal insulation, NbTi temperature control wiring | Phase 2 contemporary wafer growth for the CPU line; any post-Core upgrade must exceed current-day capability |
 | Wafer Saw | Diamond blade segments, silicon carbide guide rails | Phase 2 contemporary wafer preparation for the CPU line; any post-Core upgrade must exceed current-day capability |
 | CVD/PVD Chamber | Niobium-microalloyed wall panels (corrosion resistance to process gases), HfO₂ dielectric windows, tantalum target material for sputtering | Phase 2 baseline and contemporary advanced deposition; beyond-current-day processes, if selected, are post-Core |
-| Photolithography Stepper | Electronic-grade polysilicon lens elements (silicon optics for UV transmission), precision ceramic stages (alumina), Nb₃Sn superconducting motor windings for vibration isolation | Phase 2 current-day patterning capability; exact tool/material design open |
+| Photolithography Stepper | Candidate polysilicon lens elements, precision ceramic stages (alumina), and Nb₃Sn motor windings for vibration isolation; the proposed silicon UV-optics suitability is unverified | Phase 2 current-day patterning capability; exact optical materials and tool design remain open |
 | Cleanroom Enclosure | HfO₂ particulate filtration panels, fluoropolymer duct lining, niobium-microalloyed structural frame | Phase 2 full contemporary cleanroom capability; exact module tiers open |
 | Packaging Line | Copper lead frames (from refined copper), gold bonding wire (from native gold processing), plastic/molded ceramic packages | Phase 2 contemporary CPU and advanced packaging capability; exact options open |
 
@@ -715,7 +806,8 @@ Conventional CPU-grade packaged processors are available by late Phase 2 under [
 | Gun Turret tiers | Steel (structural), copper wiring, lead (early), nickel alloy (MTier 3+ trigger mechanism) | Phases 1–4 |
 | Laser Turret | Semiconductors (targeting module), precision optics (polysilicon lens), HfO₂ thermal management panels | Phase 2–4 |
 | Flamethrower Turret | Steel body, PTFE hose lining, rubber seals, fuel storage tank (stainless steel) | Phase 2–3 |
-| Rocket Turret | Tungsten-carbide penetrator housing, enriched uranium guidance modules, explosive compound tanks | Phase 3–4 |
+| Artillery, plasma and railgun families | Candidate construction and ammunition/energy materials remain open | Core family scope selected; phases, tiers and exact inputs TBD |
+| Rocket Turret | Candidate launcher, guidance and ammunition materials only; no enriched-uranium requirement | Not selected for Core |
 | Ammunition Press / Loading Machine | Steel frame, tungsten-carbide die inserts, copper electrical contacts, lead feedstock | Phase 1–2 |
 | HE Formulation Tank | Stainless steel vessel (nitric acid resistant), PTFE seals, glass lining (silica) | Phase 3+ |
 
@@ -746,7 +838,7 @@ Conventional CPU-grade packaged processors are available by late Phase 2 under [
 
 | Building | Key Materials | Phase |
 |---|---|---|
-| Rubber Mill | Steel rollers, rubber feedstock (circular: processes the same polymer it needs for construction), electric motor (copper) | Phase 2 |
+| Rubber Mill | Steel rollers, candidate rubber components and feedstock, electric motor (copper) | Phase 2 candidate; the first required rubber source and equipment cannot assume this mill's own output |
 | Fiber Layup Station | Fiberglass winding equipment (ceramic guides), precision resin mixing pumps (PTFE-lined stainless) | Phase 3+ |
 
 **Materials consumed:** Steel, rubber, ceramic guides, PTFE. ~4 materials. **Primarily polymer + steel consumption.**
@@ -757,7 +849,7 @@ Conventional CPU-grade packaged processors are available by late Phase 2 under [
 |---|---|---|
 | Tailings Re-Processing Unit | Stainless steel processing vessel, ceramic centrifuge bowls, precision sensor elements (silicon-based) | Phase 2–3 |
 | Metal Recovery Circuit | Solvent extraction columns (PTFE-lined stainless), activated carbon filter beds (from coal/graphite), ion-exchange resin | Phase 3+ |
-| Gas Flare Stack | Construction materials and recipe requirements remain open | Phase 2; available no later than silicon reduction |
+| Gas Flare Stack | Construction materials and recipe requirements remain open | Available no later than Phase 2 silicon reduction; exact gate and any earlier availability remain open |
 | Liquid Effluent Clarifier | Construction materials and recipe requirements remain open | Before the first liquid-disposal use; exact phase gate open |
 | Nuclear Fuel Reprocessing / Recovery Capability | Phase 2-compatible containment/process equipment; ordinary-shielding startup; entity split open | Phase 2 by first spent-fuel output under ADR-0066 |
 | Nuclear-Solid Conditioning / Packaging Capability | Suitable matrix/sealing and ordinary shielding; depleted-oxide shielding is an alternative | Phase 2 by first corresponding output under ADR-0068 |
@@ -769,15 +861,15 @@ Conventional CPU-grade packaged processors are available by late Phase 2 under [
 
 | Building | Key Materials | Phase |
 |---|---|---|
-| Domain Labs (×6) | Each lab needs research-facility prerequisite materials (detailed in intermediate-products.md and endgame-vision.md; exact count remains open) | Phase 2 |
-| Planetary Simulation Core | See endgame-vision.md — Thermal Frame, Computation Cluster, Integration Bus, Calibration Frame | Phase 3 |
+| Domain Labs (×6) | Six selected bridge materials map one-to-one to the facilities; complete bills remain open. See [Intermediate Products](intermediate-products.md#research-facility-prerequisite-materials). | Phase 2 |
+| Planetary Simulation Core | See [Endgame Vision](endgame-vision.md) — Thermal Frame, Computation Cluster, Integration Bus, Calibration Frame | First Core at the Phase 2/3 transition |
 | Satellite facilities (compute/memory/observation) | Packaged ICs (dominant), Nb₃Sn cable, thermal interface materials, HfO₂ panels | Phase 3 |
 
 **Materials consumed:** Research-facility prerequisite materials (count unresolved), packaged ICs, Nb₃Sn wire, and HfO₂ dielectric. Approximately 10 candidate materials from research/endgame construction alone.
 
 ### Provisional Endgame Assembly and Facility Pathways
 
-These are candidate construction-demand hypotheses, not approved recipes. They were moved from [Intermediate Products](intermediate-products.md) because the outputs are endgame assemblies or facilities; their classification and material demand remain subject to infrastructure alignment.
+These are candidate construction-demand hypotheses, not approved recipes. The outputs are endgame assemblies or facilities; their item/entity classification and material demand remain for Phase 5 coverage and later catalog design.
 
 | Candidate output | Provisional pathway | Intended role |
 |---|---|---|
@@ -800,9 +892,9 @@ Component quantities, satellite recipes, and mandatory Hawking Engine subcompone
 
 ---
 
-## Materials Consumption Summary by Infrastructure Category
+## Unverified Candidate Material Mentions by Category
 
-This table shows which material groups each category draws from. It answers: **"Which of our ~50 refined materials actually get used?"**
+This source summary preserves proposed material mentions and rough category tallies only. It mixes candidate, selected, and extension uses; neither its counts nor its statements establish actual consumption, production paths, or final coverage. Use the high-level demand map above for current status.
 
 | Material Group | Categories That Consume It | Total Categories Affected |
 |---|---|---|
@@ -833,22 +925,22 @@ This table shows which material groups each category draws from. It answers: **"
 
 ---
 
-## Analysis: Materials Coverage
+## Candidate Material-Use Observations
 
-**Total materials consumed across all infrastructure:** approximately 38 of the ~50 refined-material candidates currently have a proposed or verified infrastructure consumer. The remaining ~12 includes open placements and candidate uses whose source/process needs validation; reconcile these hypotheses during work-plan Phase 4 and verify coverage in Phase 5. They may:
+The source estimated approximately 38 infrastructure material uses from a roster of about 50 candidates. That estimate is unverified and is not a normalized count or coverage result. Material placements and source/process gaps may:
 - Only apply to extension mods (e.g., advanced battery chemistries beyond Li-ion)
 - Serve as bridge/recoverable trace materials with no direct infrastructure use (but still have research or chemical consumer value)
 - Need a creative placement before final approval
 
 **Key findings:**
 
-1. **Endgame assemblies alone only consume ~15 materials.** Infrastructure demands cover nearly 40 of the ~50 candidates. The gap is bridged by: (a) mid-phase industrial machines that need Phase 2+ capabilities, and (b) advanced automation/logistics/turret tiers.
+1. **Endgame and ordinary industry may use overlapping materials.** The source's ~15 and ~40 estimates are not established consumption totals; validate actual uses rather than adding materials to meet either figure.
 
 2. **Nb₃Sn wire has candidate infrastructure consumers beyond endgame.** Selected bridge use and candidate separator, electrochemical, cleanroom, and fusion uses must be checked against their actual construction rows. Baseline fission does not require superconducting wiring under ADR-0065; niobium-microalloyed steel is not a superconducting conductor.
 
-3. **Stainless steel is the single most-used alloy** (9 categories). Every facility handling chemicals, heat, or corrosive fluids needs it. This validates the chromium + nickel pathway from the start.
+3. **Stainless steel appears in several candidate applications.** Neither its category count nor a universal early requirement is validated; service compatibility varies.
 
-4. **Tantalum appears in an unexpected range of applications** (8 categories): capacitors for control circuits, bearings for precision motors, shielding for EMI-sensitive equipment, cladding for chemical vessels. This is one material that earns its existence through breadth-of-use rather than a single high-volume endpoint.
+4. **Tantalum has a selected CPU-interconnect role and other candidate applications:** capacitors, bearings, shielding, and vessel cladding. Their number and acceptance remain open.
 
 5. **Semiconductor infrastructure creates material demand:** Contemporary cleanroom and chipmaking capability belongs in Phase 2. Hafnium-oxide dielectric, niobium alloys, and tungsten carbide are candidate construction materials; exact equipment materials and gates remain open.
 
@@ -856,7 +948,7 @@ This table shows which material groups each category draws from. It answers: **"
 
 ## Extended Catalog: Pure-Material Infrastructure-Use Validation
 
-The following ~12 candidates have either an open infrastructure placement or a proposed use whose source/process needs validation. This is not a claim that none has a proposed consumer: gallium and germanium already appear in the candidate solar-cell pathway in Category 11. Beryllium is assigned as a fission-reactor reflector in Category 11 and is retained here as a resolved cross-reference, not an open gap.
+The following source candidates have an open infrastructure placement or a proposed use whose source/process needs validation. Gallium and germanium appear in candidate later solar-cell concepts; beryllium is an optional reflector/multiplier candidate, not a universal fission prerequisite.
 
 | Material | Potential Infrastructure Role or Validation Need | Validation Status |
 |---|---|---|
@@ -868,9 +960,9 @@ The following ~12 candidates have either an open infrastructure placement or a p
 | Phosphorus / Phosphate compounds | Required feed family for the selected Phase 2 LFP battery cathode under [ADR-0039](adrs/ADR-0039-phase-2-lfp-battery-storage.md); apatite-rich phosphorite and starting-region access are selected under [ADR-0040](adrs/ADR-0040-phase-2-lfp-feed-sources-and-access.md); other polymer uses remain candidates | Source and access selected; phosphate recovery and processing route remain open |
 | Boron compounds (non-B₄C forms) | Glass/ceramic manufacturing; optical fiber dopant | Medium — borosilicate glass needs boron oxide precursor |
 | Magnesium | Light alloy additive (Al-Mg structural plates); Kroll process reagent for titanium reduction | Medium — already used in aluminum alloys + Ti processing |
-| Beryllium | Neutron reflector/multiplier for fission reactors | Resolved cross-reference — assigned in Category 11; not an open gap |
+| Beryllium | Candidate neutron reflector/multiplier | Optional use and beryl recovery require validation; not required for baseline first fission |
 | Vanadium | Steel alloy additive (already counted as microalloy); redox flow battery electrolyte option | Medium — redox battery is a creative energy storage path |
 | Indium | Transparent conductive film precursor (ITO coating for cleanroom optics) | Low-Medium — niche but real semiconductor application |
 | Cadmium | CdTe solar cell variant; neutron-absorbing compound (replaces some boron applications) | Medium — potential extension mod candidate |
 
-These materials are **recoverable from processing residues** (coal → Ge, copper anode slimes → Te/Se, monazite → Ce/La/Y). They don't need dedicated ore deposits — they earn their place through trace-recovery capabilities that the player discovers as they expand their refining sophistication.
+Possible trace-recovery sources include coal for Ge, copper-refining residues for Te/Se, and monazite-bearing concentrates for rare-earth candidates. Actual deposit profiles, separation routes, and consumers remain unverified; no dedicated deposit or universal coproduct is implied.

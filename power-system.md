@@ -14,6 +14,7 @@ This document is the current-state reference for generation routes, energy conve
 ## Purpose and Boundaries
 
 - **Core distribution (accepted):** Retain Factorio's vanilla pole grid and add compatible tiered power poles; exact pole tiers and statistics belong in [Infrastructure](infrastructure.md) and remain open.
+- **Electric rail load:** Core powered rails must account for real grid power; safe stopping and automatic resumption on outages are selected under [ADR-0073](adrs/ADR-0073-core-electric-only-rail.md). The runtime adapter and its performance remain to be validated in [Logistics System](logistics-system.md).
 - **Extension candidate:** A custom transmission system is outside core scope and remains an optional `power-transmission-override` proposal.
 - **Progression decisions:** The phase sections below state current design; [ADR-0019](adrs/ADR-0019-phase-1-and-2-power-progression.md) and [ADR-0018](adrs/ADR-0018-phase-3-and-4-power-route-roster-and-conversion.md) preserve the associated decision records.
 - **In scope:** Candidate generator phases, fuel-density spectrum, infrastructure needs, power storage, and design questions.
@@ -198,6 +199,7 @@ Recovered uranium still needs conversion/enrichment and qualification; depleted 
 
 **Phase 3 design notes:**
 - **Selected minimum roster:** Tokamak, geothermal generation, and continued solar PV. Concentrated solar thermal with storage is an additional selected route. Their exact construction chains, relative outputs, and unlocks remain open.
+- **Startup gap:** A source for the first tritium and a viable lithium-breeding/recovery loop are not selected. Phase 5 must demonstrate startup without assuming an unfueled Tokamak can breed its own initial fuel.
 - “Magnetic confinement” is a category that includes the Tokamak, not a second generator. The design does not count a generic magnetic-confinement or inertial-fusion concept as another Phase 3 option. Tokamaks and stellarators are magnetic-confinement approaches; see the [World Nuclear Association fusion overview](https://world-nuclear.org/information-library/current-and-future-generation/nuclear-fusion-power).
 - Fusion fuel is **effectively infinite**: deuterium from water, tritium bred from lithium. The constraint is not fuel supply but *infrastructure*.
 - The fusion chain touches more parts of the mod than any other single capability: mining (tungsten, niobium/tantalum, lithium), chemistry (deuterium concentration, lithium processing), metallurgy (superconducting alloys, plasma-facing tungsten), and semiconductor electronics (magnet control systems).

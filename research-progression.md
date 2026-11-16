@@ -109,7 +109,7 @@ Key design points for each dedicated research facility:
 | Reaction Dynamics Facility | Domain data on reaction rates, catalysis, and equilibrium states | High-performance rhenium-catalyst powder | Chemical kinetics — how reactions move, not just that they occur |
 | Quantum States Laboratory | Domain data on atomic bonding, crystalline structures, and quantum states | Cryogenic argon/nitrogen mixture | Quantum mechanics — atomic structure, bond formation, phase transitions at low temperature |
 
-These are selected bridge mappings, not complete facility bills of materials. No enriched fission fuel is required for the isotope facility or first-Core gate; other operating inputs remain open.
+These are selected bridge mappings, not complete facility bills of materials. No enriched fission fuel is required for the isotope facility or first-Core gate; other operating inputs remain open. Domain packs establish research prerequisites and are not physical ingredients in the Unified Metrology Reference Array under [ADR-0077](adrs/ADR-0077-domain-packs-not-array-construction-inputs.md).
 
 Every bridge must be available by its first required facility use and corresponding T2a capability stage. The pre-Core progression must have an acyclic route from conventional starting capabilities through the facilities and all six domains' T2b2 packs, as well as the required CPU and Array inputs. A facility's first required inputs cannot depend on its own unavailable packs, and dependencies between domains cannot form a closed cycle. The exact facility order, supporting inputs, and technology gates remain open.
 
@@ -182,14 +182,14 @@ The **tip of the chain** for research purposes is small — ~30 intermediates ac
 The estimated ~50–60 intermediates across all tiers (including Phase 2 bridge materials) is an unvalidated planning hypothesis, not a cap or catalog target; intermediate scope follows [ADR-0006](adrs/ADR-0006-capability-based-intermediate-scope.md). Progressive revelation is intended to keep the simultaneous processing choices manageable.
 
 ### Why Domain Packs at This Phase?
-The transition zone is where the player has mastered conventional industry but hits the physics wall: they know *how* to run fission reactors but can't independently discover how to confine fusion plasma, synthesize cleanroom materials, or model advanced molecular processes. They need **domain-level understanding** — enough expertise in a field that simulation can build on it.
+The transition develops contemporary industry, including cleanroom materials and chipmaking, while introducing the domain-level understanding that later simulation can extend into fusion and other advanced capabilities.
 
 This is also where your existing Endgame Vision "Planetary and Industrial Model" stage begins. Domain packs are the evidence the player submits to say: "I understand this domain well enough to let the simulation extend my knowledge."
 
 ### When Phase 2 Ends
 Phase 2 ends when the first-Core requirements in the Core Unlock Requirements table above are met; see [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md) for the recorded prerequisites.
 
-Whether domain packs are also physical inputs to the Array, and what gate applies to Core Level 2, remain open.
+Domain packs are not physical Array ingredients under ADR-0077; the Core Level 2 gate remains open.
 
 **Duration estimate:** Phase 2 stretches ~180–200 hours within the 300+ hour ambition. The majority of this time comes from deep mineral → refinement → chemical chains needed for Phase 2 bridge materials, not from item count. Each domain pack tier traces back through multiple minerals and processing stages, generating hours through *depth per category*, not breadth all at once.
 
@@ -207,7 +207,7 @@ Target players are fluent vanilla Factorio players — vanilla is essentially th
 
 ### Candidate Machine Tiering Through Material — Capability Gated by Build Materials
 
-The draft, citing Bob's/Angel's as inspiration, proposes material-based machine tiers that unlock operations requiring higher temperatures, pressures, or precision rather than only increasing speed or reflecting ore quality. This five-tier example is not committed and must be reconciled with the candidate family/tier coverage in [Infrastructure](infrastructure.md).
+Machine tiering is decided by family under [ADR-0075](adrs/ADR-0075-capability-based-machine-family-tiering.md): untiered families are valid and newly required tiers need a meaningful capability change, not speed or capacity alone. The following five-tier example is not a global ladder or an approved requirement; family coverage is in [Infrastructure](infrastructure.md).
 
 **Candidate example: five tiers.** The exact number of tiers, materials, phases, and recipe eligibility remains open.
 
@@ -226,7 +226,7 @@ The table describes a possible capability ladder, not specific build recipes or 
 - Building the right machine type is as important as having the right materials. A lower-tier assembler with high-purity input still can't produce a higher-tier pack because the machinery cannot maintain the required environment
 - This reinforces the "capabilities over numbers" pillar: progressing means acquiring new capabilities, not just producing more of the same thing
 
-**Cross-cutting impact on Phase 2:** The six domain labs themselves are MTier 3+ machines — they can't be built until the player has established steel → advanced alloy processing. Each lab's candidate bridge product and supporting inputs (see [Intermediate Products](intermediate-products.md)) reflect both material capability and machine-tier progression working together.
+**Cross-cutting impact on Phase 2:** The six domain labs require their selected bridge capabilities. No shared machine-tier number or advanced-alloy prerequisite is selected for all six; supporting inputs remain open in [Intermediate Products](intermediate-products.md).
 
 ## Candidate Phase 3: Simulation-Gated Research (Late Game / Endgame)
 
@@ -369,15 +369,15 @@ The items below remain open as the material pipeline and technology roster are d
 
 ### Internal Consistency Issues to Resolve
 
-- This document's five-tier machine example must be reconciled with the candidate machine-family and tier counts in [Infrastructure](infrastructure.md).
+- The five-tier example is illustrative only; actual family tiers and research gates must follow [Infrastructure](infrastructure.md) and ADR-0075.
 
 | Item | Status | Blocks |
 |------|--------|--------|
 | **Exact technology roster** | Open — which techs gate on conventional vs domain packs vs simulation findings? | Finalizing domain pack recipes, simulating time budget accuracy |
 | **First-Core prerequisites and bridge mapping** | Gate and six mappings selected in [ADR-0017](adrs/ADR-0017-phase-2-core-and-bridge-prerequisites.md) and [ADR-0022](adrs/ADR-0022-phase-2-bridge-mappings-and-core-dependencies.md); Array materials, bridge routes, pack-count estimates, and Core Level 2 gate remain open | Core Level 2 progression, facility requirements, and power-route gates |
 | **Pack tier content and facility inputs** | Seven distinct tiers per domain and six facilities selected in [ADR-0020](adrs/ADR-0020-seven-distinct-domain-pack-tiers.md); exact item names, recipes, support materials, and later Core gates remain open | Pack catalog and endgame facility requirements |
-| **Phase 2 compute and Core materials** | Conventional CPU-grade packaged processors are selected for late Phase 2 and initial Core computation; full contemporary cleanroom and advanced chipmaking also belong in Phase 2. The required material families are silicon wafers, lithography chemistry, HfO₂ dielectric, Cu/TaN interconnect, and package materials under [ADR-0027](adrs/ADR-0027-phase-2-contemporary-chipmaking-material-stack.md); all five are required by the standard CPU path for initial Core supply under [ADR-0028](adrs/ADR-0028-phase-2-core-cpu-material-dependencies.md). Mineral feed families for silicon, hafnium, tantalum, and copper are selected under [ADR-0029](adrs/ADR-0029-phase-2-semiconductor-mineral-feed-families.md); detailed routes, material grades, equipment, and research gates remain open under [ADR-0025](adrs/ADR-0025-phase-2-cpu-supply-and-superconducting-core-compute.md) and [ADR-0026](adrs/ADR-0026-phase-2-contemporary-semiconductor-capability.md). The first-Core alignment mechanism is non-semiconductor and Phase 2-compatible; its exact hardware and source are deferred to Phase 4/6/7 Core-facility, product, and recipe work (see [Endgame Vision](endgame-vision.md) and [Plan](plan.md)). Josephson/SFQ compute is a later upgrade with its material route and gate open. | Core construction materials, Phase 2 semiconductor capability, and later Core progression |
-| **Machine-tier model** | Open — the five-tier example is not aligned with Infrastructure's candidate family progression | Machine recipe eligibility and research gates |
+| **Phase 2 compute and Core materials** | Conventional packaged CPUs and contemporary chipmaking are Phase 2 capabilities; the selected CPU material stack and mineral feed families remain under ADR-0027/0028/0029. The first-Core alignment is an Invar mechanical assembly under [ADR-0076](adrs/ADR-0076-invar-mechanical-first-core-alignment.md); its nickel supply, fabrication, and exact product remain open. Josephson/SFQ compute is a later upgrade. | Core construction materials, Phase 2 semiconductor capability, and later Core progression |
+| **Machine-tier model** | Family-specific capability-based tiering is selected under ADR-0075; the five-tier table is illustrative only | Individual machine recipe eligibility and research gates |
 | **Final victory condition specifics** | Open — is completing the planetary digital twin itself the win, or does it unlock further gameplay? | Endgame Vision alignment, Core L3 milestone definition |
 | **Technology classification matrix (WIP)** | See table below — placeholder categories until mineral/chemical roster approved | All domain documents' tech tree planning |
 

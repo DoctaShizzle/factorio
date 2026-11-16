@@ -107,9 +107,9 @@ Catalysts are physical process inputs or machine components where they create a 
 
 **fluorspar + Phase 2 chemical/petrochemical capabilities -> fluorine reagents and tetrafluoroethylene -> baseline polymerization -> PTFE -> initial forming/sintering -> construction-grade seals and linings**
 
-The baseline Polymerization Reactor uses compatible metal construction and non-PTFE sealing. Upstream reagent/monomer preparation and initial PTFE finishing must also be buildable without PTFE and before the first nuclear/cleanroom consumer. Do not rely on recovered nuclear HF to start this chain or on a PTFE-equipped extruder/Phase 3 molding press to finish its first seals. PTFE finishing must not be assumed to use ordinary melt processing.
+The baseline Polymerization Reactor uses compatible metal construction and non-PTFE sealing. Upstream reagent/monomer preparation and initial PTFE finishing must also be buildable without PTFE and before the first nuclear/cleanroom consumer. First forming uses a Phase 2-compatible press configuration and sintering uses a compatible general-purpose thermal furnace under [ADR-0078](adrs/ADR-0078-assign-phase-2-ptfe-finishing-equipment.md). Do not rely on recovered nuclear HF, a PTFE-equipped extruder, or a Phase 3 molding press. PTFE finishing must not be assumed to use ordinary melt processing.
 
-Exact monomer synthesis, reagents, service-compatible materials, construction-product forms, equipment allocation, and quantities remain open. Stainless steel is not a universal compatibility guarantee for HF, fluorine, or every process condition.
+Exact monomer synthesis, reagents, service-compatible materials, construction-product forms, specific press/furnace configuration, and quantities remain open. Stainless steel is not a universal compatibility guarantee for HF, fluorine, or every process condition.
 
 ### Nuclear Recovery and Conditioning
 
@@ -212,7 +212,7 @@ The initial Phase 2 grid-storage battery uses LFP cathode chemistry under [ADR-0
 | Phenol-formaldehyde condensation (Bakelite) | Phenol + formaldehyde -> Bakelite resin + water | Early synthetic plastic; electrical insulators, high-temp components |
 | Nylon 6,6 condensation | Adipic acid + hexamethylenediamine -> nylon 6,6 + water | Later polymer route |
 | Epoxy resin production | Bisphenol A + epichlorohydrin -> epoxy resin | Candidate resin chemistry; downstream polymer route remains open |
-| Fluoropolymer production | Tetrafluoroethylene polymerization -> PTFE -> initial construction-product forming/sintering | Selected Phase 2 bootstrap capability under ADR-0064 in the baseline Polymerization Reactor; upstream monomer/reagent chemistry and finishing equipment remain open, but the complete startup path cannot require PTFE or nuclear HF recovery |
+| Fluoropolymer production | Tetrafluoroethylene polymerization -> PTFE -> initial construction-product forming/sintering | Selected Phase 2 bootstrap in the baseline Polymerization Reactor, followed by non-PTFE press and compatible thermal equipment under ADR-0078; specific equipment configuration and chemistry remain open |
 | Bayer alumina refining | Bauxite digestion in NaOH -> sodium aluminate liquor -> Al(OH)3 precipitation -> calcination to Al2O3 | Dedicated aluminum exception; residue and caustic recovery matter |
 | Hall-Heroult electrolysis | 2Al2O3 + 3C -> 4Al + 3CO2 (simplified net reaction) | Dedicated aluminum metal-production step; sustained power requirement |
 | Kroll chlorination | TiO2 + 2Cl2 + C -> TiCl4 + CO2 | Dedicated titanium precursor route |

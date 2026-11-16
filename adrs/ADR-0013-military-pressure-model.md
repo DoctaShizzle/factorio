@@ -1,6 +1,6 @@
 # ADR-0013: Use Pollution and Space as Complementary Military Pressures
 
-*Status: Proposed*
+*Status: Partially superseded by [ADR-0072](ADR-0072-retain-vanilla-enemies-and-pollution.md); other proposals remain unapproved*
 *Decision date: Unknown*
 *Last updated: 2026-11-12*
 
@@ -44,4 +44,4 @@ The source argues that pollution makes process cleanliness a defensive choice, w
 
 - Design documents: [Military System](../military-system.md), [Map and World Generation](../map-world-generation.md), [Power System](../power-system.md), [Mod Overview](../mod-overview.md).
 - Related ADRs: [ADR-0004](ADR-0004-map-edge-pressure.md), [ADR-0012](ADR-0012-bound-core-military-scope.md).
-- Supersedes / superseded by: None.
+- Supersedes / superseded by: [ADR-0072](ADR-0072-retain-vanilla-enemies-and-pollution.md) selects vanilla enemies and pollution behavior for Core; the proposal above is preserved as history.
